@@ -1,9 +1,6 @@
 :host{
     display: grid;
     box-shadow: 0px var(--line-narrow) var(--line-thick) hsl(var(--purple-800), .66);
-    position: sticky;
-    top: 0;
-    left: 0;
 }
 
 #nav-container{
