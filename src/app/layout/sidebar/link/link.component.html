@@ -1,0 +1,40 @@
+<section class="mainContainer">
+
+    <article class="selectedIndicator">
+        <div class="indicator" [ngClass]="SelectedLink ? 'indicator-active' : 'indicator-innactive'"></div>
+    </article>
+
+    <article
+        class="linkTitle"
+        [ngClass]="SelectedLink ? 'linkTitle-active' : 'linkTitle-innactive'"
+        *ngIf="Link.subLinks; else noSublinks"
+        (click)="toggleNavLinks()"
+    >
+        <p>{{Link.title}}</p>
+    </article>
+
+    <ng-template #noSublinks>
+        <article
+            class="linkTitle"
+            [ngClass]="SelectedLink ? 'linkTitle-active' : 'linkTitle-innactive'"
+            (click)="selectLink()"
+        >
+            <p>{{Link.title}}</p>
+        </article>
+    </ng-template>
+
+    <article class="dropdownButton" *ngIf="Link.subLinks" (click)="toggleNavLinks()">
+        <svg
+            viewBox="0 0 10 10"
+            width="100%"
+            height="100%"
+            class="dropdownArrow"
+            [ngClass]="SelectedLink ? 'dropdownArrow-active' : 'dropdownArrow-innactive'"
+        >
+            <use href="#dropdown_arrow" />
+        </svg>
+    </article>
+</section>
+<section class="dropdownMenu" *ngIf="SubLinksActive">
+    <nav-link *ngFor="let link of Link.subLinks" [Link]="link"></nav-link>
+</section>
