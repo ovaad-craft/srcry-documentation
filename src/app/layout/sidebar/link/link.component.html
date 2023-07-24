@@ -35,6 +35,6 @@
         </svg>
     </article>
 </section>
-<section class="dropdownMenu" *ngIf="SubLinksActive">
+<section class="dropdownMenu" [@dropdownAnimation]="SubLinksActive ? 'open' : 'closed'">
     <nav-link *ngFor="let link of Link.subLinks" [Link]="link"></nav-link>
 </section>
