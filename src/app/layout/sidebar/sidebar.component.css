@@ -9,11 +9,29 @@
 .mainContainer{
     display: grid;
     grid-template-rows: var(--xTiny-1-3) auto;
+    gap: var(--micro-2-4);
     grid-template-columns: 1fr;
-    padding: var(--micro-1-4);
 }
 
 .closeButton{
+    grid-area: 1/1/2/2;
     justify-self: right;
     cursor: pointer;
+    margin: var(--micro-1-4) var(--micro-1-4) var(--micro-1-4) 0;
+}
+
+.linkContainer{
+    grid-area: 2/1/3/2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    height: min-content;
+}
+
+.divider{
+    display: block;
+    height: var(--line-light);
+    background-color: hsl(var(--gray-200), .22);
+    width: 100%;
 }

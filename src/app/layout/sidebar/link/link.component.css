@@ -1,0 +1,100 @@
+:host{
+    width: 100%;
+    justify-self: right;
+    display: grid;
+    grid-auto-flow: row;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    padding-bottom: var(--line-narrow);
+}
+
+
+.mainContainer{
+    display: grid;
+    width: 100%;
+    grid-template-columns: var(--line-narrow) 1fr var(--xTiny-1-3);
+    grid-template-rows: var(--xTiny-2-3);
+    margin-left: var(--line-light);
+    background-color: none;
+}
+
+.mainContainer:hover{
+    background-color: hsl(var(--gray-200), .22);
+    box-shadow: 0 var(--line-light) var(--line-narrow) hsl(var(--gray-400), .33);
+}
+
+.mainContainer:hover > .selectedIndicator > .indicator{
+    transform: translateY(0);
+}
+
+.mainContainer:hover > .linkTitle{
+    font-size: var(--text-widget-5);
+    color: hsl(var(--purple-400), 1);
+}
+
+.mainContainer:hover > .dropdownButton > .dropdownArrow{
+    fill: hsl(var(--purple-300), 1);
+}
+
+.indicator{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--purple-300), 1);
+    transform: translateY(-105%);
+    transition: 300ms ease-in-out;
+}
+
+.indicator-innactive{
+    transform: translateY(-105%);
+}
+
+.indicator-active{
+    transform: translateY(0);
+}
+
+.linkTitle{
+    font-size: var(--text-widget-3);
+    align-self: center;
+    margin-left: var(--line-semiBold);
+    transition: 300ms ease-in-out;
+    height: 100%;
+    display: grid;
+    align-items: center;
+}
+
+.linkTitle-innactive{
+    color: hsl(var(--gray-400), 1);
+}
+
+.linkTitle-active{
+    color: hsl(var(--purple-400), 1);
+}
+
+.dropdownButton{
+    grid-area: 1/3/2/4;
+    width: var(--micro-1-3);
+    height: var(--micro-1-3);
+    place-self: center;
+    place-items: center;
+}
+
+.dropdownArrow{
+    transform-origin: center;
+    transition: 300ms ease-in-out;
+}
+
+.dropdownArrow-innactive{
+    fill: hsl(var(--gray-200), 1);
+    transform: rotate(0);
+}
+
+.dropdownArrow-active{
+    fill: hsl(var(--purple-400), 1);
+    transform: rotate(90deg);
+}
+
+.dropdownMenu{
+    width: calc(100% - var(--line-narrow));
+    justify-self: right;
+}

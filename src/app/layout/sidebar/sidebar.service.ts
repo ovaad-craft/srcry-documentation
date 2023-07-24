@@ -43,12 +43,74 @@ export const LINKS: Link[] = [
       {
         id: 'srcryBox',
         title: 'Srcry Box Class',
-        path: 'srcry-box-class'
+        subLinks: [
+          {
+            id: 'srcryBoxOverview',
+            title: 'Srcry Box Overview',
+            path: 'srcry-box-overview'
+          },
+          {
+            id: 'baseSize',
+            title: 'Base Size',
+            path: 'base-size'
+          },
+          {
+            id: 'edgeChase',
+            title: 'Edge Chase',
+            path: 'edge-chase'
+          },
+          {
+            id: 'chaseStop',
+            title: 'Chase Stop',
+            path: 'chase-stop'
+          },
+          {
+            id: 'squishGrowth',
+            title: 'Squish Growth',
+            path: 'squish-growth'
+          },
+          {
+            id: 'stretchShrink',
+            title: 'Stretch Shrink',
+            path: 'stretch-shrink'
+          },
+          {
+            id: 'bleed',
+            title: 'Bleed',
+            path: 'bleed'
+          }
+        ]
       },
       {
         id: 'srcryTxt',
         title: 'Srcry Text Class',
-        path: 'srcry-text'
+        subLinks: [
+          {
+            id: 'srcryTextOverview',
+            title: 'Srcry Text Overview',
+            path: 'srcry-text-overview'
+          },
+          {
+            id: 'textSize',
+            title: 'Text Size',
+            path: 'text-size'
+          },
+          {
+            id: 'textNudgeAmount',
+            title: 'Text Nudge Amount',
+            path: 'text-nudge-amount'
+          },
+          {
+            id: 'kerningNudgeAmount',
+            title: 'Kerning Nudge Amount',
+            path: 'kerning-nudge-amount'
+          },
+          {
+            id: 'leadingNudgeAmount',
+            title: 'Leading Nudge Amount',
+            path: 'leading-nudge-amount'
+          }
+        ]
       }
     ]
   }
