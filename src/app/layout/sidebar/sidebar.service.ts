@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { Link } from 'src/app/types/site-types';
 
@@ -16,7 +17,6 @@ export const LINKS: Link[] = [
   {
     id: 'libraries',
     title: 'Libraries',
-    path: 'libraries',
     subLinks: [
       {
         id: 'boxSize',
@@ -38,7 +38,6 @@ export const LINKS: Link[] = [
   {
     id: 'classes',
     title: 'Classes',
-    path: 'classes',
     subLinks: [
       {
         id: 'srcryBox',
@@ -121,7 +120,15 @@ export const LINKS: Link[] = [
 })
 export class SidebarService {
 
-  Links : Link[] = [];
+  private Links : Link[] = [];
+  private CurrentPath$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  public CurrentPath = this.CurrentPath$.asObservable();
+
+  private Route$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  public Route = this.Route$.asObservable();
+
+  private BreadCrumbs$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  public BreadCrumbs = this.BreadCrumbs$.asObservable();
 
   constructor() {
     this.loadLinks();
@@ -134,4 +141,20 @@ export class SidebarService {
   public getLinks(): Link[]{
     return this.Links;
   }
+
+  public updatePath(path: string): void{ this.CurrentPath$.next(path); console.log(this.CurrentPath$.value); }
+
+  public updateRoute(route: string): void{ this.Route$.next(route); }
+
+  public updateBreadCrumbs(crumbs: string[]): void{
+
+    this.BreadCrumbs$.next(crumbs);
+  }
+
+  public removeBreadCrumb(crumb: string): void{
+    const crumbs: string[] = this.BreadCrumbs$.value.filter(a => a !== crumb);
+
+    this.BreadCrumbs$.next([...crumbs]);
+  }
+
 }

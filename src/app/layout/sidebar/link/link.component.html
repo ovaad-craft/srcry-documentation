@@ -8,7 +8,7 @@
         class="linkTitle"
         [ngClass]="SelectedLink ? 'linkTitle-active' : 'linkTitle-innactive'"
         *ngIf="Link.subLinks; else noSublinks"
-        (click)="toggleNavLinks()"
+        (click)="handleCategory()"
     >
         <p>{{Link.title}}</p>
     </article>
@@ -17,13 +17,13 @@
         <article
             class="linkTitle"
             [ngClass]="SelectedLink ? 'linkTitle-active' : 'linkTitle-innactive'"
-            (click)="selectLink()"
+            (click)="handleLink()"
         >
             <p>{{Link.title}}</p>
         </article>
     </ng-template>
 
-    <article class="dropdownButton" *ngIf="Link.subLinks" (click)="toggleNavLinks()">
+    <article class="dropdownButton" *ngIf="Link.subLinks" (click)="handleCategory()">
         <svg
             viewBox="0 0 10 10"
             width="100%"
@@ -36,5 +36,9 @@
     </article>
 </section>
 <section class="dropdownMenu" [@dropdownAnimation]="SubLinksActive ? 'open' : 'closed'">
-    <nav-link *ngFor="let link of Link.subLinks" [Link]="link"></nav-link>
+    <nav-link
+        *ngFor="let link of Link.subLinks"
+        [Link]="link"
+        [BreadCrumbs]="breadCrumbs()"
+    ></nav-link>
 </section>
