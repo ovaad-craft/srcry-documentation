@@ -5,12 +5,12 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { SITEROUTES } from './app/routes';
 
-//import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    /*provideRouter(),*/
+    provideRouter(SITEROUTES),
     provideAnimations()
   ]
 };
