@@ -6,18 +6,20 @@ import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { BrowserAnimationsModule, provideAnimations, provideNoopAnimations } from '@angular/platform-browser/animations';
+//import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
   ],
   imports: [
     BrowserModule,
+    //NoopAnimationsModule,
+    //BrowserAnimationsModule,
     NavbarComponent,
     SidebarComponent,
     AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+providers: [provideAnimations()]
 })
 export class AppModule { }

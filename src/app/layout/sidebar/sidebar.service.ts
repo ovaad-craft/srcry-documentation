@@ -142,7 +142,7 @@ export class SidebarService {
     return this.Links;
   }
 
-  public updatePath(path: string): void{ this.CurrentPath$.next(path); console.log(this.CurrentPath$.value); }
+  public updatePath(path: string): void{ this.CurrentPath$.next(path); }
 
   public updateRoute(route: string): void{ this.Route$.next(route); }
 

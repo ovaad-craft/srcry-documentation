@@ -1,4 +1,8 @@
 <section class="mainContainer">
-  <navbar class="navbar"></navbar>
-  <sidebar class="sidebar"></sidebar>
+  <navbar class="navbar" (OpenSidebar)="toggleSidebar($event)"></navbar>
+  <sidebar
+    class="sidebar"
+    [@sidebarAnimation]="SidebarActive ? 'open' : 'close'"
+    (CloseSidebar)="toggleSidebar($event)"
+  ></sidebar>
 </section>

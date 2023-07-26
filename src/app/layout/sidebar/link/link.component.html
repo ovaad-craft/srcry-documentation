@@ -5,7 +5,7 @@
     </article>
 
     <article
-        class="linkTitle"
+        class="srcryTxt linkTitle"
         [ngClass]="SelectedLink ? 'linkTitle-active' : 'linkTitle-innactive'"
         *ngIf="Link.subLinks; else noSublinks"
         (click)="handleCategory()"
@@ -15,7 +15,7 @@
 
     <ng-template #noSublinks>
         <article
-            class="linkTitle"
+            class="srcryTxt linkTitle"
             [ngClass]="SelectedLink ? 'linkTitle-active' : 'linkTitle-innactive'"
             (click)="handleLink()"
         >
@@ -35,7 +35,7 @@
         </svg>
     </article>
 </section>
-<section class="dropdownMenu" [@dropdownAnimation]="SubLinksActive ? 'open' : 'closed'">
+<section class="dropdownMenu" [@dropdownAnimation]="SubLinksActive ? 'open' : 'close'">
     <nav-link
         *ngFor="let link of Link.subLinks"
         [Link]="link"
