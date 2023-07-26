@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+
+  @Output() OpenSidebar : EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  public openSidebar(): void{ this.OpenSidebar.emit(true); }
 
 }

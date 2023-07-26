@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Link } from 'src/app/types/site-types';
 import { SidebarService } from './sidebar.service';
 import { LinkComponent } from './link/link.component';
+import {  trigger, state, style, keyframes, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'sidebar',
@@ -15,6 +17,9 @@ import { LinkComponent } from './link/link.component';
 export class SidebarComponent implements OnInit{
   Links!: Link[];
 
+  @Output()CloseSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+
   constructor(private linkService: SidebarService){
   }
 
@@ -24,11 +29,10 @@ export class SidebarComponent implements OnInit{
 
   private loadLinks(): void{
     this.Links = this.linkService.getLinks();
-    console.log(this.Links);
   }
 
-  public updatePage(path: string): void{
-    console.log(path);
+  public closeSidebar():void{
+    this.CloseSidebar.emit(false);
   }
 
 }

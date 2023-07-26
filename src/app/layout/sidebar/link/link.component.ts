@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {  trigger, state, style, animate, transition } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Link } from '@site-types';
@@ -7,15 +7,15 @@ import { SidebarService } from '../sidebar.service';
 
 export const DropdownAnimation = trigger('dropdownAnimation',[
     state('open', style({height: '*'})),
-    state('closed', style({height: '0px'})),
-    transition('open <=> closed', [animate('300ms ease-in-out')])
+    state('close', style({height: '0px'})),
+    transition('open <=> close', [animate('300ms ease-in-out')])
   ]
 );
 
 @Component({
   selector: 'nav-link',
   standalone: true,
-  imports: [CommonModule, BrowserAnimationsModule],
+  imports: [CommonModule],
   templateUrl: './link.component.html',
   styleUrls: ['./link.component.css'],
   animations: [DropdownAnimation]
