@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarService } from './layout/sidebar/sidebar.service';
+import { FooterComponent } from './layout/footer/footer.component';
 
 export const SidebarAnimation = trigger('sidebarAnimation', [
   state('open', style({transform: 'translateX(0)'})),
@@ -22,7 +23,8 @@ export const SidebarAnimation = trigger('sidebarAnimation', [
     CommonModule,
     RouterOutlet,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
