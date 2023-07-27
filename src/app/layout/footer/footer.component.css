@@ -1,0 +1,15 @@
+footer{
+    display: grid;
+    background-color: hsl(var(--purple-500), 1);
+    min-height: var(--loMed-1-4);
+}
+
+.background{
+    grid-area: 1/1/2/2;
+    z-index: 1;
+}
+
+.mainContainer{
+    grid-area: 1/1/2/2;
+    z-index: 2;
+}
