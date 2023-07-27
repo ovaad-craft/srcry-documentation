@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import {  trigger, state, style, animate, transition } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Link } from '@site-types';
@@ -23,6 +22,7 @@ export const DropdownAnimation = trigger('dropdownAnimation',[
 export class LinkComponent implements OnInit {
   @Input() Link!: Link;
   @Input() BreadCrumbs: string[] = [];
+  @Output() CloseNav: EventEmitter<void> = new EventEmitter<void>()
   Category: boolean = false;
   SubLinksActive: boolean = false;
   SelectedLink: boolean = false;
@@ -33,6 +33,10 @@ export class LinkComponent implements OnInit {
     this.checkIfCategory();
     this.navService.BreadCrumbs.subscribe(a => {this.checkBreadCrumbs(a);});
     this.navService.CurrentPath.subscribe(a=> {this.checkPath(a); });
+  }
+
+  public closeNav():void{
+    this.CloseNav.emit();
   }
 
   private checkIfCategory():void{

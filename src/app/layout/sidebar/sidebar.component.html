@@ -12,7 +12,7 @@
     
     <section class="linkContainer">
         <div *ngFor="let link of Links">
-            <nav-link [Link]="link"></nav-link>
+            <nav-link [Link]="link" (CloseNav)="closeSidebar()"></nav-link>
         </div>
     </section>
 
