@@ -1,7 +1,7 @@
 .mainContainer{
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
 }
 
 .navbar{
@@ -17,5 +17,10 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 111;
+}
+
+.footer-component{
+    grid-area: 3/1/4/3;
 }
 
