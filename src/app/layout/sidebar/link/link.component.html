@@ -17,7 +17,7 @@
         <article
             class="srcryTxt linkTitle"
             [ngClass]="SelectedLink ? 'linkTitle-active' : 'linkTitle-innactive'"
-            (click)="handleLink()"
+            (click)="handleLink(); closeNav()"
         >
             <p>{{Link.title}}</p>
         </article>
@@ -40,5 +40,6 @@
         *ngFor="let link of Link.subLinks"
         [Link]="link"
         [BreadCrumbs]="breadCrumbs()"
+        (CloseNav)="closeNav()"
     ></nav-link>
 </section>

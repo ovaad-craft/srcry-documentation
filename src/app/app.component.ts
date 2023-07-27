@@ -6,7 +6,8 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { SidebarService } from './layout/sidebar/sidebar.service';
 
 export const SidebarAnimation = trigger('sidebarAnimation', [
   state('open', style({transform: 'translateX(0)'})),
@@ -19,7 +20,7 @@ export const SidebarAnimation = trigger('sidebarAnimation', [
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
+    RouterOutlet,
     NavbarComponent,
     SidebarComponent
   ],
@@ -28,7 +29,12 @@ export const SidebarAnimation = trigger('sidebarAnimation', [
   animations: [SidebarAnimation]
 })
 export class AppComponent {
+  title: string = 'srcry-documentation';
   SidebarActive: boolean = false;
+
+  constructor(private router : Router, private navService: SidebarService){
+    this.navService.Route.subscribe(a => this.router.navigateByUrl(a));
+  }
 
   public toggleSidebar(state: boolean): void {this.SidebarActive = state; }
 }

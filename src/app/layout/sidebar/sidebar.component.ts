@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { Link } from 'src/app/types/site-types';
 import { SidebarService } from './sidebar.service';
 import { LinkComponent } from './link/link.component';
-import {  trigger, state, style, keyframes, animate, transition } from '@angular/animations';
 
 
 @Component({

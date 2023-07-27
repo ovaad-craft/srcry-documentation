@@ -1,12 +1,7 @@
 import { Routes } from "@angular/router";
 
 export const SITEROUTES: Routes = [
-    {
-        path:'',
-        pathMatch: 'full',
-        loadComponent: () => import('./pages/site/introduction-page/introduction-page.component')
-        .then(mod => mod.IntroductionPageComponent)
-    },
+    
     {
         path:'home',
         loadComponent: ()=> import('./pages/site/introduction-page/introduction-page.component')
@@ -91,5 +86,15 @@ export const SITEROUTES: Routes = [
         path: 'leading-nudge-amount',
         loadComponent: ()=> import('./pages/site/leading-nudge-amount-page/leading-nudge-amount-page.component')
         .then(mod=> mod.LeadingNudgeAmountPageComponent)
+    },
+    {
+        path:'',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: '**',
+        loadComponent: () => import('./pages/site/page-not-found-page/page-not-found-page.component')
+        .then(mod => mod.PageNotFoundPageComponent)
     }
 ]
