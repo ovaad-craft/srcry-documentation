@@ -1,4 +1,4 @@
-<section class="mainContainer">
+<section class="srcryBox mainContainer">
 
     <article class="selectedIndicator">
         <div class="indicator" [ngClass]="SelectedLink ? 'indicator-active' : 'indicator-innactive'"></div>
@@ -35,6 +35,7 @@
         </svg>
     </article>
 </section>
+
 <section class="dropdownMenu" [@dropdownAnimation]="SubLinksActive ? 'open' : 'close'">
     <nav-link
         *ngFor="let link of Link.subLinks"
