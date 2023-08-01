@@ -4,3 +4,11 @@ export interface Link{
     path?: string;
     subLinks?: Link[];
 }
+
+export interface CardSummaryData{
+    id: string;
+    title: string;
+    description: string;
+    path: string;
+    breadCrumbs?: string[];
+}
