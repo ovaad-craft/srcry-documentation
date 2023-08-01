@@ -121,10 +121,10 @@ export const LINKS: Link[] = [
 export class SidebarService {
 
   private Links : Link[] = [];
-  private CurrentPath$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private CurrentPath$: BehaviorSubject<string> = new BehaviorSubject<string>('home');
   public CurrentPath = this.CurrentPath$.asObservable();
 
-  private Route$: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private Route$: BehaviorSubject<string> = new BehaviorSubject<string>('home');
   public Route = this.Route$.asObservable();
 
   private BreadCrumbs$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
