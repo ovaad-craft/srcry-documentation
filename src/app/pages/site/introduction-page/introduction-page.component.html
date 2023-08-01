@@ -69,15 +69,7 @@
                 Libraries
             </h2>
             <article class="srcryBox cardSection">
-                <article>
-                    <h3>
-                        Box Size Library
-                    </h3>
-                    <p>
-                        Contains 220 dynamic sizes for making your elements scale as subtly or drastically as you need.
-                    </p>
-                    <button>LEARN MORE</button>
-                </article>
+                <summary-card *ngFor="let item of LibraryDescriptionData" [CardData]="item" />
             </article>
         </section>
     </section>

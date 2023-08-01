@@ -1,1 +1,5 @@
-<p>summary-card works!</p>
+<article [id]="CardData.id" class="container">
+    <h3 class="title">{{CardData.title}}</h3>
+    <p class="descriptionText">{{CardData.description}}</p>
+    <button (click)="updateRoute()">LEARN MORE</button>
+</article>
