@@ -1,6 +1,6 @@
 :host{
     display: grid;
-    width: var(--small-1-4);
+    width: 100%;
     background-color: hsl(var(--gray-100), 1);
     box-shadow: var(--line-bold) 0 var(--line-semiThick) hsl(var(--gray-800), .44);
     overflow-x: hidden;
@@ -34,4 +34,10 @@
     height: var(--line-light);
     background-color: hsl(var(--gray-200), .22);
     width: 100%;
+}
+
+@media screen and (min-width: 540px){
+    :host{
+        width: var(--small-1-4);
+    }
 }

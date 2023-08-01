@@ -1,2 +1,87 @@
-<p>introduction-page works!</p>
-<div style="display: block; height: 230vh;"></div>
+<section class="mainContainer">
+
+    <header #hero class="hero">
+
+        <section class="heroA">
+            <svg class="srcryBox svgLogo" height="100%">
+                <use href="#logo_b" class="logoB" fill="hsl(var(--purple-500), 1)" />
+            </svg>
+            <article class="srcryTxt titleText titleA">
+                <p>Responsive Scaling</p>
+            </article>
+            
+            <article class="srcryTxt titleText titleB">
+                <p>With Less Media Queries</p>
+            </article>
+
+            <article class="srcryTxt valueText">
+                <p>
+                    Achieve fluid designs that transition across multiple breakpoints through behavioral scaling.  
+                </p>
+            </article>
+
+            <button
+                class="srcryBox srcryTxt valueButton"
+                type="button"
+                (click)="changeRoute('getting-started')"
+            > GET STARTED NOW</button>
+        </section>
+
+        <!--<article class="valueContainer">
+            <h1 class="srcryTxt valueTitle">
+                Responsive Scaling With Less Media Queries
+            </h1>
+
+            <p class="srcryTxt valueText">
+                Achieve fluid designs that transition across multiple breakpoints through behavioral scaling.  
+            </p>
+
+            <button
+                class="srcryBox srcryTxt valueButton"
+                type="button"
+                (click)="changeRoute('getting-started')"
+            > GET STARTED NOW</button>
+        </article>
+
+        <article class="logoContainer">
+            <svg class="srcryBox svgLogo">
+                <use href="#logo_a" class="logoA" fill="hsl(var(--purple-500), 1)" />
+                <use href="#logo_b" class="logoB" fill="hsl(var(--purple-500), 1)" />
+            </svg>
+        </article>-->
+        
+    </header>
+
+    <section class="homeIntro">
+        <h2 class="srcryTxt homeTitle">
+            <span class="strikeThrough">Markup, </span>
+            <span class="strikeThrough">Javascript, </span>
+            <span class="nonStrike">Pure CSS</span>
+        </h2>
+
+        <article class="srcryTxt homeIntroText">
+            <p>
+                Srcry differs from other frameworks by providing a variety of dynamic sizes and new CSS properties that give developers more control over the scaling behavior of their elements.  This means there's no components or boilerplate code to copy and paste, just values and properties for building your own to perfection.
+            </p>
+        </article>
+        <section>
+            <h2 class="srcryTxt homeTitle">
+                Libraries
+            </h2>
+            <article class="srcryBox cardSection">
+                <article>
+                    <h3>
+                        Box Size Library
+                    </h3>
+                    <p>
+                        Contains 220 dynamic sizes for making your elements scale as subtly or drastically as you need.
+                    </p>
+                    <button>LEARN MORE</button>
+                </article>
+            </article>
+        </section>
+    </section>
+
+    <section class="dev-spacer"></section>
+
+</section>
