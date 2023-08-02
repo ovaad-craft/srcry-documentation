@@ -64,12 +64,22 @@
                 Srcry differs from other frameworks by providing a variety of dynamic sizes and new CSS properties that give developers more control over the scaling behavior of their elements.  This means there's no components or boilerplate code to copy and paste, just values and properties for building your own to perfection.
             </p>
         </article>
-        <section>
+
+        <section class="summarySection">
             <h2 class="srcryTxt homeTitle">
                 Libraries
             </h2>
             <article class="srcryBox cardSection">
                 <summary-card *ngFor="let item of LibraryDescriptionData" [CardData]="item" />
+            </article>
+        </section>
+
+        <section class="summarySection">
+            <h2 class="srcryTxt homeTitle">
+                Classes
+            </h2>
+            <article class="srcryBox cardSection">
+                <summary-card *ngFor="let item of ClassDescriptionData" [CardData]="item" />
             </article>
         </section>
     </section>
