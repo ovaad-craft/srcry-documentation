@@ -1,0 +1,58 @@
+:host{
+    display: grid;
+}
+
+.container{
+    display: grid;
+    width: 92%;
+    grid-template-rows: repeat(3 auto);
+    gap: var(--micro-2-3);
+    outline: solid var(--line-fine) hsl(var(--purple-500), 1);
+    padding-bottom: var(--xTiny-1-3);
+    justify-self: center;
+    justify-items: center;
+    background-color: hsl(var(--purple-100), 1);
+}
+
+.title{
+    --text-size: var(--text-article-1);
+    width: 100%;
+    height: min-content;
+    padding: var(--line-bold) 0;
+    font-weight: 600;
+    text-align: center;
+    --kerning-nudge-amt: 4;
+    background-color: hsl(var(--purple-500), 1);
+    color: hsl(var(--gray-100));
+}
+
+.descriptionText{
+    width: 92%;
+    --text-size: var(--text-widget-1);
+    --leading-nudge-amt: 3;
+    --kerning-nudge-amt: 4;
+    color: hsl(var(--purple-600), 1);
+}
+
+.learnMoreButton{
+    width: max-content;
+    --baseSize-h: var(--xTiny-2-2);
+    --squishGrowth-h-start: 600px;
+    --squishGrowth-h-speed: 6;
+    --squishGrowth-h-max: var(--xTiny-2-7);
+    padding: var(--line-narrow) var(--micro-2-3);
+    border-style: none;
+    background-color: hsl(var(--purple-400), 1);
+    color: hsl(var(--gray-100), 1);
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amount: 4;
+    font-weight: 600;
+    transition: 100ms ease-in-out;
+}
+
+.learnMoreButton:hover{
+    background-color: hsl(var(--purple-500), 1);
+    color: hsl(var(--gray-200), 1);
+    transform: scale(1.1);
+    box-shadow: 0 var(--line-bold) var(--line-thick) hsl(var(--gray-300), .88);
+}
