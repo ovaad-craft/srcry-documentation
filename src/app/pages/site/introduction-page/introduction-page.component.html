@@ -2,53 +2,70 @@
 
     <header #hero class="hero">
 
-        <section class="heroA">
+        <section class="srcryBox mobileHero">
+
             <svg class="srcryBox svgLogo" height="100%">
                 <use href="#logo_b" class="logoB" fill="hsl(var(--purple-500), 1)" />
             </svg>
-            <article class="srcryTxt titleText titleA">
-                <p>Responsive Scaling</p>
-            </article>
-            
-            <article class="srcryTxt titleText titleB">
-                <p>With Less Media Queries</p>
-            </article>
 
-            <article class="srcryTxt valueText">
-                <p>
-                    Achieve fluid designs that transition across multiple breakpoints through behavioral scaling.  
+            <article class="srcryBox mobileTitleContainer">
+                <p class="srcryTxt titleText titleA">
+                    Responsive Scaling
+                </p>
+                <p class="srcryTxt titleText titleB">
+                    With <span class="titleHighlight">Less</span> Media Queries
                 </p>
             </article>
 
-            <button
-                class="srcryBox srcryTxt valueButton"
-                type="button"
-                (click)="changeRoute('getting-started')"
-            > GET STARTED NOW</button>
+            <article class="descriptionContainer">
+
+                <p class="srcryBox srcryTxt valueText">
+                    Achieve fluid designs that transition across multiple breakpoints through behavioral scaling.  
+                </p>
+
+                <button
+                    class="srcryBox srcryTxt valueButton"
+                    type="button"
+                    (click)="changeRoute('getting-started')"
+                >
+                    GET STARTED NOW
+                </button>
+
+            </article>
+
         </section>
 
-        <!--<article class="valueContainer">
-            <h1 class="srcryTxt valueTitle">
-                Responsive Scaling With Less Media Queries
-            </h1>
+        <section class="standardHero">
+            
+            <article class="contentSection">
+                <article class="standardTitleContainer">
+                    <h1 class="srcryTxt standardTitle">
+                        Responsive Scaling With <span class="titleHighlight">Less</span> Media Queries
+                    </h1>
+                </article>
 
-            <p class="srcryTxt valueText">
-                Achieve fluid designs that transition across multiple breakpoints through behavioral scaling.  
-            </p>
+                <article class="standardDescriptionContainer">
+                    <p class="srcryTxt standardDescription">
+                        Achieve fluid designs that transition across multiple breakpoints through behavioral scaling.
+                    </p>
 
-            <button
-                class="srcryBox srcryTxt valueButton"
-                type="button"
-                (click)="changeRoute('getting-started')"
-            > GET STARTED NOW</button>
-        </article>
+                    <button
+                        class="srcryBox srcryTxt valueButton"
+                        type="button"
+                        (click)="changeRoute('getting-started')"
+                    >
+                        GET STARTED NOW
+                    </button>
+                </article>
+            </article>
 
-        <article class="logoContainer">
-            <svg class="srcryBox svgLogo">
-                <use href="#logo_a" class="logoA" fill="hsl(var(--purple-500), 1)" />
-                <use href="#logo_b" class="logoB" fill="hsl(var(--purple-500), 1)" />
-            </svg>
-        </article>-->
+            <article class="standardLogoSection">
+                <svg class="srcryBox svgLogoB" height="100%">
+                    <use href="#logo_a" class="logoA" fill="hsl(var(--purple-500), 1)" />
+                </svg>
+            </article>
+
+        </section>
         
     </header>
 
@@ -66,20 +83,20 @@
         </article>
 
         <section class="summarySection">
-            <h2 class="srcryTxt homeTitle">
+            <h2 class="srcryTxt homeSubTitle">
                 Libraries
             </h2>
             <article class="srcryBox cardSection">
-                <summary-card *ngFor="let item of LibraryDescriptionData" [CardData]="item" />
+                <summary-card class="summaryCard" *ngFor="let item of LibraryDescriptionData" [CardData]="item" />
             </article>
         </section>
 
         <section class="summarySection">
-            <h2 class="srcryTxt homeTitle">
+            <h2 class="srcryTxt homeSubTitle">
                 Classes
             </h2>
             <article class="srcryBox cardSection">
-                <summary-card *ngFor="let item of ClassDescriptionData" [CardData]="item" />
+                <summary-card class="summaryCard" *ngFor="let item of ClassDescriptionData" [CardData]="item" />
             </article>
         </section>
     </section>
