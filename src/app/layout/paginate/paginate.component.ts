@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-paginate',
+  selector: 'paginate',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './paginate.component.html',

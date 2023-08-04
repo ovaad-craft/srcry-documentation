@@ -4,11 +4,12 @@ import { IntroductionPageService } from './introduction-page.service';
 import { SidebarService } from 'src/app/layout/sidebar/sidebar.service';
 import { SummaryCardComponent } from 'src/app/layout/summary-card/summary-card.component';
 import { CardSummaryData } from '@site-types';
+import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 
 @Component({
   selector: 'introduction-page',
   standalone: true,
-  imports: [CommonModule, SummaryCardComponent],
+  imports: [CommonModule, SummaryCardComponent, PaginateComponent],
   templateUrl: './introduction-page.component.html',
   styleUrls: ['./introduction-page.component.css']
 })

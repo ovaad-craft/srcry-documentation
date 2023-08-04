@@ -12,3 +12,15 @@ export interface CardSummaryData{
     path: string;
     breadCrumbs?: string[];
 }
+
+export interface PaginationItem{
+    id: string;
+    title: string;
+    path: string;
+    breadcrumbs?: string[];
+}
+
+export interface PaginationData{
+    previous?: PaginationItem;
+    next?: PaginationItem;
+}

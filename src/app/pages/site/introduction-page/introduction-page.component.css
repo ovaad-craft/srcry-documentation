@@ -2,6 +2,7 @@
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: row;
+    padding-bottom: var(--tiny-2-5);
 }
 
 .hero{
@@ -229,6 +230,12 @@
 
 .summaryCard{
     max-width: var(--small-2-9);
+}
+
+.paginationContainer{
+    display: grid;
+    margin-top: var(--small-2-3);
+    place-items: center;
 }
 
 
