@@ -1,0 +1,47 @@
+<section class="mainContainer" [ngClass]="PageData.previous && PageData.next ? 'twoColumns': 'singleColumn'">
+
+    <article
+        *ngIf="PageData.previous"
+        (click)="previousPage()"
+        class="paginationButton"
+        [ngClass]="PageData.next ? 'buttonRight' : 'buttonCenter'"
+    >
+
+        <h3 class="srcryTxt pageTitle">{{PageData.previous.title}}</h3>
+
+        <article class="directionContainer">
+
+            <svg class="arrowContainer" viewBox="0 0 10 10" width="16px" height="16px">
+                <use href="#dropdown_arrow" class="prevArrow" />
+            </svg>
+
+            <p class="srcryTxt directionText">
+                previous
+            </p>
+
+        </article>
+
+    </article>
+    
+    <article
+        *ngIf="PageData.next"
+        (click)="nextPage()"
+        class="paginationButton"
+        [ngClass]="PageData.previous ? 'buttonLeft' : 'buttonCenter'"
+    >
+
+        <h3 class="srcryTxt pageTitle">{{PageData.next.title}}</h3>
+
+        <article class="directionContainer">
+
+            <p class="srcryTxt directionText">next</p>
+
+            <svg class="arrowContainer" viewBox="0 0 10 10" width="16px" height="16px">
+                <use href="#dropdown_arrow" class="nextArrow" />
+            </svg>
+
+        </article>
+
+    </article>
+
+</section>

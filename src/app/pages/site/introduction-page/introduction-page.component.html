@@ -72,8 +72,8 @@
     <section class="homeIntro">
         <h2 class="srcryTxt homeTitle">
             <span class="strikeThrough">Markup, </span>
-            <span class="strikeThrough">Javascript, </span>
-            <span class="nonStrike">Pure CSS</span>
+            <span class="strikeThrough">Javascript</span>,
+            <span class="nonStrike"> Pure CSS</span>
         </h2>
 
         <article class="srcryTxt homeIntroText">
@@ -101,6 +101,10 @@
         </section>
     </section>
 
-    <section class="dev-spacer"></section>
+    <section class="paginationContainer">
+        <paginate [PageData]="Pagination" />
+    </section>
+
+    <!--<section class="dev-spacer"></section>-->
 
 </section>

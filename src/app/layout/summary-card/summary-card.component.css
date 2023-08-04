@@ -21,7 +21,7 @@
     padding: var(--line-bold) 0;
     font-weight: 600;
     text-align: center;
-    --kerning-nudge-amt: 4;
+    --kerning-nudge-amt: 6;
     background-color: hsl(var(--purple-500), 1);
     color: hsl(var(--gray-100));
 }
@@ -29,8 +29,8 @@
 .descriptionText{
     width: 92%;
     --text-size: var(--text-widget-1);
-    --leading-nudge-amt: 3;
-    --kerning-nudge-amt: 4;
+    --leading-nudge-amt: 38;
+    --kerning-nudge-amt: 6;
     color: hsl(var(--purple-600), 1);
 }
 
@@ -45,9 +45,10 @@
     background-color: hsl(var(--purple-400), 1);
     color: hsl(var(--gray-100), 1);
     --text-size: var(--text-widget-3);
-    --kerning-nudge-amount: 4;
+    --kerning-nudge-amt: 6;
     font-weight: 600;
     transition: 100ms ease-in-out;
+    align-self: flex-end;
 }
 
 .learnMoreButton:hover{

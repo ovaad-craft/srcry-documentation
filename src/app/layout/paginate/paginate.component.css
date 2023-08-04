@@ -1,0 +1,81 @@
+/*:host{
+    display: grid;
+    /*width: 100%;
+}*/
+
+.mainContainer{
+    display: grid;
+    gap: 0 var(--xTiny-1-3);
+    max-width: calc(100% - var(--micro-2-3));
+    margin: 0 auto;
+}
+
+.singleColumn{
+    grid-template-columns: 1fr;
+}
+
+.twoColumns{
+    grid-template-columns: 1fr 1fr;
+}
+
+.paginationButton{
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--micro-1-3) 0;
+    place-items: center;
+    max-width: var(--small-1-4);
+    border: var(--line-light) solid hsl(var(--purple-300), .44);
+    padding: var(--line-narrow);
+    cursor: pointer;
+    transition: 250ms ease-in-out;
+}
+
+.paginationButton:hover{
+    background-color: hsl(var(--purple-700), 1);
+    border: var(--line-light) solid hsl(var(--purple-700), 1);
+}
+
+.arrowContainer{
+    fill: hsl(var(--purple-300), 1);
+}
+
+.paginationButton:hover > .pageTitle, .paginationButton:hover > .directionContainer > .directionText{
+    color: hsl(var(--purple-100), 1);
+}
+
+.paginationButton:hover > .directionContainer > .arrowContainer{
+    fill: hsl(var(--purple-100), 1);
+}
+
+.directionContainer{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    align-self: flex-end;
+    gap: 0 var(--line-semiBold);
+}
+
+.directionText{
+    --text-size: var(--text-widget-4);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-300), 1);
+}
+
+.prevArrow{
+    transform: rotate(180deg);
+    transform-origin: center;
+}
+
+.pageTitle{
+    --text-size: var(--text-article-1);
+    text-align: center;
+    --kerning-nudge-amt: 4;
+    --leading-nudge-amt: -33;
+    color: hsl(var(--purple-600), 1);
+}
+
+.buttonLeft{ justify-self: left; }
+
+.buttonRight{ justify-self: right; }
+
+.buttonCenter{ justify-self: center; }

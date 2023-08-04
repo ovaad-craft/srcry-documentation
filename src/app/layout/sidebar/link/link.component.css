@@ -59,7 +59,7 @@
 
 .linkTitle{
     --text-size: var(--text-widget-2);
-    --kerning-nudge-amt:5;
+    --kerning-nudge-amt:6;
     align-self: center;
     margin-left: var(--line-semiBold);
     transition: 300ms ease-in-out;
