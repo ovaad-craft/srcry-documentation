@@ -1,1 +1,21 @@
-<p>paginate works!</p>
+<section class="mainContainer">
+    <article *ngIf="PageData.previous">
+        <h3 class="pageTitle">{{PageData.previous.title}}</h3>
+        <article class="directionContainer">
+            <svg>
+                <use href="#dropdown_arrow" class="prevArrow" />
+            </svg>
+            <p class="directionText">previous</p>
+        </article>
+    </article>
+    
+    <article *ngIf="PageData.next">
+        <h3 class="pageTitle">{{PageData.next.title}}</h3>
+        <article class="directionContainer">
+            <p class="directionText">next</p>
+            <svg>
+                <use href="#dropdown_arrow" class="nextArrow" />
+            </svg>
+        </article>
+    </article>
+</section>
