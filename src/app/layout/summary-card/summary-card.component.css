@@ -29,7 +29,7 @@
 .descriptionText{
     width: 92%;
     --text-size: var(--text-widget-1);
-    --leading-nudge-amt: 44;
+    --leading-nudge-amt: 38;
     --kerning-nudge-amt: 6;
     color: hsl(var(--purple-600), 1);
 }
