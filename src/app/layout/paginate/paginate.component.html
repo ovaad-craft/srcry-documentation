@@ -1,5 +1,5 @@
 <section class="mainContainer">
-    <article *ngIf="PageData.previous" (click)="previousPage()">
+    <article *ngIf="PageData.previous" (click)="previousPage()" class="paginationButton">
         <h3 class="pageTitle">{{PageData.previous.title}}</h3>
         <article class="directionContainer">
             <svg>
@@ -9,7 +9,7 @@
         </article>
     </article>
     
-    <article *ngIf="PageData.next" (click)="nextPage()">
+    <article *ngIf="PageData.next" (click)="nextPage()" class="paginationButton">
         <h3 class="pageTitle">{{PageData.next.title}}</h3>
         <article class="directionContainer">
             <p class="directionText">next</p>
