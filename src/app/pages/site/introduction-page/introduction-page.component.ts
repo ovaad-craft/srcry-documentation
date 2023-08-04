@@ -8,12 +8,12 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 
 
 const PAGINATIONDATA: PaginationData = {
-  previous:{
+  /*previous:{
     id: 'boxSize',
     title: 'Box Size Library',
     path: 'box-size-library',
     breadcrumbs: ['libraries']
-  },
+  },*/
   next: {
     id: 'gettingStarted',
     title: 'Getting Started',
