@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './responsive-window.component.html',
-  styleUrls: ['./responsive-window.component.css']
+  styleUrls: ['./responsive-window.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResponsiveWindowComponent {
 
