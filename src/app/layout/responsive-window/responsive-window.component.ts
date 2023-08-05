@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-responsive-window',
+  selector: 'responsive-window',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './responsive-window.component.html',

@@ -5,15 +5,10 @@ import { SidebarService } from 'src/app/layout/sidebar/sidebar.service';
 import { SummaryCardComponent } from 'src/app/layout/summary-card/summary-card.component';
 import { CardSummaryData, PaginationData } from '@site-types';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
+import { ResponsiveWindowComponent } from 'src/app/layout/responsive-window/responsive-window.component';
 
 
 const PAGINATIONDATA: PaginationData = {
-  /*previous:{
-    id: 'boxSize',
-    title: 'Box Size Library',
-    path: 'box-size-library',
-    breadcrumbs: ['libraries']
-  },*/
   next: {
     id: 'gettingStarted',
     title: 'Getting Started',
@@ -24,7 +19,12 @@ const PAGINATIONDATA: PaginationData = {
 @Component({
   selector: 'introduction-page',
   standalone: true,
-  imports: [CommonModule, SummaryCardComponent, PaginateComponent],
+  imports: [
+    CommonModule,
+    SummaryCardComponent,
+    PaginateComponent,
+    ResponsiveWindowComponent
+  ],
   templateUrl: './introduction-page.component.html',
   styleUrls: ['./introduction-page.component.css']
 })

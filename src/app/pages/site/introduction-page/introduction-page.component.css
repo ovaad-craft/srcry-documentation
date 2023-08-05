@@ -242,6 +242,10 @@
 
 
 
+.responsiveWindow{
+    margin-top: var(--tiny-2-4);
+    justify-self: center;
+}
 
 .dev-spacer{
     display: block;

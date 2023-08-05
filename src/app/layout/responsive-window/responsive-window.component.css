@@ -1,0 +1,20 @@
+:host{
+    display: grid;
+    place-items: center;
+}
+
+.resizeFrame{
+    display: grid;
+    place-items: center;
+    resize: both;
+    overflow: hidden;
+    border: var(--line-light) solid hsl(var(--purple-200), 1);
+    max-width: 97%;
+    max-height: 97vh;
+}
+
+.domFrame{
+    width: 100%;
+    height: 100%;
+    border-style: none;
+}
