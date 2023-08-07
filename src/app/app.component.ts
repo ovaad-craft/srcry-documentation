@@ -55,7 +55,10 @@ export class AppComponent implements OnInit {
       this.navbarManager();
     });
 
-    this.navService.StandardPage.subscribe(a=> this.StandardPage = a);
+    this.navService.StandardPage.subscribe(a=> {
+      this.StandardPage = a
+      if(a === false){ document.body.style.overflow = 'hidden'; }
+    });
   }
 
   @HostListener('document:scroll')
