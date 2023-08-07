@@ -1,11 +1,15 @@
 import { Component, ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef, OnInit, ViewChild, ElementRef, AfterViewInit, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 
 @Component({
   selector: 'responsive-window',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    ScreenDimensionsComponent
+  ],
   templateUrl: './responsive-window.component.html',
   styleUrls: ['./responsive-window.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -50,11 +54,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit {
 
     const item : ComponentRef<any> = this.vcRef.createComponent<Component>(this.Demonstration);
     
-    //console.dir(frame);
-    /*frame.defaultView.customElements.define('example-b', this.Demonstration);*/
     frame.body.appendChild(item.location.nativeElement);
-
-    /*return `<example></example>`;*/
   }
 
   public getPath(): SafeResourceUrl{

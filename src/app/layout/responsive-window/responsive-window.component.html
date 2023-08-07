@@ -1,7 +1,12 @@
-<section id="resizeFrame" class="resizeFrame">
-    <iframe
-        #domFrame
-        [src]="FirefoxBrowser? getPath() : null"
-        class="domFrame"
-    ></iframe>
+<section class="mainContainer">
+
+    <screen-dimensions />
+
+    <article id="resizeFrame" class="resizeFrame">
+        <iframe
+            #domFrame
+            [src]="FirefoxBrowser? getPath() : null"
+            class="domFrame"
+        ></iframe>
+    </article>
 </section>
