@@ -3,6 +3,11 @@
     place-items: center;
 }
 
+.mainContainer{
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+}
+
 .resizeFrame{
     display: grid;
     place-items: center;
