@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef, OnInit, ViewChild, ElementRef, AfterViewInit, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'responsive-window',
@@ -9,6 +10,54 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./responsive-window.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ResponsiveWindowComponent {
+export class ResponsiveWindowComponent implements OnInit, AfterViewInit {
 
+  @Input() Demonstration!: Type<Component>;
+  @Input() PagePath: string = '';
+  @Input() BroadcastName: string = '';
+  @Input() ChannelName: string = '';
+  @Input() WindowWidth: string = '';
+  @Input() WindowHeight: string = '';
+
+  @ViewChild('domFrame', {static: true, read: ElementRef}) DomFrame! : ElementRef;
+
+  FirefoxBrowser! : boolean;
+
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private vcRef: ViewContainerRef,
+    private zone: NgZone,
+    private sanitize: DomSanitizer
+  ){}
+
+  ngOnInit(): void {
+      this.checkIfFirefox();
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(()=>{
+      if(!this.FirefoxBrowser){  this.embedContent(); }
+    },1000);
+  }
+
+  private checkIfFirefox():void{
+    if(navigator.userAgent.indexOf('Firefox') !== -1){ this.FirefoxBrowser = true; }
+    else{ this.FirefoxBrowser = false; }
+  }
+
+  public embedContent(): void{
+    const frame = this.DomFrame?.nativeElement.contentDocument || this.DomFrame?.nativeElement.contentWindow;
+
+    const item : ComponentRef<any> = this.vcRef.createComponent<Component>(this.Demonstration);
+    
+    //console.dir(frame);
+    /*frame.defaultView.customElements.define('example-b', this.Demonstration);*/
+    frame.body.appendChild(item.location.nativeElement);
+
+    /*return `<example></example>`;*/
+  }
+
+  public getPath(): SafeResourceUrl{
+    return this.sanitize.bypassSecurityTrustResourceUrl(this.PagePath);
+  }
 }
