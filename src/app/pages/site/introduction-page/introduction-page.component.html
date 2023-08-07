@@ -101,7 +101,11 @@
         </section>
     </section>
 
-    <responsive-window class="responsiveWindow"></responsive-window>
+    <responsive-window
+        class="responsiveWindow"
+        [Demonstration]="Demo"
+        [PagePath]="'test-example-page'"
+    ></responsive-window>
 
     <section class="paginationContainer">
         <paginate [PageData]="Pagination" />

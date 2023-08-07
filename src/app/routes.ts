@@ -1,6 +1,11 @@
 import { Routes } from "@angular/router";
+import { IntroductionPageComponent } from "./pages/site/introduction-page/introduction-page.component";
+import { GettingStartedPageComponent } from "./pages/site/getting-started-page/getting-started-page.component";
 
 export const SITEROUTES: Routes = [
+
+    /*{path: 'home', component: IntroductionPageComponent},
+    {path: 'getting-started', component: GettingStartedPageComponent},*/
     
     {
         path:'home',
@@ -86,6 +91,11 @@ export const SITEROUTES: Routes = [
         path: 'leading-nudge-amount',
         loadComponent: ()=> import('./pages/site/leading-nudge-amount-page/leading-nudge-amount-page.component')
         .then(mod=> mod.LeadingNudgeAmountPageComponent)
+    },
+    {
+        path: 'test-example-page',
+        loadComponent: ()=> import('./pages/demonstrations/example-page/example-page.component')
+        .then(mod => mod.ExamplePageComponent)
     },
     {
         path:'',
