@@ -1,6 +1,6 @@
 <section class="mainContainer">
 
-    <screen-dimensions [Dimensions]="WindowDimensions" />
+    <screen-dimensions *ngIf="ShowDimensions" [Dimensions]="WindowDimensions" />
 
     <article id="resizeFrame" class="resizeFrame">
         <iframe

@@ -31,6 +31,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
   @Input() ChannelName: string = '';
   @Input() WindowWidth: string = '';
   @Input() WindowHeight: string = '';
+  @Input() ShowDimensions!: boolean;
 
   @ViewChild('domFrame', {static: true, read: ElementRef}) DomFrame! : ElementRef;
 
