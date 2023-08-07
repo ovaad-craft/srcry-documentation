@@ -6,6 +6,8 @@
 .mainContainer{
     display: grid;
     grid-template-rows: repeat(3, auto);
+    place-items: center;
+    gap: var(--line-semiBold) 0;
 }
 
 .resizeFrame{
