@@ -1,13 +1,15 @@
 :host{
     display: grid;
     place-items: center;
+    width: 100%;
 }
 
 .mainContainer{
     display: grid;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
     place-items: center;
     gap: var(--line-semiBold) 0;
+    width: 100%;
 }
 
 .resizeFrame{
@@ -16,7 +18,9 @@
     resize: both;
     overflow: hidden;
     border: var(--line-light) solid hsl(var(--purple-200), 1);
+    width: min(var(--defaultWidth), calc(100% - var(--line-bold)));
     max-width: 97%;
+    height: min(var(--defaultHeight), calc(100vh - var(--line-bold)));
     max-height: 97vh;
 }
 

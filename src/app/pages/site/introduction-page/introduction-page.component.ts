@@ -9,7 +9,6 @@ import { ResponsiveWindowComponent } from 'src/app/layout/responsive-window/resp
 import { TestExampleComponent } from 'src/app/responsive-examples/test-example/test-example.component';
 import { Type } from '@angular/compiler';
 
-
 const PAGINATIONDATA: PaginationData = {
   next: {
     id: 'gettingStarted',

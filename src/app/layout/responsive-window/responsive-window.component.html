@@ -1,8 +1,18 @@
 <section class="mainContainer">
 
+    <article *ngIf="ShowSuggestion">
+        <p>
+            Please view this website on a screen size at least 800w x 500h to fully interact with this demonstration.
+        </p>
+    </article>
+
     <screen-dimensions *ngIf="ShowDimensions" [Dimensions]="WindowDimensions" />
 
-    <article id="resizeFrame" class="resizeFrame">
+    <article
+        id="resizeFrame"
+        class="resizeFrame"
+        [ngStyle]="{'--defaultWidth': WindowWidth, '--defaultHeight': WindowHeight}"
+    >
         <iframe
             #domFrame
             [src]="FirefoxBrowser? getPath() : null"
