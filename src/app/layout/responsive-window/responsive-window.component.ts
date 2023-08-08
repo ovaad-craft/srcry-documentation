@@ -1,11 +1,11 @@
 import { Component,
   ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef,
-  OnInit, ViewChild, AfterViewChecked, ElementRef, AfterViewInit, Injector, HostListener } from '@angular/core';
+  OnInit, ViewChild, AfterViewChecked, ElementRef, AfterViewInit, Injector, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 import { WindowSize } from '@site-types';
-import { Observable, fromEvent } from 'rxjs';
+import { Observable, fromEvent, Subscription } from 'rxjs';
 
 @Component({
   selector: 'responsive-window',
@@ -18,7 +18,7 @@ import { Observable, fromEvent } from 'rxjs';
   styleUrls: ['./responsive-window.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() Demonstration!: Type<Component>;
   @Input() PagePath: string = '';
@@ -34,6 +34,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
   ShowDemonstration!: boolean;
   WindowDimensions: WindowSize = {width: 0, height: 0};
   ParentWindowSize$: Observable<Event> = fromEvent(window, 'resize');
+  private ParentWindowSubscription!: Subscription;
   ShowSuggestion!: boolean;
 
   constructor(
@@ -46,7 +47,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
   ngOnInit(): void {
       this.checkIfFirefox();
 
-      this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
+      this.ParentWindowSubscription = this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
 
       const windowObserver = new ResizeObserver((window) =>{
         this.zone.run(()=>{this.readDimensions()});
@@ -67,6 +68,10 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
 
   ngAfterViewChecked(): void {
       this.cdr.detectChanges();
+  }
+
+  ngOnDestroy(): void {
+      this.ParentWindowSubscription.unsubscribe();
   }
 
   private getParentWindowSize(): void{
