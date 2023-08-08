@@ -124,6 +124,9 @@ export class SidebarService {
   private CurrentPath$: BehaviorSubject<string> = new BehaviorSubject<string>('home');
   public CurrentPath = this.CurrentPath$.asObservable();
 
+  private StandardPage$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  public StandardPage = this.StandardPage$.asObservable();
+
   private Route$: BehaviorSubject<string> = new BehaviorSubject<string>('home');
   public Route = this.Route$.asObservable();
 
@@ -140,6 +143,10 @@ export class SidebarService {
 
   public getLinks(): Link[]{
     return this.Links;
+  }
+
+  public setPageType(pageType: boolean): void{
+    this.StandardPage$.next(pageType);
   }
 
   public updatePath(path: string): void{ this.CurrentPath$.next(path); }

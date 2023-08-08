@@ -3,6 +3,7 @@ import {  trigger, state, style, animate, transition } from '@angular/animations
 import { CommonModule } from '@angular/common';
 import { Link } from '@site-types';
 import { SidebarService } from '../sidebar.service';
+import { RouterLink } from '@angular/router';
 
 export const DropdownAnimation = trigger('dropdownAnimation',[
     state('open', style({height: '*'})),
@@ -14,7 +15,7 @@ export const DropdownAnimation = trigger('dropdownAnimation',[
 @Component({
   selector: 'nav-link',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './link.component.html',
   styleUrls: ['./link.component.css'],
   animations: [DropdownAnimation]

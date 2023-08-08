@@ -24,3 +24,8 @@ export interface PaginationData{
     previous?: PaginationItem;
     next?: PaginationItem;
 }
+
+export interface WindowSize{
+    width: number;
+    height: number;
+}

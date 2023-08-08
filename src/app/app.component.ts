@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
   SidebarActive: boolean = false;
   CurrentPage: string = 'home';
   NavBarActive: boolean = false;
+  StandardPage: boolean = true;
 
   constructor(
     private router : Router,
@@ -49,9 +50,14 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.navService.Route.subscribe(a => {
       this.CurrentPage = a;
-      this.router.navigateByUrl(a);
+      //this.router.navigateByUrl(a);
 
       this.navbarManager();
+    });
+
+    this.navService.StandardPage.subscribe(a=> {
+      this.StandardPage = a
+      if(a === false){ document.body.style.overflow = 'hidden'; }
     });
   }
 
@@ -68,7 +74,7 @@ export class AppComponent implements OnInit {
   public toggleSidebar(state: boolean): void {this.SidebarActive = state; }
 
   private navbarManager(): void{
-    console.log(this.CurrentPage, this.NavBarActive);
+    //console.log(this.CurrentPage, this.NavBarActive);
     if(this.CurrentPage === 'home'){ this.NavBarActive = false; }
     else{ this.NavBarActive = true; }
   }
