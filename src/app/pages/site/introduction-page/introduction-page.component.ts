@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, AfterViewInit, ChangeDetectionStrategy, AfterContentChecked, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IntroductionPageService } from './introduction-page.service';
 import { SidebarService } from 'src/app/layout/sidebar/sidebar.service';
@@ -28,9 +28,10 @@ const PAGINATIONDATA: PaginationData = {
     ResponsiveWindowComponent
   ],
   templateUrl: './introduction-page.component.html',
-  styleUrls: ['./introduction-page.component.css']
+  styleUrls: ['./introduction-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IntroductionPageComponent implements OnInit, AfterViewInit {
+export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterContentChecked {
 
   LibraryDescriptionData!: CardSummaryData[];
   ClassDescriptionData!: CardSummaryData[];
@@ -39,7 +40,11 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit {
 
   Demo = TestExampleComponent;
 
-  constructor(private homeService: IntroductionPageService, private navService: SidebarService){
+  constructor(
+    private homeService: IntroductionPageService,
+    private navService: SidebarService,
+    private cdr: ChangeDetectorRef
+    ){
     this.homeService.LibraryDescriptionData.subscribe(a=> this.LibraryDescriptionData = a);
     this.homeService.ClassDescriptionData.subscribe(a=> this.ClassDescriptionData = a);
     this.Pagination = PAGINATIONDATA;
@@ -51,6 +56,10 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
       this.homeService.setHeroHeight(this.detectHeroHeight());
+  }
+
+  ngAfterContentChecked(): void {
+      this.cdr.detectChanges();
   }
 
   private detectHeroHeight():number{

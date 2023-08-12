@@ -13,9 +13,17 @@
         class="resizeFrame"
         [ngStyle]="{'--defaultWidth': WindowWidth, '--defaultHeight': WindowHeight}"
     >
+        <!--<iframe
+            [src]="getPath()"
+            #domFrame
+            class="domFrame"
+            sandbox="allow-scripts allow-same-origin"
+        ></iframe>-->
+        
         <iframe
             #domFrame
-            [src]="FirefoxBrowser? getPath() : null"
+            sandbox="allow-scripts allow-same-origin"
+            srcdoc="<test-component></test-component>"
             class="domFrame"
         ></iframe>
     </article>
