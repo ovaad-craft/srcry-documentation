@@ -1,8 +1,8 @@
 <section class="mainContainer">
 
-    <article *ngIf="ShowSuggestion">
+    <article *ngIf="ShowSuggestion" class="srcryBox srcryTxt suggestion">
         <p>
-            Please view this website on a screen size at least 800w x 500h to fully interact with this demonstration.
+            Please view this website on a screen size at least 800w x 500h to fully interact with the demonstration bellow.
         </p>
     </article>
 
@@ -15,8 +15,10 @@
     >
         <iframe
             #domFrame
-            [src]="FirefoxBrowser? getPath() : null"
             class="domFrame"
+            sandbox="allow-scripts allow-same-origin"
         ></iframe>
     </article>
+
+    <ng-content select="[controlSection]"></ng-content>
 </section>

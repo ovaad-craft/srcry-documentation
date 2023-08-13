@@ -101,15 +101,31 @@
         </section>
     </section>
 
-    <responsive-window
-        ResponsiveFrame
-        class="responsiveWindow"
-        [Demonstration]="Demo"
-        [PagePath]="'test-example-page'"
-        [ShowDimensions]="true"
-        [WindowWidth]="'var(--loMed-2-4)'"
-        [WindowHeight]="'var(--loMed-2-4)'"
-    ></responsive-window>
+    <section class="demonstrations">
+        <h2 class="srcryTxt homeTitle">
+            What You Can Do With Srcry
+        </h2>
+
+        <article class="srcryTxt demonstrationText">
+            <p>
+                When transitioning between mobile and desktop screens we run into a few quirks.  While things like pictures and titles need to shrink on mobile devices so they don't dominate the screen, things like links and buttons need to grow larger so the user can interact with them using their thumbs and fingers as opposed to a mouse arrow.  Normally we use media queries to address this problem but Srcry handles this right out of the box.  Scale the window bellow to see this in action.
+            </p>
+            
+            
+        </article>
+        
+        <demonstration-frame
+            class="demonstrationFrame"
+            [Demonstration]="Demo"
+            [ShowDimensions]="true"
+            [WindowWidth]="'var(--loMed-2-4)'"
+            [WindowHeight]="'var(--loMed-2-4)'"
+        >
+            <p controlArea>testing testing</p>
+        </demonstration-frame>
+
+    </section>
+    
 
     <section class="paginationContainer">
         <paginate [PageData]="Pagination" />

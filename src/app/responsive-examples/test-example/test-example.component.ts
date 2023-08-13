@@ -9,7 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./test-example.component.css'],
   //encapsulation: ViewEncapsulation.ShadowDom
 })
-export class TestExampleComponent {
+export class TestExampleComponent{
+
+
 
   constructor(){}
+
+  
 }

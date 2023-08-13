@@ -1,11 +1,11 @@
 import { Component,
   ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef,
-  OnInit, ViewChild, AfterViewChecked, ElementRef, AfterViewInit, Injector, HostListener } from '@angular/core';
+  OnInit, ViewChild, AfterViewChecked, AfterContentChecked, ElementRef, AfterViewInit, Injector, HostListener, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 import { WindowSize } from '@site-types';
-import { Observable, fromEvent } from 'rxjs';
+import { Observable, fromEvent, Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'responsive-window',
@@ -18,10 +18,9 @@ import { Observable, fromEvent } from 'rxjs';
   styleUrls: ['./responsive-window.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentChecked, OnDestroy {
 
   @Input() Demonstration!: Type<Component>;
-  @Input() PagePath: string = '';
   @Input() BroadcastName: string = '';
   @Input() ChannelName: string = '';
   @Input() WindowWidth: string = '';
@@ -34,39 +33,48 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
   ShowDemonstration!: boolean;
   WindowDimensions: WindowSize = {width: 0, height: 0};
   ParentWindowSize$: Observable<Event> = fromEvent(window, 'resize');
+  private ParentWindowSubscription!: Subscription;
   ShowSuggestion!: boolean;
 
   constructor(
     private cdr: ChangeDetectorRef,
     private vcRef: ViewContainerRef,
-    private zone: NgZone,
-    private sanitize: DomSanitizer
+    private zone: NgZone
   ){}
 
   ngOnInit(): void {
-      this.checkIfFirefox();
+      
+      this.ParentWindowSubscription = this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
 
-      this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
-
-      const windowObserver = new ResizeObserver((window) =>{
-        this.zone.run(()=>{this.readDimensions()});
-      });
-  
-      windowObserver.observe(this.DomFrame.nativeElement);
+      
   }
 
   ngAfterViewInit(): void {
+
     this.getParentWindowSize();
 
-    setTimeout(()=>{
-      if(!this.FirefoxBrowser){  this.embedContent(); }
-    },1000);
-    
+    const windowObserver = new ResizeObserver(() =>{
+      this.zone.run(()=>{this.readDimensions()});
+    });
+
+    windowObserver.observe(this.DomFrame?.nativeElement);
+
     this.readDimensions();
+
+    this.embedContent();
+    
   }
 
   ngAfterViewChecked(): void {
-      this.cdr.detectChanges();
+      
+  }
+  
+  ngAfterContentChecked(): void {
+    this.cdr.detectChanges();
+  }
+
+  ngOnDestroy(): void {
+      this.ParentWindowSubscription.unsubscribe();
   }
 
   private getParentWindowSize(): void{
@@ -80,21 +88,12 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
     this.ShowSuggestion = true;
   }
 
-  private checkIfFirefox():void{
-    if(navigator.userAgent.indexOf('Firefox') !== -1){ this.FirefoxBrowser = true; }
-    else{ this.FirefoxBrowser = false; }
-  }
-
   public embedContent(): void{
     const frame = this.DomFrame?.nativeElement.contentDocument || this.DomFrame?.nativeElement.contentWindow;
 
     const item : ComponentRef<any> = this.vcRef.createComponent<Component>(this.Demonstration);
     
     frame.body.appendChild(item.location.nativeElement);
-  }
-
-  public getPath(): SafeResourceUrl{
-    return this.sanitize.bypassSecurityTrustResourceUrl(this.PagePath);
   }
 
   private readDimensions(): void{
