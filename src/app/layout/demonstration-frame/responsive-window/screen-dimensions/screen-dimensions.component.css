@@ -1,0 +1,36 @@
+:host{
+    display: grid;
+    place-items: center;
+    width: min(100%, var(--small-2-9));
+    place-self: center;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    place-items: center;
+    gap: 0 var(--line-semiThick);
+    background-color: hsl(var(--purple-400), 1);
+    color: hsl(var(--purple-100), 1);
+    padding: var(--line-narrow) var(--line-semiThick);
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 6;
+    width: 100%;
+}
+
+.dimensionContainer{
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 0 var(--line-narrow);
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.title{
+    font-weight: 400;
+}
+
+.dimension{
+    font-weight: 600;
+}
