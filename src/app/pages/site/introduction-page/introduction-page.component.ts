@@ -5,9 +5,9 @@ import { SidebarService } from 'src/app/layout/sidebar/sidebar.service';
 import { SummaryCardComponent } from 'src/app/layout/summary-card/summary-card.component';
 import { CardSummaryData, PaginationData } from '@site-types';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
-import { ResponsiveWindowComponent } from 'src/app/layout/responsive-window/responsive-window.component';
 import { TestExampleComponent } from 'src/app/responsive-examples/test-example/test-example.component';
 import { Type } from '@angular/compiler';
+import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 
 const PAGINATIONDATA: PaginationData = {
   next: {
@@ -25,7 +25,7 @@ const PAGINATIONDATA: PaginationData = {
     SummaryCardComponent,
     PaginateComponent,
     TestExampleComponent,
-    ResponsiveWindowComponent
+    DemonstrationFrameComponent
   ],
   templateUrl: './introduction-page.component.html',
   styleUrls: ['./introduction-page.component.css'],
