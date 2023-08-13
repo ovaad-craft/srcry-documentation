@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-firefox-message',
+  selector: 'firefox-message',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './firefox-message.component.html',
