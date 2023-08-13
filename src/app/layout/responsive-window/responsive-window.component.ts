@@ -6,6 +6,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 import { WindowSize } from '@site-types';
 import { Observable, fromEvent, Subscription } from 'rxjs';
+import { createCustomElement } from '@angular/elements';
 /*import  './tester/tester.js' as testComponent;*/
 
 
@@ -23,7 +24,6 @@ import { Observable, fromEvent, Subscription } from 'rxjs';
 export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentChecked, OnDestroy {
 
   @Input() Demonstration!: Type<Component>;
-  @Input() PagePath: string = '';
   @Input() BroadcastName: string = '';
   @Input() ChannelName: string = '';
   @Input() WindowWidth: string = '';
@@ -38,22 +38,16 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
   ParentWindowSize$: Observable<Event> = fromEvent(window, 'resize');
   private ParentWindowSubscription!: Subscription;
   ShowSuggestion!: boolean;
-  SafeUrl: SafeResourceUrl = this.sanitize.bypassSecurityTrustResourceUrl(this.PagePath);
 
   constructor(
     private cdr: ChangeDetectorRef,
     private vcRef: ViewContainerRef,
-    private zone: NgZone,
-    private sanitize: DomSanitizer
+    private zone: NgZone
   ){}
-
-  iFrameOnLoad(){
-    //return this.TestComponent;
-  }
 
   ngOnInit(): void {
       this.checkIfFirefox();
-
+      
       this.ParentWindowSubscription = this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
 
       
@@ -63,15 +57,17 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
 
     this.getParentWindowSize();
 
-    const windowObserver = new ResizeObserver((window) =>{
+    const windowObserver = new ResizeObserver(() =>{
       this.zone.run(()=>{this.readDimensions()});
     });
 
-    windowObserver.observe(this.DomFrame.nativeElement);
+    windowObserver.observe(this.DomFrame?.nativeElement);
 
+    if(!this.FirefoxBrowser){  this.embedContent(); }
+    
     /*setTimeout(()=>{
       if(!this.FirefoxBrowser){  this.embedContent(); }
-    },1000);*/
+    },100);*/
     
     this.readDimensions();
   }
@@ -110,16 +106,6 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
     const item : ComponentRef<any> = this.vcRef.createComponent<Component>(this.Demonstration);
     
     frame.body.appendChild(item.location.nativeElement);
-  }
-
-  public getPath(): SafeResourceUrl{
-
-    return this.sanitize.bypassSecurityTrustResourceUrl(this.PagePath);
-    /*if(this.FirefoxBrowser){
-    }
-    else{
-      return '';
-    }*/
   }
 
   private readDimensions(): void{

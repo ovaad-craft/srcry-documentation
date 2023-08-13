@@ -13,18 +13,14 @@
         class="resizeFrame"
         [ngStyle]="{'--defaultWidth': WindowWidth, '--defaultHeight': WindowHeight}"
     >
-        <!--<iframe
-            [src]="getPath()"
-            #domFrame
-            class="domFrame"
-            sandbox="allow-scripts allow-same-origin"
-        ></iframe>-->
-        
         <iframe
             #domFrame
-            sandbox="allow-scripts allow-same-origin"
-            srcdoc="<test-component></test-component>"
             class="domFrame"
+            sandbox="allow-scripts allow-same-origin"
         ></iframe>
     </article>
+</section>
+
+<section *ngIf="FirefoxBrowser">
+    please use a different browser
 </section>

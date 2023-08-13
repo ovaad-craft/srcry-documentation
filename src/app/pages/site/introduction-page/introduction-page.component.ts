@@ -37,6 +37,7 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
   ClassDescriptionData!: CardSummaryData[];
   @ViewChild('hero', {read: ElementRef, static: true}) Hero!: ElementRef;
   Pagination!: PaginationData;
+  FirefoxBrowser!: boolean;
 
   Demo = TestExampleComponent;
 
@@ -52,6 +53,7 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
 
   ngOnInit(): void {
       this.navService.setPageType(true);
+      this.checkIfFirefox();
   }
 
   ngAfterViewInit(): void {
@@ -69,5 +71,10 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
   public changeRoute(path: string): void{
     this.navService.updatePath(path);
     this.navService.updateRoute(path);
+  }
+
+  private checkIfFirefox():void{
+    if(navigator.userAgent.indexOf('Firefox') !== -1){ this.FirefoxBrowser = true; }
+    else{ this.FirefoxBrowser = false; }
   }
 }
