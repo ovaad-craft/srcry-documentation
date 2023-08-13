@@ -1,1 +1,11 @@
-<p>demonstration-frame works!</p>
+<responsive-window
+    *ngIf="!FirefoxBrowser"
+    [Demonstration]="Demonstration"
+    [ShowDimensions]="ShowDimensions"
+    [WindowWidth]="WindowWidth"
+    [WindowHeight]="WindowHeight"
+>
+    <ng-content controlSection select="[controlArea]"></ng-content>
+</responsive-window>
+
+<firefox-message *ngIf="FirefoxBrowser"></firefox-message>

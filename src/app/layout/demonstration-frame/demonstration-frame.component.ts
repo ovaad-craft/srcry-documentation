@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ResponsiveWindowComponent } from './responsive-window/responsive-window.component';
+import { FirefoxMessageComponent } from './firefox-message/firefox-message.component';
 
 @Component({
   selector: 'demonstration-frame',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ResponsiveWindowComponent, FirefoxMessageComponent],
   templateUrl: './demonstration-frame.component.html',
   styleUrls: ['./demonstration-frame.component.css']
 })
