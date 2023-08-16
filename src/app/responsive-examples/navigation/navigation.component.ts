@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavLinkComponent } from './nav-link/nav-link.component';
 
 @Component({
-  selector: 'app-navigation',
+  selector: 'navigation-component',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavLinkComponent],
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css']
+  styleUrls: ['./navigation.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class NavigationComponent {
+
+  Links : string[] = ['Home', 'Products', 'About', 'Customer Service']
 
 }
