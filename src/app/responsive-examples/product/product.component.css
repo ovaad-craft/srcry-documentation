@@ -1,0 +1,63 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+:host{
+    display: grid;
+    justify-items: center;
+    width: 100%;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-rows: auto, auto;
+    height: auto;
+    padding: var(--line-semiBold);
+    border: var(--line-light) solid hsl(var(--blue-300), 1);
+    background-color: hsl(var(--blue-100), 1);
+    color: hsl(var(--blue-700), 1);
+    box-sizing: border-box;
+    --crushGap-w: var(--line-narrow);
+    --baseSize-w: var(--small-2-6);
+    --edgeChase-w: var(--loMed-1-4);
+    --chaseStop-w: var(--loMed-2-4);
+}
+
+.photoFrame{
+    grid-area: 1/1/2/2;
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.descriptionFrame{
+    grid-area: 2/1/3/2;
+    display: grid;
+    height: min-content;
+    grid-auto-rows: auto;
+}
+
+.productTitle{
+    --text-size: var(--text-subtitle-2);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    text-align: center;
+}
+
+.productDescription{
+    --text-size: var(--text-widget-1);
+    --kerning-nudge-amt: 6;
+}
+
+.addToCartBtn{
+    --text-size: var(--text-article-2);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    border-style: none;
+    padding: var(--line-narrow) var(--xTiny-1-3);
+    background-color: hsl(var(--blue-400), 1);
+    color: hsl(var(--blue-100), 1);
+    height: auto;
+    width: max-content;
+    margin: var(--xTiny-1-2) 0;
+    place-self: center;
+}
