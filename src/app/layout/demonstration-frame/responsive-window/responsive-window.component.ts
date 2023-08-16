@@ -94,9 +94,10 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
     const item : ComponentRef<any> = this.vcRef.createComponent<Component>(this.Demonstration);
 
     const defaultStyles = document.createElement('style');
+    const srcryLink = document.createElement('link');
+
     defaultStyles.innerText = `*{ padding : 0; margin : 0; box-sizing: border-box; overflow: hidden; } body{ display : grid; place-items: center; min-height: 0px; max-height: 100vh; grid-template-columns: 1fr; grid-template-rows: 1fr; }`;
     
-    const srcryLink = document.createElement('link');
     srcryLink.rel = 'stylesheet';
     srcryLink.type = 'text/css';
     srcryLink.href = 'styles.css';
