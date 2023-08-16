@@ -1,0 +1,27 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+.link{
+    display: grid;
+    grid-auto-flow: row;
+    place-items: center;
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 11;
+    font-weight: 400;
+    color: hsl(var(--blue-100), 1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.underline{
+    display: block;
+    height: var(--line-light);
+    width: 100%;
+    background-color: hsl(var(--blue-100), 1);
+    transform: translateX(-120%);
+    transition: 200ms ease-in-out;
+}
+
+.link:hover > .underline{
+    transform: translateX(0);
+}
