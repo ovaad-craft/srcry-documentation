@@ -1,0 +1,62 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+:host{
+    display: grid;
+    width: 100%;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 97%;
+    place-self: center;
+    --baseSize-h: var(--xTiny-2-4);
+    --squishGrowth-h-start: 880px;
+    --squishGrowth-h-speed: 7;
+    --squishGrowth-h-max: var(--tiny-1-7);
+    background-color: hsl(var(--blue-400), 1);
+}
+
+.burgerNav{
+    display: block;
+    justify-self: left;
+    margin-left: var(--xTiny-1-3);
+    align-self: center;
+    fill: hsl(var(--blue-100), 1);
+}
+
+.linkContainer{
+    grid-area: 1/1/2/2;
+    display: none;
+    gap: 0 var(--xTiny-1-3);
+    align-self: center;
+    justify-self: left;
+    grid-auto-flow: column;
+    margin-left: var(--xTiny-1-3);
+}
+
+.loginButton{
+    grid-area: 1/2/2/3;
+    place-self: center;
+    text-decoration: none;
+    margin-right: var(--xTiny-1-3);
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 6;
+    background-color: hsl(var(--blue-100), 1);
+    padding: var(--line-bold) var(--xTiny-1-3);
+    color: hsl(var(--blue-400), 1);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+.loginButton:hover{
+    color: hsl(var(--blue-100), 1);
+    background-color: hsl(var(--blue-700), 1);
+}
+
+@media screen and (min-width: 550px){
+    .burgerNav{display: none; }
+    .linkContainer{ display: grid; }
+}

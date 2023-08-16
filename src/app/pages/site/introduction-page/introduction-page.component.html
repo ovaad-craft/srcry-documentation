@@ -76,7 +76,7 @@
             <span class="nonStrike"> Pure CSS</span>
         </h2>
 
-        <article class="srcryTxt homeIntroText">
+        <article class="srcryTxt paragraphText">
             <p>
                 Srcry differs from other frameworks by providing a variety of dynamic sizes and new CSS properties that give developers more control over the scaling behavior of their elements.  This means there's no components or boilerplate code to copy and paste, just values and properties for building your own to perfection.
             </p>
@@ -106,23 +106,56 @@
             What You Can Do With Srcry
         </h2>
 
-        <article class="srcryTxt demonstrationText">
-            <p>
-                When transitioning between mobile and desktop screens we run into a few quirks.  While things like pictures and titles need to shrink on mobile devices so they don't dominate the screen, things like links and buttons need to grow larger so the user can interact with them using their thumbs and fingers as opposed to a mouse arrow.  Normally we use media queries to address this problem but Srcry handles this right out of the box.  Scale the window bellow to see this in action.
-            </p>
+        <section class="contentSection">
+
+            <article class="srcryTxt paragraphText">
+                <p>
+                    When transitioning between mobile and desktop screens we run into a few quirks.  While things like pictures and titles need to shrink on mobile devices so they don't dominate the screen, things like links and buttons need to grow larger so the user can interact with them using their thumbs and fingers as opposed to a mouse arrow.  Normally we use media queries to address this problem but Srcry handles this right out of the box.  Scale the window bellow to see this in action.
+                </p>
+            </article>
             
-            
-        </article>
+            <demonstration-frame
+                class="demonstrationFrame"
+                [Demonstration]="NavDemo"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--large-1-7)'"
+                [WindowHeight]="'var(--loMed-2-7)'"
+            >
+            </demonstration-frame>
+
+            <article class="srcryTxt paragraphText">
+                <p>
+                    As you can see when you shrink the screen to around 880px the nav bar starts to grow taller as the screen gets narrower.  The only media query used in this example is to toggle the burger icon on and off.
+                </p>
+            </article>
+
+        </section>
+
+        <section class="contentSection">
+
+            <article class="srcryTxt paragraphText">
+                <p>
+                    Sometimes we want an element to subtly adapt to the screen as it grows rather than staying the same size until the next media query.  We can easily achieve this using em, rem and view units but we often run into an issue with the element growing too large before the next break point.  If we can't find the magical value needed for it to scale properly we'll just add another media query at the screen size it starts to grow out of control and knock it back to where we want it so it can transition smoothly to the next breakpoint.  We don't need to worry about that anymore because Srcry allows you to fine tune this type of scaling within a single set of rules as shown bellow.
+                </p>
+            </article>
+    
+            <demonstration-frame
+                class="demonstrationFrame"
+                [Demonstration]="ProductDemo"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-4)'"
+                [WindowHeight]="'var(--small-1-11)'"
+            >
+            </demonstration-frame>
+
+            <article class="srcryTxt paragraphText">
+                <p>
+                    In this example the product component adapts subtly as you expand the screen then around 490px it starts growing rapidly.  At around 620px the rapid growth stops and it goes back to adapting subtly.
+                </p>
+            </article>
+
+        </section>
         
-        <demonstration-frame
-            class="demonstrationFrame"
-            [Demonstration]="Demo"
-            [ShowDimensions]="true"
-            [WindowWidth]="'var(--loMed-2-4)'"
-            [WindowHeight]="'var(--loMed-2-4)'"
-        >
-            <p controlArea>testing testing</p>
-        </demonstration-frame>
 
     </section>
     

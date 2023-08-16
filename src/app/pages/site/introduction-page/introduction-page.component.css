@@ -177,7 +177,7 @@
 
 .homeIntro{
     display: grid;
-    margin-top: var(--tiny-2-6);
+    margin-top: var(--small-2-6);
 }
 
 .homeTitle{
@@ -198,7 +198,7 @@
     width: 92%;
     max-width: 77ch;
     place-self: center;
-    --text-size: var(--text-widget-1);
+    --text-size: var(--text-article-1);
     --leading-nudge-amt: 38;
     --kerning-nudge-amt: 6;
     margin-top: var(--xTiny-2-3);
@@ -253,9 +253,27 @@
 }
 
 .demonstrations{
-    margin-top: var(--tiny-2-4);
+    margin-top: var(--loMed-2-4);
     display: grid;
     justify-items: center;
+}
+
+.paragraphText{
+    width: 92%;
+    max-width: 77ch;
+    place-self: center;
+    --text-size: var(--text-article-1);
+    --leading-nudge-amt: 38;
+    --kerning-nudge-amt: 6;
+    margin-top: var(--xTiny-2-3);
+    color:hsl(var(--purple-700), 1);
+}
+
+.contentSection{
+    display: grid;
+    width: 100%;
+    place-items: center;
+    margin-top: var(--tiny-1-5);
 }
 
 

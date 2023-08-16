@@ -8,6 +8,8 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { TestExampleComponent } from 'src/app/responsive-examples/test-example/test-example.component';
 import { Type } from '@angular/compiler';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
+import { NavigationComponent } from 'src/app/responsive-examples/navigation/navigation.component';
+import { ProductComponent } from 'src/app/responsive-examples/product/product.component';
 
 const PAGINATIONDATA: PaginationData = {
   next: {
@@ -39,7 +41,8 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
   Pagination!: PaginationData;
   FirefoxBrowser!: boolean;
 
-  Demo = TestExampleComponent;
+  NavDemo = NavigationComponent;
+  ProductDemo = ProductComponent;
 
   constructor(
     private homeService: IntroductionPageService,

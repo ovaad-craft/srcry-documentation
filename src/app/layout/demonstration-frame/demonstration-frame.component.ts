@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Type } from '@angular/core';
+import { Component, OnInit, Input, Type, ElementRef, ComponentRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResponsiveWindowComponent } from './responsive-window/responsive-window.component';
 import { FirefoxMessageComponent } from './firefox-message/firefox-message.component';
@@ -12,7 +12,7 @@ import { FirefoxMessageComponent } from './firefox-message/firefox-message.compo
 })
 export class DemonstrationFrameComponent implements OnInit{
 
-  @Input() Demonstration!: Type<Component>;
+  @Input() Demonstration!: any;
   @Input() BroadcastName: string = '';
   @Input() ChannelName: string = '';
   @Input() WindowWidth: string = '';

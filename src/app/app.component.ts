@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import {  trigger, state, style, animate, transition } from '@angular/animations';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
@@ -33,8 +33,7 @@ export const SidebarAnimation = trigger('sidebarAnimation', [
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [NavbarAnimation, SidebarAnimation],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  animations: [NavbarAnimation, SidebarAnimation]
 })
 export class AppComponent implements OnInit, OnDestroy {
   title: string = 'srcry-documentation';
@@ -52,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
     ){}
 
   ngOnInit(): void {
+   // window.onbeforeunload = ()=> window.scrollTo(0, 0);
     this.currentRoute.url.subscribe(a => {
       console.log(a);
       //this.CurrentPage = a;
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.StandardPage = a
       if(a === false){ document.body.style.overflow = 'hidden'; }
 
-      console.log(this.StandardPage);
+      //console.log(this.StandardPage);
     });
 
     this.ScrollSubscription = this.ScrollWatcher.subscribe(()=>{
