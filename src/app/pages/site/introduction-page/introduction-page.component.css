@@ -243,7 +243,7 @@
 
 
 .demonstrationFrame{
-    margin-top: var(--tiny-2-4);
+    margin: var(--xTiny-1-4) 0;
     justify-self: center;
 }
 
@@ -265,7 +265,7 @@
     --text-size: var(--text-article-1);
     --leading-nudge-amt: 38;
     --kerning-nudge-amt: 6;
-    margin-top: var(--xTiny-2-3);
+    /*margin-top: var(--xTiny-2-3);*/
     color:hsl(var(--purple-700), 1);
 }
 
