@@ -15,6 +15,12 @@
     grid-auto-rows: auto;
 }
 
+.jumbotronText{
+    --text-size: var(--text-jumbotron-3);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+}
+
 .headlineText{
     --text-size: var(--text-headline-3);
     --kerning-nudge-amt: 6;
