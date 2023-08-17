@@ -145,6 +145,7 @@
     --text-size: var(--text-title-1);
     --kerning-nudge-amt: 6;
     --leading-nudge-amt: -33;
+    margin-left: var(--line-thick);
 }
 
 .standardDescriptionContainer{
@@ -265,7 +266,6 @@
     --text-size: var(--text-article-1);
     --leading-nudge-amt: 38;
     --kerning-nudge-amt: 6;
-    /*margin-top: var(--xTiny-2-3);*/
     color:hsl(var(--purple-700), 1);
 }
 
