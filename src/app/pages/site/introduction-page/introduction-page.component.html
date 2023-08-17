@@ -155,6 +155,24 @@
             </article>
 
         </section>
+
+        <section class="contentSection">
+
+            <article class="srcryTxt paragraphText">
+                <p>
+                    Text heirarchy is one of the most important aspects of good web design as it helps the user understand how the content is organized.  A lot of us use em units to maintain a proportional difference with our text.  This works great at one range of screen sizes however we don't have to scale too far before we need to adjust that proportional difference to keep the text readable and balanced.  The following example shows how Srcry addresses this challenge thus eliminating another media query or two.
+                </p>
+            </article>
+
+            <demonstration-frame
+                class="demonstrationFrame"
+                [Demonstration]="ArticleDemo"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-4)'"
+                [WindowHeight]="'var(--small-1-11)'"
+            >
+            </demonstration-frame>
+        </section>
         
 
     </section>
