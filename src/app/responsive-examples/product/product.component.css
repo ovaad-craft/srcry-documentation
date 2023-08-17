@@ -35,6 +35,7 @@
     height: auto;
     grid-auto-rows: auto;
     gap: var(--line-bold) 0;
+    margin: var(--xTiny-1-4) 0;
 }
 
 .productTitle{
@@ -69,6 +70,6 @@
     color: hsl(var(--blue-100), 1);
     height: auto;
     width: max-content;
-    margin-bottom: var(--xTiny-1-2);
+    /*margin-bottom: var(--xTiny-1-2);*/
     place-self: center;
 }
