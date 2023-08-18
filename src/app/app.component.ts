@@ -3,7 +3,7 @@ import {  trigger, state, style, animate, transition } from '@angular/animations
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Route, Router, RouterOutlet } from '@angular/router';
 import { SidebarService } from './layout/sidebar/sidebar.service';
 import { FooterComponent } from './layout/footer/footer.component';
 import { IntroductionPageService } from './pages/site/introduction-page/introduction-page.service';
@@ -40,40 +40,51 @@ export class AppComponent implements OnInit, OnDestroy {
   SidebarActive: boolean = false;
   ScrollWatcher: Observable<Event> = fromEvent(window, 'scroll');
   private ScrollSubscription!: Subscription;
-  CurrentPage: string = 'home';
+  CurrentPage: string = '';
   NavBarActive: boolean = false;
-  StandardPage: boolean = true;
+  //StandardPage: boolean = true;
 
   constructor(
     private currentRoute: ActivatedRoute,
-    private navService: SidebarService,
+    private router: Router,
+    //private navService: SidebarService,
     private homeService: IntroductionPageService
     ){}
 
   ngOnInit(): void {
    // window.onbeforeunload = ()=> window.scrollTo(0, 0);
-    this.currentRoute.url.subscribe(a => {
-      console.log(a);
-      //this.CurrentPage = a;
+    /*this.currentRoute.url.subscribe(a => {
+      //console.log(a);
+      
+      this.CurrentPage = a[a.length - 1].path;
+      console.log(this.CurrentPage);
       //this.router.navigateByUrl(a);
 
       this.navbarManager();
-    });
+    });*/
 
-    this.navService.StandardPage.subscribe(a=> {
+    this.router.events.subscribe(()=> {
+
+      this.CurrentPage = this.router.url;
+
+      //console.log(this.CurrentPage);
+      this.navbarManager();
+    })
+
+    /*this.navService.StandardPage.subscribe(a=> {
       this.StandardPage = a
       if(a === false){ document.body.style.overflow = 'hidden'; }
 
       //console.log(this.StandardPage);
-    });
+    });*/
 
     this.ScrollSubscription = this.ScrollWatcher.subscribe(()=>{
-      if(this.CurrentPage === 'home'){
+      if(this.CurrentPage === '/home'){
         //console.log(this.CurrentPage, this.NavBarActive);
         if(window.scrollY > this.homeService.HeroHeight$.value){ this.NavBarActive = true; }
         else{ this.NavBarActive = false; }
       }
-      else{ this.NavBarActive = true; }
+      //else{ this.NavBarActive = true; }
     });
 
   }
@@ -98,7 +109,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private navbarManager(): void{
     //console.log(this.CurrentPage, this.NavBarActive);
-    if(this.CurrentPage === 'home'){ this.NavBarActive = false; }
+    if(this.CurrentPage === '/home'){ this.NavBarActive = false; }
     else{ this.NavBarActive = true; }
   }
 }

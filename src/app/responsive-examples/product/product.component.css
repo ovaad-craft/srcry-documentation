@@ -9,7 +9,7 @@
 
 .mainContainer{
     display: grid;
-    grid-template-rows: auto, auto;
+    grid-template-rows: auto auto;
     height: auto;
     padding: var(--line-semiBold);
     border: var(--line-light) solid hsl(var(--blue-300), 1);
@@ -32,8 +32,10 @@
 .descriptionFrame{
     grid-area: 2/1/3/2;
     display: grid;
-    height: min-content;
+    height: auto;
     grid-auto-rows: auto;
+    gap: var(--line-bold) 0;
+    margin: var(--xTiny-1-4) 0;
 }
 
 .productTitle{
@@ -41,15 +43,25 @@
     --kerning-nudge-amt: 6;
     font-weight: 600;
     text-align: center;
+    margin: 0;
 }
 
 .productDescription{
     --text-size: var(--text-widget-1);
     --kerning-nudge-amt: 6;
+    margin: 0;
+}
+
+.price{
+    --text-size: var(--text-subtitle-1);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--blue-300), 1);
+    font-weight: 700;
+    margin: 0 0 0 var(--line-bold);
 }
 
 .addToCartBtn{
-    --text-size: var(--text-article-2);
+    --text-size: var(--text-article-1);
     --kerning-nudge-amt: 6;
     font-weight: 600;
     border-style: none;
@@ -58,6 +70,6 @@
     color: hsl(var(--blue-100), 1);
     height: auto;
     width: max-content;
-    margin: var(--xTiny-1-2) 0;
+    /*margin-bottom: var(--xTiny-1-2);*/
     place-self: center;
 }

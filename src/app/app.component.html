@@ -1,12 +1,10 @@
 <section class="mainContainer">
   <navbar
-    *ngIf="StandardPage"
     [@navbarAnimation]="NavBarActive ? 'open' : 'close'"
     class="navbar"
     (OpenSidebar)="toggleSidebar($event)"
   />
   <sidebar
-    *ngIf="StandardPage"
     class="sidebar"
     [@sidebarAnimation]="SidebarActive ? 'open' : 'close'"
     (CloseSidebar)="toggleSidebar($event)"
@@ -14,5 +12,5 @@
   <main class="main">
     <router-outlet></router-outlet>
   </main>
-  <footer-component *ngIf="StandardPage" class="footer-component"></footer-component>
+  <footer-component class="footer-component"></footer-component>
 </section>

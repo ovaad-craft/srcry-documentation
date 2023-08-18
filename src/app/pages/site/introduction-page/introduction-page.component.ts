@@ -10,6 +10,7 @@ import { Type } from '@angular/compiler';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { NavigationComponent } from 'src/app/responsive-examples/navigation/navigation.component';
 import { ProductComponent } from 'src/app/responsive-examples/product/product.component';
+import { ArticleComponent } from 'src/app/responsive-examples/article/article.component';
 
 const PAGINATIONDATA: PaginationData = {
   next: {
@@ -43,6 +44,7 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
 
   NavDemo = NavigationComponent;
   ProductDemo = ProductComponent;
+  ArticleDemo = ArticleComponent;
 
   constructor(
     private homeService: IntroductionPageService,
