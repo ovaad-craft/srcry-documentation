@@ -11,6 +11,7 @@ import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/
 import { NavigationComponent } from 'src/app/responsive-examples/navigation/navigation.component';
 import { ProductComponent } from 'src/app/responsive-examples/product/product.component';
 import { ArticleComponent } from 'src/app/responsive-examples/article/article.component';
+import { RouterLink } from '@angular/router';
 
 const PAGINATIONDATA: PaginationData = {
   next: {
@@ -25,6 +26,7 @@ const PAGINATIONDATA: PaginationData = {
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     SummaryCardComponent,
     PaginateComponent,
     TestExampleComponent,
@@ -73,7 +75,7 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
     return this.Hero?.nativeElement.getBoundingClientRect().bottom;
   }
 
-  public changeRoute(path: string): void{
+  public changePath(path: string): void{
     this.navService.updatePath(path);
   }
 
