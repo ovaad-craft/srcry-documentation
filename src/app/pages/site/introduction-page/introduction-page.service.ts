@@ -8,21 +8,21 @@ export const LIBRARYDESCRIPTIONDATA: CardSummaryData[] = [
     id: 'boxSizeLibrary',
     title: 'Box Size Library',
     description: 'Contains 220 dynamic sizes for making your elements scale as subtly or drastically as you need.',
-    path: 'box-size',
+    path: 'box-size-library',
     breadCrumbs: ['libraries']
   },
   {
     id: 'textSizeLibrary',
     title: 'Text Size Library',
     description: 'Contains 35 dynamic sizes for making your text fluid while preserving visual heriarchy.',
-    path: 'text-size',
+    path: 'text-size-library',
     breadCrumbs: ['libraries']
   },
   {
     id: 'lineSizeLibrary',
     title: 'Line Size Library',
     description: 'Contains 11 dynamic sizes for making adaptable strokes, outlines and borders on your HTML and SVG elements.',
-    path: 'text-size',
+    path: 'line-size-library',
     breadCrumbs: ['libraries']
   },
 ]

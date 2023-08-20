@@ -75,7 +75,6 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
 
   public changeRoute(path: string): void{
     this.navService.updatePath(path);
-    this.navService.updateRoute(path);
   }
 
   private checkIfFirefox():void{

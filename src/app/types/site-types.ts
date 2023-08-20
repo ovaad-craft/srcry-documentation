@@ -3,6 +3,7 @@ export interface Link{
     title: string;
     path?: string;
     subLinks?: Link[];
+    breadCrumbs?: string[];
 }
 
 export interface CardSummaryData{
