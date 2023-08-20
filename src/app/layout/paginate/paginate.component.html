@@ -3,6 +3,7 @@
     <article
         *ngIf="PageData.previous"
         (click)="previousPage()"
+        [routerLink]="PageData.previous.path"
         class="paginationButton"
         [ngClass]="PageData.next ? 'buttonRight' : 'buttonCenter'"
     >
@@ -26,6 +27,7 @@
     <article
         *ngIf="PageData.next"
         (click)="nextPage()"
+        [routerLink]="PageData.next.path"
         class="paginationButton"
         [ngClass]="PageData.previous ? 'buttonLeft' : 'buttonCenter'"
     >

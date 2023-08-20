@@ -62,7 +62,6 @@ export class LinkComponent implements OnInit {
     if(!this.SelectedLink){
       this.SelectedLink = true;
       this.navService.updatePath(this.Link.path!);
-      this.navService.updateRoute(this.Link.path!)
     }
     if(this.BreadCrumbs.length === 0){ this.navService.updateBreadCrumbs([]); }
   }
@@ -81,6 +80,7 @@ export class LinkComponent implements OnInit {
   }
 
   private checkPath(path: string): void{
+    console.log(path);
     if(!this.Category){
       if(this.Link.path === path){
         this.SelectedLink = true;
