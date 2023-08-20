@@ -16,7 +16,9 @@ export class DemonstrationFrameComponent implements OnInit{
   @Input() BroadcastName: string = '';
   @Input() ChannelName: string = '';
   @Input() WindowWidth: string = '';
+  @Input() MinWindowWidth: string = '';
   @Input() WindowHeight: string = '';
+  @Input() MinWindowHeight: string = '';
   @Input() ShowDimensions!: boolean;
 
   FirefoxBrowser!: boolean;

@@ -33,8 +33,10 @@
     resize: both;
     overflow: hidden;
     border: var(--line-light) solid hsl(var(--purple-200), 1);
+    min-width: var(--minWidth, unset);
     width: min(var(--defaultWidth), calc(100% - var(--line-bold)));
     max-width: 97%;
+    min-height: var(--minHeight, unset);
     height: min(var(--defaultHeight), calc(100vh - var(--line-bold)));
     max-height: 97vh;
 }

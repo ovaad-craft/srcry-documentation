@@ -11,7 +11,7 @@
     <article
         id="resizeFrame"
         class="resizeFrame"
-        [ngStyle]="{'--defaultWidth': WindowWidth, '--defaultHeight': WindowHeight}"
+        [ngStyle]="{'--defaultWidth': WindowWidth, '--minWidth': MinWindowWidth, '--defaultHeight': WindowHeight, '--minHeight': MinWindowHeight}"
     >
         <iframe
             #domFrame
