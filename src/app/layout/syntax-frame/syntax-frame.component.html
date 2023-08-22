@@ -1,1 +1,12 @@
-<p>syntax-frame works!</p>
+<article>
+    <p>
+        <span class="varArea">var</span>
+        <span class="bracketArea">(</span>
+        <span class="propArea">--<span *ngFor="let part of Parts; let i = index">
+                <span class="squareBracketArea">[</span>{{part}}<span class="squareBracketArea">]</span>
+                <span *ngIf="i < Parts.length - 1">-</span>
+            </span>
+        </span>
+        <span class="bracketArea">)</span>
+    </p>
+</article>

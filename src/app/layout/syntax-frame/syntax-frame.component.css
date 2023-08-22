@@ -1,0 +1,22 @@
+:host{
+    background-color: hsl(var(--gray-800), 1);
+    width: max-content;
+    padding: var(--line-semiThick);
+    margin: var(--xTiny-1-3) 0;
+    justify-self: center;
+}
+.varArea{
+    color: hsl(var(--yellow-200), 1);
+}
+
+.bracketArea{
+    color: hsl(var(--purple-200), 1);
+}
+
+.propArea{
+    color: hsl(var(--blue-200), 1);
+}
+
+.squareBracketArea{
+    color: hsl(var(--orange-200), 1);
+}
