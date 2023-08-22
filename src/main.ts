@@ -19,6 +19,7 @@ export const appConfig: ApplicationConfig = {
         coreLibraryLoader: () => import('highlight.js/lib/core'),
         lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
         languages: {
+          html: () => import('highlight.js/lib/languages/html'),
           css: () => import('highlight.js/lib/languages/css')
         },
         themePath: '../node_modules/highlight.js/styles/a11y-dark.css'
