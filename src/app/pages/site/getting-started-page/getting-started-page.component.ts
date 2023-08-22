@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import{ HighlightModule, HighlightLoader } from 'ngx-highlightjs';
+import { HighlightModule } from 'ngx-highlightjs';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PaginationData } from '@site-types';
 
@@ -34,18 +34,11 @@ const PAGINATIONDATA: PaginationData = {
 export class GettingStartedPageComponent {
 
   code: string =
-  `@import url('path/to/folder/srcry.css');
-
-.demoClass{
-  display: grid;
-  place-self: center;
-}
-`;
+  `@import url('path/to/folder/srcry.css');`;
 
 Pagination!: PaginationData;
 
-  constructor(private hljsLoader: HighlightLoader){
-    this.hljsLoader.setTheme('node_modules/highlight.js/styles/a11y-dark.css');
+  constructor(){
     this.Pagination = PAGINATIONDATA;
   }
 
