@@ -54,3 +54,10 @@ body{
     margin-top: var(--small-2-3);
     place-items: center;
 }
+
+.codeFrame{
+    max-width: 100%;
+    place-self: center;
+    font-size: var(--text-article-1);
+    overflow-x:scroll;
+}
