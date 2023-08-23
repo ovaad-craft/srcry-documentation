@@ -6,7 +6,7 @@ import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { SidebarService } from './layout/sidebar/sidebar.service';
 import { FooterComponent } from './layout/footer/footer.component';
-import { IntroductionPageService } from './pages/site/introduction-page/introduction-page.service';
+import { IntroductionPageService } from './pages/introduction-page/introduction-page.service';
 import { Subscription, Observable, fromEvent } from 'rxjs';
 
 export const NavbarAnimation = trigger('navbarAnimation', [
