@@ -10,3 +10,54 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+
+.sectionTitle{
+    text-align: center;
+    font-weight: 600;
+    --text-size: var(--text-headline-1);
+    --kerning-nudge-amt: 6;
+    --leading-nudge-amt: -33;
+    color: hsl(var(--purple-700), 1);
+    width: calc(100% - var(--xTiny-1-4));
+    margin-bottom: var(--tiny-1-4);
+}
+
+.sectionSubTitle{
+    --text-size: var(--text-subtitle-1);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-400), 1);
+    margin-bottom: var(--xTiny-1-3);
+}
+
+.contentSection{
+    display: grid;
+    width: 100%;
+    place-items: center;
+    margin-top: var(--tiny-1-5);
+}
+
+.paragraphText{
+    display: grid;
+    width: 92%;
+    max-width: 77ch;
+    place-self: center;
+    --text-size: var(--text-article-1);
+    --leading-nudge-amt: 38;
+    --kerning-nudge-amt: 6;
+    color:hsl(var(--purple-700), 1);
+}
+
+
+
+.paginationContainer{
+    display: grid;
+    margin-top: var(--small-2-3);
+    place-items: center;
+}
+
+.codeFrame{
+    max-width: 100%;
+    place-self: center;
+    font-size: var(--text-article-1);
+    overflow-x:scroll;
+}

@@ -17,7 +17,7 @@ const PAGINATIONDATA: PaginationData = {
   next: {
     id: 'gettingStarted',
     title: 'Getting Started',
-    path: 'getting-started'
+    path: '/getting-started'
   }
 }
 

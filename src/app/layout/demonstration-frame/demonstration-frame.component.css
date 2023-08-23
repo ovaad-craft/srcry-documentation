@@ -3,4 +3,5 @@
     place-items: center;
     width: 100%;
     max-width: 97vw;
+    place-self: center;
 }

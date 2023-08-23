@@ -1,0 +1,15 @@
+
+.mainContainer{
+    display: grid;
+    background-color: hsl(var(--gray-100), 1);
+    padding-bottom: var(--tiny-2-5);
+    width: 100%;
+}
+
+.pageTitle{
+    margin-top: var(--tiny-2-4);
+}
+
+.subArticle{
+    margin-top: var(--tiny-1-4);
+}

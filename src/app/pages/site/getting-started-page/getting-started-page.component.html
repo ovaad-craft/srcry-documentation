@@ -1,1 +1,62 @@
-<p>getting-started-page works!</p>
+<section class="mainContainer">
+
+    <h1 class="srcryTxt pageTitle sectionTitle">Getting Started</h1>
+
+    <section class="contentSection contentContainer">
+
+        <article class="srcryTxt paragraphText">
+            <p>
+                As the user base grows there will be a CDN available for easier use but for now you can get started by downloading the files from the repo.
+            </p>
+        </article>
+    
+        <article class="srcryTxt paragraphText">
+            <h2 class="srcryTxt sectionSubTitle">#1 Download the files</h2>
+            <p>
+                Click on the button bellow to open the repository then click the green "Code" button on the upper right hand side just above the project view. When the dropdown opens click the "Download ZIP" option at the bottom to begin downloading.
+            </p>
+            <a class="srcryTxt repoLink" href="https://github.com/ovaad-craft/srcry-css" target="_blank">
+                Srcry Repo
+            </a>
+        </article>
+    
+        <article class="srcryTxt paragraphText">
+            <h2 class="srcryTxt sectionSubTitle">
+                #2 Unzip and add files to your project
+            </h2>
+    
+            <p>
+                Once the download completes open your downloads folder and unzip the package.  Once its all done simply click and drag it to wherever you want it in your project.
+            </p>
+        </article>
+       
+        <article class="srcryTxt paragraphText">
+            <h2 class="srcryTxt sectionSubTitle">
+                #3 Add Srcry to your main stylesheet
+            </h2>
+    
+            <p>
+                Now that you have Srcry added to your project all you have to do is import it into your main stylesheet by adding the following line of code to the top of the page.
+            </p>
+            <pre class="codeFrame">
+                <code
+                    [highlight]="code"
+                    [languages]="['css']"
+                    [lineNumbers]="true"
+                >
+    
+                </code>
+            </pre>
+
+            <p>
+                That's all there is to setting it up in your project.  You're now ready to start building some awesome UIs.
+            </p>
+        </article>
+
+    </section>
+
+    <section class="paginationContainer">
+        <paginate [PageData]="Pagination" />
+    </section>
+
+</section>
