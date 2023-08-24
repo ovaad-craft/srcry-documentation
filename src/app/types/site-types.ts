@@ -1,3 +1,8 @@
+export interface BoxAnalyzerInterface{
+    coreBoxWidth: number;
+    fullBoxWidth: number;
+}
+
 export interface Link{
     id: string;
     title: string;
