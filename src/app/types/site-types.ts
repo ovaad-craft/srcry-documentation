@@ -51,11 +51,16 @@ export interface BoxSizeInterface{
     speed : BoxSizeSpeed;
 }
 
-export type BoxSizeProps = MicroSizesType | XTinySizesType | TinySizesType | XSmallSizesType | SmallSizesType | LoMedSizesType | HiMedSizesType | LargeSizesType | JumboSizesType;
+export type BoxSizeProps = Empty | MicroSizesType | XTinySizesType | TinySizesType | XSmallSizesType | SmallSizesType | LoMedSizesType | HiMedSizesType | LargeSizesType | JumboSizesType;
 
 export interface BoxAnalyzerInterface{
     coreBoxWidth: number;
     fullBoxWidth: number;
+}
+
+export interface BoxAnalyzerPropSizes{
+    core: string;
+    full: string;
 }
 
 export interface Link{
