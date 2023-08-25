@@ -80,7 +80,7 @@ export class LinkComponent implements OnInit {
   }
 
   private checkPath(path: string): void{
-    console.log(path);
+    
     if(!this.Category){
       if(this.Link.path === path){
         this.SelectedLink = true;
