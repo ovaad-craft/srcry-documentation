@@ -30,14 +30,17 @@ export class BoxSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterVie
     private cdr: ChangeDetectorRef,
     private zone: NgZone
   ){
-    this.boxService.BoxSizeValue$.subscribe(a=> this.PropValues = a);
+    this.boxService.BoxSizeValue$.subscribe(a=> {
+      this.PropValues = a;
+      //this.getBoxSizes();
+    });
   }
 
   ngOnInit(): void {
+    this.boxService.createDataChannel(this.BroadcastName, this.ChannelName);
   }
   
   ngAfterViewInit(): void {
-    console.log(this.BroadcastName, this.ChannelName);
     const frameObserver = new ResizeObserver(()=>{
       this.zone.run(()=> this.getBoxSizes());
     });
@@ -70,7 +73,8 @@ export class BoxSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterVie
     };
 
     this.BoxSize = size;
-    //console.log(this.BoxSize);
+
+    this.boxService.sendBoxReadings(size);
 
   }
  
