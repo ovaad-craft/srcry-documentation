@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-prop-display',
+  selector: 'prop-display',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './prop-display.component.html',

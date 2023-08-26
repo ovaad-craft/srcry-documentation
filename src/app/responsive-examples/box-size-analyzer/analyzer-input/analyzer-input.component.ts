@@ -2,11 +2,13 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnalyzerInputService } from './analyzer-input.service';
 import { BoxAnalyzerInterface } from '@site-types';
+import { BoxSizeSelectorComponent } from './box-size-selector/box-size-selector.component';
+import { PropDisplayComponent } from './prop-display/prop-display.component';
 
 @Component({
   selector: 'analyzer-input',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, BoxSizeSelectorComponent, PropDisplayComponent],
   templateUrl: './analyzer-input.component.html',
   styleUrls: ['./analyzer-input.component.css']
 })
