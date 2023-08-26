@@ -13,14 +13,20 @@ export const BOXSIZESPEED: BoxSizeSpeed[] = ['1', '2', '3', '4', '5', '6', '7', 
 export class BoxSizeSelectorService implements OnInit {
 
   BoxSizeSizes! : BoxSizeSize[];
-  BoxSizeScale! : BoxSizeScale[];
-  BoxSizeSpeed! : BoxSizeSpeed[];
+  BoxSizeScales! : BoxSizeScale[];
+  BoxSizeSpeeds! : BoxSizeSpeed[];
 
   constructor() { }
 
   ngOnInit(): void {
       this.BoxSizeSizes = BOXSIZESIZES;
-      this.BoxSizeScale = BOXSIZESCALE;
-      this.BoxSizeSpeed = BOXSIZESPEED;
+      this.BoxSizeScales = BOXSIZESCALE;
+      this.BoxSizeSpeeds = BOXSIZESPEED;
   }
+
+  public getSizes(): BoxSizeSize[]{ return this.BoxSizeSizes; }
+
+  public getScales(): BoxSizeScale[]{ return this.BoxSizeScales; }
+
+  public getSpeeds(): BoxSizeSpeed[]{ return this.BoxSizeSpeeds; }
 }
