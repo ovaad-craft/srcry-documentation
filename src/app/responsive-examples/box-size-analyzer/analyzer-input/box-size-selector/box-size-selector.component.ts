@@ -71,5 +71,27 @@ export class BoxSizeSelectorComponent implements OnInit {
       speed: this.SelectedSpeed
     });
   }
+  
+  public updateScale(scale: BoxSizeScale):void{
+    this.SelectedScale = scale;
+    this.ActiveSelector = 'none';
+    this.ScaleToggle = false;
+    this.UpdateSelection.emit({
+      size: this.SelectedSize,
+      scale: this.SelectedScale,
+      speed: this.SelectedSpeed
+    });
+  }
+  
+  public updateSpeed(speed: BoxSizeSpeed):void{
+    this.SelectedSpeed = speed;
+    this.ActiveSelector = 'none';
+    this.SpeedToggle = false;
+    this.UpdateSelection.emit({
+      size: this.SelectedSize,
+      scale: this.SelectedScale,
+      speed: this.SelectedSpeed
+    });
+  }
 
 }

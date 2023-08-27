@@ -86,11 +86,11 @@
     color: hsl(var(--purple-100), 1);
 }
 
-.sizeOptionAnimationFrame{
+.optionAnimationFrame{
     overflow: hidden;
 }
 
-.sizeOptionContainer{
+.optionContainer{
     grid-area: 2/1/3/2;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));

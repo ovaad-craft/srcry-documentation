@@ -55,14 +55,42 @@
 
     </article>
 
-    <section [@dropdownAnimation]="SizeToggle ? 'open' : 'close'" class="sizeOptionAnimationFrame">
-        <article class="sizeOptionContainer">
+    <section [@dropdownAnimation]="SizeToggle ? 'open' : 'close'" class="optionAnimationFrame">
+        <article class="optionContainer">
             <button
                 type="button"
                 class="srcryBox srcryTxt optionButton"
                 *ngFor="let a of BoxSizeSizes"
                 [ngClass]="SelectedSize === a ? 'optionActive' : 'optionInnactive'"
                 (click)="updateSize(a)"
+            >
+                {{a}}
+            </button>
+        </article>
+    </section>
+    
+    <section [@dropdownAnimation]="ScaleToggle ? 'open' : 'close'" class="optionAnimationFrame">
+        <article class="optionContainer">
+            <button
+                type="button"
+                class="srcryBox srcryTxt optionButton"
+                *ngFor="let a of BoxSizeScales"
+                [ngClass]="SelectedScale === a ? 'optionActive' : 'optionInnactive'"
+                (click)="updateScale(a)"
+            >
+                {{a}}
+            </button>
+        </article>
+    </section>
+    
+    <section [@dropdownAnimation]="SpeedToggle ? 'open' : 'close'" class="optionAnimationFrame">
+        <article class="optionContainer">
+            <button
+                type="button"
+                class="srcryBox srcryTxt optionButton"
+                *ngFor="let a of BoxSizeSpeeds"
+                [ngClass]="SelectedSpeed === a ? 'optionActive' : 'optionInnactive'"
+                (click)="updateSpeed(a)"
             >
                 {{a}}
             </button>
