@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoxSizeScale, BoxSizeSize, BoxSizeSpeed } from '@site-types';
+import { BoxSizeInterface, BoxSizeScale, BoxSizeSize, BoxSizeSpeed } from '@site-types';
 import { BoxSizeSelectorService } from './box-size-selector.service';
 import { DropdownAnimation } from 'src/app/layout/sidebar/link/link.component';
 
@@ -13,6 +13,8 @@ import { DropdownAnimation } from 'src/app/layout/sidebar/link/link.component';
   animations: [DropdownAnimation]
 })
 export class BoxSizeSelectorComponent implements OnInit {
+
+  @Output() UpdateSelection : EventEmitter<BoxSizeInterface> = new EventEmitter<BoxSizeInterface>();
 
   BoxSizeSizes!: BoxSizeSize[];
   BoxSizeScales!: BoxSizeScale[];
@@ -34,6 +36,12 @@ export class BoxSizeSelectorComponent implements OnInit {
       this.BoxSizeSizes = this.dataService.getSizes();
       this.BoxSizeScales = this.dataService.getScales();
       this.BoxSizeSpeeds = this.dataService.getSpeeds();
+
+      this.UpdateSelection.emit({
+        size: this.SelectedSize,
+        scale: this.SelectedScale,
+        speed: this.SelectedSpeed
+      });
   }
 
   public updateSelector(selector: string):void{
@@ -57,6 +65,11 @@ export class BoxSizeSelectorComponent implements OnInit {
     this.SelectedSize = size;
     this.ActiveSelector = 'none';
     this.SizeToggle = false;
+    this.UpdateSelection.emit({
+      size: this.SelectedSize,
+      scale: this.SelectedScale,
+      speed: this.SelectedSpeed
+    });
   }
 
 }

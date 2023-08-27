@@ -3,7 +3,12 @@
     <article class="selectionContainer">
 
         <label class="sizeContainer labelGrid">
-            <span class="srcryTxt label">size</span>
+            <span
+                class="srcryTxt label"
+                [ngClass]="ActiveSelector === 'size' || ActiveSelector === 'none' ? 'labelStandard' : 'labelInnactive'"
+            >
+                size
+            </span>
             <button
                 class="srcryBox srcryTxt selector"
                 [ngClass]="ActiveSelector === 'size' ? 'selectorActive' : ActiveSelector === 'none' ? 'selectorNeutral': 'selectorInnactive'"
@@ -15,7 +20,12 @@
         </label>
         
         <label class="scaleContainer labelGrid">
-            <span class="srcryTxt label">scale</span>
+            <span
+                class="srcryTxt label"
+                [ngClass]="ActiveSelector === 'scale' || ActiveSelector === 'none' ? 'labelStandard' : 'labelInnactive'"
+            >
+                scale
+            </span>
             <button
                 class="srcryBox srcryTxt selector"
                 [disabled]="ActiveSelector === 'scale' ? false : ActiveSelector === 'none' ? false : true"
@@ -27,7 +37,12 @@
         </label>
         
         <label class="speedContainer labelGrid">
-            <span class="srcryTxt label">speed</span>
+            <span
+                class="srcryTxt label"
+                [ngClass]="ActiveSelector === 'speed' || ActiveSelector === 'none' ? 'labelStandard' : 'labelInnactive'"
+            >
+                speed
+            </span>
             <button
                 class="srcryBox srcryTxt selector"
                 [ngClass]="ActiveSelector === 'speed' ? 'selectorActive' : ActiveSelector === 'none' ? 'selectorNeutral': 'selectorInnactive'"
@@ -40,16 +55,19 @@
 
     </article>
 
-    <article *ngIf="SizeToggle" class="sizeOptionContainer">
-        <button
-            type="button"
-            class="srcryBox srcryTxt optionButton"
-            *ngFor="let a of BoxSizeSizes"
-            [ngClass]="SelectedSize === a ? 'optionActive' : 'optionInnactive'"
-            (click)="updateSize(a)"
-        >
-            {{a}}
-        </button>
-    </article>
+    <section [@dropdownAnimation]="SizeToggle ? 'open' : 'close'" class="sizeOptionAnimationFrame">
+        <article class="sizeOptionContainer">
+            <button
+                type="button"
+                class="srcryBox srcryTxt optionButton"
+                *ngFor="let a of BoxSizeSizes"
+                [ngClass]="SelectedSize === a ? 'optionActive' : 'optionInnactive'"
+                (click)="updateSize(a)"
+            >
+                {{a}}
+            </button>
+        </article>
+    </section>
+
 
 </section>
