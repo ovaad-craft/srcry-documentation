@@ -9,7 +9,7 @@ import { BoxAnalyzerInterface, BoxAnalyzerPropSizes } from '@site-types';
   imports: [CommonModule],
   templateUrl: './box-size-analyzer.component.html',
   styleUrls: ['./box-size-analyzer.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  /*changeDetection: ChangeDetectionStrategy.OnPush,*/
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BoxSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentChecked, OnDestroy {
@@ -30,14 +30,16 @@ export class BoxSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterVie
     private cdr: ChangeDetectorRef,
     private zone: NgZone
   ){
-    this.boxService.BoxSizeValue$.subscribe(a=> {
-      this.PropValues = a;
-      //this.getBoxSizes();
-    });
+    
   }
 
   ngOnInit(): void {
     this.boxService.createDataChannel(this.BroadcastName, this.ChannelName);
+
+    this.boxService.BoxSizeValue$.subscribe(a=> {
+      this.PropValues = a;
+      this.getBoxSizes();
+    });
   }
   
   ngAfterViewInit(): void {
@@ -56,10 +58,10 @@ export class BoxSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterVie
   
   ngAfterContentChecked(): void {
       this.cdr.detectChanges();
-      
-      if(this.BoxSize.coreBoxWidth === 0){
+      this.getBoxSizes();
+     /*if(this.BoxSize.coreBoxWidth === 0){
         this.getBoxSizes();
-      }
+      }*/
   }
 
   ngOnDestroy(): void {

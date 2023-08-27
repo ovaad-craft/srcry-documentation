@@ -36,7 +36,7 @@ export class AnalyzerInputService {
     }
   }
 
-  private sendData(data: BoxSizeInterface): void{
+  public sendData(data: BoxSizeInterface): void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
         target: this.ComponentChannelName,

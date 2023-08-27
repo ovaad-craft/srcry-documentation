@@ -32,6 +32,7 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
 
   public updateCurrentSize(size: BoxSizeInterface):void{
     this.CurrentSize = size;
+    this.dataService.sendData(size);
   }
 
 }
