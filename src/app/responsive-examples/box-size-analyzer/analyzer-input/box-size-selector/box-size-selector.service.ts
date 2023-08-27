@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { BoxSizeScale, BoxSizeSize, BoxSizeSpeed } from '@site-types';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export const BOXSIZESIZES: BoxSizeSize[] = [
   'micro', 'xTiny', 'tiny', 'xSmall', 'small', 'loMed', 'hiMed', 'large', 'jumbo'
@@ -12,16 +13,13 @@ export const BOXSIZESPEED: BoxSizeSpeed[] = ['1', '2', '3', '4', '5', '6', '7', 
 })
 export class BoxSizeSelectorService implements OnInit {
 
-  BoxSizeSizes! : BoxSizeSize[];
-  BoxSizeScales! : BoxSizeScale[];
-  BoxSizeSpeeds! : BoxSizeSpeed[];
+  BoxSizeSizes : BoxSizeSize[] = BOXSIZESIZES;
+  BoxSizeScales : BoxSizeScale[] = BOXSIZESCALE;
+  BoxSizeSpeeds : BoxSizeSpeed[] = BOXSIZESPEED;
 
   constructor() { }
 
   ngOnInit(): void {
-      this.BoxSizeSizes = BOXSIZESIZES;
-      this.BoxSizeScales = BOXSIZESCALE;
-      this.BoxSizeSpeeds = BOXSIZESPEED;
   }
 
   public getSizes(): BoxSizeSize[]{ return this.BoxSizeSizes; }
