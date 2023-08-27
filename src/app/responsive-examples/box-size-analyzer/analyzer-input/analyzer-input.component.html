@@ -22,8 +22,8 @@
     
     </section>
 
-    <box-size-selector class="sizeSelector" />
+    <box-size-selector class="sizeSelector" (UpdateSelection)="updateCurrentSize($event)" />
 
-    <prop-display class="propDisplay" />
+    <prop-display class="propDisplay" [Props]="CurrentSize" />
 
 </section>

@@ -1,9 +1,9 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnalyzerInputService } from './analyzer-input.service';
-import { BoxAnalyzerInterface } from '@site-types';
+import { BoxAnalyzerInterface, BoxSizeInterface } from '@site-types';
 import { BoxSizeSelectorComponent } from './box-size-selector/box-size-selector.component';
-import { PropDisplayComponent } from './prop-display/prop-display.component';
+import { PropDisplayComponent } from '../../../layout/prop-display/prop-display.component';
 
 @Component({
   selector: 'analyzer-input',
@@ -17,6 +17,7 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
   BoxReadings!: BoxAnalyzerInterface;
+  CurrentSize!: BoxSizeInterface;
 
   constructor(private dataService: AnalyzerInputService){}
 
@@ -27,6 +28,10 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.dataService.closeDataChannel();
+  }
+
+  public updateCurrentSize(size: BoxSizeInterface):void{
+    this.CurrentSize = size;
   }
 
 }
