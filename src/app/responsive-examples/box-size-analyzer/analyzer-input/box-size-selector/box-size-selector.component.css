@@ -106,6 +106,10 @@
 .optionButton{
     --text-size: var(--text-widget-1);
     --kerning-nudge-amt: 6;
+    --baseSize-h: 4ch;
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 5;
+    --squishGrowth-h-max: var(--xTiny-2-3);
     width: 9ch;
     cursor: pointer;
 }
