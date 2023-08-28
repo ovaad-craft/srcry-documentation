@@ -1,0 +1,43 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host{
+    display: grid;
+    place-items: center;
+}
+
+.mainContainer{
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+}
+
+.boxContainer{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto auto;
+}
+
+.coreBox{
+    grid-area: 1/1/2/2;
+    display: block;
+    z-index: 2;
+    background-color: hsl(var(--orange-200), 1);
+    height: var(--xTiny-1-1);
+    width: calc(var(--widthCore) - var(--bsp));
+}
+
+.fullBox{
+    grid-area: 1/1/2/3;
+    display: block;
+    z-index: 1;
+    background-color: hsl(var(--green-300), 1);
+    height: var(--xTiny-1-1);
+}

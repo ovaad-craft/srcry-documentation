@@ -1,0 +1,29 @@
+<section class="srcryBox mainContainer">
+
+    <section class="readoutContainer">
+
+        <article class="boxSizeParts">
+
+            <article class="core readout">
+                <div class="coreIndicator indicator"></div>
+                <h3 class="srcryTxt boxSizeText">{{BoxReadings.coreBoxWidth}}<small class="pxText">px</small></h3>
+            </article>
+    
+            <article class="growth readout">
+                <div class="growthIndicator indicator"></div>
+                <h3 class="srcryTxt boxSizeText">{{BoxReadings.fullBoxWidth - BoxReadings.coreBoxWidth}}<small class="pxText">px</small></h3>
+            </article>
+
+            <article class="full readout">
+                <h4 class="srcryTxt fullWidthText">Full Width</h4><h3 class="srcryTxt boxSizeText">{{BoxReadings.fullBoxWidth}}<small class="pxText">px</small></h3>
+            </article>
+
+        </article>
+    
+    </section>
+
+    <box-size-selector class="sizeSelector" (UpdateSelection)="updateCurrentSize($event)" />
+
+    <prop-display class="propDisplay" [Props]="CurrentSize" />
+
+</section>

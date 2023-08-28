@@ -1,0 +1,101 @@
+<section class="mainContainer">
+
+    <article class="selectionContainer">
+
+        <label class="sizeContainer labelGrid">
+            <span
+                class="srcryTxt label"
+                [ngClass]="ActiveSelector === 'size' || ActiveSelector === 'none' ? 'labelStandard' : 'labelInnactive'"
+            >
+                size
+            </span>
+            <button
+                class="srcryBox srcryTxt selector"
+                [ngClass]="ActiveSelector === 'size' ? 'selectorActive' : ActiveSelector === 'none' ? 'selectorNeutral': 'selectorInnactive'"
+                (click)="updateSelector('size')"
+                [disabled]="ActiveSelector === 'size' ? false : ActiveSelector === 'none' ? false : true"
+            >
+                {{SelectedSize}}
+            </button>
+        </label>
+        
+        <label class="scaleContainer labelGrid">
+            <span
+                class="srcryTxt label"
+                [ngClass]="ActiveSelector === 'scale' || ActiveSelector === 'none' ? 'labelStandard' : 'labelInnactive'"
+            >
+                scale
+            </span>
+            <button
+                class="srcryBox srcryTxt selector"
+                [disabled]="ActiveSelector === 'scale' ? false : ActiveSelector === 'none' ? false : true"
+                [ngClass]="ActiveSelector === 'scale' ? 'selectorActive' : ActiveSelector === 'none' ? 'selectorNeutral': 'selectorInnactive'"
+                (click)="updateSelector('scale')"
+            >
+                {{SelectedScale}}
+            </button>
+        </label>
+        
+        <label class="speedContainer labelGrid">
+            <span
+                class="srcryTxt label"
+                [ngClass]="ActiveSelector === 'speed' || ActiveSelector === 'none' ? 'labelStandard' : 'labelInnactive'"
+            >
+                speed
+            </span>
+            <button
+                class="srcryBox srcryTxt selector"
+                [ngClass]="ActiveSelector === 'speed' ? 'selectorActive' : ActiveSelector === 'none' ? 'selectorNeutral': 'selectorInnactive'"
+                [disabled]="ActiveSelector === 'speed' ? false : ActiveSelector === 'none' ? false : true"
+                (click)="updateSelector('speed')"
+            >
+                {{SelectedSpeed}}
+            </button>
+        </label>
+
+    </article>
+
+    <section [@dropdownAnimation]="SizeToggle ? 'open' : 'close'" class="optionAnimationFrame">
+        <article class="optionContainer">
+            <button
+                type="button"
+                class="srcryBox srcryTxt optionButton"
+                *ngFor="let a of BoxSizeSizes"
+                [ngClass]="SelectedSize === a ? 'optionActive' : 'optionInnactive'"
+                (click)="updateSize(a)"
+            >
+                {{a}}
+            </button>
+        </article>
+    </section>
+    
+    <section [@dropdownAnimation]="ScaleToggle ? 'open' : 'close'" class="optionAnimationFrame">
+        <article class="optionContainer">
+            <button
+                type="button"
+                class="srcryBox srcryTxt optionButton"
+                *ngFor="let a of BoxSizeScales"
+                [ngClass]="SelectedScale === a ? 'optionActive' : 'optionInnactive'"
+                (click)="updateScale(a)"
+            >
+                {{a}}
+            </button>
+        </article>
+    </section>
+    
+    <section [@dropdownAnimation]="SpeedToggle ? 'open' : 'close'" class="optionAnimationFrame">
+        <article class="optionContainer">
+            <button
+                type="button"
+                class="srcryBox srcryTxt optionButton"
+                *ngFor="let a of BoxSizeSpeeds"
+                [ngClass]="SelectedSpeed === a ? 'optionActive' : 'optionInnactive'"
+                (click)="updateSpeed(a)"
+            >
+                {{a}}
+            </button>
+        </article>
+    </section>
+
+
+</section>

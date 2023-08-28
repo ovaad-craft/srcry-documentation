@@ -199,7 +199,7 @@ export class SidebarService {
     this.StandardPage$.next(pageType);
   }
 
-  public updatePath(path: string): void{ this.CurrentPath$.next(path); console.log(path); console.log(this.CurrentPath$.value); }
+  public updatePath(path: string): void{ this.CurrentPath$.next(path); }
 
   public updateBreadCrumbs(crumbs: string[]): void{
 

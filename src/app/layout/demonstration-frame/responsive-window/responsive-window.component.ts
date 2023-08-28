@@ -1,6 +1,6 @@
 import { Component,
   ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef,
-  OnInit, ViewChild, AfterViewChecked, AfterContentChecked, ElementRef, AfterViewInit, Injector, HostListener, OnDestroy } from '@angular/core';
+  OnInit, ViewChild, AfterViewChecked, AfterContentChecked, ElementRef, AfterViewInit, reflectComponentType, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 import { WindowSize } from '@site-types';
@@ -94,6 +94,11 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
     const frame = this.DomFrame?.nativeElement.contentDocument || this.DomFrame?.nativeElement.contentWindow;
 
     const item : ComponentRef<any> = this.vcRef.createComponent<Component>(this.Demonstration);
+
+    if(reflectComponentType(this.Demonstration)?.inputs.find(a=> a.propName === 'BroadcastName') !== undefined){
+      item.instance.BroadcastName = this.BroadcastName;
+      item.instance.ChannelName = this.ChannelName;
+    }
 
     const defaultStyles = document.createElement('style');
     const srcryLink = document.createElement('link');
