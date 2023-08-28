@@ -13,3 +13,33 @@
 .subArticle{
     margin-top: var(--tiny-1-4);
 }
+
+.sizeChart{
+    border-collapse: collapse;
+    border: var(--line-light) solid hsl(var(--purple-400), 1);
+    width: min(var(--loMed-1-3), 96%);
+    justify-self: center;
+}
+
+.headerRow{
+    border: var(--line-light) solid hsl(var(--purple-400), 1);
+}
+
+.headerLabel{
+    border: var(--line-light) solid hsl(var(--purple-400), 1);
+    color: hsl(var(--gray-100), 1);
+    background-color: hsl(var(--purple-400), 1);
+    font-size: var(--text-widget-2);
+}
+
+.columnHeader{
+    background-color: hsl(var(--purple-300), 1);
+    color: hsl(var(--gray-100), 1);
+    border: solid var(--line-light) hsl(var(--purple-400), 1);
+    font-size: var(--text-widget-4);
+}
+.valueCell{
+    color: hsl(var(--purple-300), 1);
+    border: solid var(--line-light) hsl(var(--purple-400), 1);
+    text-align: center;
+}

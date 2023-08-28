@@ -7,6 +7,8 @@ import { SyntaxFrameComponent } from 'src/app/layout/syntax-frame/syntax-frame.c
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { BoxSizeDemoAComponent } from 'src/app/responsive-examples/box-size-demo-a/box-size-demo-a.component';
 import { BoxSizeDemoBComponent } from 'src/app/responsive-examples/box-size-demo-b/box-size-demo-b.component';
+import { BoxSizeAnalyzerComponent } from 'src/app/responsive-examples/box-size-analyzer/box-size-analyzer.component';
+import { AnalyzerInputComponent } from 'src/app/responsive-examples/box-size-analyzer/analyzer-input/analyzer-input.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -32,7 +34,9 @@ const PAGINATIONDATA: PaginationData = {
     HighlightModule,
     DemonstrationFrameComponent,
     BoxSizeDemoAComponent,
-    BoxSizeDemoBComponent
+    BoxSizeDemoBComponent,
+    BoxSizeAnalyzerComponent,
+    AnalyzerInputComponent
   ],
   templateUrl: './box-size-library.component.html',
   styleUrls: ['./box-size-library.component.css']
@@ -56,6 +60,18 @@ export class BoxSizeLibraryComponent {
   }
   `;
   Demo_02Component = BoxSizeDemoBComponent;
+
+  Demo_03Component = BoxSizeAnalyzerComponent;
+
+  Demo_04: string = ` .myClass{
+    display: block;
+    position: relative;
+    left: var(--tiny-2-5-);
+    top: var(--xTiny-1-3-);
+    width: var(--loMed-2-7);
+    height: var(--small-1-5);
+  }
+  `;
 
   Pagination!: PaginationData;
 
