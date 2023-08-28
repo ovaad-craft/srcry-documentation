@@ -31,6 +31,7 @@
     z-index: 2;
     background-color: hsl(var(--orange-200), 1);
     height: var(--xTiny-1-1);
+    width: calc(var(--widthCore) - var(--bsp));
 }
 
 .fullBox{

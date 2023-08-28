@@ -1,6 +1,6 @@
 <section #frame class="mainContainer">
     <article class="boxContainer">
-        <div #coreBox class="coreBox" [ngStyle]="{width: PropValues.core }"></div>
+        <div #coreBox class="coreBox" [ngStyle]="{'--widthCore': PropValues.core }"></div>
         <div #fullBox class="fullBox" [ngStyle]="{width: PropValues.full }"></div>
     </article>
 </section>
