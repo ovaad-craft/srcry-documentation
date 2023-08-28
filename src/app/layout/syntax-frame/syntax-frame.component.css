@@ -7,6 +7,10 @@
     justify-self: center;
     overflow: hidden;
 }
+
+.propFrame{
+    --kerning-nudge-amt: 6;
+}
 .varArea{
     color: hsl(var(--yellow-200), 1);
 }
