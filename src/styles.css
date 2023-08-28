@@ -51,13 +51,14 @@ body{
 
 .paginationContainer{
     display: grid;
-    margin-top: var(--small-2-3);
+    /*margin-top: var(--small-2-3);*/
     place-items: center;
 }
 
 .codeFrame{
     max-width: 100%;
     place-self: center;
-    font-size: var(--text-article-1);
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 6;
     overflow: hidden;
 }

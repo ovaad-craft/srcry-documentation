@@ -1,4 +1,202 @@
-<section class="mainContainer">
+<section class="pageContainer">
+
+    <h1 class="srcryTxt pageTitle">Box Size Library</h1>
+
+    <section class="contentContainer">
+        <p class="srcryTxt textContent">
+            The box size library is a collection of 198 size definitions that can be used to define the size of your elements, margins and padding.  To make them more intuitive to use they're organized into nine sizes with two scales and eleven growth speeds.  Before we go any further lets explain what each of these 3 parts are.
+        </p>
+
+        <section class="definitionContainer">
+
+            <article class="definition">
+                <h2 class="srcryTxt definitionTitle">Size</h2>
+                <p class="srcryTxt definitionText">
+                    The 9 sizes are called <b>micro, xTiny, tiny, xSmall, small, loMed, hiMed, large</b> and <b>jumbo</b>.  Seeing that they're designed to be adaptable each name should be regarded arbitrarily as a relative range of sizes rather than exact pixel values.
+                </p>
+            </article>
+            
+            <article class="definition">
+                <h2 class="srcryTxt definitionTitle">Scale</h2>
+                <p class="srcryTxt definitionText">
+                    As mentioned there are two scales for each size which is simply <b>1</b> or <b>2</b>.  The purpose is to broaden the range of each size by providing two core sizes to scale from.
+                </p>
+            </article>
+            
+            <article class="definition">
+                <h2 class="srcryTxt definitionTitle">Speed</h2>
+                <p class="srcryTxt definitionText">
+                    The eleven speeds are used just like the scale settings which is applying any number between <b>1</b> and <b>11</b> to your settings.  The speed controls how subtly or drastically an elements scales with the size of the screen with <b>1</b> being the slowest / most subtle and <b>11</b> being the fastest / most drastic.
+                </p>
+            </article>
+
+        </section>
+
+        <p class="srcryTxt textContent">
+            Combining these parts into a usable property is done with the following syntax.
+        </p>
+
+        <syntax-frame [Parts]="['size', 'scale', 'speed']" />
+
+        <p class="srcryTxt textContent">
+            To give a real world example for how this works lets look at some code.
+        </p>
+
+        <pre class="srcryTxt codeFrame">
+            <code
+                [highlight]="Demo_01"
+                [languages]="['css']"
+                [lineNumbers]="true"
+            >
+            </code>
+        </pre>
+
+        <demonstration-frame
+            class="demonstrationFrame"
+            [Demonstration]="Demo_01Component"
+            [ShowDimensions]="true"
+            [MinWindowWidth]="'220px'"
+            [WindowWidth]="'var(--loMed-1-3)'"
+            [MinWindowHeight]="'153px'"
+            [WindowHeight]="'var(--xTiny-2-2)'"
+        ></demonstration-frame>
+
+        <p class="srcryTxt textContent">
+            The example above shows an element that uses higher speed settings in its width and height definitions.  Lets see what happens with the same exact size and scale but with lower speed settings. 
+        </p>
+
+        <pre class="srcryTxt codeFrame">
+            <code
+                [highlight]="Demo_02"
+                [languages]="['css']"
+                [lineNumbers]="true"
+            >
+            </code>
+        </pre>
+
+        <demonstration-frame
+            class="demonstrationFrame"
+            [Demonstration]="Demo_02Component"
+            [ShowDimensions]="true"
+            [MinWindowWidth]="'220px'"
+            [WindowWidth]="'var(--loMed-1-3)'"
+            [MinWindowHeight]="'153px'"
+            [WindowHeight]="'var(--xTiny-2-2)'"
+        ></demonstration-frame>
+
+        <p class="srcryTxt textContent">
+            In this example the blue box hardly grows at all when you scale the window to its maximum size.  Not only can you define the size of your elements with this library, but you can use it to define your margins and padding as well.
+        </p>
+        
+        <p class="srcryTxt textContent">
+            To gain a visual understanding for how these sizes work, use the following demonstration to select deifferent sizes at different speeds to see how they scale when you shrink and expand the frame.  The orange portion represents the core pixel value of the selected size and the green portion represents the amount of growth added on as the screen expands and contracts.
+        </p>
+    
+        <demonstration-frame
+            class="demonstrationFrame"
+            [Demonstration]="Demo_03Component"
+            [BroadcastName]="'boxSizeChannel'"
+            [ChannelName]="'boxAnalyzerChannel'"
+            [ShowDimensions]="true"
+            [MinWindowWidth]="'220px'"
+            [WindowWidth]="'var(--loMed-1-3)'"
+            [MinWindowHeight]="'153px'"
+            [WindowHeight]="'var(--xTiny-2-2)'"
+        >
+            <analyzer-input
+                controlArea
+                [BroadcastName]="'boxSizeChannel'"
+                [ChannelName]="'boxAnalyzerChannel'"
+            />
+        </demonstration-frame>
+    
+        <p class="srcryTxt textContent">
+            What's being shown here is how each scale of every box size has a static pixel value at its core with the speed setting being the determining factor in how much the element grows as the screen scales up and down.  Bellow is a chart that shows the core pixel values used for each size and scale to further help you determine the best starting point to use for each element in your project.
+        </p>
+
+        <table class="srcryTxt sizeChart">
+            <tr class="headerRow">
+                <th class="headerLabel">size</th>
+                <th class="headerLabel">scale 1</th>
+                <th class="headerLabel">scale 2</th>
+            </tr>
+            <tr>
+                <th class="columnHeader">micro</th>
+                <td class="valueCell">4px</td>
+                <td class="valueCell">11px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">xTiny</th>
+                <td class="valueCell">18px</td>
+                <td class="valueCell">29px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">tiny</th>
+                <td class="valueCell">47px</td>
+                <td class="valueCell">76px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">xSmall</th>
+                <td class="valueCell">97px</td>
+                <td class="valueCell">123px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">small</th>
+                <td class="valueCell">157px</td>
+                <td class="valueCell">199px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">loMed</th>
+                <td class="valueCell">254px</td>
+                <td class="valueCell">322px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">hiMed</th>
+                <td class="valueCell">521px</td>
+                <td class="valueCell">843px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">large</th>
+                <td class="valueCell">1078px</td>
+                <td class="valueCell">1364px</td>
+            </tr>
+            <tr>
+                <th class="columnHeader">jumbo</th>
+                <td class="valueCell">1744px</td>
+                <td class="valueCell">2207px</td>
+            </tr>
+        </table>
+
+        <p class="srcryTxt textContent">
+            To help make these sizes usable for more applications Srcry provides negative values for each size which can be used simply by placing a "<b>-</b>" at the end of the size definition you want to use.  This is perfect for animations or if you're positioning your elements with <b>absolute</b>, <b>relative</b> or <b>fixed</b>.  Bellow is an example of how you can use these negative values.
+        </p>
+    
+        <pre class="srcryTxt codeFrame">
+            <code
+                [highlight]="Demo_04"
+                [languages]="['css']"
+                [lineNumbers]="true"
+            >
+            </code>
+        </pre>
+
+        <p class="srcryTxt textContent">
+            Notice how the <b>left</b> and <b>top</b> properties have a "<b>-</b>" at the end while the <b>width</b> and <b>height</b> properties don't?  That's all it takes to use the box sizes as negative values should you find yourself needing to do such a thing.
+        </p>
+        
+        <p class="srcryTxt textContent">
+            The box size library becomes even more powerful with the <b>srcryBox</b> class but is flexible enough on it's own to handle a lot of common use cases.  That's pretty much all there is to using this library so lets mvoe on to the <b>text size library</b>.
+        </p>
+
+    </section>
+
+    <section class="paginationContainer">
+        <paginate [PageData]="Pagination" />
+    </section>
+
+</section>
+
+<!--<section class="mainContainer">
 
     <h1 class="srcryTxt pageTitle sectionTitle">Box Size Library</h1>
 
@@ -212,4 +410,4 @@
         <paginate [PageData]="Pagination" />
     </section>
 
-</section>
+</section>-->

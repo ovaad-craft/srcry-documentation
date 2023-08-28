@@ -1,5 +1,105 @@
 
-.mainContainer{
+.pageContainer{
+    display: grid;
+    padding: var(--tiny-2-4) 0;
+    justify-content:center;
+    grid-template-rows: auto auto;
+    gap: var(--tiny-2-4) 0;
+    background-color: hsl(var(--gray-100), 1);
+}
+
+.pageTitle{
+    text-align: center;
+    font-weight: 600;
+    --text-size: var(--text-headline-1);
+    --kerning-nudge-amt: 6;
+    --leading-nudge-amt: -33;
+    color: hsl(var(--purple-700), 1);
+}
+
+.contentContainer{
+    display: grid;
+    place-self: center;
+    gap: var(--xTiny-2-3) 0;
+}
+
+.textContent{
+    width: 92%;
+    max-width: 77ch;
+    --text-size: var(--text-article-1);
+    --leading-nudge-amt: 38;
+    --kerning-nudge-amt: 6;
+    color:hsl(var(--purple-700), 1);
+    justify-self: center;
+}
+
+.definitionContainer{
+    display: grid;
+    grid-auto-rows: auto;
+    gap: var(--xTiny-2-3) 0;
+    background-color: hsl(var(--purple-200), .11);
+    padding: var(--xTiny-1-4);
+    justify-self: center;
+}
+
+.definition{
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--line-semiThick) 0;
+    justify-self: center;
+}
+
+.definitionTitle{
+    --text-size: var(--text-article-3);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-400), 1);
+}
+
+.definitionText{
+    --text-size: var(--text-article-1);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-500), 1);
+    width: 92%;
+    max-width: 66ch;
+}
+
+.sizeChart{
+    --kerning-nudge-amt: 6;
+    border-collapse: collapse;
+    border: var(--line-light) solid hsl(var(--purple-400), 1);
+    width: min(var(--loMed-1-3), 96%);
+    justify-self: center;
+}
+
+.headerRow{
+    border: var(--line-light) solid hsl(var(--purple-400), 1);
+}
+
+tr{
+    height: 3ch;
+}
+
+.headerLabel{
+    border: var(--line-light) solid hsl(var(--purple-400), 1);
+    color: hsl(var(--gray-100), 1);
+    background-color: hsl(var(--purple-400), 1);
+    font-size: var(--text-widget-2);
+}
+
+.columnHeader{
+    background-color: hsl(var(--purple-300), 1);
+    color: hsl(var(--gray-100), 1);
+    border: solid var(--line-light) hsl(var(--purple-400), 1);
+    font-size: var(--text-widget-4);
+}
+.valueCell{
+    color: hsl(var(--purple-300), 1);
+    border: solid var(--line-light) hsl(var(--purple-400), 1);
+    text-align: center;
+    font-size: var(--text-widget-4);
+}
+
+/*.mainContainer{
     display: grid;
     background-color: hsl(var(--gray-100), 1);
     padding-bottom: var(--tiny-2-5);
@@ -42,4 +142,4 @@
     color: hsl(var(--purple-300), 1);
     border: solid var(--line-light) hsl(var(--purple-400), 1);
     text-align: center;
-}
+}*/
