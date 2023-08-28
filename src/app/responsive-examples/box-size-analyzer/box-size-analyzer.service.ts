@@ -65,7 +65,7 @@ export class BoxSizeAnalyzerService {
 
   private setSizes(newSize: BoxSizeInterface): void{
     this.BoxSizeValue.next({
-      core: createCssVariable(createBoxSize(newSize.size, '1', '1')),
+      core: createCssVariable(createBoxSize(newSize.size, newSize.scale, '1')),
       full: createCssVariable(createBoxSize(newSize.size, newSize.scale, newSize.speed))
     });
   }
