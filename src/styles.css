@@ -101,8 +101,22 @@ body{
 
 .codeFrame{
     max-width: 100%;
-    place-self: center;
+    justify-self: center;
     --text-size: var(--text-widget-3);
     --kerning-nudge-amt: 6;
     overflow: hidden;
+}
+
+.demonstrationContainer{
+    justify-self: center;
+    display: grid;
+    background-color: hsl(var(--gray-200), .11);
+    padding: var(--xTiny-1-4);
+    gap: var(--xTiny-2-4) 0;
+}
+
+.demonstrationTitle{
+    --text-size: var(--text-subtitle-1);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-400), 1);
 }
