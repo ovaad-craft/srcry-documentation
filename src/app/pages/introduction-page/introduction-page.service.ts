@@ -7,7 +7,7 @@ export const LIBRARYDESCRIPTIONDATA: CardSummaryData[] = [
   {
     id: 'boxSizeLibrary',
     title: 'Box Size Library',
-    description: 'Contains 220 dynamic sizes for making your elements scale as subtly or drastically as you need.',
+    description: 'Contains 198 dynamic sizes for making your elements scale as subtly or drastically as you need.',
     path: 'box-size-library',
     breadCrumbs: ['libraries']
   },
