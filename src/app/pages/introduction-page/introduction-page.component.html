@@ -71,59 +71,56 @@
         
     </header>
 
-    <section class="homeIntro">
-        <h2 class="srcryTxt sectionTitle">
-            <span class="strikeThrough">Markup, </span>
-            <span class="strikeThrough">Javascript</span>,
-            <span class="nonStrike"> Pure CSS</span>
-        </h2>
+    <section class="pageContainer">
 
-        <article class="srcryTxt paragraphText">
-            <p>
-                Srcry differs from other frameworks by providing a variety of dynamic sizes and new CSS properties that give developers more control over the scaling behavior of their elements.  This means there's no components or boilerplate code to copy and paste, just values and properties for building your own to perfection.
-            </p>
+        <article class="introTitleContainer">
+            <h1 class="srcryTxt pageTitle introTitle">
+                <span class="strikeThrough">Markup, </span>
+                <span class="strikeThrough">Javascript</span>,
+                <span class="nonStrike"> Pure CSS</span>
+            </h1>
         </article>
 
-        <section class="summarySection">
-            <h2 class="srcryTxt homeSubTitle">
-                Libraries
-            </h2>
-            <article class="srcryBox cardSection">
-                <summary-card class="summaryCard" *ngFor="let item of LibraryDescriptionData" [CardData]="item" />
-            </article>
-        </section>
+        <p class="srcryTxt textContent">
+            Srcry differs from other frameworks by providing a variety of dynamic sizes and new CSS properties that give developers more control over the scaling behavior of their elements.  This means there's no components or boilerplate code to copy and paste, just values and properties for building your own to perfection.  These properties and values are organized into 3 size libraries and 2 configurable classes that make responsive design easier than ever.
+        </p>
 
-        <section class="summarySection">
-            <h2 class="srcryTxt homeSubTitle">
-                Classes
-            </h2>
-            <article class="srcryBox cardSection">
-                <summary-card class="summaryCard" *ngFor="let item of ClassDescriptionData" [CardData]="item" />
-            </article>
-        </section>
+        <article class="cardContainer">
 
-    </section>
-    <hr class="sectionBreak introBreak">
+            <section class="summarySection">
+                <h2 class="srcryTxt homeSubTitle">
+                    Libraries
+                </h2>
+                <article class="srcryBox cardSection">
+                    <summary-card class="summaryCard" *ngFor="let item of LibraryDescriptionData" [CardData]="item" />
+                </article>
+            </section>
+    
+            <section class="summarySection">
+                <h2 class="srcryTxt homeSubTitle">
+                    Classes
+                </h2>
+                <article class="srcryBox cardSection">
+                    <summary-card class="summaryCard" *ngFor="let item of ClassDescriptionData" [CardData]="item" />
+                </article>
+            </section>
 
-    <section class="demonstrations">
+        </article>
+
         <h2 class="srcryTxt sectionTitle">
             What Can We Do With Srcry?
         </h2>
 
-        <section class="contentSection">
+        <article class="demonstrationContainer">
 
-            
-            <article class="srcryTxt paragraphText">
+            <h2 class="srcryTxt demonstrationTitle">
+                Create A Single Ruleset For All Devices
+            </h2>
 
-                <h2 class="srcryTxt demonstrationTitle">
-                    Create A Single Ruleset For All Devices
-                </h2>
+            <p class="srcryTxt textContent demonstrationText">
+                When transitioning between mobile and desktop screens we run into a few quirks.  While things like pictures and titles need to shrink on mobile devices so they don't dominate the screen, things like links and buttons need to grow larger so the user can interact with them using their thumbs and fingers as opposed to a mouse arrow.  Normally we use media queries to address this problem but Srcry handles this right out of the box.  Scale the window bellow to see this in action.
+            </p>
 
-                <p>
-                    When transitioning between mobile and desktop screens we run into a few quirks.  While things like pictures and titles need to shrink on mobile devices so they don't dominate the screen, things like links and buttons need to grow larger so the user can interact with them using their thumbs and fingers as opposed to a mouse arrow.  Normally we use media queries to address this problem but Srcry handles this right out of the box.  Scale the window bellow to see this in action.
-                </p>
-            </article>
-            
             <demonstration-frame
                 class="demonstrationFrame"
                 [Demonstration]="NavDemo"
@@ -133,29 +130,22 @@
             >
             </demonstration-frame>
 
-            <article class="srcryTxt paragraphText conclusion">
-                <p>
-                    As you can see when you shrink the screen to around 880px the nav bar starts to grow taller as the screen gets narrower.  The only media query used in this example is to toggle the burger icon on and off.
-                </p>
-            </article>
-            <hr class="sectionBreak">
+            <p class="srcryTxt textContent demonstrationText">
+                As you can see when you shrink the screen to around 880px the nav bar starts to grow taller as the screen gets narrower.  The only media query used in this example is to toggle the burger icon on and off.
+            </p>
 
-        </section>
+        </article>
 
-        <section class="contentSection">
+        <article class="demonstrationContainer">
 
-            
-            <article class="srcryTxt paragraphText">
+            <h2 class="srcryTxt demonstrationTitle">
+                Rapid Scaling When You Need It
+            </h2>
 
-                <h2 class="srcryTxt demonstrationTitle">
-                    Rapid Scaling When You Need It
-                </h2>
+            <p class="srcryTxt textContent demonstrationText">
+                Sometimes we want an element to subtly adapt to the screen as it grows rather than staying the same size until the next media query.  We can easily achieve this using em, rem and view units but we often run into an issue with the element growing too large before the next break point.  If we can't find the magical value needed for it to scale properly we'll just add another media query at the screen size it starts to grow out of control and knock it back to where we want it so it can transition smoothly to the next breakpoint.  We don't need to worry about that anymore because Srcry allows you to fine tune this type of scaling within a single set of rules as shown bellow.
+            </p>
 
-                <p>
-                    Sometimes we want an element to subtly adapt to the screen as it grows rather than staying the same size until the next media query.  We can easily achieve this using em, rem and view units but we often run into an issue with the element growing too large before the next break point.  If we can't find the magical value needed for it to scale properly we'll just add another media query at the screen size it starts to grow out of control and knock it back to where we want it so it can transition smoothly to the next breakpoint.  We don't need to worry about that anymore because Srcry allows you to fine tune this type of scaling within a single set of rules as shown bellow.
-                </p>
-            </article>
-    
             <demonstration-frame
                 class="demonstrationFrame"
                 [Demonstration]="ProductDemo"
@@ -167,26 +157,21 @@
             >
             </demonstration-frame>
 
-            <article class="srcryTxt paragraphText conclusion">
-                <p>
-                    In this example the product component adapts subtly as you expand the screen then around 490px it starts growing rapidly.  At around 620px the rapid growth stops and it goes back to adapting subtly.
-                </p>
-            </article>
-            <hr class="sectionBreak">
+            <p class="srcryTxt textContent demonstrationText">
+                In this example the product component adapts subtly as you expand the screen then around 490px it starts growing rapidly.  At around 620px the rapid growth stops and it goes back to adapting subtly.
+            </p>
 
-        </section>
+        </article>
 
-        <section class="contentSection">
-            
-            <article class="srcryTxt paragraphText">
-                <h2 class="srcryTxt demonstrationTitle">
-                    Fluid Proportional Text
-                </h2>
+        <article class="demonstrationContainer">
 
-                <p>
-                    Text heirarchy is one of the most important aspects of good web design as it helps the user understand how the content is organized.  A lot of us use em units to maintain a proportional difference with our text.  This works great at one range of screen sizes however we don't have to scale too far before we need to adjust that proportional difference to keep the text readable and balanced.  The following example shows how Srcry addresses this challenge thus eliminating another media query or two.
-                </p>
-            </article>
+            <h2 class="srcryTxt demonstrationTitle">
+                Fluid Proportional Text
+            </h2>
+
+            <p class="srcryTxt textContent demonstrationText">
+                Text heirarchy is one of the most important aspects of good web design as it helps the user understand how the content is organized.  A lot of us use em units to maintain a proportional difference with our text.  This works great at one range of screen sizes however we don't have to scale too far before we need to adjust that proportional difference to keep the text readable and balanced.  The following example shows how Srcry addresses this challenge thus eliminating another media query or two.
+            </p>
 
             <demonstration-frame
                 class="demonstrationFrame"
@@ -199,32 +184,49 @@
             >
             </demonstration-frame>
 
-            <article class="srcryTxt paragraphText conclusion">
-                <p>
-                    Starting on the smaller screen all the text is pretty close in size with just enough of a proportional difference to distinguish them from one another.  As you enlarged the screen the proportional difference between each type of text became more drastic.
-                </p>
-                
-            </article>
-            <hr class="sectionBreak">
+            <p class="srcryTxt textContent demonstrationText">
+                Starting on the smaller screen all the text is pretty close in size with just enough of a proportional difference to distinguish them from one another.  As you enlarged the screen the proportional difference between each type of text became more drastic.
+            </p>
 
-        </section>
+        </article>
 
-        <section class="contentSection">
-            <article class="srcryTxt paragraphText">
-                <p>
-                    These demonstrations only scratch the surface of what you can achieve using Srcry.  All that's left is for you to add it to a new project and start experimenting for yourself to come up with your own brilliant layouts.
-                </p>
-            </article>
+        <!--<article class="demonstrationContainer">
+
+            <h2 class="srcryTxt demonstrationTitle">
+                Fluid Proportional Text
+            </h2>
+
+            <p class="srcryTxt textContent demonstrationText">
+                Text heirarchy is one of the most important aspects of good web design as it helps the user understand how the content is organized.  A lot of us use em units to maintain a proportional difference with our text.  This works great at one range of screen sizes however we don't have to scale too far before we need to adjust that proportional difference to keep the text readable and balanced.  The following example shows how Srcry addresses this challenge thus eliminating another media query or two.
+            </p>
+
+            <demonstration-frame
+                class="demonstrationFrame"
+                [Demonstration]="ArticleDemo"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--tiny-2-4)'"
+                [MinWindowWidth]="'113px'"
+                [WindowHeight]="'var(--tiny-2-5)'"
+                [MinWindowHeight]="'150px'"
+            >
+            </demonstration-frame>
+
+            <p class="srcryTxt textContainer demonstrationText">
+                Starting on the smaller screen all the text is pretty close in size with just enough of a proportional difference to distinguish them from one another.  As you enlarged the screen the proportional difference between each type of text became more drastic.
+            </p>
+
+        </article>-->
+
+        <p class="srcryTxt textContent">
+            These demonstrations only scratch the surface of what you can achieve using Srcry.  All that's left is for you to add it to a new project and start experimenting for yourself to come up with your own brilliant layouts.
+        </p>
+
+
+
+        <section class="paginationContainer">
+            <paginate [PageData]="Pagination" />
         </section>
-        
 
     </section>
     
-
-    <section class="paginationContainer">
-        <paginate [PageData]="Pagination" />
-    </section>
-
-    <!--<section class="dev-spacer"></section>-->
-
 </section>
