@@ -1,0 +1,34 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:host{
+    width: 100%;
+    height: 100%;
+}
+
+.mainContainer{
+    display: grid;
+    grid-auto-rows: auto;
+    gap: var(--xTiny-1-3) 0;
+    justify-items: center;
+}
+
+.title{
+    --text-size: var(--text-title-1);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--blue-400), 1)
+}
+
+.paragraph{
+    width: min(92%, 77ch);
+    --text-size: var(--text-article-1);
+    --kerning-nudge-amt: 6;
+    --leading-nudge-amt: 22;
+    color: hsl(var(--blue-500), 1);
+}
