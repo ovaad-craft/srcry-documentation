@@ -85,6 +85,21 @@ export type JumbotronTextType = 'text-jumbotron-1' | 'text-jumbotron-2' | 'text-
 
 export type TextSizeProps = Empty | CaptionTextType | WidgetTextType | ArticleTextType | SubtitleTextType | TitleTextType | HeadlineTextType | JumbotronTextType;
 
+export interface TextSizeInterface {
+    size: TextSizeSize;
+    speed: TextSizeSpeed;
+}
+
+export interface TextSizePropInterface{
+    core: string;
+    full: string;
+}
+
+export interface TextAnalyzerInterface{
+    coreTextSize: number;
+    fullTextSize: number;
+}
+
 export interface Link{
     id: string;
     title: string;
