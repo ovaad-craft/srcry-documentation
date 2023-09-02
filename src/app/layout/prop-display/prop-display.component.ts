@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoxSizeInterface } from '@site-types';
+import { BoxSizeInterface, TextSizeInterface } from '@site-types';
 
 @Component({
   selector: 'prop-display',
@@ -12,18 +12,21 @@ import { BoxSizeInterface } from '@site-types';
 export class PropDisplayComponent {
 
   @Input() DefaultCategory?: string;
-  @Input() Props: BoxSizeInterface = {size: 'xTiny', scale:'1', speed:'5'};
+  @Input() BoxSizeProps?: BoxSizeInterface;
+  @Input() TextSizeProps?: TextSizeInterface;
 
 
 
   public shapeProp():string{
-    if(this.DefaultCategory !== undefined){
-      return `${this.DefaultCategory}-${this.Props.size}-${this.Props.scale}-${this.Props.speed}`;
+    let size : string = '';
+
+    if(this.BoxSizeProps !== undefined){
+      size = `${this.BoxSizeProps.size}-${this.BoxSizeProps.scale}-${this.BoxSizeProps.speed}`;
     }
-    else{
-      return `${this.Props.size}-${this.Props.scale}-${this.Props.speed}`;
+    if(this.TextSizeProps !== undefined){
+      size = `text-${this.TextSizeProps.size}-${this.TextSizeProps.speed}`;
     }
-    //return `${this.DefaultCategory ! === undefined ? `${this.DefaultCategory}-` : ''}-${this.Props.size}-${this.Props.scale}-${this.Props.speed}`;
+    return size;
   }
 
 }

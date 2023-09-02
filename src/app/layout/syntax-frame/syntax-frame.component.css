@@ -3,9 +3,13 @@
     width: min(100%, max-content);
     word-wrap: normal;
     padding: var(--line-semiThick) var(--xTiny-2-3);
-    margin: var(--xTiny-1-3) 0;
+    /*margin: var(--xTiny-1-3) 0;*/
     justify-self: center;
     overflow: hidden;
+}
+
+.propFrame{
+    --kerning-nudge-amt: 6;
 }
 .varArea{
     color: hsl(var(--yellow-200), 1);

@@ -2,7 +2,6 @@
     display: grid;
     grid-auto-rows: auto;
     grid-auto-flow: row;
-    padding-bottom: var(--tiny-2-5);
 }
 
 .hero{
@@ -115,7 +114,6 @@
 
 .valueButton:hover{
     background-color: hsl(var(--purple-400), 1);
-    color: hsl(var(--gray-200), 1);
     transform: scale(1.1);
     box-shadow: 0 var(--line-bold) var(--line-thick) hsl(var(--gray-300), .88);
 }
@@ -181,6 +179,17 @@
     margin-top: var(--small-2-6);
 }
 
+.introTitleContainer{
+    display: grid;
+    width: 98vw;
+    background-color: hsl(var(--purple-700), 1);
+    padding: var(--xTiny-1-3) 0;
+}
+
+.introTitle{
+    color: hsl(var(--gray-100), 1);
+}
+
 .strikeThrough{
     text-decoration: line-through;
 }
@@ -197,8 +206,9 @@
 }
 
 .summarySection{
-    margin-top: var(--tiny-2-3);
     display: grid;
+    gap: var(--xTiny-1-3) 0;
+    width: 96vw;
 }
 
 .homeSubTitle{
@@ -208,14 +218,21 @@
     color: hsl(var(--purple-400), 1);
 }
 
+.cardContainer{
+    display: grid;
+    grid-auto-rows: auto;
+    gap: var(--xSmall-1-3) 0;
+    padding: var(--xTiny-2-4) 0;
+    background-color: hsl(var(--purple-200), .22);
+}
+
 .cardSection{
     --baseSize-w: var(--small-2-3);
     --edgeChase-w: var(--xTiny-2-5);
     --chaseStop-w: var(--large-2-3);
-    margin-top: var(--xTiny-2-3);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--small-2-2), 1fr));
-    grid-gap: var(--xTiny-2-3);
+    grid-template-columns: repeat(auto-fit, minmax(min(92%, var(--loMed-1-2)), 1fr));
+    gap: var(--xTiny-2-3);
     justify-self: center;
     justify-items: center;
 }
@@ -225,15 +242,11 @@
 }
 
 .demonstrationFrame{
-    margin: var(--xTiny-1-4) 0;
     justify-self: center;
 }
 
-.demonstrationTitle{
-    --text-size: var(--text-subtitle-1);
-    --kerning-nudge-amt: 6;
-    color: hsl(var(--purple-400), 1);
-    margin-bottom: var(--xTiny-1-3);
+.demonstrationText{
+    justify-self: left;
 }
 
 .conclusion{

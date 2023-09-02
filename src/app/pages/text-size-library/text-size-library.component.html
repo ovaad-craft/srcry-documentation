@@ -1,1 +1,73 @@
-<p>text-size-library works!</p>
+<section class="pageContainer">
+    <h1 class="srcryTxt pageTitle">Text Size Library</h1>
+
+    <article class="contentContainer">
+
+        <p class="srcryTxt textContent">
+            The text size library consists of 7 sizes which each have 5 speeds.  The 7 sizes are <b>caption</b>, <b>widget</b>, <b>article</b>, <b>subtitle</b>, <b>title</b>, <b>headline</b> and <b>jumbotron</b>.  The syntax for using a text size goes as follows.
+        </p>
+    
+        <syntax-frame [Cattegory]="'text'" [Parts]="['size', 'speed']" />
+
+        <p class="srcryTxt textContent">
+            It's as simple as that, just use the word <b>text</b> with a dash after it followed by the size and speed.  Lets look at some code to see how this works.
+        </p>
+
+    </article>
+
+    <article class="demonstrationContainer">
+
+        <pre class="srcryTxt codeFrame">
+            <code
+                [highlight]="Demo_01"
+                [languages]="['css']"
+                [lineNumbers]="true"
+            >
+            </code>
+        </pre>
+
+        <demonstration-frame
+            class="demonstrationFrame"
+            [Demonstration]="Demo_01Component"
+            [ShowDimensions]="true"
+            [MinWindowWidth]="'220px'"
+            [WindowWidth]="'var(--small-1-3)'"
+            [MinWindowHeight]="'264px'"
+            [WindowHeight]="'var(--loMed-1-2)'"
+        ></demonstration-frame>
+
+    </article>
+
+    <p class="srcryTxt textContent">
+        This library was specially designed to preserve a visual heirarchy between the different types of text respectively to the amount of space available on the screen.  The demo on the home page already did a great job explaining how this works so there's no need to reitterate it.  The following demonstration will allow you to select a text size and see how much growth occurs as the screen expands.
+    </p>
+
+    <article class="demonstrationContainer">
+        <demonstration-frame
+            class="demonstrationFrame"
+            [Demonstration]="Demo_02Component"
+            [BroadcastName]="'textSizeChannel'"
+            [ChannelName]="'textAnalyzerChannel'"
+            [ShowDimensions]="true"
+            [MinWindowWidth]="'90px'"
+            [WindowWidth]="'var(--tiny-2-3)'"
+            [MinWindowHeight]="'50px'"
+            [WindowHeight]="'var(--small-1-2)'"
+        >
+            <text-analyzer-input
+                controlArea
+                [BroadcastName]="'textSizeChannel'"
+                [ChannelName]="'textAnalyzerChannel'"
+            />
+        </demonstration-frame>
+    </article>
+
+    <p class="srcryTxt textContent">
+        Just like the box sizes the text size is calculated with a static pixel value and a flexible value based on the overall screen size.  Each text size has a core of <b>9px</b> which is how they're closer in size on smaller devices because the flexible values equate to such a small size on smaller screens that there isn't as much of a difference between them.  As the screen gets larger and the flexible values grows larger the difference between them becomes more evident.
+    </p>
+
+
+    <section class="paginationContainer">
+        <paginate [PageData]="Pagination" />
+    </section>
+</section>

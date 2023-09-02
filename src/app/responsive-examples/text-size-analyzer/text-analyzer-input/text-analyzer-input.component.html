@@ -1,0 +1,7 @@
+<section class="srcryBox mainContainer">
+    <article class="readoutContainer">
+        <p class="srcryTxt readoutText"><span class="readoutTitle">font size: </span>{{TextSizeReading}}<small>px</small></p>
+    </article>
+    <text-analyzer-selector class="sizeSelector" (UpdateSelection)="updateCurrentSize($event)" />
+    <prop-display class="propDisplay" [TextSizeProps]="TextSelectorValue" />
+</section>
