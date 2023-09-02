@@ -113,6 +113,7 @@ body{
     background-color: hsl(var(--gray-200), .11);
     padding: var(--xTiny-1-4);
     gap: var(--xTiny-2-4) 0;
+    box-sizing: border-box;
 }
 
 .demonstrationTitle{
