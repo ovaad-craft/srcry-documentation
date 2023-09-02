@@ -53,7 +53,6 @@
 
 .learnMoreButton:hover{
     background-color: hsl(var(--purple-500), 1);
-    color: hsl(var(--gray-200), 1);
     transform: scale(1.1);
     box-shadow: 0 var(--line-bold) var(--line-thick) hsl(var(--gray-300), .88);
 }
