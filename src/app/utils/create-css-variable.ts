@@ -1,5 +1,5 @@
-import { BoxSizeProps } from "@site-types";
+import { BoxSizeProps, TextSizeProps } from "@site-types";
 
-export function createCssVariable(prop: BoxSizeProps): string{
+export function createCssVariable(prop: BoxSizeProps | TextSizeProps): string{
     return `var(--${prop})`;
 }
