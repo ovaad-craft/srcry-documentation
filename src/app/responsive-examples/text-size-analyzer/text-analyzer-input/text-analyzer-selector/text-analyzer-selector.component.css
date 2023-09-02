@@ -1,0 +1,123 @@
+:host{
+    margin-top: var(--xTiny-1-3);
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 0 var(--line-semiBold);
+}
+
+.selectionContainer{
+    grid-area: 1/1/2/2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: var(--xTiny-1-3);
+}
+
+.labelGrid{
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    gap: var(--line-narrow) 0;
+}
+
+.sizeContainer{
+    grid-area: 1/1/2/2;
+}
+
+.speedContainer{
+    grid-area: 1/2/2/3;
+}
+
+.label{
+    grid-area: 1/1/2/2;
+    font-weight: 600;
+    --text-size: var(--text-widget-2);
+    --kerning-nudge-amt: 6;
+}
+
+.labelStandard{
+    color: hsl(var(--purple-300), 1);
+}
+
+.labelInnactive{
+    color: hsl(var(--gray-300), 1);
+}
+
+.selector{
+    grid-area: 2/1/3/2;
+    width: 8ch;
+    --baseSize-h: var(--xTiny-1-5);
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 6;
+    --squishGrowth-h-max: var(--xTiny-2-4);
+    --text-size: var(--text-widget-4);
+    --kerning-nudge-amt: 6;
+    border-style: none;
+    color: hsl(var(--gray-100), 1);
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.selectorActive{
+    background-color: hsl(var(--purple-500), 1);
+    transform: scale(1.2);
+    pointer-events: auto;
+}
+
+.selectorInnactive{
+    background-color: hsl(var(--gray-300), 1);
+    transform: scale(.88);
+    pointer-events: none;
+}
+
+.selectorNeutral{
+    background-color: hsl(var(--purple-300), 1);
+    pointer-events: auto;
+}
+
+.selectorNeutral:hover{
+    background-color: hsl(var(--purple-500), 1);
+    color: hsl(var(--purple-100), 1);
+}
+
+.optionAnimationFrame{
+    overflow: hidden;
+}
+
+.optionContainer{
+    grid-area: 2/1/3/2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+    grid-template-rows: repeat(3, auto);
+    grid-auto-flow: row;
+    place-items: center;
+    gap: var(--line-semiThick) 0;
+    background-color: hsl(var(--gray-200), .22);
+    padding: var(--line-semiThick) 0 var(--xTiny-1-3);
+    margin-top: var(--xTiny-1-3);
+}
+
+.optionButton{
+    --text-size: var(--text-widget-1);
+    --kerning-nudge-amt: 6;
+    --baseSize-h: 4ch;
+    --squishGrowth-h-start: 800px;
+    --squishGrowth-h-speed: 5;
+    --squishGrowth-h-max: var(--xTiny-2-3);
+    width: 9ch;
+    cursor: pointer;
+}
+
+.optionInnactive{
+    color: hsl(var(--purple-300), 1);
+    background-color: hsl(var(--gray-100), 1);
+    border: var(--line-fine) solid hsl(var(--purple-300), 1);
+}
+
+.optionActive{
+    color: hsl(var(--gray-100), 1);
+    background-color: hsl(var(--purple-300), 1);
+    border: var(--line-fine) solid hsl(var(--purple-300), 1);
+}
