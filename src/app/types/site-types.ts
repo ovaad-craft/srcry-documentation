@@ -100,6 +100,22 @@ export interface TextAnalyzerInterface{
     fullTextSize: number;
 }
 
+export type fineLineSize = 'fine';
+export type lightLineSize = 'light';
+export type narrowLineSize = 'narrow';
+export type semiBoldLineSize = 'semiBold';
+export type boldLineSize = 'bold';
+export type semiThickLineSize = 'semiThick';
+export type thickLineSize = "thick";
+export type semiWideLineSize = 'semiWide'
+export type wideLineSize = 'wide';
+export type ultraWideLineSize = 'ultraWide';
+export type jumboLineSize = 'jumbo';
+
+export type lineSizes = fineLineSize | lightLineSize | narrowLineSize | semiBoldLineSize | boldLineSize | semiThickLineSize | thickLineSize | semiWideLineSize | wideLineSize | ultraWideLineSize | jumboLineSize;
+
+export type lineSizeProps = 'line-fine' | 'line-light' | 'line-narrow' | 'line-semiBold' | 'line-bold' | 'line-semiThick' | 'line-thick' | 'line-semiWide' | 'line-wide' | 'line-ultraWide' | 'line-jumbo';
+
 export interface Link{
     id: string;
     title: string;
