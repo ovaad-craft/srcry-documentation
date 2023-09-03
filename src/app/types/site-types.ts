@@ -100,21 +100,21 @@ export interface TextAnalyzerInterface{
     fullTextSize: number;
 }
 
-export type fineLineSize = 'fine';
-export type lightLineSize = 'light';
-export type narrowLineSize = 'narrow';
-export type semiBoldLineSize = 'semiBold';
-export type boldLineSize = 'bold';
-export type semiThickLineSize = 'semiThick';
-export type thickLineSize = "thick";
-export type semiWideLineSize = 'semiWide'
-export type wideLineSize = 'wide';
-export type ultraWideLineSize = 'ultraWide';
-export type jumboLineSize = 'jumbo';
+export type FineLineSize = 'fine';
+export type LightLineSize = 'light';
+export type NarrowLineSize = 'narrow';
+export type SemiBoldLineSize = 'semiBold';
+export type BoldLineSize = 'bold';
+export type SemiThickLineSize = 'semiThick';
+export type ThickLineSize = "thick";
+export type SemiWideLineSize = 'semiWide'
+export type WideLineSize = 'wide';
+export type UltraWideLineSize = 'ultraWide';
+export type JumboLineSize = 'jumbo';
 
-export type lineSizes = fineLineSize | lightLineSize | narrowLineSize | semiBoldLineSize | boldLineSize | semiThickLineSize | thickLineSize | semiWideLineSize | wideLineSize | ultraWideLineSize | jumboLineSize;
+export type LineSizes = FineLineSize | LightLineSize | NarrowLineSize | SemiBoldLineSize | BoldLineSize | SemiThickLineSize | ThickLineSize | SemiWideLineSize | WideLineSize | UltraWideLineSize | JumboLineSize;
 
-export type lineSizeProps = 'line-fine' | 'line-light' | 'line-narrow' | 'line-semiBold' | 'line-bold' | 'line-semiThick' | 'line-thick' | 'line-semiWide' | 'line-wide' | 'line-ultraWide' | 'line-jumbo';
+export type LineSizeProps = 'line-fine' | 'line-light' | 'line-narrow' | 'line-semiBold' | 'line-bold' | 'line-semiThick' | 'line-thick' | 'line-semiWide' | 'line-wide' | 'line-ultraWide' | 'line-jumbo';
 
 export interface Link{
     id: string;
