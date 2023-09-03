@@ -1,0 +1,23 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host{
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.box{
+    display: block;
+    --baseSize-w: var(--tiny-1-1);
+    --edgeChase-w: var(--loMed-1-1);
+    --chaseStop-w: var(--small-1-6);
+    aspect-ratio: 1;
+    border: var(--line-narrow) solid hsl(var(--blue-400), 1);
+}
