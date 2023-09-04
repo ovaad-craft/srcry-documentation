@@ -2,11 +2,12 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineAnalyzerSelectorComponent } from './line-analyzer-selector/line-analyzer-selector.component';
 import { LineAnalyzerInputService } from './line-analyzer-input.service';
+import { PropDisplayComponent } from 'src/app/layout/prop-display/prop-display.component';
 
 @Component({
   selector: 'line-analyzer-input',
   standalone: true,
-  imports: [CommonModule, LineAnalyzerSelectorComponent],
+  imports: [CommonModule, LineAnalyzerSelectorComponent, PropDisplayComponent],
   templateUrl: './line-analyzer-input.component.html',
   styleUrls: ['./line-analyzer-input.component.css']
 })
