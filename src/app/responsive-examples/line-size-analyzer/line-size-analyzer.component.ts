@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineSizeAnalyzerService } from './line-size-analyzer.service';
 
@@ -7,7 +7,8 @@ import { LineSizeAnalyzerService } from './line-size-analyzer.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './line-size-analyzer.component.html',
-  styleUrls: ['./line-size-analyzer.component.css']
+  styleUrls: ['./line-size-analyzer.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class LineSizeAnalyzerComponent implements OnInit, OnDestroy {
 
