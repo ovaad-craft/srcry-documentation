@@ -14,10 +14,13 @@ export class LineSizeAnalyzerComponent implements OnInit, OnDestroy {
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
 
+  LineSize!: string;
+
   constructor(private dataService: LineSizeAnalyzerService){}
 
   ngOnInit(): void {
       this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
+      this.dataService.CurrentSize$.subscribe(a=> this.LineSize = a);
   }
 
   ngOnDestroy(): void {
