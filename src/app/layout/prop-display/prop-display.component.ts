@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoxSizeInterface, TextSizeInterface } from '@site-types';
+import { BoxSizeInterface, LineSizes, TextSizeInterface } from '@site-types';
 
 @Component({
   selector: 'prop-display',
@@ -14,6 +14,7 @@ export class PropDisplayComponent {
   @Input() DefaultCategory?: string;
   @Input() BoxSizeProps?: BoxSizeInterface;
   @Input() TextSizeProps?: TextSizeInterface;
+  @Input() LineSizeProp?: LineSizes;
 
 
 
@@ -25,6 +26,9 @@ export class PropDisplayComponent {
     }
     if(this.TextSizeProps !== undefined){
       size = `text-${this.TextSizeProps.size}-${this.TextSizeProps.speed}`;
+    }
+    if(this.LineSizeProp !== undefined){
+      size = this.LineSizeProp;
     }
     return size;
   }
