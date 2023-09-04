@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, OnDestroy, ViewEncapsulation, ViewChild, ElementRef, NgZone, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineSizeAnalyzerService } from './line-size-analyzer.service';
 
@@ -10,22 +10,48 @@ import { LineSizeAnalyzerService } from './line-size-analyzer.service';
   styleUrls: ['./line-size-analyzer.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class LineSizeAnalyzerComponent implements OnInit, OnDestroy {
+export class LineSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
 
+  @ViewChild('frame', {static: true, read: ElementRef}) Frame!: ElementRef;
+  @ViewChild('measurementBox', {static: true, read: ElementRef}) MeasurementBox!: ElementRef;
+
   LineSize!: string;
 
-  constructor(private dataService: LineSizeAnalyzerService){}
+  constructor(
+    private dataService: LineSizeAnalyzerService,
+    private zone: NgZone,
+    private cdr: ChangeDetectorRef
+  ){}
 
   ngOnInit(): void {
       this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
       this.dataService.CurrentSize$.subscribe(a=> this.LineSize = a);
   }
 
+  ngAfterViewInit(): void {
+    const frameListener = new ResizeObserver((element)=>{
+      this.zone.run(()=>{
+        this.updateSize();
+      });
+    });
+    
+    frameListener.observe(this.Frame.nativeElement);
+    this.updateSize();
+  }
+
+  ngAfterViewChecked(): void {
+      this.cdr.detectChanges();
+  }
+
   ngOnDestroy(): void {
       this.dataService.closeChannel();
+  }
+
+  private updateSize():void{
+    this.dataService.sendData(this.MeasurementBox.nativeElement.offsetWidth);
   }
 
 }
