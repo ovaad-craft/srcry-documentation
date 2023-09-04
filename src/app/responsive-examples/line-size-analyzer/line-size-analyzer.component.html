@@ -1,1 +1,6 @@
-<p>line-size-analyzer works!</p>
+<section #frame class="mainContainer">
+    <article class="measurementContainer">
+        <div #measurementBox [ngStyle]="{'--boxWidth': LineSize}" class="measurementBox"></div>
+    </article>
+    <div #displayElement class="srcryBox displayElement" [ngStyle]="{'--borderSize': LineSize}"></div>
+</section>
