@@ -9,7 +9,7 @@ import { createLineSize } from 'src/app/utils/create-line-size';
 })
 export class LineSizeAnalyzerService {
 
-  BroadcastChannel!: BroadcastChannel;
+  DataChannel!: BroadcastChannel;
   ComponentChannelName!: string;
 
   CurrentSize: BehaviorSubject<string> = new BehaviorSubject<string>('');
@@ -19,7 +19,7 @@ export class LineSizeAnalyzerService {
 
   private sendLoadCompleteNotification():void{
     this.zone.run(()=>{
-      this.BroadcastChannel.postMessage({
+      this.DataChannel.postMessage({
         target: this.ComponentChannelName,
         notification: 'loadComplete'
       });
@@ -31,7 +31,7 @@ export class LineSizeAnalyzerService {
   }
 
   private setChannelListener():void{
-    this.BroadcastChannel.onmessage = (event) =>{
+    this.DataChannel.onmessage = (event) =>{
       this.zone.run(()=>{
         if(event.data.target = this.ComponentChannelName){
           this.updateCurrentSize(event.data.payload);
@@ -41,7 +41,7 @@ export class LineSizeAnalyzerService {
   }
 
   public createBroadcastChannel(broadcastName: string, componentChannelName: string): void{
-    this.BroadcastChannel = new BroadcastChannel(broadcastName);
+    this.DataChannel = new BroadcastChannel(broadcastName);
     this.ComponentChannelName = componentChannelName;
     this.setChannelListener();
     this.sendLoadCompleteNotification();
@@ -49,12 +49,14 @@ export class LineSizeAnalyzerService {
 
   public sendData(size: number):void{
     this.zone.run(()=>{
-      this.BroadcastChannel.postMessage({
+      this.DataChannel.postMessage({
         target: this.ComponentChannelName,
         notification: 'data',
         payload: size
       });
     });
   }
+
+  public closeChannel():void{ this.DataChannel.close(); }
 
 }
