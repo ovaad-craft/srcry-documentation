@@ -1,1 +1,35 @@
-<p>line-analyzer-selector works!</p>
+<section class="mainContainer">
+
+    <article class="selectionContainer">
+        <label class="sizeContainer labelGrid">
+            <span
+                class="srcryTxt label"
+                [ngClass]="SizeActive ? 'labelActive' : 'labelInnactive'"
+            >
+                size
+            </span>
+            <button
+                class="srcryBox srcryTxt selector"
+                [ngClass]="SizeActive ? 'selectorActive' : 'selectorInnactive'"
+                (click)="openSizeList()"
+            >{{CurrentSize}}</button>
+        </label>
+    </article>
+
+    <section class="optionAnimationFrame">
+
+        <article class="optionContainer">
+
+            <button
+                *ngFor="let size of Sizes"
+                class="srcryBox srcryTxt optionButton"
+                type="button"
+                (click)="updateSize(size)"
+            >{{size}}</button>
+
+        </article>
+        
+    </section>
+
+
+</section>
