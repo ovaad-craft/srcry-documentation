@@ -28,10 +28,11 @@ export class LineAnalyzerSelectorComponent implements OnInit {
 
   public updateSize(size: LineSizes): void{
     this.CurrentSize = size;
+    this.UpdateSize.emit(size);
     this.closeSizeList();
   }
 
-  public openSizeList(): void{ this.SizeActive = true; }
+  public toggleSizeList(): void{ this.SizeActive = !this.SizeActive; }
   public closeSizeList():void{ this.SizeActive = false; }
 
 }
