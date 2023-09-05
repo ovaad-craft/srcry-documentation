@@ -52,6 +52,13 @@ export class TextSizeLibraryComponent implements OnInit {
   Demo_01Component = TextSizeDemoAComponent;
   Demo_02Component = TextSizeAnalyzerComponent;
 
+  Demo_03: string = `  .myclass{
+    position: relative;
+    font-size: var(--text-title-1);
+    top: var(--text-title-1-);
+  }
+  `;
+
   Pagination!: PaginationData;
 
   ngOnInit(): void {
