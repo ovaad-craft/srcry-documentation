@@ -1,1 +1,72 @@
-<p>line-size-library works!</p>
+<section class="pageContainer">
+    <h1 class="srcryTxt pageTitle">Line Size Library</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            This library is designed to be used with your borders, outlines and SVG strokes.  There are 11 sizes in total and unlike the box and text sizes there's no scale or speed settings.  The syntax for using this library goes as follows.
+        </p>
+
+        <syntax-frame [Cattegory]="'line'" [Parts]="['size']" />
+
+        <p class="srcryTxt textContent">
+            The 11 sizes are <b>fine</b>, <b>light</b>, <b>narrow</b>, <b>semiBold</b>, <b>bold</b>, <b>semiThick</b>, <b>thick</b>, <b>semiWide</b>, <b>wide</b>, <b>ultraWide</b> and <b>jumbo</b>.  Seeing that these sizes are fairly small in comparison to the box sizes they work well as drop shadow values and padding as well.  Below is an example of how to use this library in your project.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <pre class="srcryTxt codeFrame">
+                <code
+                    [highlight]="Demo_01"
+                    [languages]="['css']"
+                    [lineNumbers]="true"
+                >
+                </code>
+            </pre>
+
+            <demonstration-frame
+                class="demonstrationFrame"
+                [Demonstration]="Demo_01_Component"
+                [ShowDimensions]="true"
+                [MinWindowWidth]="'80px'"
+                [WindowWidth]="'var(--xTiny-2-3)'"
+                [MinWindowHeight]="'150px'"
+                [WindowHeight]="'var(--tiny-2-3)'"
+            ></demonstration-frame>
+
+        </article>
+
+        <article class="demonstrationContainer">
+
+            <p class="srcryTxt textContent">
+                One thing worth noting here is partial pixel values are rounded to whole values when read with javascript. With that being said, the readout value in the following demonstration will be a little innacurate.  Select the different line sizes to see how they scale across different screen sizes.
+            </p>
+
+            <demonstration-frame
+                class="demonstrationFrame"
+                [Demonstration]="Demo_02_Component"
+                [BroadcastName]="'lineSizeChannel'"
+                [ChannelName]="'lineAnalyzerChannel'"
+                [ShowDimensions]="true"
+                [MinWindowWidth]="'80px'"
+                [WindowWidth]="'var(--tiny-2-3)'"
+                [MinWindowHeight]="'150px'"
+                [WindowHeight]="'var(--tiny-2-3)'"
+            >
+                <line-analyzer-input
+                    controlArea
+                    [BroadcastName]="'lineSizeChannel'"
+                    [ChannelName]="'lineAnalyzerChannel'"
+                />
+            </demonstration-frame>
+        </article>
+
+        <p class="srcryTxt textContent">
+            Like the <b>box size</b> and <b>text size</b> libraries this library has negative values as well which can be used in the same manner simply by adding a <b>-</b> to the end of the size definition.
+        </p>
+
+    </article>
+
+    <section class="paginationContainer">
+        <paginate [PageData]="Pagination" />
+    </section>
+</section>
