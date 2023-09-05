@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LineAnalyzerSelectorComponent } from './line-analyzer-selector/line-analyzer-selector.component';
 import { LineAnalyzerInputService } from './line-analyzer-input.service';
 import { PropDisplayComponent } from 'src/app/layout/prop-display/prop-display.component';
+import { LineSizes } from '@site-types';
 
 @Component({
   selector: 'line-analyzer-input',
@@ -17,6 +18,7 @@ export class LineAnalyzerInputComponent implements OnInit, OnDestroy {
   @Input() ChannelName!: string;
 
   LineSizeReadout: number = 0;
+  SelectedSize: LineSizes = 'narrow';
 
   constructor(private dataService: LineAnalyzerInputService){}
 
@@ -27,6 +29,11 @@ export class LineAnalyzerInputComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.dataService.closeChannel();
+  }
+
+  public updateSize(size: LineSizes):void{
+    this.SelectedSize = size;
+    this.dataService.sendData(size);
   }
 
 }
