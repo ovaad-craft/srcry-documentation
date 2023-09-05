@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, AfterViewInit, OnDestroy, ViewEncapsulation, ViewChild, ElementRef, NgZone, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, OnDestroy, ViewEncapsulation, ViewChild, ElementRef, NgZone, AfterViewChecked } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineSizeAnalyzerService } from './line-size-analyzer.service';
 
@@ -8,7 +8,8 @@ import { LineSizeAnalyzerService } from './line-size-analyzer.service';
   imports: [CommonModule],
   templateUrl: './line-size-analyzer.component.html',
   styleUrls: ['./line-size-analyzer.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.ShadowDom,
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LineSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
 
@@ -22,8 +23,7 @@ export class LineSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterVi
 
   constructor(
     private dataService: LineSizeAnalyzerService,
-    private zone: NgZone,
-    private cdr: ChangeDetectorRef
+    private zone: NgZone
   ){}
 
   ngOnInit(): void {
@@ -39,11 +39,10 @@ export class LineSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterVi
     });
     
     frameListener.observe(this.Frame.nativeElement);
-    this.updateSize();
   }
 
   ngAfterViewChecked(): void {
-      this.cdr.detectChanges();
+      this.updateSize();
   }
 
   ngOnDestroy(): void {
