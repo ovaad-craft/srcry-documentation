@@ -2,17 +2,16 @@
 
     <article class="selectionContainer">
         <label class="sizeContainer labelGrid">
-            <span
-                class="srcryTxt label"
-                [ngClass]="SizeActive ? 'labelActive' : 'labelInnactive'"
-            >
+            <span class="srcryTxt label">
                 size
             </span>
             <button
                 class="srcryBox srcryTxt selector"
                 [ngClass]="SizeActive ? 'selectorActive' : 'selectorInnactive'"
-                (click)="openSizeList()"
-            >{{CurrentSize}}</button>
+                (click)="toggleSizeList()"
+            >
+                {{CurrentSize}}
+            </button>
         </label>
     </article>
 
@@ -23,9 +22,12 @@
             <button
                 *ngFor="let size of Sizes"
                 class="srcryBox srcryTxt optionButton"
+                [ngClass]="CurrentSize === size ? 'optionActive' : 'optionInnactive'"
                 type="button"
                 (click)="updateSize(size)"
-            >{{size}}</button>
+            >
+                {{size}}
+            </button>
 
         </article>
 
