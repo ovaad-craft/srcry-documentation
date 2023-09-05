@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
-import { LineSizeProps } from '@site-types';
+import { LineSizeProps, LineSizes } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
+import { createCssVariable } from 'src/app/utils/create-css-variable';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class LineAnalyzerInputService {
   DataChannel!: BroadcastChannel;
   ComponentChannelName!: string;
 
-  DefaultValue: LineSizeProps = 'line-narrow';
+  DefaultValue: LineSizes = 'narrow';
   private ReadoutValue: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   ReadoutValue$ = this.ReadoutValue.asObservable();
 
@@ -47,7 +48,7 @@ export class LineAnalyzerInputService {
     this.ReadoutValue.next(size);
   }
 
-  public sendData(size: LineSizeProps): void{
+  public sendData(size: LineSizes): void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
         target: this.ComponentChannelName,
