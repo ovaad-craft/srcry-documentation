@@ -47,7 +47,7 @@
 
 .selector{
     grid-area: 2/1/3/2;
-    width: 8ch;
+    width: 12ch;
     --baseSize-h: var(--xTiny-1-5);
     --squishGrowth-h-start: 800px;
     --squishGrowth-h-speed: 6;
@@ -89,7 +89,7 @@
 .optionContainer{
     grid-area: 2/1/3/2;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12ch, 1fr));
     grid-template-rows: repeat(3, auto);
     grid-auto-flow: row;
     place-items: center;
@@ -106,7 +106,7 @@
     --squishGrowth-h-start: 800px;
     --squishGrowth-h-speed: 5;
     --squishGrowth-h-max: var(--xTiny-2-3);
-    width: 9ch;
+    width: 11ch;
     cursor: pointer;
 }
 
