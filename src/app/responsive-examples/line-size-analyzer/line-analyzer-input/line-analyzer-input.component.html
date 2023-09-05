@@ -1,0 +1,11 @@
+<section class="srcryBox mainContainer">
+    <article class="readoutContainer">
+        <p class="srcryTxt lineSizeText"><span class="lineSizeTitle">line width: </span>{{LineSizeReadout}}<small>px</small></p>
+    </article>
+    <line-analyzer-selector (UpdateSize)="updateSize($event)" />
+    <prop-display
+        class="propDisplay"
+        [DefaultCategory]="'line'"
+        [LineSizeProp]="SelectedSize"
+    />
+</section>

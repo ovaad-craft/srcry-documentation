@@ -32,7 +32,7 @@
     place-items: center;
     resize: both;
     overflow: hidden;
-    border: var(--line-light) solid hsl(var(--purple-200), 1);
+    outline: var(--line-light) solid hsl(var(--purple-200), 1);
     min-width: var(--minWidth, unset);
     width: min(var(--defaultWidth), calc(100% - var(--line-bold)));
     max-width: 95vw;

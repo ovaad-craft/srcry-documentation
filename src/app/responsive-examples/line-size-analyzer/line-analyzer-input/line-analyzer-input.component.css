@@ -1,0 +1,36 @@
+:host{
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    background-color: hsl(var(--gray-200), .11);
+    border: var(--line-light) solid hsl(var(--gray-200), 1);
+    --baseSize-w: var(--small-2-8);
+}
+
+.readoutContainer{
+    display: grid;
+    background-color: hsl(var(--gray-200), .29);
+    width: 100%;
+    place-items: center;
+    padding: var(--line-thick) 0;
+}
+
+.lineSizeTitle{
+    color: hsl(var(--purple-300), 1);
+}
+
+.lineSizeText{
+    --text-size: var(--text-widget-2);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    color: hsl(var(--purple-700), 1);
+}
+
+.propDisplay{
+    grid-area: 3/1/4/2;
+}
