@@ -66,6 +66,23 @@
         Just like the box sizes the text size is calculated with a static pixel value and a flexible value based on the overall screen size.  Each text size has a core of <b>9px</b> which is how they're closer in size on smaller devices because the flexible values equate to such a small size on smaller screens that there isn't as much of a difference between them.  As the screen gets larger and the flexible values grows larger the difference between them becomes more evident.
     </p>
 
+    <article class="contentContainer">
+
+        <p class="srcryTxt textContent">
+            The text size library also has negative values available which can be used by adding a "<b>-</b>" to the end of your size definition as shown on the <b>top</b> property below.
+        </p>
+    
+        <pre class="srcryTxt codeFrame">
+            <code
+                [highlight]="Demo_03"
+                [languages]="['css']"
+                [lineNumbers]="true"
+            >
+            </code>
+        </pre>
+
+    </article>
+
 
     <section class="paginationContainer">
         <paginate [PageData]="Pagination" />
