@@ -2,13 +2,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineSizes } from '@site-types';
 import { LineAnalyzerSelectorService } from './line-analyzer-selector.service';
+import { DropdownAnimation } from 'src/app/layout/sidebar/link/link.component';
 
 @Component({
   selector: 'line-analyzer-selector',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './line-analyzer-selector.component.html',
-  styleUrls: ['./line-analyzer-selector.component.css']
+  styleUrls: ['./line-analyzer-selector.component.css'],
+  animations: [DropdownAnimation]
 })
 export class LineAnalyzerSelectorComponent implements OnInit {
 

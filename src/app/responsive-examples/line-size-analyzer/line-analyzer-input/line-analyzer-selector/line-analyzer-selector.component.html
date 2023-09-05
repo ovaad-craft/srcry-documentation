@@ -16,7 +16,7 @@
         </label>
     </article>
 
-    <section class="optionAnimationFrame">
+    <section [@dropdownAnimation]="SizeActive ? 'open' : 'close'" class="optionAnimationFrame">
 
         <article class="optionContainer">
 
@@ -28,7 +28,7 @@
             >{{size}}</button>
 
         </article>
-        
+
     </section>
 
 
