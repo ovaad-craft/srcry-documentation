@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { LineSizes } from '@site-types';
 
 export const LINESIZES: LineSizes[] = [
@@ -8,15 +8,11 @@ export const LINESIZES: LineSizes[] = [
 @Injectable({
   providedIn: 'root'
 })
-export class LineAnalyzerSelectorService implements OnInit {
+export class LineAnalyzerSelectorService {
 
-  Sizes!: LineSizes[];
+  Sizes: LineSizes[]= LINESIZES;
 
-  constructor() { }
-
-  ngOnInit(): void {
-      this.Sizes = LINESIZES;
-  }
+  constructor() {}
 
   public getSizes(): LineSizes[]{ return this.Sizes; }
 }
