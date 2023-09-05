@@ -28,7 +28,7 @@ export class PropDisplayComponent {
       size = `text-${this.TextSizeProps.size}-${this.TextSizeProps.speed}`;
     }
     if(this.LineSizeProp !== undefined){
-      size = this.LineSizeProp;
+      size = `line-${this.LineSizeProp}`;
     }
     return size;
   }
