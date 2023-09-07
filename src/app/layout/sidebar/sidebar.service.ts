@@ -60,7 +60,7 @@ export const LINKS: Link[] = [
           },{
             id: 'crushGap',
             title: 'Crush Gap',
-            path: 'crus-gap',
+            path: 'crush-gap',
             breadCrumbs: ['classes', 'srcryBox']
           },
           {
