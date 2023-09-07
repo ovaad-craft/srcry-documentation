@@ -148,3 +148,9 @@ export interface WindowSize{
     width: number;
     height: number;
 }
+
+export interface PropChartData{
+    id: string;
+    title: string;
+    description: string;
+}
