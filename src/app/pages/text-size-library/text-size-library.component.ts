@@ -5,9 +5,9 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PaginationData } from '@site-types';
 import { SyntaxFrameComponent } from 'src/app/layout/syntax-frame/syntax-frame.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
-import { TextSizeDemoAComponent } from 'src/app/responsive-examples/text-size-demo-a/text-size-demo-a.component';
-import { TextSizeAnalyzerComponent } from 'src/app/responsive-examples/text-size-analyzer/text-size-analyzer.component';
-import { TextAnalyzerInputComponent } from 'src/app/responsive-examples/text-size-analyzer/text-analyzer-input/text-analyzer-input.component';
+import { TextSizeDemoAComponent } from 'src/app/responsive-examples/text-size-examples/text-size-demo-a/text-size-demo-a.component';
+import { TextSizeAnalyzerComponent } from 'src/app/responsive-examples/text-size-examples/text-size-analyzer/text-size-analyzer.component';
+import { TextAnalyzerInputComponent } from 'src/app/responsive-examples/text-size-examples/text-size-analyzer/text-analyzer-input/text-analyzer-input.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {

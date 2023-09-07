@@ -4,10 +4,10 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PaginationData } from '@site-types';
 import { SyntaxFrameComponent } from 'src/app/layout/syntax-frame/syntax-frame.component';
 import { HighlightModule } from 'ngx-highlightjs';
-import { LineSizeDemoAComponent } from 'src/app/responsive-examples/line-size-demo-a/line-size-demo-a.component';
+import { LineSizeDemoAComponent } from 'src/app/responsive-examples/line-size-examples/line-size-demo-a/line-size-demo-a.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
-import { LineAnalyzerInputComponent } from 'src/app/responsive-examples/line-size-analyzer/line-analyzer-input/line-analyzer-input.component';
-import { LineSizeAnalyzerComponent } from 'src/app/responsive-examples/line-size-analyzer/line-size-analyzer.component';
+import { LineAnalyzerInputComponent } from 'src/app/responsive-examples/line-size-examples/line-size-analyzer/line-analyzer-input/line-analyzer-input.component';
+import { LineSizeAnalyzerComponent } from 'src/app/responsive-examples/line-size-examples/line-size-analyzer/line-size-analyzer.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
