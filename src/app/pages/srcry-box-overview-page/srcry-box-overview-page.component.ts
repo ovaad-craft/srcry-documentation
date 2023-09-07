@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { Link, PaginationData } from '@site-types';
 import { RouterLink } from '@angular/router';
+import { HighlightModule } from 'ngx-highlightjs';
 
 const LINKS: Link[] = [
   {
@@ -49,14 +50,14 @@ const PAGINATIONDATA: PaginationData = {
   next: {
     id: 'baseSize',
     title: 'Base Size',
-    path: 'base-size'
+    path: '/base-size'
   }
 }
 
 @Component({
   selector: 'app-srcry-box-overview-page',
   standalone: true,
-  imports: [CommonModule, PaginateComponent, RouterLink],
+  imports: [CommonModule, PaginateComponent, RouterLink, HighlightModule],
   templateUrl: './srcry-box-overview-page.component.html',
   styleUrls: ['./srcry-box-overview-page.component.css']
 })
@@ -64,5 +65,12 @@ export class SrcryBoxOverviewPageComponent {
 
   Pagination: PaginationData = PAGINATIONDATA;
   Links: Link[] = LINKS;
+
+  Demo_01A: string = ` <div class="srcryBox myClass"></div>`;
+
+  Demo_01B: string = ` .myClass{
+  /*define srcryBox properties here*/
+ }
+  `;
 
 }
