@@ -1,1 +1,30 @@
-<p>srcry-box-overview-page works!</p>
+<section class="pageContainer">
+    <h1 class="srcryTxt pageTitle">srcryBox Class</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The <b>box size</b> library can achieve a lot of things but sometimes a little more is required for your elements to scale as needed.  The <b>srcryBox</b> class gives you an extra layer of functionality that allows you to fully control how your elements shrink and expand from one screen size to another.  This is done through a set of properties defined on this class as CSS varialbles which hook into a series of equations resulting in the scaling behavior or your elements.
+        </p>
+
+        <p class="srcryTxt textContent">
+            Before we begin exploring the properties available on the srcryBox class it's worth pointing out that each property has 2 modifier properties called <b>nudge-chunk</b> and <b>nudge-slice</b> which is simply added to the end of the property names.  The purpose of including these modifiers is to slightly increase or decrease the size of your element should you run into a situation where one size is too small or adapts too subtly and the next size and or speed is too large or adapts too rapidly.  A <b>nudge-slice</b> is a tiny flexible value that grows larger as the screen size expands and a <b>nudge-chunk</b> is equivalent to 8 nudge slices.
+        </p>
+        
+        <p class="srcryTxt textContent">
+            You'll be able to learn more and see how this works in the pages that follow so we won't go further in depth here because we'll just be getting ahead of ourself.  Go to the next page to learn about the first set of properties or select one from the list below if you're already familiar and are just here to refresh yourself.
+        </p>
+    </article>
+
+    <article class="linkGrid">
+        <button
+            *ngFor="let link of Links"
+            type="button"
+            class="srcryBox srcryTxt buttonLink"
+            [routerLink]="link.path"
+        >
+            {{link.title}}
+        </button>
+    </article>
+
+    <paginate [PageData]="Pagination" />
+</section>
