@@ -7,7 +7,29 @@
         </p>
 
         <p class="srcryTxt textContent">
-            Before we begin exploring the properties available on the srcryBox class it's worth pointing out that each property has 2 modifier properties called <b>nudge-chunk</b> and <b>nudge-slice</b> which is simply added to the end of the property names.  The purpose of including these modifiers is to slightly increase or decrease the size of your element should you run into a situation where one size is too small or adapts too subtly and the next size and or speed is too large or adapts too rapidly.  A <b>nudge-slice</b> is a tiny flexible value that grows larger as the screen size expands and a <b>nudge-chunk</b> is equivalent to 8 nudge slices.
+            In order to use the <b>srcryBox</b> class you simply add it to your element's class attribute and define the srcryBox properties in your own class as shown in the example below.
+        </p>
+
+        <pre class="srcryTxt codeFrame">
+            <code
+                [highlight]="Demo_01A"
+                [languages]="['xml']"
+                [lineNumbers]="true"
+            >
+            </code>
+        </pre>
+
+        <pre class="srcryTxt codeFrame">
+            <code
+                [highlight]="Demo_01B"
+                [languages]="['css']"
+                [lineNumbers]="true"
+            >
+            </code>
+        </pre>
+
+        <p class="srcryTxt textContent">
+            Before we begin exploring the properties available on the srcryBox class it's worth pointing out that each property has 2 modifiers called <b>nudge-chunk</b> and <b>nudge-slice</b>.  The purpose of including these modifiers is to slightly increase or decrease the size of your element should you run into a situation where one size is too small or adapts too subtly and the next size and or speed is too large or adapts too rapidly.  A <b>nudge-slice</b> is a tiny flexible value that grows larger as the screen size expands and a <b>nudge-chunk</b> is equivalent to 8 nudge slices.
         </p>
         
         <p class="srcryTxt textContent">
