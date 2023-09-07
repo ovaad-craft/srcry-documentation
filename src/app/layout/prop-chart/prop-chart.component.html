@@ -1,1 +1,12 @@
-<p>prop-chart works!</p>
+<table class="propTable">
+    <tr class="srcryTxt headerRow">
+        <th class="headerRowTitle">Property</th>
+        <th class="headerRowTitle">Usage</th>
+    </tr>
+    <tr
+        *ngFor="let a of ChartData" [id]="a.id"
+    >
+        <th class="srcryTxt headerColumnTitle">{{a.title}}</th>
+        <td class="srcryTxt description">{{a.description}}</td>
+    </tr>
+</table>
