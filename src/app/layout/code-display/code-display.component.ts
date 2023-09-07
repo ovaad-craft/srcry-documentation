@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HighlightModule } from 'ngx-highlightjs';
 
 @Component({
-  selector: 'app-code-display',
+  selector: 'code-display',
   standalone: true,
   imports: [CommonModule, HighlightModule],
   templateUrl: './code-display.component.html',
@@ -12,5 +12,6 @@ import { HighlightModule } from 'ngx-highlightjs';
 export class CodeDisplayComponent {
 
   @Input()Code!: string;
+  @Input()Language!: string;
 
 }
