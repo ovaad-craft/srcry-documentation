@@ -4,7 +4,7 @@
         *ngIf="PageData.previous"
         (click)="previousPage()"
         [routerLink]="PageData.previous.path"
-        class="paginationButton"
+        class="srcryBox paginationButton"
         [ngClass]="PageData.next ? 'buttonRight' : 'buttonCenter'"
     >
 
@@ -28,7 +28,7 @@
         *ngIf="PageData.next"
         (click)="nextPage()"
         [routerLink]="PageData.next.path"
-        class="paginationButton"
+        class="srcryBox paginationButton"
         [ngClass]="PageData.previous ? 'buttonLeft' : 'buttonCenter'"
     >
 
