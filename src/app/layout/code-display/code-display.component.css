@@ -1,0 +1,7 @@
+.codeFrame{
+    max-width: 100%;
+    justify-self: center;
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 6;
+    overflow: hidden;
+}
