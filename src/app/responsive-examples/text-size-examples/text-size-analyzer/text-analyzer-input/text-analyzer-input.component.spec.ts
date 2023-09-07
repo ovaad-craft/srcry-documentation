@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextAnalyzerInputComponent } from './text-analyzer-input.component';
 
-describe('TextAnalyzerInputComponent', () => {
+describe('TextSizeAnalyzerComponent', () => {
   let component: TextAnalyzerInputComponent;
   let fixture: ComponentFixture<TextAnalyzerInputComponent>;
 

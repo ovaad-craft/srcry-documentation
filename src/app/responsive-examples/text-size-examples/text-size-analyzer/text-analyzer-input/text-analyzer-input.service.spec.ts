@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { TextAnalyzerInputService } from './text-analyzer-input.service';
 
-describe('TextAnalyzerService', () => {
+describe('TextSizeAnalyzerService', () => {
   let service: TextAnalyzerInputService;
 
   beforeEach(() => {

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AnalyzerInputService } from './analyzer-input.service';
 import { BoxAnalyzerInterface, BoxSizeInterface } from '@site-types';
 import { BoxSizeSelectorComponent } from './box-size-selector/box-size-selector.component';
-import { PropDisplayComponent } from '../../../layout/prop-display/prop-display.component';
+import { PropDisplayComponent } from '../../../../layout/prop-display/prop-display.component';
 
 @Component({
   selector: 'analyzer-input',
