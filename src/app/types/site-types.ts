@@ -154,3 +154,10 @@ export interface PropChartData{
     title: string;
     description: string;
 }
+
+export interface BaseSizeAnalyzerInterface{
+    fullWidth: number;
+    baseWidth: number;
+    chunkWidth: number;
+    sliceWidth: number;
+}
