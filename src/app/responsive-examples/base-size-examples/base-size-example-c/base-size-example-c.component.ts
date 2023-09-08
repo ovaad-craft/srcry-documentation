@@ -36,7 +36,7 @@ export class BaseSizeExampleCComponent implements AfterViewInit, AfterContentChe
   }
 
   ngOnDestroy(): void {
-      
+    this.dataService.closeChannel();
   }
 
   private readElementSizes():void{
@@ -47,7 +47,7 @@ export class BaseSizeExampleCComponent implements AfterViewInit, AfterContentChe
       sliceWidth: this.SliceBox.nativeElement.offsetWidth
     };
 
-    console.log(readings);
+    this.dataService.sendData(readings);
   }
 
 }
