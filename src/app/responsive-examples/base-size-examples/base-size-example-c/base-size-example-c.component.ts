@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input, ViewChild, ElementRef, AfterViewInit, AfterContentChecked, NgZone, OnDestroy } from '@angular/core';
+import { Component, ViewEncapsulation, Input, ViewChild, ElementRef, AfterViewInit, AfterContentChecked, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseSizeAnalyzerInterface } from '@site-types';
 import { BaseSizeExampleCService } from './base-size-example-c.service';
@@ -11,7 +11,7 @@ import { BaseSizeExampleCService } from './base-size-example-c.service';
   styleUrls: ['./base-size-example-c.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class BaseSizeExampleCComponent implements AfterViewInit, AfterContentChecked, OnDestroy {
+export class BaseSizeExampleCComponent implements OnInit, AfterViewInit, AfterContentChecked, OnDestroy {
 
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
@@ -23,6 +23,10 @@ export class BaseSizeExampleCComponent implements AfterViewInit, AfterContentChe
 
   constructor(private zone: NgZone, private dataService: BaseSizeExampleCService){}
 
+  ngOnInit(): void {
+      this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
+  }
+  
   ngAfterViewInit(): void {
     const frameListener: ResizeObserver = new ResizeObserver((element)=>{
       this.zone.run(()=>this.readElementSizes());
