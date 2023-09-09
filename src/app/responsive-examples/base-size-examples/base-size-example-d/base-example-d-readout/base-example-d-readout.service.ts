@@ -36,4 +36,8 @@ export class BaseExampleDReadoutService {
     this.ComponentChannelName = componentChannelName;
     this.createChannelListener();
   }
+
+  public closeChannel():void{
+    this.DataChannel.close();
+  }
 }
