@@ -6,3 +6,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:host{
+    display: grid;
+    width: 100%;
+    height:100%;
+}
+
+.fullBox{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    height: var(--xTiny-2-4);
+}
+
+.baseBox{
+    grid-area: 1/1/2/2;
+    display: block;
+    background-color: hsl(var(--blue-300), 1);
+    width: calc(var(--tiny-1-8) - calc(var(--nudgeChunk) * 3));
+    height: 100%;
+}
+
+.chunkBox{
+    --border: dashed var(--line-fine) hsl(var(--blue-400), 1);
+    grid-area: 1/2/2/3;
+    display: block;
+    background-color: hsl(var(--blue-300), .11);
+    border-top: var(--border);
+    border-right: var(--border);
+    border-bottom: var(--border);
+}
