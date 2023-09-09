@@ -156,8 +156,8 @@ export interface PropChartData{
 }
 
 export interface BaseSizeAnalyzerInterface{
-    fullWidth: number;
-    baseWidth: number;
-    chunkWidth: number;
-    sliceWidth: number;
+    fullWidth?: number;
+    baseWidth?: number;
+    chunkWidth?: number;
+    sliceWidth?: number;
 }
