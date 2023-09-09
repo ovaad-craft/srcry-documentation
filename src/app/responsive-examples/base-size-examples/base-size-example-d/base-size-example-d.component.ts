@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseSizeExampleDService } from './base-size-example-d.service';
 
@@ -7,7 +7,8 @@ import { BaseSizeExampleDService } from './base-size-example-d.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './base-size-example-d.component.html',
-  styleUrls: ['./base-size-example-d.component.css']
+  styleUrls: ['./base-size-example-d.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BaseSizeExampleDComponent implements OnInit, AfterViewInit, AfterContentChecked, OnDestroy {
 
