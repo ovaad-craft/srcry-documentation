@@ -24,4 +24,8 @@ export class BaseSizeExampleDService {
       });
     });
   }
+
+  public closeChannel():void{
+    this.DataChannel.close();
+  }
 }
