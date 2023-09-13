@@ -23,6 +23,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
   @Input() Demonstration!: Type<Component>;
   @Input() BroadcastName: string = '';
   @Input() ChannelName: string = '';
+  @Input() TargetName: string = '';
   @Input() WindowWidth: string = '';
   @Input() MinWindowWidth: string = '';
   @Input() WindowHeight: string = '';
@@ -98,6 +99,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterVi
     if(reflectComponentType(this.Demonstration)?.inputs.find(a=> a.propName === 'BroadcastName') !== undefined){
       item.instance.BroadcastName = this.BroadcastName;
       item.instance.ChannelName = this.ChannelName;
+      item.instance.TargetName = this.TargetName;
     }
 
     const defaultStyles = document.createElement('style');

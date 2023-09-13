@@ -15,6 +15,7 @@ export class DemonstrationFrameComponent implements OnInit{
   @Input() Demonstration!: any;
   @Input() BroadcastName: string = '';
   @Input() ChannelName: string = '';
+  @Input() TargetName: string = '';
   @Input() WindowWidth: string = '';
   @Input() MinWindowWidth: string = '';
   @Input() WindowHeight: string = '';
