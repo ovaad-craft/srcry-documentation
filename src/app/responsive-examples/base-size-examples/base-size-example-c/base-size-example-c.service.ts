@@ -8,18 +8,20 @@ export class BaseSizeExampleCService {
 
   DataChannel!: BroadcastChannel;
   ComponentChannelName!: string;
+  TargetName!: string;
 
   constructor(private zone: NgZone){}
 
-  public createBroadcastChannel(broadcastName: string, channelName: string): void{
+  public createBroadcastChannel(broadcastName: string, channelName: string, targetName: string): void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ComponentChannelName = channelName;
+    this.TargetName = targetName;
   }
 
   public sendData(data: BaseSizeAnalyzerInterface):void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.ComponentChannelName,
+        target: this.TargetName,
         payload: data
       });
     });
