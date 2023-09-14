@@ -161,3 +161,12 @@ export interface BaseSizeAnalyzerInterface{
     chunkWidth?: number;
     sliceWidth?: number;
 }
+
+export interface BaseSizeProps{
+    baseSizeW?: BoxSizeProps;
+    baseSizeWNudgeChunk?: number;
+    baseSizeWNudgeSlice?: number;
+    baseSizeH?: BoxSizeProps;
+    baseSizeHNudgeChunk?: number;
+    baseSizeHNudgeSlice?: number;
+}
