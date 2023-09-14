@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterViewInit, Component, Input, ElementRef, NgZone, ViewChild, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, Input, ElementRef, NgZone, ViewChild, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseSizeExampleDService } from './base-size-example-d.service';
 import { BaseSizeAnalyzerInterface } from '@site-types';
@@ -11,46 +11,45 @@ import { BaseSizeAnalyzerInterface } from '@site-types';
   styleUrls: ['./base-size-example-d.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class BaseSizeExampleDComponent implements OnInit, AfterViewInit, AfterContentChecked, OnDestroy {
+export class BaseSizeExampleDComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
+  @Input()TargetName!: string;
 
   @ViewChild('fullBox', {static: true, read: ElementRef})FullBox!: ElementRef;
   @ViewChild('baseBox', {static: true, read: ElementRef})BaseBox!: ElementRef;
   @ViewChild('chunkBox', {static: true, read: ElementRef})ChunkBox!: ElementRef;
 
-  constructor(private zone: NgZone, private dataChannel: BaseSizeExampleDService){}
+  constructor(private zone: NgZone, private dataService: BaseSizeExampleDService){
 
+  }
+  
   ngOnInit(): void {
-    this.dataChannel.createChannel(this.BroadcastName, this.ChannelName);
+    this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
-
+  
   ngAfterViewInit(): void {
-    const frame: ResizeObserver = new ResizeObserver((item)=>{
-      this.zone.run(()=>{
-        this.readElements();
-      });
+    const frameListener: ResizeObserver = new ResizeObserver((element)=>{
+      this.zone.run(()=>this.readElements());
     });
-
-    frame.observe(this.FullBox.nativeElement);      
-  }
-
-  ngAfterContentChecked(): void {
-    this.readElements();
+    
+    frameListener.observe(this.FullBox.nativeElement);
+    
   }
 
   ngOnDestroy(): void {
-      this.dataChannel.closeChannel();
+      this.dataService.closeChannel();
   }
 
   private readElements():void{
     const sizes: BaseSizeAnalyzerInterface = {
+      fullWidth: this.FullBox.nativeElement.offsetWidth,
       baseWidth: this.BaseBox.nativeElement.offsetWidth,
       chunkWidth: this.ChunkBox.nativeElement.offsetWidth
     };
 
-    this.dataChannel.sendData(sizes);
+    this.dataService.sendData(sizes);
   }
 
 }
