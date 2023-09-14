@@ -45,7 +45,7 @@ body{
 }
 
 .textContent{
-    width: 92%;
+    width: 92vw;
     max-width: 77ch;
     --text-size: var(--text-article-1);
     --leading-nudge-amt: 38;
