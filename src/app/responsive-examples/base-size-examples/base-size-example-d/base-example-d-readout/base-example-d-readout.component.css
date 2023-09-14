@@ -1,0 +1,47 @@
+.mainContainer{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: var(--line-semiWide);
+    width: 100%;
+    background-color: hsl(var(--gray-200), .29);
+    border: solid var(--line-light) hsl(var(--gray-200), 1);
+    padding: var(--line-semiWide);
+}
+
+.readingContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+}
+
+.readoutText{
+    --text-size: var(--text-widget-4);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-500), 1);
+    font-weight: 600;
+    align-self: flex-end;
+}
+
+.indicatorText{
+    align-self: flex-start;
+    --text-size: var(--text-widget-2);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    color: hsl(var(--purple-300), 1);
+}
+
+.indicator{
+    align-self: flex-start;
+    width: var(--micro-1-3);
+    min-width: calc(1px * var(--grc15-9));
+    aspect-ratio: 1;
+}
+
+.chunkIndicator{
+    border: dashed var(--line-fine) hsl(var(--blue-300), 1);
+    background-color: hsl(var(--blue-300), .22);
+}
+
+.baseIndicator{
+    background-color: hsl(var(--blue-300), 1);
+}

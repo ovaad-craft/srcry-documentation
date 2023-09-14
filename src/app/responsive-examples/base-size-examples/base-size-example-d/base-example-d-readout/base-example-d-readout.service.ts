@@ -9,6 +9,7 @@ export class BaseExampleDReadoutService {
 
   DataChannel!: BroadcastChannel;
   ComponentChannelName!: string;
+  TargetName!: string;
 
   private Readings: BehaviorSubject<BaseSizeAnalyzerInterface> = new BehaviorSubject<BaseSizeAnalyzerInterface>({
     fullWidth: 0,
@@ -31,9 +32,10 @@ export class BaseExampleDReadoutService {
     };
   }
 
-  public createBroadcastChannel(broadcastName: string, componentChannelName: string): void{
+  public createBroadcastChannel(broadcastName: string, componentChannelName: string, targetName: string): void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ComponentChannelName = componentChannelName;
+    this.TargetName = targetName;
     this.createChannelListener();
   }
 
