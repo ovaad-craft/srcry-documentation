@@ -1,0 +1,60 @@
+:host{
+    display: grid;
+    place-items: center;
+    place-self: center;
+    padding: var(--line-semiThick) 0;
+}
+
+.mainContainer{
+    display: grid;
+    gap: 0 var(--line-semiBold);
+    grid-template-columns: auto auto;
+    width: min-content;
+}
+
+.numberInput{
+    grid-area: 1/1/2/2;
+    width: 7ch;
+    text-align: center;
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 6;
+    height: 5ch;
+    place-self: center;
+    font-weight: 600;
+    color: hsl(var(--purple-300), 1);
+    border: var(--line-fine) solid hsl(var(--purple-300), 1);
+}
+
+.numberInput:focus{
+    border: var(--line-fine) solid hsl(var(--purple-500), 1);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.incramentContainer{
+    grid-area: 1/2/2/3;
+    display: grid;
+    grid-auto-flow: row;
+    gap: var(--line-semiBold) 0;
+}
+
+.incramentButton{
+    width: var(--micro-2-4);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-style: none;
+    background-color: hsl(var(--purple-300), 1);
+    transition: 200ms ease-in-out;
+}
+
+.incramentButton:hover{
+    background-color: hsl(var(--purple-500), 1);
+}

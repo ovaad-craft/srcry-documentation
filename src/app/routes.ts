@@ -43,6 +43,11 @@ export const SITEROUTES: Routes = [
         .then(mod => mod.BaseSizePageComponent)
     },
     {
+        path: 'crush-gap',
+        loadComponent: ()=> import('./pages/crush-gap-page/crush-gap-page.component')
+        .then(mod => mod.CrushGapPageComponent)
+    },
+    {
         path: 'edge-chase',
         loadComponent: ()=> import('./pages/edge-chase-page/edge-chase-page.component')
         .then(mod => mod.EdgeChasePageComponent)

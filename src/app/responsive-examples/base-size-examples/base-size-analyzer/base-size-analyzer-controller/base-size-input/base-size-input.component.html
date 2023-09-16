@@ -1,0 +1,121 @@
+<section class="mainContainer">
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--baseSize-w'"
+            [Active]="PropButtonsActive"
+            [Value]="makeIntoVariable(PropSettings.baseSizeW)"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleBaseWselector()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleBaseW ? 'selectorOpen' : 'selectorClosed'">
+            <box-size-selector
+                [DefaultSettings]="DefaultSettings.baseSizeW"
+                class="selector"
+                [ngClass]="ToggleBaseW ? 'active' : 'innactive'"
+                (UpdateSelection)="updateBaseSizeW($event)"
+                (UpdateStatus)="updateSelectorStatus($event)"
+            />
+        </article>
+    </article>
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--baseSize-w-nudge-chunk'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.baseSizeWNudgeChunk"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleBaseWChunk()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleBaseWChunk ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.baseSizeWNudgeChunk"
+                [ngClass]="ToggleBaseWChunk ? 'active' : 'innactive'"
+                (UpdateSize)="updateBaseWChunk($event)"
+            />
+        </article>
+    </article>
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--baseSize-w-nudge-slice'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.baseSizeWNudgeSlice"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleBaseWSlice()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleBaseWSlice ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.baseSizeWNudgeSlice"
+                [ngClass]="ToggleBaseWSlice ? 'active' : 'innactive'"
+                (UpdateSize)="updateBaseWSlice($event)"
+            />
+        </article>
+    </article>
+    
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--baseSize-h'"
+            [Active]="PropButtonsActive"
+            [Value]="makeIntoVariable(PropSettings.baseSizeH)"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleBaseHselector()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleBaseH ? 'selectorOpen' : 'selectorClosed'">
+            <box-size-selector
+                [DefaultSettings]="DefaultSettings.baseSizeH"
+                class="selector"
+                [ngClass]="ToggleBaseH ? 'active' : 'innactive'"
+                (UpdateSelection)="updateBaseSizeH($event)"
+                (UpdateStatus)="updateSelectorStatus($event)"
+            />
+        </article>
+    </article>
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--baseSize-h-nudge-chunk'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.baseSizeHNudgeChunk"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleBaseHChunk()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleBaseHChunk ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.baseSizeHNudgeChunk"
+                [ngClass]="ToggleBaseHChunk ? 'active' : 'innactive'"
+                (UpdateSize)="updateBaseHChunk($event)"
+            />
+        </article>
+    </article>
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--baseSize-h-nudge-slice'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.baseSizeHNudgeSlice"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleBaseHSlice()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleBaseHSlice ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.baseSizeHNudgeSlice"
+                [ngClass]="ToggleBaseHSlice ? 'active' : 'innactive'"
+                (UpdateSize)="updateBaseHSlice($event)"
+            />
+        </article>
+    </article>
+
+</section>

@@ -1,0 +1,17 @@
+<button
+    type="button"
+    class="propButton propDisplay"
+    [ngClass]=" !Active || SelectorStatus && !ButtonToggle ? 'hold active' : !SelectorStatus && !ButtonToggle ? 'active' : 'innactive'"
+    (click)="toggler(); setToInnactive()"
+>
+    <span class="srcryTxt propText">{{Prop}}: </span> <span class="srcryTxt valueText">{{Value}}</span>
+</button>
+
+<button
+    type="button"
+    class="srcryTxt propButton complete"
+    [ngClass]="SelectorStatus && ButtonToggle ? 'hold active' : !SelectorStatus && ButtonToggle ? 'active' : 'innactive'"
+    (click)="toggler(); setToActive()"
+>
+    Done
+</button>

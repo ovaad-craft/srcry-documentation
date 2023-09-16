@@ -5,10 +5,10 @@ import { PaginationData } from '@site-types';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { SyntaxFrameComponent } from 'src/app/layout/syntax-frame/syntax-frame.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
-import { BoxSizeDemoAComponent } from 'src/app/responsive-examples/box-size-demo-a/box-size-demo-a.component';
-import { BoxSizeDemoBComponent } from 'src/app/responsive-examples/box-size-demo-b/box-size-demo-b.component';
-import { BoxSizeAnalyzerComponent } from 'src/app/responsive-examples/box-size-analyzer/box-size-analyzer.component';
-import { AnalyzerInputComponent } from 'src/app/responsive-examples/box-size-analyzer/analyzer-input/analyzer-input.component';
+import { BoxSizeDemoAComponent } from 'src/app/responsive-examples/box-size-examples/box-size-demo-a/box-size-demo-a.component';
+import { BoxSizeDemoBComponent } from 'src/app/responsive-examples/box-size-examples/box-size-demo-b/box-size-demo-b.component';
+import { BoxSizeAnalyzerComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/box-size-analyzer.component';
+import { AnalyzerInputComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/analyzer-input.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {

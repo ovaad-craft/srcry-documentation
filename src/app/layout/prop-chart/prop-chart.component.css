@@ -1,0 +1,40 @@
+:host{
+    justify-self: center;
+}
+
+.propTable{
+    border: solid var(--line-fine) hsl(var(--purple-200), 1);
+    border-collapse: collapse;
+}
+
+.headerRow{
+    background-color: hsl(var(--purple-400), 1);
+    border: solid var(--line-fine) hsl(var(--purple-200), 1);
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 22;    
+}
+
+.headerRowTitle{
+    padding: var(--line-semiWide) 0;
+    color: hsl(var(--gray-100), 1);
+    border: solid var(--line-fine) hsl(var(--purple-200), 1);
+}
+
+.headerColumnTitle{
+    background-color: hsl(var(--gray-100), 1);
+    color: hsl(var(--purple-400), 1);
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 11;
+    text-align: left;
+    padding: var(--line-thick);
+    border: solid var(--line-fine) hsl(var(--purple-200), 1);
+}
+
+.description{
+    border: solid var(--line-fine) hsl(var(--purple-200), 1);
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 6;
+    font-weight: 400;
+    color: hsl(var(--purple-400), 1);
+    padding: 0 var(--line-semiWide);
+}

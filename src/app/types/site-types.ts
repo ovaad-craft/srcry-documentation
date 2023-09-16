@@ -148,3 +148,48 @@ export interface WindowSize{
     width: number;
     height: number;
 }
+
+export interface PropChartData{
+    id: string;
+    title: string;
+    description: string;
+}
+
+export interface BaseSizeAnalyzerInterface{
+    fullWidth?: number;
+    baseWidth?: number;
+    chunkWidth?: number;
+    sliceWidth?: number;
+}
+
+export interface BaseSizeProps{
+    baseSizeW: BoxSizeProps;
+    baseSizeWNudgeChunk: number;
+    baseSizeWNudgeSlice: number;
+    baseSizeH: BoxSizeProps;
+    baseSizeHNudgeChunk: number;
+    baseSizeHNudgeSlice: number;
+}
+
+export interface BaseSizeSettings{
+    baseSizeW: string;
+    baseSizeWNudgeChunk: number;
+    baseSizeWNudgeSlice: number;
+    baseSizeH: string;
+    baseSizeHNudgeChunk: number;
+    baseSizeHNudgeSlice: number;
+}
+
+export interface BaseSizePropData{
+    baseSizeW: BoxSizeInterface;
+    baseSizeWNudgeChunk: number;
+    baseSizeWNudgeSlice: number;
+    baseSizeH: BoxSizeInterface;
+    baseSizeHNudgeChunk: number;
+    baseSizeHNudgeSlice: number;
+}
+
+export interface BaseSizeValues{
+    width: number;
+    height: number;
+}

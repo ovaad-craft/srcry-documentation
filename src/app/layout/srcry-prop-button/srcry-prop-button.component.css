@@ -1,0 +1,74 @@
+:host{
+    display: grid;
+    width: 100%;
+    overflow: hidden;
+}
+
+.propButton{
+    grid-area: 1/1/2/2;
+    padding: var(--line-bold) var(--line-semiBold);
+    transition: 200ms ease-in-out;
+    border-style: none;
+}
+
+
+.propDisplay{
+    --position: -105%;
+    text-align: left;
+    background-color: hsl(var(--gray-100), .77);
+    outline: var(--line-light) solid hsl(var(--gray-200), .33);
+}
+
+.propDisplay:hover{
+    background-color: hsl(var(--purple-500), 1);
+}
+
+.propDisplay:hover > .propText, .propButton:hover > .valueText{
+    color: hsl(var(--gray-100), 1);
+}
+
+.propText{
+    --text-size: var(--text-widget-1);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    color: hsl(var(--purple-300), 1);
+}
+
+.valueText{
+    --text-size: var(--text-caption-1);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    color: hsl(var(--purple-500), 1);
+}
+
+.complete{
+    --position: 105%;
+    --text-size: var(--text-article-3);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    background-color: hsl(var(--green-300), 1);
+    color: hsl(var(--gray-100), 1);
+    transform: translateX(var(--position));
+}
+
+.complete:hover{
+    background-color: hsl(var(--green-500), 1);
+}
+
+.active{
+    transform: translateX(0);
+}
+
+.innactive{
+    transform: translateX(var(--position));
+}
+
+.hold{
+    background-color: hsl(var(--gray-300), 1);
+    transform: translateX(0);
+    pointer-events: none;
+}
+
+.hold > .propText, .hold > .valueText{
+    color: hsl(var(--gray-100), 1);
+}

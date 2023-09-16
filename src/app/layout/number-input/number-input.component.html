@@ -1,0 +1,37 @@
+<section class="mainContainer">
+
+    <input class="srcryTxt numberInput" type="number" [(ngModel)]="Value" />
+
+    <article class="incramentContainer">
+        <button class="incramentButton" type="button" (click)="incramentUp()">
+            <svg
+            viewBox="0 0 10 10"
+            width="33%"
+            height="33%"
+            class="dropdownArrow"
+        >
+            <use
+                href="#dropdown_arrow"
+                transform-origin="5 5"
+                transform="rotate(-90)"
+                fill="hsl(var(--gray-100), 1)"
+            />
+        </svg>
+        </button>
+        <button class="incramentButton" type="button" (click)="incramentDown()">
+            <svg
+            viewBox="0 0 10 10"
+            width="33%"
+            height="33%"
+            class="dropdownArrow"
+        >
+            <use
+                href="#dropdown_arrow"
+                transform-origin="5 5"
+                transform="rotate(90)"
+                fill="hsl(var(--gray-100), 1)"
+            />
+        </svg>
+        </button>
+    </article>
+</section>

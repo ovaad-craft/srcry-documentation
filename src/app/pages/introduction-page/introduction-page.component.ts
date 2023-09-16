@@ -5,12 +5,12 @@ import { SidebarService } from 'src/app/layout/sidebar/sidebar.service';
 import { SummaryCardComponent } from 'src/app/layout/summary-card/summary-card.component';
 import { CardSummaryData, PaginationData } from '@site-types';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
-import { TestExampleComponent } from 'src/app/responsive-examples/test-example/test-example.component';
+//import { TestExampleComponent } from 'src/app/responsive-examples/test-example/test-example.component';
 import { Type } from '@angular/compiler';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
-import { NavigationComponent } from 'src/app/responsive-examples/navigation/navigation.component';
-import { ProductComponent } from 'src/app/responsive-examples/product/product.component';
-import { ArticleComponent } from 'src/app/responsive-examples/article/article.component';
+import { NavigationComponent } from 'src/app/responsive-examples/introduction-examples/navigation/navigation.component';
+import { ProductComponent } from 'src/app/responsive-examples/introduction-examples/product/product.component';
+import { ArticleComponent } from 'src/app/responsive-examples/introduction-examples/article/article.component';
 import { RouterLink } from '@angular/router';
 
 const PAGINATIONDATA: PaginationData = {
@@ -29,7 +29,6 @@ const PAGINATIONDATA: PaginationData = {
     RouterLink,
     SummaryCardComponent,
     PaginateComponent,
-    TestExampleComponent,
     DemonstrationFrameComponent
   ],
   templateUrl: './introduction-page.component.html',
