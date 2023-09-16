@@ -121,3 +121,12 @@ body{
     --kerning-nudge-amt: 6;
     color: hsl(var(--purple-400), 1);
 }
+
+.controllerContainer{
+    display: grid;
+    grid-auto-rows: auto;
+    gap: var(--line-semiWide);
+    background-color: hsl(var(--gray-200), .29);
+    border: solid var(--line-light) hsl(var(--gray-200), 1);
+    padding: var(--line-semiWide);
+}
