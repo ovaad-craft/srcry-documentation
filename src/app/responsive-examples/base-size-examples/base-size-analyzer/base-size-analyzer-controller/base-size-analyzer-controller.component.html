@@ -1,1 +1,23 @@
-<p>base-size-analyzer-controller works!</p>
+<section class="mainContainer controllerContainer">
+
+    <article class="readoutContainer">
+
+        <article class="readingContainer">
+            <label class="srcryTxt readingLabel">width</label>
+            <p class="srcryTxt readoutText">
+                {{Readings.width}}<small>px</small>
+            </p>
+        </article>
+
+        <article class="readingContainer">
+            <label class="srcryTxt readingLabel">height</label>
+            <p class="srcryTxt readoutText">
+                {{Readings.height}}<small>px</small>
+            </p>
+        </article>
+
+    </article>
+
+    <base-size-input [DefaultSettings]="DefaultSettings" (UpdateProps)="updateValues($event)"/>
+
+</section>

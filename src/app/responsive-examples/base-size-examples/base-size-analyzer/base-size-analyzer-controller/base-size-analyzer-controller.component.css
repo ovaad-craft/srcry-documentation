@@ -1,0 +1,36 @@
+:host{
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.mainContainer{
+    width: min(var(--small-2-6), 92vw);
+}
+
+.readoutContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: hsl(var(--gray-200), .11);
+
+}
+
+.readingContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    place-items: center;
+}
+
+.readingLabel{
+    --text-size: var(--text-widget-2);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    color: hsl(var(--purple-300), 1);
+}
+
+.readoutText{
+    --text-size: var(--text-widget-4);
+    font-weight: 600;
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-500), 1);
+}
