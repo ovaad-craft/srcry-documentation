@@ -1,13 +1,121 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
+import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
+import { PaginationData, PropChartData } from '@site-types';
+import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
+import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
+import { BaseSizeExampleAComponent } from 'src/app/responsive-examples/base-size-examples/base-size-example-a/base-size-example-a.component';
+import { BaseSizeExampleBComponent } from 'src/app/responsive-examples/base-size-examples/base-size-example-b/base-size-example-b.component';
+import { BaseSizeExampleCComponent } from 'src/app/responsive-examples/base-size-examples/base-size-example-c/base-size-example-c.component';
+import { BaseSizeCReadoutComponent } from 'src/app/responsive-examples/base-size-examples/base-size-example-c/base-size-c-readout/base-size-c-readout.component';
+import { BaseSizeExampleDComponent } from 'src/app/responsive-examples/base-size-examples/base-size-example-d/base-size-example-d.component';
+import { BaseExampleDReadoutComponent } from 'src/app/responsive-examples/base-size-examples/base-size-example-d/base-example-d-readout/base-example-d-readout.component';
+import { BaseSizeAnalyzerComponent } from 'src/app/responsive-examples/base-size-examples/base-size-analyzer/base-size-analyzer.component';
+import { BaseSizeAnalyzerControllerComponent } from 'src/app/responsive-examples/base-size-examples/base-size-analyzer/base-size-analyzer-controller/base-size-analyzer-controller.component';
+
+const PAGINATIONDATA: PaginationData = {
+  previous:{
+    id: 'srcryBoxOverview',
+    title: 'Srcry Box Overview',
+    path: '/srcry-box-overview'
+  },
+  next:{
+    id: 'crushGap',
+    title: 'Crush Gap',
+    path: '/crush-gap'
+  }
+}
+
+const PROPCHART: PropChartData[] = [
+  {
+    id: 'baseSizeW',
+    title: '--baseSize-w',
+    description: 'Defines the core width of your element.'
+  },
+  {
+    id: 'baseSizeWnudgeSlice',
+    title: '--baseSize-w-nudge-slice',
+    description: 'Adds the defined number of nudge slices to the --baseSize-w property.'
+  },
+  {
+    id: 'baseSizeWnudgeChunk',
+    title: '--baseSize-w-nudge-chunk',
+    description: 'Adds the defined number of nudge chunks to the --baseSize-w property.'
+  },
+  {
+    id: 'baseSizeH',
+    title: '--baseSize-h',
+    description: 'Defines the core height of your element.'
+  },
+  {
+    id: 'baseSizeHnudgeSlice',
+    title: '--baseSize-h-nudge-slice',
+    description: 'Adds the defined number of nudge slices to the --baseSize-h property.'
+  },
+  {
+    id: 'baseSizeHnudgeChunk',
+    title: '--baseSize-h-nudge-chunk',
+    description: 'Adds the defined number of nudge chunks to the --baseSize-h property.'
+  }
+]
 
 @Component({
-  selector: 'app-base-size-page',
+  selector: 'base-size-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    PropChartComponent,
+    CodeDisplayComponent,
+    PaginateComponent,
+    DemonstrationFrameComponent,
+    BaseSizeCReadoutComponent,
+    BaseExampleDReadoutComponent,
+    BaseSizeAnalyzerControllerComponent
+  ],
   templateUrl: './base-size-page.component.html',
   styleUrls: ['./base-size-page.component.css']
 })
 export class BaseSizePageComponent {
+  
+  Demo_01: string = `  .myClass{
+    --baseSize-w: var(--tiny-1-4);
+    --baseSize-h: var(--xTiny-1-5);
+    display: block;
+    background-color: blue;
+  }
+  `;
+  Demo_01_Component = BaseSizeExampleAComponent;
+
+  Demo_02: string = `  .myClass{
+    font-size: var(--text-article-4);
+    --baseSize-w: 11ch;
+    --baseSize-h: 5ch;
+    display: block;
+    background-color: blue;
+  }
+  `;
+  Demo_02_Component = BaseSizeExampleBComponent;
+
+  Demo_03: string = `  .myClass{
+    --baseSize-w: var(--tiny-1-7);
+    --baseSize-w-nudge-chunk: 2;
+    --baseSize-w-nudge-slice: 5;
+  }
+  `;
+  Demo_03_Component = BaseSizeExampleCComponent;
+
+  Demo_04_Component = BaseSizeExampleDComponent;
+
+  Demo_04: string = `  .myClass{
+    --baseSize-w: var(--tiny-1-8);
+    --baseSize-w-nudge-chunk: -3;
+  }
+  `;
+
+  Demo_05_Component = BaseSizeAnalyzerComponent;
+
+  Pagination: PaginationData = PAGINATIONDATA;
+  PropData: PropChartData[] = PROPCHART;
 
 }

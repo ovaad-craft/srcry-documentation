@@ -1,1 +1,143 @@
-<p>base-size-page works!</p>
+<section class="pageContainer">
+    <h1 class="srcryTxt pageTitle">Base Size</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The <b>baseSize</b> is a set of 6 properties that are used for defining the core size of your element.  If for example you're taking a mobile first approach to your layout then this would be the size you want your element to be on mobile devices.  The properties and their usage is defined in the chart below.
+        </p>
+
+        <prop-chart [ChartData]="PropData" />
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The following example demonstrates how to set the <b>--baseSize-w</b> and <b>--baseSize-h</b> properties on your element.
+        </p>
+
+        <article class="demonstratinContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_01" />
+    
+            <demonstration-frame
+                [Demonstration]="Demo_01_Component"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-2)'"
+                [MinWindowWidth]="'48px'"
+                [WindowHeight]="'var(--tiny-1-2)'"
+                [MinWindowHeight]="'150px'"
+            ></demonstration-frame>
+
+        </article>
+
+        <p class="srcryTxt textContent">
+            Though the <b>box size</b> library is a powerful tool you can still use all the other css units to define the <b>baseSize-w</b> and <b>baseSize-h</b> properties.  The following example shows this being done with <b>ch</b> units with the font size being set to a <b>text-size</b> value.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_02" />
+    
+            <demonstration-frame
+                [Demonstration]="Demo_02_Component"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--tiny-1-2)'"
+                [MinWindowHeight]="'150px'"
+            ></demonstration-frame>
+
+        </article>
+
+        <p class="srcryTxt textContent">
+            As mentioned on the overview page there may be times when the size you're going for is in between two sizes which is why the <b>nudge</b> properties were created.  The following example shows how these properties impact the overall size.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_03" />
+    
+            <demonstration-frame
+                [Demonstration]="Demo_03_Component"
+                [BroadcastName]="'baseSizeExample'"
+                [ChannelName]="'baseSizeNudgeA'"
+                [TargetName]="'baseSizeNudgeAController'"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--tiny-1-2)'"
+                [MinWindowHeight]="'150px'"
+            >
+    
+                <base-size-c-readout
+                    controlArea
+                    [BroadcastName]="'baseSizeExample'"
+                    [ChannelName]="'baseSizeNudgeAController'"
+                    [TargetName]="'baseSizeNudgeA'"
+                />
+    
+            </demonstration-frame>
+
+        </article>
+
+        <p class="srcryTxt textContent">
+            As you can see the <b>nudge</b> properties add a few extra pixels to the overall size of the element and barely scales when you expand the screen.  Not only can you add to the size of your element but you can also subtract from it by using negative values as shown below.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_04" />
+    
+            <demonstration-frame
+                [Demonstration]="Demo_04_Component"
+                [BroadcastName]="'baseSizeExample'"
+                [ChannelName]="'baseSizeNudgeB'"
+                [TargetName]="'baseSizeNudgeBController'"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--tiny-1-2)'"
+                [MinWindowHeight]="'150px'"
+            >
+    
+                <base-example-d-readout
+                    controlArea
+                    [BroadcastName]="'baseSizeExample'"
+                    [ChannelName]="'baseSizeNudgeBController'"
+                    [TargetName]="'baseSizeNudgeB'"
+                />
+    
+            </demonstration-frame>
+
+        </article>
+
+        <p class="srcryTxt textContent">
+            For clarity, the ligther dashed portion of the box is the amount that would be subtracted from the original size while the solid portion is the resulting width of your element.  To get a better feel for how these properties work together, use the following demonstration to explore the results of different settings.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <demonstration-frame
+                [Demonstration]="Demo_05_Component"
+                [BroadcastName]="'baseSizeExample'"
+                [ChannelName]="'baseSizeAnalyzer'"
+                [TargetName]="'baseSizeAnalyzerController'"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--tiny-1-2)'"
+                [MinWindowHeight]="'150px'"
+            >
+                <base-size-analyzer-controller
+                    controlArea
+                    [BroadcastName]="'baseSizeExample'"
+                    [ChannelName]="'baseSizeAnalyzerController'"
+                    [TargetName]="'baseSizeAnalyzer'"
+                />
+            </demonstration-frame>
+            
+        </article>
+
+    </article>
+
+    <paginate [PageData]="Pagination" />
+</section>
