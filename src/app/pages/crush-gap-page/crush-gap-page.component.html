@@ -12,6 +12,16 @@
         <prop-chart [ChartData]="PropData" />
     </article>
 
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            It's important to note that the value of this property is distributed to both sides of your element.  So if for example the <b>crushGap-w</b> were set to <b>20px</b>, there would be a gap of 10px on the left and right sides of your element rather than 20px on both sides.
+        </p>
+
+        <p class="srcryTxt textContent">
+            It's also important to note that most apps and websites place content vertically causing us to have to scroll up and down while the width of our content sits comfortably within the width of our device. Due to this the <b>crushGap-h</b> properties only apply in instances where the UI is designed to fit within the height of the screen with no scrolling.  Other than that in an application where its intended for the content to go beyond the height of the screen the <b>crushGap-h</b> properties won't have any effect.  To demonstrate this point look at the following examples.
+        </p>
+    </article>
+
     <paginate [PageData]="Pagination" />
 
 </section>
