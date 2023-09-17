@@ -22,6 +22,32 @@
         </p>
     </article>
 
+    <article class="contentContainer">
+
+        <article class="demonstrationContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_01" />
+
+            <demonstration-frame
+                [Demonstration]="Demo_01_Component"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-2-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--loMed-2-2)'"
+                [MinWindowHeight]="'150px'"
+            >
+            </demonstration-frame>
+
+        </article>
+
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            In the example above the <b>parentContainer</b> has a height of <b>100vh</b> so when you reduce the height of the frame you can see the height of the <b>child</b> element shrink with it.
+        </p>
+    </article>
+
     <paginate [PageData]="Pagination" />
 
 </section>
