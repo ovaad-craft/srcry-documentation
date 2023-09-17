@@ -32,6 +32,21 @@ const PROPCHART: PropChartData[] = [
     id: 'crushGapWNudgeSlice',
     title: '--crushGap-w-nudge-slice',
     description: 'Adds the defined number of nudge slices to the --crushGap-w property.'
+  },
+  {
+    id: 'crushGapH',
+    title: '--crushGap-h',
+    description: 'Defines the margin between the left and right edges of your element and the screen.'
+  },
+  {
+    id: 'crushGapHNudgeChunk',
+    title: '--crushGap-h-nudge-chunk',
+    description: 'Adds the defind number of nudge chunks to the --crushGap-h property.'
+  },
+  {
+    id: 'crushGapHNudgeSlice',
+    title: '--crushGap-h-nudge-slice',
+    description: 'Adds the defined number of nudge slices to the --crushGap-h property.'
   }
 ]
 
