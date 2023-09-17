@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './crush-gap-example-a.component.html',
-  styleUrls: ['./crush-gap-example-a.component.css']
+  styleUrls: ['./crush-gap-example-a.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class CrushGapExampleAComponent {
 
