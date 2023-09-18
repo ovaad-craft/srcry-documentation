@@ -71,14 +71,7 @@ export class CrushGapPageComponent {
   Pagination: PaginationData = PAGINATIONDATA;
   PropData: PropChartData[] = PROPCHART;
 
-  Demo_01: string = ` .parentContainer {
-    display: grid;
-    width: 100vw;
-    height: 100vh;
-    place-items: center;
- }
-
- .child {
+  Demo_01: string = ` .myClass {
    display: block;
    --crushGap-w: var(--xTiny-1-4);
    --baseSize-w: var(--loMed-1-4);
