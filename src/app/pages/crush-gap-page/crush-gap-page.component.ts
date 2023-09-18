@@ -6,6 +6,8 @@ import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.compone
 import { CrushGapExampleAComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-example-a/crush-gap-example-a.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
+import { CrushGapAnalyzerComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-analyzer/crush-gap-analyzer.component';
+import { CrushGapControllerComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-analyzer/crush-gap-controller/crush-gap-controller.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous:{
@@ -61,7 +63,8 @@ const PROPCHART: PropChartData[] = [
     PaginateComponent,
     PropChartComponent,
     DemonstrationFrameComponent,
-    CodeDisplayComponent
+    CodeDisplayComponent,
+    CrushGapControllerComponent
   ],
   templateUrl: './crush-gap-page.component.html',
   styleUrls: ['./crush-gap-page.component.css']
@@ -81,5 +84,7 @@ export class CrushGapPageComponent {
  }
   `;  
   Demo_01_Component = CrushGapExampleAComponent;
+
+  Demo_02_Component = CrushGapAnalyzerComponent;
   
 }
