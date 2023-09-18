@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CrushGapInputComponent } from './crush-gap-input/crush-gap-input.component';
 
 @Component({
-  selector: 'app-crush-gap-controller',
+  selector: 'crush-gap-controller',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CrushGapInputComponent],
   templateUrl: './crush-gap-controller.component.html',
   styleUrls: ['./crush-gap-controller.component.css']
 })
