@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
 
 @Component({
   selector: 'app-crush-gap-analyzer',
@@ -9,5 +10,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./crush-gap-analyzer.component.css']
 })
 export class CrushGapAnalyzerComponent {
+
+  @Input() BroadcastName!: string;
+  @Input() ChannelName!: string;
+  @Input() TargetName!: string;
+
+  constructor(private dataService: CrushGapAnalyzerService){}
 
 }
