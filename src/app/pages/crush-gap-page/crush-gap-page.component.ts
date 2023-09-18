@@ -6,6 +6,7 @@ import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.compone
 import { CrushGapExampleAComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-example-a/crush-gap-example-a.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
+import { CrushGapExampleBComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-example-b/crush-gap-example-b.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous:{
@@ -71,22 +72,41 @@ export class CrushGapPageComponent {
   Pagination: PaginationData = PAGINATIONDATA;
   PropData: PropChartData[] = PROPCHART;
 
-  Demo_01: string = `.parentContainer{
-     display: grid;
-     width: 100vw;
-     height: 100vh;
-     place-items: center;
-   }
+  Demo_01: string = ` .parentContainer {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+ }
 
-   .child{
-    display: block;
-    --crushGap-w: var(--xTiny-1-4);
-    --baseSize-w: var(--loMed-1-4);
-    --crushGap-h: var(--xTiny-1-4);
-    --baseSize-h: var(--loMed-1-4);
-    background-color: blue;
-   }
+ .child {
+   display: block;
+   --crushGap-w: var(--xTiny-1-4);
+   --baseSize-w: var(--loMed-1-4);
+   --crushGap-h: var(--xTiny-1-4);
+   --baseSize-h: var(--loMed-1-4);
+   background-color: blue;
+ }
   `;  
   Demo_01_Component = CrushGapExampleAComponent;
+  
+  Demo_02: string = ` .parentContainer {
+    display: grid;
+    width: 100vw;
+    height: 400vh;
+    justify-items: center;
+    align-items: flex-start;
+    overflow-: scroll;
+ }
 
+ .child {
+   display: block;
+   --crushGap-w: var(--xTiny-1-4);
+   --baseSize-w: var(--loMed-1-4);
+   --crushGap-h: var(--xTiny-1-4);
+   --baseSize-h: var(--loMed-1-4);
+   background-color: blue;
+ }
+  `;
+  Demo_02_Component = CrushGapExampleBComponent; 
 }
