@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { CrushGapProps, CrushGapSettings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
+import { createCssVariable } from 'src/app/utils/create-css-variable';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,18 @@ export class CrushGapAnalyzerService {
     this.setChannelListener();
   }
 
-  private updateData(data: CrushGapProps):void{}
+  private updateData(data: CrushGapProps):void{
+    const props: CrushGapSettings = {
+      crushGapW: createCssVariable(data.crushGapW),
+      crushGapWNudgeChunk: data.crushGapWNudgeChunk,
+      crushGapWNudgeSlice: data.crushGapWNudgeSlice,
+      crushGapH: createCssVariable(data.crushGapH),
+      crushGapHNudgeChunk: data.crushGapHNudgeChunk,
+      crushGapHNudgeSlice: data.crushGapHNudgeSlice
+    };
+
+    this.Settings.next(props);
+  }
 
   public closeChannel():void{
     this.DataChannel.close();
