@@ -30,4 +30,8 @@ export class CrushGapAnalyzerService {
   }
 
   private updateData(data: CrushGapProps):void{}
+
+  public closeChannel():void{
+    this.DataChannel.close();
+  }
 }
