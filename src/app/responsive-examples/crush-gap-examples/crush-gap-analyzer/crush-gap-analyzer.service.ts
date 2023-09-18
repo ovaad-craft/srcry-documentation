@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
-import { CrushGapProps } from '@site-types';
+import { CrushGapProps, CrushGapSettings } from '@site-types';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,17 @@ export class CrushGapAnalyzerService {
   DataChannel! : BroadcastChannel;
   ChannelName! : string;
   TargetName! : string;
+
+  private Settings: BehaviorSubject<CrushGapSettings> = new BehaviorSubject<CrushGapSettings>({
+    crushGapW: '--',
+    crushGapWNudgeChunk: 0,
+    crushGapWNudgeSlice: 0,
+    crushGapH: '--',
+    crushGapHNudgeChunk: 0,
+    crushGapHNudgeSlice: 0
+  });
+
+  public Settings$ = this.Settings.asObservable();
 
   constructor(private zone: NgZone) { }
 
