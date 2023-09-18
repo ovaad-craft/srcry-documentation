@@ -14,7 +14,8 @@
     display: grid;
     width: 100vw;
     height: 400vh;
-    place-items: center;
+    justify-items: center;
+    align-items: flex-start;
     overflow-y: scroll;
 }
 
