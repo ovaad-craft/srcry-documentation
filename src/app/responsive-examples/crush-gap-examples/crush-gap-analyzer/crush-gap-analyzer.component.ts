@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
 
@@ -7,7 +7,8 @@ import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './crush-gap-analyzer.component.html',
-  styleUrls: ['./crush-gap-analyzer.component.css']
+  styleUrls: ['./crush-gap-analyzer.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class CrushGapAnalyzerComponent {
 
