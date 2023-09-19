@@ -1,4 +1,4 @@
-import { Component, Input, NgZone, OnInit } from '@angular/core';
+import { Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapInputComponent } from './crush-gap-input/crush-gap-input.component';
 import { CrushGapControllerService } from './crush-gap-controller.service';
@@ -11,7 +11,7 @@ import { CrushGapReadings } from '@site-types';
   templateUrl: './crush-gap-controller.component.html',
   styleUrls: ['./crush-gap-controller.component.css']
 })
-export class CrushGapControllerComponent implements OnInit {
+export class CrushGapControllerComponent implements OnInit, OnDestroy {
 
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
@@ -24,6 +24,10 @@ export class CrushGapControllerComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+  }
+
+  ngOnDestroy(): void {
+      this.dataService.closeChannel();
   }
 
 }
