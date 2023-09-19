@@ -25,6 +25,15 @@ export class CrushGapAnalyzerService {
 
   constructor(private zone: NgZone) { }
 
+  private sendLoadCompleteNotification():void{
+    this.zone.run(()=>{
+      this.DataChannel.postMessage({
+        target: this.TargetName,
+        notification: 'loadComplete'
+      });
+    });
+  }
+
   private setChannelListener():void{
     this.DataChannel.onmessage = (event)=>{
       this.zone.run(()=>{
@@ -40,6 +49,7 @@ export class CrushGapAnalyzerService {
     this.ChannelName = channelName;
     this.TargetName = targetName;
     this.setChannelListener();
+    this.sendLoadCompleteNotification();
   }
 
   private updateData(data: CrushGapProps):void{
@@ -54,6 +64,8 @@ export class CrushGapAnalyzerService {
 
     this.Settings.next(props);
   }
+
+  public sendData(){}
 
   public closeChannel():void{
     this.DataChannel.close();
