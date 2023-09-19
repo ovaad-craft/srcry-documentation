@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
-import { CrushGapPropData, CrushGapSettings } from '@site-types';
+import { BehaviorSubject } from 'rxjs';
+import { CrushGapPropData, CrushGapReadings, CrushGapSettings } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
 import { createCssVariable } from 'src/app/utils/create-css-variable';
 
@@ -23,29 +24,43 @@ export class CrushGapControllerService {
     crushGapHNudgeSlice: 0
   };
 
+  private Readings: BehaviorSubject<CrushGapReadings> = new BehaviorSubject<CrushGapReadings>({
+    activeProp: '--',
+    width: 0,
+    height: 0
+  });
+
+  Readings$ = this.Readings.asObservable();
+
 
   private createChannelListener():void{
     this.DataChannel.onmessage = (event)=>{
       this.zone.run(()=>{
-        if(event.data.notification === 'loadComplete'){
-          this.sendData({
-            crushGapW: createCssVariable(createBoxSize(
-              this.DefaultSettings.crushGapW.size,
-              this.DefaultSettings.crushGapW.scale,
-              this.DefaultSettings.crushGapW.speed
-            )),
-            crushGapWNudgeChunk: this.DefaultSettings.crushGapWNudgeChunk,
-            crushGapWNudgeSlice: this.DefaultSettings.crushGapWNudgeSlice,
-            crushGapH: createCssVariable(createBoxSize(
-              this.DefaultSettings.crushGapH.size,
-              this.DefaultSettings.crushGapH.scale,
-              this.DefaultSettings.crushGapH.speed
-            )),
-            crushGapHNudgeChunk: this.DefaultSettings.crushGapHNudgeChunk,
-            crushGapHNudgeSlice: this.DefaultSettings.crushGapHNudgeSlice
-          });
+        if(event.data.target === this.ChannelName){
+
+          if(event.data.notification === 'loadComplete'){
+            this.sendData({
+              crushGapW: createCssVariable(createBoxSize(
+                this.DefaultSettings.crushGapW.size,
+                this.DefaultSettings.crushGapW.scale,
+                this.DefaultSettings.crushGapW.speed
+              )),
+              crushGapWNudgeChunk: this.DefaultSettings.crushGapWNudgeChunk,
+              crushGapWNudgeSlice: this.DefaultSettings.crushGapWNudgeSlice,
+              crushGapH: createCssVariable(createBoxSize(
+                this.DefaultSettings.crushGapH.size,
+                this.DefaultSettings.crushGapH.scale,
+                this.DefaultSettings.crushGapH.speed
+              )),
+              crushGapHNudgeChunk: this.DefaultSettings.crushGapHNudgeChunk,
+              crushGapHNudgeSlice: this.DefaultSettings.crushGapHNudgeSlice
+            });
+          }
+          if(event.data.notification === 'data'){
+            this.Readings.next(event.data.payload);
+          }
+          
         }
-        if(event.data.notification === 'data'){}
       });
     };
   }
