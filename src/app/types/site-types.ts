@@ -220,3 +220,9 @@ export interface CrushGapSettings{
     crushGapHNudgeChunk: number;
     crushGapHNudgeSlice: number;
 }
+
+export interface CrushGapReadings{
+    activeProp: string;
+    width: number;
+    height: number;
+}
