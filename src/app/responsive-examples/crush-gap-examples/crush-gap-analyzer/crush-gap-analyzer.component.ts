@@ -1,6 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
+import { CrushGapSettings } from '@site-types';
 
 @Component({
   selector: 'app-crush-gap-analyzer',
@@ -16,6 +17,10 @@ export class CrushGapAnalyzerComponent {
   @Input() ChannelName!: string;
   @Input() TargetName!: string;
 
-  constructor(private dataService: CrushGapAnalyzerService){}
+  Settings!: CrushGapSettings;
+
+  constructor(private dataService: CrushGapAnalyzerService){
+    this.dataService.Settings$.subscribe(a=> this.Settings = a);
+  }
 
 }
