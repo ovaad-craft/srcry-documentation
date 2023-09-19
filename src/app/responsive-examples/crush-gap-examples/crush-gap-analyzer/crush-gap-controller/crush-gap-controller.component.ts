@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapInputComponent } from './crush-gap-input/crush-gap-input.component';
 
@@ -10,5 +10,9 @@ import { CrushGapInputComponent } from './crush-gap-input/crush-gap-input.compon
   styleUrls: ['./crush-gap-controller.component.css']
 })
 export class CrushGapControllerComponent {
+
+  @Input()BroadcastName!: string;
+  @Input()ChannelName!: string;
+  @Input()TargetName!: string;
 
 }
