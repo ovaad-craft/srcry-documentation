@@ -1,1 +1,17 @@
-<p>crush-gap-analyzer works!</p>
+<section #frame class="mainContainer">
+    <article class="readingContainer">
+        <div #baseBox class="baseBox"></div>
+    </article>
+    <div
+        #box
+        class="srcryBox box"
+        [ngStyle]="{
+            '--crushGap-w': Settings.crushGapW,
+            '--crushGap-w-nudge-chunk': Settings.crushGapWNudgeChunk,
+            '--crushGap-w-nudge-slice': Settings.crushGapWNudgeSlice,
+            '--crushGap-h': Settings.crushGapH,
+            '--crushGap-h-nudge-chunk': Settings.crushGapHNudgeChunk,
+            '--crushGap-h-nudge-slice': Settings.crushGapHNudgeSlice
+        }"
+    ></div>
+</section>
