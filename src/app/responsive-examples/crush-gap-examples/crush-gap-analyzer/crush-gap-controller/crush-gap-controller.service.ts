@@ -59,7 +59,7 @@ export class CrushGapControllerService {
           if(event.data.notification === 'data'){
             this.Readings.next(event.data.payload);
           }
-          
+
         }
       });
     };
@@ -80,4 +80,6 @@ export class CrushGapControllerService {
       });
     });
   }
+
+  public closeChannel():void{ this.DataChannel.close(); }
 }
