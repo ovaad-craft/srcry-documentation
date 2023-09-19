@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
 import { CrushGapSettings } from '@site-types';
@@ -11,7 +11,7 @@ import { CrushGapSettings } from '@site-types';
   styleUrls: ['./crush-gap-analyzer.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class CrushGapAnalyzerComponent {
+export class CrushGapAnalyzerComponent implements OnInit {
 
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
@@ -19,8 +19,11 @@ export class CrushGapAnalyzerComponent {
 
   Settings!: CrushGapSettings;
 
-  constructor(private dataService: CrushGapAnalyzerService){
+  constructor(private dataService: CrushGapAnalyzerService){}
+  
+  ngOnInit(): void {
     this.dataService.Settings$.subscribe(a=> this.Settings = a);
+    this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);      
   }
 
 }
