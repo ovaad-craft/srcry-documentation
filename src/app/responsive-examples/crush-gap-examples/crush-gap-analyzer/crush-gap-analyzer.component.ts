@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild, ViewEncapsulation, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
-import { CrushGapSettings } from '@site-types';
+import { ActivePropReadings, CrushGapSettings } from '@site-types';
 
 @Component({
   selector: 'app-crush-gap-analyzer',
@@ -36,6 +36,20 @@ export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit {
       });
 
       frameListener.observe(this.Frame.nativeElement);
+  }
+
+  private determineActiveProp():ActivePropReadings{
+    const widthComparison: boolean = this.BaseBox.nativeElement.offsetWidth >
+                                     this.Box.nativeElement.offsetWidth ?
+                                     true : false;
+    const heightComparison: boolean = this.BaseBox.nativeElement.offsetHeight >
+                                      this.Box.nativeElement.offsetHeight ?
+                                      true : false;
+    
+    return {
+      activePropW : widthComparison ? 'crushGap' : 'baseSize',
+      activePropH : heightComparison? 'crushGap' : 'baseSize'
+    };
   }
 
 }
