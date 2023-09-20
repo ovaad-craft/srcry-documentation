@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild, ViewEncapsulation, NgZone } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, AfterViewInit, OnDestroy, ViewChild, ViewEncapsulation, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
 import { ActivePropReadings, CrushGapSettings } from '@site-types';
@@ -11,7 +11,7 @@ import { ActivePropReadings, CrushGapSettings } from '@site-types';
   styleUrls: ['./crush-gap-analyzer.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit {
+export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
@@ -36,6 +36,10 @@ export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit {
       });
 
       frameListener.observe(this.Frame.nativeElement);
+  }
+
+  ngOnDestroy(): void {
+      this.dataService.closeChannel();
   }
 
   private determineActiveProp():ActivePropReadings{
