@@ -32,7 +32,7 @@ export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
       const frameListener: ResizeObserver = new ResizeObserver((element)=>{
-        this.zone.run(()=>{});
+        this.zone.run(()=>{ this.updateReadings() });
       });
 
       frameListener.observe(this.Frame.nativeElement);
@@ -50,6 +50,17 @@ export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit {
       activePropW : widthComparison ? 'crushGap' : 'baseSize',
       activePropH : heightComparison? 'crushGap' : 'baseSize'
     };
+  }
+
+  private updateReadings():void{
+    const activeProps: ActivePropReadings = this.determineActiveProp();
+
+    this.dataService.sendData({
+      activePropW: activeProps.activePropW,
+      activePropH: activeProps.activePropH,
+      width: this.Box.nativeElement.offsetWidth,
+      height: this.Box.nativeElement.offsetHeight
+    });
   }
 
 }
