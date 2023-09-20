@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild, ViewEncapsulation, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapAnalyzerService } from './crush-gap-analyzer.service';
 import { CrushGapSettings } from '@site-types';
@@ -11,7 +11,7 @@ import { CrushGapSettings } from '@site-types';
   styleUrls: ['./crush-gap-analyzer.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class CrushGapAnalyzerComponent implements OnInit {
+export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit {
 
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
@@ -23,11 +23,19 @@ export class CrushGapAnalyzerComponent implements OnInit {
   @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
   @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
 
-  constructor(private dataService: CrushGapAnalyzerService){}
+  constructor(private dataService: CrushGapAnalyzerService, private zone: NgZone){}
   
   ngOnInit(): void {
     this.dataService.Settings$.subscribe(a=> this.Settings = a);
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);      
+  }
+
+  ngAfterViewInit(): void {
+      const frameListener: ResizeObserver = new ResizeObserver((element)=>{
+        this.zone.run(()=>{});
+      });
+
+      frameListener.observe(this.Frame.nativeElement);
   }
 
 }
