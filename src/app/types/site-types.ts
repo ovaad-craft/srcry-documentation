@@ -221,9 +221,12 @@ export interface CrushGapSettings{
     crushGapHNudgeSlice: number;
 }
 
-export interface CrushGapReadings{
+export interface ActivePropReadings{
     activePropW: string;
     activePropH: string;
+}
+
+export interface CrushGapReadings extends ActivePropReadings{
     width: number;
     height: number;
 }
