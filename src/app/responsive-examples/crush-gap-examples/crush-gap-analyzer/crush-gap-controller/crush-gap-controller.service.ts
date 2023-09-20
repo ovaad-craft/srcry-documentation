@@ -25,7 +25,8 @@ export class CrushGapControllerService {
   };
 
   private Readings: BehaviorSubject<CrushGapReadings> = new BehaviorSubject<CrushGapReadings>({
-    activeProp: '--',
+    activePropW: '--',
+    activePropH: '--',
     width: 0,
     height: 0
   });
