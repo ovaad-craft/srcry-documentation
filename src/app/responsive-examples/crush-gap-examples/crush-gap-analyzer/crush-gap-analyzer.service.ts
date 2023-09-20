@@ -52,12 +52,12 @@ export class CrushGapAnalyzerService {
     this.sendLoadCompleteNotification();
   }
 
-  private updateData(data: CrushGapProps):void{
+  private updateData(data: CrushGapSettings):void{
     const props: CrushGapSettings = {
-      crushGapW: createCssVariable(data.crushGapW),
+      crushGapW: data.crushGapW,
       crushGapWNudgeChunk: data.crushGapWNudgeChunk,
       crushGapWNudgeSlice: data.crushGapWNudgeSlice,
-      crushGapH: createCssVariable(data.crushGapH),
+      crushGapH: data.crushGapH,
       crushGapHNudgeChunk: data.crushGapHNudgeChunk,
       crushGapHNudgeSlice: data.crushGapHNudgeSlice
     };
