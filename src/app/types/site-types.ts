@@ -222,7 +222,8 @@ export interface CrushGapSettings{
 }
 
 export interface CrushGapReadings{
-    activeProp: string;
+    activePropW: string;
+    acrivePropH: string;
     width: number;
     height: number;
 }
