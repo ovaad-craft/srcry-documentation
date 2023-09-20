@@ -39,16 +39,16 @@ export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit {
   }
 
   private determineActiveProp():ActivePropReadings{
-    const widthComparison: boolean = this.BaseBox.nativeElement.offsetWidth >
-                                     this.Box.nativeElement.offsetWidth ?
+    const widthComparison: boolean = this.Frame.nativeElement.offsetWidth >
+                                     this.BaseBox.nativeElement.offsetWidth ?
                                      true : false;
-    const heightComparison: boolean = this.BaseBox.nativeElement.offsetHeight >
-                                      this.Box.nativeElement.offsetHeight ?
+    const heightComparison: boolean = this.Frame.nativeElement.offsetHeight >
+                                      this.BaseBox.nativeElement.offsetHeight ?
                                       true : false;
-    
+                                      
     return {
-      activePropW : widthComparison ? 'crushGap' : 'baseSize',
-      activePropH : heightComparison? 'crushGap' : 'baseSize'
+      activePropW : widthComparison ? 'baseSize' : 'crushGap',
+      activePropH : heightComparison? 'baseSize' : 'crushGap'
     };
   }
 
