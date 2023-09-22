@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BoxSizeSelectorComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/box-size-selector/box-size-selector.component';
 import { NumberInputComponent } from 'src/app/layout/number-input/number-input.component';
 import { SrcryPropButtonComponent } from 'src/app/layout/srcry-prop-button/srcry-prop-button.component';
 import { CrushGapPropData, CrushGapProps } from '@site-types';
+import { createBoxSize } from 'src/app/utils/create-box-size';
 
 @Component({
   selector: 'crush-gap-input',
@@ -17,7 +18,7 @@ import { CrushGapPropData, CrushGapProps } from '@site-types';
   templateUrl: './crush-gap-input.component.html',
   styleUrls: ['./crush-gap-input.component.css']
 })
-export class CrushGapInputComponent {
+export class CrushGapInputComponent implements OnInit {
   @Input()DefaultSettings!: CrushGapPropData;
   @Output()UpdateProps: EventEmitter<CrushGapProps> = new EventEmitter<CrushGapProps>();
 
@@ -40,5 +41,30 @@ export class CrushGapInputComponent {
   ToggleCrushGapH: boolean = false;
   ToggleCrushGapHNudgeChunk: boolean = false;
   ToggleCrushGapHNudgeSlice: boolean = false;
+
+  ngOnInit(): void {
+      this.initDefaults();
+  }
+
+  private initDefaults():void{
+    const props: CrushGapProps = {
+      crushGapW: createBoxSize(
+        this.DefaultSettings.crushGapW.size,
+        this.DefaultSettings.crushGapW.scale,
+        this.DefaultSettings.crushGapW.speed
+      ),
+      crushGapWNudgeChunk: this.DefaultSettings.crushGapHNudgeChunk,
+      crushGapWNudgeSlice: this.DefaultSettings.crushGapHNudgeSlice,
+      crushGapH: createBoxSize(
+        this.DefaultSettings.crushGapH.size,
+        this.DefaultSettings.crushGapH.scale,
+        this.DefaultSettings.crushGapH.speed
+      ),
+      crushGapHNudgeChunk: this.DefaultSettings.crushGapHNudgeChunk,
+      crushGapHNudgeSlice: this.DefaultSettings.crushGapHNudgeSlice
+    };
+
+    this.PropSettings = props;
+  }
 
 }
