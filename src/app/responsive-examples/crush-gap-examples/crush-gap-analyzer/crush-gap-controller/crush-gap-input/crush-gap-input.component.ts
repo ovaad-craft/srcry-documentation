@@ -30,4 +30,8 @@ export class CrushGapInputComponent {
     crushGapHNudgeSlice: 0
   }
 
+  SelectorStatus: boolean = false;
+
+  PropButtonsActive: boolean = true;
+
 }
