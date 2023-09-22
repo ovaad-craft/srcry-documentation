@@ -76,6 +76,10 @@ export class CrushGapInputComponent implements OnInit {
     this.PropButtonsActive = value;
   }
 
+  public updateSelectorStatus(status: boolean): void{
+    this.SelectorStatus = status;
+  }
+
   public toggleCrushGapW(): void{
     this.ToggleCrushGapW = !this.ToggleCrushGapW;
   }
