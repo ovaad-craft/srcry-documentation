@@ -34,4 +34,11 @@ export class CrushGapInputComponent {
 
   PropButtonsActive: boolean = true;
 
+  ToggleCrushGapW: boolean = false;
+  ToggleCrushGapWNudgeChunk: boolean = false;
+  ToggleCrushGapWNudgeSlice: boolean = false;
+  ToggleCrushGapH: boolean = false;
+  ToggleCrushGapHNudgeChunk: boolean = false;
+  ToggleCrushGapHNudgeSlice: boolean = false;
+
 }
