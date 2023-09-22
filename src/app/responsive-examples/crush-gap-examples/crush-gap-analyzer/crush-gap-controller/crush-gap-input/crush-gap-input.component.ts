@@ -67,4 +67,8 @@ export class CrushGapInputComponent implements OnInit {
     this.PropSettings = props;
   }
 
+  private updateProps(): void{
+    this.UpdateProps.emit(this.PropSettings);
+  }
+
 }
