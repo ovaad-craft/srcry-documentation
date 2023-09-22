@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BoxSizeSelectorComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/box-size-selector/box-size-selector.component';
 import { NumberInputComponent } from 'src/app/layout/number-input/number-input.component';
 import { SrcryPropButtonComponent } from 'src/app/layout/srcry-prop-button/srcry-prop-button.component';
-import { CrushGapPropData, CrushGapProps } from '@site-types';
+import { BoxSizeInterface, CrushGapPropData, CrushGapProps } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
 
 @Component({
@@ -69,6 +69,59 @@ export class CrushGapInputComponent implements OnInit {
 
   private updateProps(): void{
     this.UpdateProps.emit(this.PropSettings);
+  }
+
+  public toggleCrushGapW(): void{
+    this.ToggleCrushGapW = !this.ToggleCrushGapW;
+  }
+
+  public updateCrushGapW(size: BoxSizeInterface): void{
+    this.PropSettings.crushGapW = createBoxSize(size.size, size.scale, size.speed);
+    this.updateProps();
+  }
+
+  public toggleCrushGapWNudgeChunk():void{
+    this.ToggleCrushGapWNudgeChunk = !this.ToggleCrushGapWNudgeChunk;
+  }
+
+  public updateCrushGapWNudgeChunk(size: number):void{
+    this.PropSettings.crushGapWNudgeChunk = size;
+    this.updateProps();
+  }
+
+  public toggleCrushGapWNudgeSlice(): void{
+    this.ToggleCrushGapWNudgeSlice = !this.ToggleCrushGapWNudgeSlice;
+  }
+
+  public updateCrushGapWNudgeSlice(size: number): void{
+    this.PropSettings.crushGapWNudgeSlice = size;
+    this.updateProps();
+  }
+  
+  public toggleCrushGapH(): void{
+    this.ToggleCrushGapH = !this.ToggleCrushGapH;
+  }
+
+  public updateCrushGapH(size: BoxSizeInterface): void{
+    this.PropSettings.crushGapH = createBoxSize(size.size, size.scale, size.speed);
+    this.updateProps();
+  }
+
+  public toggleCrushGapHNudgeChunk():void{
+    this.ToggleCrushGapHNudgeChunk = !this.ToggleCrushGapHNudgeChunk;
+  }
+
+  public updateCrushGapHNudgeChunk(size: number): void{
+    this.PropSettings.crushGapHNudgeChunk = size;
+    this.updateProps();
+  }
+
+  public toggleCrushGapHNudgeSlice(): void{
+    this.ToggleCrushGapHNudgeSlice = !this.ToggleCrushGapHNudgeSlice;
+  }
+
+  public updateCrushGapHNudgeSlice(size: number): void{
+    this.PropSettings.crushGapHNudgeSlice = size;
   }
 
 }
