@@ -2,7 +2,7 @@ import { Component, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CrushGapInputComponent } from './crush-gap-input/crush-gap-input.component';
 import { CrushGapControllerService } from './crush-gap-controller.service';
-import { CrushGapPropData, CrushGapReadings } from '@site-types';
+import { CrushGapPropData, CrushGapProps, CrushGapReadings } from '@site-types';
 import { CrushGapReadoutComponent } from './crush-gap-readout/crush-gap-readout.component';
 
 @Component({
@@ -32,6 +32,10 @@ export class CrushGapControllerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.dataService.closeChannel();
+  }
+
+  public updateData(data: CrushGapProps):void{
+    this.dataService.sendData(data);
   }
 
 }

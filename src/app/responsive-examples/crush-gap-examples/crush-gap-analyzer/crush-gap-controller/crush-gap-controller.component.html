@@ -1,4 +1,4 @@
 <section class="mainContainer controllerContainer">
     <crush-gap-readout [Readings]="Readings" />
-    <crush-gap-input [DefaultSettings]="DefaultSettings" />
+    <crush-gap-input [DefaultSettings]="DefaultSettings" (UpdateProps)="updateData($event)" />
 </section>
