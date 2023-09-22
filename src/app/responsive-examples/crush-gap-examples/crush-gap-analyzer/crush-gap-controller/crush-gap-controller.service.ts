@@ -82,5 +82,7 @@ export class CrushGapControllerService {
     });
   }
 
+  public getDefaultSettings():CrushGapPropData{ return this.DefaultSettings; }
+
   public closeChannel():void{ this.DataChannel.close(); }
 }
