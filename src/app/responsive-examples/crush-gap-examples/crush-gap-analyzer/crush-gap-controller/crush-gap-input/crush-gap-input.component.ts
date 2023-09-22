@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { BoxSizeSelectorComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/box-size-selector/box-size-selector.component';
 import { NumberInputComponent } from 'src/app/layout/number-input/number-input.component';
 import { SrcryPropButtonComponent } from 'src/app/layout/srcry-prop-button/srcry-prop-button.component';
-import { BoxSizeInterface, CrushGapPropData, CrushGapProps } from '@site-types';
+import { BoxSizeInterface, BoxSizeProps, CrushGapPropData, CrushGapProps } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
+import { createCssVariable } from 'src/app/utils/create-css-variable';
 
 @Component({
   selector: 'crush-gap-input',
@@ -29,7 +30,7 @@ export class CrushGapInputComponent implements OnInit {
     crushGapH: '--',
     crushGapHNudgeChunk: 0,
     crushGapHNudgeSlice: 0
-  }
+  };
 
   SelectorStatus: boolean = false;
 
@@ -120,8 +121,13 @@ export class CrushGapInputComponent implements OnInit {
     this.ToggleCrushGapHNudgeSlice = !this.ToggleCrushGapHNudgeSlice;
   }
 
+  public makeIntoVariable(value: BoxSizeProps): string{
+    return createCssVariable(value);
+  }
+
   public updateCrushGapHNudgeSlice(size: number): void{
     this.PropSettings.crushGapHNudgeSlice = size;
+    this.updateProps();
   }
 
 }
