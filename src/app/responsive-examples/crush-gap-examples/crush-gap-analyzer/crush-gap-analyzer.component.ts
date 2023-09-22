@@ -35,7 +35,7 @@ export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit, OnDestr
         this.zone.run(()=>{ this.updateReadings() });
       });
 
-      frameListener.observe(this.Frame.nativeElement);
+      frameListener.observe(this.Box.nativeElement);
   }
 
   ngOnDestroy(): void {
