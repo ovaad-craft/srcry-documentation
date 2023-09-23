@@ -4,6 +4,7 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
 import { PaginationData, PropChartData } from '@site-types';
+import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -88,6 +89,7 @@ const PROPCHART: PropChartData[] = [
     CommonModule,
     PaginateComponent,
     DemonstrationFrameComponent,
+    PropChartComponent,
     CodeDisplayComponent
   ],
   templateUrl: './edge-chase-page.component.html',
@@ -96,5 +98,6 @@ const PROPCHART: PropChartData[] = [
 export class EdgeChasePageComponent {
 
   Pagination: PaginationData = PAGINATIONDATA;
+  PropData: PropChartData[] = PROPCHART;
 
 }
