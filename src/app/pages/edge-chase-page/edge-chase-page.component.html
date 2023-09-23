@@ -1,4 +1,19 @@
 <section class="pageContainer">
-    <h1 class="srcryTxt pageTitle">Edge Chase</h1>
+    <h1 class="srcryTxt pageTitle">Edge Chase and Chase Stop</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            These are two separate properties but are both being covered here because they work together to achieve the desired behavior.  The <b>edgeChase</b> property is somewhat similar to the <b>crushGap</b> property with the difference being the <b>edgeChase</b> defines the size of the margin to preserve as the screen expands while the <b>crushGap</b> defines the margin to preserve as the screen shrinks.
+        </p>
+
+        <p class="srcryTxt textContent">
+            The <b>chaseStop</b> property defines the maximum size you want the element to expand to before it stops preserving the margin defined by the <b>edgeChase</b> property. The following chart outlines the use of all available properties. 
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <prop-chart [ChartData]="PropData" />
+    </article>
+
     <paginate [PageData]="Pagination" />
 </section>
