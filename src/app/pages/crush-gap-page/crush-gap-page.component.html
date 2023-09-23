@@ -32,6 +32,37 @@
 
     </article>
 
+    <article class="contentContainer">
+
+        <p class="srcryTxt textContent">
+            To see how this works hands on, use the following demonstration to create your own settings. The box's <b>baseSize</b> properties have been set to a default of <b>--small-2-4</b> so you can focus exclusively on the <b>crushGap</b> properties.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <demonstration-frame
+                [Demonstration]="Demo_02_Component"
+                [BroadcastName]="'CrushGapAnalyzer'"
+                [ChannelName]="'CrushGapDemoB'"
+                [TargetName]="'CrushGapDemoBController'"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-2-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--loMed-2-2)'"
+                [MinWindowHeight]="'150px'"
+            >
+                <crush-gap-controller
+                    controlArea
+                    [BroadcastName]="'CrushGapAnalyzer'"
+                    [ChannelName]="'CrushGapDemoBController'"
+                    [TargetName]="'CrushGapDemoB'"
+                />
+            </demonstration-frame>
+
+        </article>
+
+    </article>
+
     <paginate [PageData]="Pagination" />
 
 </section>
