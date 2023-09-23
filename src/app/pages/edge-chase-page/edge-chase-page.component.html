@@ -1,4 +1,5 @@
 <section class="pageContainer">
+
     <h1 class="srcryTxt pageTitle">Edge Chase and Chase Stop</h1>
 
     <article class="contentContainer">
@@ -13,6 +14,24 @@
 
     <article class="contentContainer">
         <prop-chart [ChartData]="PropData" />
+    </article>
+
+    <article class="contentContainer">
+        <article class="demonstrationContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_01" />
+
+            <demonstration-frame
+                [Demonstration]="DemoComponent_01"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-1-4)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--loMed-1-4)'"
+                [MinWindowHeight]="'150px'"
+            >
+
+            </demonstration-frame>
+        </article>
     </article>
 
     <paginate [PageData]="Pagination" />
