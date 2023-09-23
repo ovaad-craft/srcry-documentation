@@ -1,0 +1,42 @@
+.mainContainer{
+    display: grid;
+    gap: var(--line-bold) 0;
+}
+
+.propContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    height: auto;
+}
+
+.propButton{
+    grid-area: 1/1/2/2;
+}
+
+.selectorContainer{
+    grid-area: 2/1/3/2;
+    display: grid;
+    overflow: hidden;
+    transition: 200ms ease-in-out;
+}
+
+.selectorOpen{
+    max-height: 100%;
+}
+
+.selectorClosed{
+    max-height: 0;
+}
+
+.selector{
+    transition: 200ms ease-in-out;
+}
+
+.active{
+    transform: translateY(0);
+}
+
+.innactive{
+    transform: translateY(-110%);
+}
+

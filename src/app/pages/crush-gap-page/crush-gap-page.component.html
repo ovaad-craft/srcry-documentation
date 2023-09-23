@@ -1,1 +1,68 @@
-<p>crush-gap-page works!</p>
+<section class="pageContainer">
+
+    <h1 class="srcryTxt pageTitle">Crush Gap</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            There will be times where you app or website will be used on screens that are smaller than the <b>baseSize</b> of your element.  In order to prevent issues with overflow you can use the <b>crushGap</b> properties to make your elements scale down accordingly.  Simply put, the <b>crushGap</b> is the amount of margin to maintain between the element and the edges of the screen.  The chart below outlines the usage of these properties.
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <prop-chart [ChartData]="PropData" />
+    </article>
+
+    <article class="contentContainer">
+
+        <article class="demonstrationContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_01" />
+
+            <demonstration-frame
+                [Demonstration]="Demo_01_Component"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-2-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--loMed-2-2)'"
+                [MinWindowHeight]="'150px'"
+            >
+            </demonstration-frame>
+
+        </article>
+
+    </article>
+
+    <article class="contentContainer">
+
+        <p class="srcryTxt textContent">
+            To see how this works hands on, use the following demonstration to create your own settings. The box's <b>baseSize</b> properties have been set to a default of <b>--small-2-4</b> so you can focus exclusively on the <b>crushGap</b> properties.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <demonstration-frame
+                [Demonstration]="Demo_02_Component"
+                [BroadcastName]="'CrushGapAnalyzer'"
+                [ChannelName]="'CrushGapDemoB'"
+                [TargetName]="'CrushGapDemoBController'"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-2-2)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--loMed-2-2)'"
+                [MinWindowHeight]="'150px'"
+            >
+                <crush-gap-controller
+                    controlArea
+                    [BroadcastName]="'CrushGapAnalyzer'"
+                    [ChannelName]="'CrushGapDemoBController'"
+                    [TargetName]="'CrushGapDemoB'"
+                />
+            </demonstration-frame>
+
+        </article>
+
+    </article>
+
+    <paginate [PageData]="Pagination" />
+
+</section>

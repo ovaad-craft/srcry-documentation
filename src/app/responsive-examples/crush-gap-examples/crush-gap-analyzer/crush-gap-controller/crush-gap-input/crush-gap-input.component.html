@@ -1,0 +1,121 @@
+<section class="mainContainer">
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--crushGap-w'"
+            [Active]="PropButtonsActive"
+            [Value]="makeIntoVariable(PropSettings.crushGapW)"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleCrushGapW()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleCrushGapW ? 'selectorOpen' : 'selectorClosed'">
+            <box-size-selector
+                [DefaultSettings]="DefaultSettings.crushGapW"
+                class="selector"
+                [ngClass]="ToggleCrushGapW ? 'active' : 'innactive'"
+                (UpdateSelection)="updateCrushGapW($event)"
+                (UpdateStatus)="updateSelectorStatus($event)"
+            />
+        </article>
+    </article>
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--crushGap-w-nudge-chunk'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.crushGapWNudgeChunk"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleCrushGapWNudgeChunk()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleCrushGapWNudgeChunk ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.crushGapWNudgeChunk"
+                [ngClass]="ToggleCrushGapWNudgeChunk ? 'active' : 'innactive'"
+                (UpdateSize)="updateCrushGapWNudgeChunk($event)"
+            />
+        </article>
+    </article>
+    
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--crushGap-w-nudge-slice'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.crushGapWNudgeSlice"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleCrushGapWNudgeSlice()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleCrushGapWNudgeSlice ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.crushGapWNudgeSlice"
+                [ngClass]="ToggleCrushGapWNudgeSlice ? 'active' : 'innactive'"
+                (UpdateSize)="updateCrushGapWNudgeSlice($event)"
+            />
+        </article>
+    </article>
+    
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--crushGap-h'"
+            [Active]="PropButtonsActive"
+            [Value]="makeIntoVariable(PropSettings.crushGapH)"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleCrushGapH()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleCrushGapH ? 'selectorOpen' : 'selectorClosed'">
+            <box-size-selector
+                [DefaultSettings]="DefaultSettings.crushGapH"
+                class="selector"
+                [ngClass]="ToggleCrushGapH ? 'active' : 'innactive'"
+                (UpdateSelection)="updateCrushGapH($event)"
+                (UpdateStatus)="updateSelectorStatus($event)"
+            />
+        </article>
+    </article>
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--crushGap-h-nudge-chunk'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.crushGapHNudgeChunk"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleCrushGapHNudgeChunk()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleCrushGapHNudgeChunk ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.crushGapHNudgeChunk"
+                [ngClass]="ToggleCrushGapHNudgeChunk ? 'active' : 'innactive'"
+                (UpdateSize)="updateCrushGapHNudgeChunk($event)"
+            />
+        </article>
+    </article>
+    
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--crushGap-h-nudge-slice'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.crushGapHNudgeSlice"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleCrushGapHNudgeSlice()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article class="selectorContainer" [ngClass]="ToggleCrushGapHNudgeSlice ? 'selectorOpen' : 'selectorClosed'">
+            <number-input
+                [DefaultSetting]="DefaultSettings.crushGapHNudgeSlice"
+                [ngClass]="ToggleCrushGapHNudgeSlice ? 'active' : 'innactive'"
+                (UpdateSize)="updateCrushGapHNudgeSlice($event)"
+            />
+        </article>
+    </article>
+
+</section>

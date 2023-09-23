@@ -33,6 +33,12 @@ export class NumberInputComponent implements OnInit {
     this.updateSize();
   }
 
+  public updateValue(event: any): void{
+    if(!event.target.value){ this.Value = 0; }
+    else{ this.Value = event.target.value; }
+    this.updateSize();
+  }
+
   private updateSize():void{
     this.UpdateSize.emit(this.Value);
   }

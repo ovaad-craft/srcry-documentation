@@ -193,3 +193,40 @@ export interface BaseSizeValues{
     width: number;
     height: number;
 }
+
+export interface CrushGapPropData{
+    crushGapW: BoxSizeInterface;
+    crushGapWNudgeChunk: number;
+    crushGapWNudgeSlice: number;
+    crushGapH: BoxSizeInterface;
+    crushGapHNudgeChunk: number;
+    crushGapHNudgeSlice: number;
+}
+
+export interface CrushGapProps{
+    crushGapW: BoxSizeProps;
+    crushGapWNudgeChunk: number;
+    crushGapWNudgeSlice: number;
+    crushGapH: BoxSizeProps;
+    crushGapHNudgeChunk: number;
+    crushGapHNudgeSlice: number;
+}
+
+export interface CrushGapSettings{
+    crushGapW: string;
+    crushGapWNudgeChunk: number;
+    crushGapWNudgeSlice: number;
+    crushGapH: string;
+    crushGapHNudgeChunk: number;
+    crushGapHNudgeSlice: number;
+}
+
+export interface ActivePropReadings{
+    activePropW: string;
+    activePropH: string;
+}
+
+export interface CrushGapReadings extends ActivePropReadings{
+    width: number;
+    height: number;
+}
