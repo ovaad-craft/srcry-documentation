@@ -5,6 +5,7 @@
 .propTable{
     border: solid var(--line-fine) hsl(var(--purple-200), 1);
     border-collapse: collapse;
+    max-width: var(--large-2-1);
 }
 
 .headerRow{
