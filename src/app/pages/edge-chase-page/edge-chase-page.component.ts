@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
-import { PaginationData } from '@site-types';
+import { PaginationData, PropChartData } from '@site-types';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -17,6 +17,69 @@ const PAGINATIONDATA: PaginationData = {
     path: '/squish-growth'
   }
 };
+
+const PROPCHART: PropChartData[] = [
+  {
+    id: 'edgeChaseW',
+    title: '--edgeChase-w',
+    description: 'Defines the maximum amount of white space to preserve between the left and right edges of your element and the edges of the screen triggering the element to expand once the threshold is met.'
+  },
+  {
+    id: 'edgeChaseWNudgeChunk',
+    title: 'edgeChase-w-nudge-chunk',
+    description: 'Defines the amount of nudge chunks to add to the --edgeChase-w property.'
+  },
+  {
+    id: 'edgeChaseWNudgeSlice',
+    title: 'edgeChase-w-nudge-slice',
+    description: 'Defines the amount of nudge slices to add to the --edgeChase-w property.'
+  },
+  {
+    id: 'chaseStop-w',
+    title: 'chaseStop-w',
+    description: 'Defines the maximum width your element can expand to before it stops preserving the white space defined in the --edgeChase-w property.'
+  },
+  {
+    id: 'chaseStopWNudgeChunk',
+    title: 'chaseStop-w-nudge-chunk',
+    description: 'Defines the amount of nudge chunks to add to the --chaseStop-w property.'
+  },
+  {
+    id: 'chaseStopWNudgeSlice',
+    title: 'chaseStop-w-nudge-slice',
+    description: 'Defines the amount of nudge slices to add to the --chaseStop-w property.'
+  },
+  {
+    id: 'edgeChaseH',
+    title: '--edgeChase-h',
+    description: 'Defines the maximum amount of white space to preserve between the top and bottom edges of your element and the edges of the screen triggering the element to expand once the threshold is met.'
+  },
+  {
+    id: 'edgeChaseHNudgeChunk',
+    title: 'edgeChase-h-nudge-chunk',
+    description: 'Defines the amount of nudge chunks to add to the --edgeChase-h property.'
+  },
+  {
+    id: 'edgeChaseHNudgeSlice',
+    title: 'edgeChase-h-nudge-slice',
+    description: 'Defines the amount of nudge slices to add to the --edgeChase-h property.'
+  },
+  {
+    id: 'chaseStop-w',
+    title: 'chaseStop-h',
+    description: 'Defines the maximum height your element can expand to before it stops preserving the white space defined in the --edgeChase-h property.'
+  },
+  {
+    id: 'chaseStopHNudgeChunk',
+    title: 'chaseStop-h-nudge-chunk',
+    description: 'Defines the amount of nudge chunks to add to the --chaseStop-h property.'
+  },
+  {
+    id: 'chaseStopHNudgeSlice',
+    title: 'chaseStop-h-nudge-slice',
+    description: 'Defines the amount of nudge slices to add to the --chaseStop-h property.'
+  }
+];
 
 @Component({
   selector: 'app-edge-chase-page',
