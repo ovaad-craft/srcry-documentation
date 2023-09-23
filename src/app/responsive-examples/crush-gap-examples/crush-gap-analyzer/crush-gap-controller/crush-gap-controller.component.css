@@ -1,0 +1,3 @@
+.mainContainer{
+    width: min(var(--small-2-6), 92vw);
+}
