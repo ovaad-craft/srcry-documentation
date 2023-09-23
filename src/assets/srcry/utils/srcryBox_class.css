@@ -13,7 +13,8 @@
     --baseSize-w-nudge-chunk : 0;
 
     
-    --edgeChase-w             : var(--crushGap-w);
+    /*--edgeChase-w             : var(--Crush-w-size);*/
+    --edgeChase-w             : var(--Crush-w-size);
     --edgeChase-w-nudge-slice : 0;
     --edgeChase-w-nudge-chunk : 0;
     
@@ -48,7 +49,7 @@
     --baseSize-h-nudge-chunk : 0;
     
     
-    --edgeChase-h             : var(--crushGap-h);
+    --edgeChase-h             : var(--Crush-h-size);
     --edgeChase-h-nudge-slice : 0;
     --edgeChase-h-nudge-chunk : 0;
     
@@ -172,28 +173,36 @@
 
     
     /* Size Equations*/
-    --Crush-w-size     : calc(100% - calc(var(--crushGap-w) + var(--CrushGap-W-NudgeMaster)));
-    --EdgeChase-w-size : calc(100% - var(--edgeChase-w));
+    /*--Crush-w-size     : calc(100% - calc(var(--crushGap-w) + var(--CrushGap-W-NudgeMaster)));*/
+    /*--EdgeChase-w-size : calc(100% - var(--edgeChase-w));*/
+    --Crush-w-size     : calc(var(--crushGap-w)  + var(--CrushGap-W-NudgeMaster));
+    --EdgeChase-w-size : calc(var(--edgeChase-w) + var(--EdgeChase-W-NudgeMaster));
     
+    --Crush-w-master     : calc(100%                    - var(--Crush-w-size));
     --BaseSize-w-master  : calc(var(--baseSize-w)       + var(--BaseSize-W-NudgeMaster));
-    --EdgeChase-w-master : calc(var(--EdgeChase-w-size) - var(--EdgeChase-W-NudgeMaster));
+    /*--EdgeChase-w-master : calc(var(--EdgeChase-w-size) - var(--EdgeChase-W-NudgeMaster));*/
+    --EdgeChase-w-master : calc(100%                    - var(--EdgeChase-w-size));
     --ChaseStop-w-master : calc(var(--chaseStop-w)      + var(--ChaseStop-W-NudgeMaster));
     
-    --Crush-h-size     : calc(100vh - calc(var(--crushGap-h) + var(--CrushGap-H-NudgeMaster)));
-    --EdgeChase-h-size : calc(100vh - var(--edgeChase-h));
+    /*--Crush-h-size     : calc(100vh - calc(var(--crushGap-h) + var(--CrushGap-H-NudgeMaster)));
+    --EdgeChase-h-size : calc(100vh - var(--edgeChase-h));*/
+    --Crush-h-size     : calc(var(--crushGap-h)  + var(--CrushGap-H-NudgeMaster));
+    --EdgeChase-h-size : calc(var(--edgeChase-h) + var(--EdgeChase-H-NudgeMaster));
     
+    --Crush-h-master     : calc(100vh                   - var(--Crush-h-size));
     --BaseSize-h-master  : calc(var(--baseSize-h)       + var(--BaseSize-H-NudgeMaster));
-    --EdgeChase-h-master : calc(var(--EdgeChase-h-size) - var(--EdgeChase-H-NudgeMaster));
+    /*--EdgeChase-h-master : calc(var(--EdgeChase-h-size) - var(--EdgeChase-H-NudgeMaster));*/
+    --EdgeChase-h-master : calc(100vh                   - var(--EdgeChase-h-size));
     --ChaseStop-h-master : calc(var(--chaseStop-h)      + var(--ChaseStop-H-NudgeMaster));
 
 
 
     /* Scaling Togglers */
-    --CrushBaseToggle-w : min(var(--Crush-w-size),      var(--BaseSize-w-master));
+    --CrushBaseToggle-w : min(var(--Crush-w-master),      var(--BaseSize-w-master));
     --BaseChaseToggle-w : max(var(--CrushBaseToggle-w), var(--EdgeChase-w-master));
     --ChaseStopToggle-w : min(var(--BaseChaseToggle-w), var(--ChaseStop-w-master));
 
-    --CrushBaseToggle-h : min(var(--Crush-h-size),      var(--BaseSize-h-master));
+    --CrushBaseToggle-h : min(var(--Crush-h-master),      var(--BaseSize-h-master));
     --BaseChaseToggle-h : max(var(--CrushBaseToggle-h), var(--EdgeChase-h-master));
     --ChaseStopToggle-h : min(var(--BaseChaseToggle-h), var(--ChaseStop-h-master));
 
