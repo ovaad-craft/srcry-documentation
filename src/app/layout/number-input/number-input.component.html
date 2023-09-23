@@ -1,6 +1,11 @@
 <section class="mainContainer">
 
-    <input class="srcryTxt numberInput" type="number" [(ngModel)]="Value" />
+    <input
+        class="srcryTxt numberInput"
+        type="number"
+        [(ngModel)]="Value"
+        (keyup)="updateValue($event)"
+    />
 
     <article class="incramentContainer">
         <button class="incramentButton" type="button" (click)="incramentUp()">
