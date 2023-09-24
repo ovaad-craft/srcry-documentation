@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewEncapsulation, Input, ViewChild, ElementRef, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseExampleAService } from './edge-chase-example-a.service';
 import { SrcryPropReadings } from '@site-types';
@@ -11,7 +11,7 @@ import { SrcryPropReadings } from '@site-types';
   styleUrls: ['./edge-chase-example-a.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class EdgeChaseExampleAComponent {
+export class EdgeChaseExampleAComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
   @Input() TargetName!: string;
@@ -21,6 +21,17 @@ export class EdgeChaseExampleAComponent {
   @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
 
   constructor(private dataService: EdgeChaseExampleAService){}
+
+  ngOnInit(): void {
+    this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+  }
+
+  ngAfterViewInit(): void {
+      
+  }
+
+  ngOnDestroy(): void {
+  }
 
   private determineActivWidthProp():string{
     const baseBox: number = this.BaseBox.nativeElement.offsetWidth;
