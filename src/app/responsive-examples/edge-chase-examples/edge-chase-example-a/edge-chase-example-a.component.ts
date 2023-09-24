@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EdgeChaseExampleAService } from './edge-chase-example-a.service';
 
 @Component({
   selector: 'edge-chase-example-a',
@@ -13,5 +14,7 @@ export class EdgeChaseExampleAComponent {
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
   @Input() TargetName!: string;
+
+  constructor(private dataService: EdgeChaseExampleAService){}
 
 }
