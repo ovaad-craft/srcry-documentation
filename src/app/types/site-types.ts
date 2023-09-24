@@ -226,7 +226,7 @@ export interface ActivePropReadings{
     activePropH: string;
 }
 
-export interface CrushGapReadings extends ActivePropReadings{
+export interface SrcryPropReadings extends ActivePropReadings{
     width: number;
     height: number;
 }
