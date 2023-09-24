@@ -21,4 +21,34 @@ export class EdgeChaseExampleAComponent {
 
   constructor(private dataService: EdgeChaseExampleAService){}
 
+  private determineActivWidthProp():string{
+    const baseBox: number = this.BaseBox.nativeElement.offsetWidth;
+    const stopBox: number = this.StopBox.nativeElement.offsetWidth;
+    const box: number = this.Box.nativeElement.offsetWidth;
+    
+    let prop: string = '';
+
+    if(box < baseBox){ prop = 'crushGap'; }
+    if(box === baseBox){ prop = 'baseSize'; }
+    if(box > baseBox && box < stopBox){ prop = 'edgeChase'; }
+    if(box === stopBox){ prop = 'chaseStop'; }
+
+    return prop;  
+  }
+  
+  private determineActivHeightProp():string{
+    const baseBox: number = this.BaseBox.nativeElement.offsetHeight;
+    const stopBox: number = this.StopBox.nativeElement.offsetHeight;
+    const box: number = this.Box.nativeElement.offsetHeight;
+    
+    let prop: string = '';
+
+    if(box < baseBox){ prop = 'crushGap'; }
+    if(box === baseBox){ prop = 'baseSize'; }
+    if(box > baseBox && box < stopBox){ prop = 'edgeChase'; }
+    if(box === stopBox){ prop = 'chaseStop'; }
+
+    return prop;  
+  }
+
 }
