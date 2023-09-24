@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseExampleAService } from './edge-chase-example-a.service';
 
@@ -14,6 +14,10 @@ export class EdgeChaseExampleAComponent {
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
   @Input() TargetName!: string;
+
+  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
+  @ViewChild('stopBox', {static: true, read: ElementRef}) StopBox!: ElementRef;
+  @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
 
   constructor(private dataService: EdgeChaseExampleAService){}
 
