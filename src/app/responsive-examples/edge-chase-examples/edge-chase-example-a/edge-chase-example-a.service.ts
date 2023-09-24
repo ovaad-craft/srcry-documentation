@@ -24,4 +24,6 @@ export class EdgeChaseExampleAService {
       payload: data
     }));
   }
+
+  public closeChannel():void{ this.DataChannel.close(); }
 }
