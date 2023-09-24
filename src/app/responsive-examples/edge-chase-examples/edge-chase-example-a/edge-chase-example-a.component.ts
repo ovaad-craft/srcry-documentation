@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseExampleAService } from './edge-chase-example-a.service';
+import { SrcryPropReadings } from '@site-types';
 
 @Component({
   selector: 'edge-chase-example-a',
@@ -49,6 +50,15 @@ export class EdgeChaseExampleAComponent {
     if(box === stopBox){ prop = 'chaseStop'; }
 
     return prop;  
+  }
+
+  private readElements():SrcryPropReadings{
+    return {
+      activePropW: this.determineActivWidthProp(),
+      activePropH: this.determineActivHeightProp(),
+      width: this.Box.nativeElement.offsetWidth,
+      height: this.Box.nativeElement.offsetHeight
+    };
   }
 
 }
