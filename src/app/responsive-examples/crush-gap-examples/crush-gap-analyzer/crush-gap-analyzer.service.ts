@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { CrushGapProps, CrushGapReadings, CrushGapSettings } from '@site-types';
+import { CrushGapProps, SrcryPropReadings, CrushGapSettings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
 import { createCssVariable } from 'src/app/utils/create-css-variable';
 
@@ -65,7 +65,7 @@ export class CrushGapAnalyzerService {
     this.Settings.next(props);
   }
 
-  public sendData(data: CrushGapReadings): void{
+  public sendData(data: SrcryPropReadings): void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
         target: this.TargetName,

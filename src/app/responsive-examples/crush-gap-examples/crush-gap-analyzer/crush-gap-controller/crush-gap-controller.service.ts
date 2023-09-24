@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { CrushGapPropData, CrushGapReadings, CrushGapSettings } from '@site-types';
+import { CrushGapPropData, SrcryPropReadings, CrushGapSettings } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
 import { createCssVariable } from 'src/app/utils/create-css-variable';
 
@@ -24,7 +24,7 @@ export class CrushGapControllerService {
     crushGapHNudgeSlice: 0
   };
 
-  private Readings: BehaviorSubject<CrushGapReadings> = new BehaviorSubject<CrushGapReadings>({
+  private Readings: BehaviorSubject<SrcryPropReadings> = new BehaviorSubject<SrcryPropReadings>({
     activePropW: '--',
     activePropH: '--',
     width: 0,
