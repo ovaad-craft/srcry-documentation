@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input, ViewChild, ElementRef, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ViewEncapsulation, Input, ViewChild, ElementRef, OnInit, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseExampleAService } from './edge-chase-example-a.service';
 import { SrcryPropReadings } from '@site-types';
@@ -20,14 +20,18 @@ export class EdgeChaseExampleAComponent implements OnInit, AfterViewInit, OnDest
   @ViewChild('stopBox', {static: true, read: ElementRef}) StopBox!: ElementRef;
   @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
 
-  constructor(private dataService: EdgeChaseExampleAService){}
+  constructor(private dataService: EdgeChaseExampleAService, private zone: NgZone){}
 
   ngOnInit(): void {
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
   ngAfterViewInit(): void {
-      
+    const boxListener: ResizeObserver = new ResizeObserver((element)=>{
+      this.zone.run(()=> this.dataService.sendData(this.readElements()));
+    });
+
+    boxListener.observe(this.Box.nativeElement);
   }
 
   ngOnDestroy(): void {
