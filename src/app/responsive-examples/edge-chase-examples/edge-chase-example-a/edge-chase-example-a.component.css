@@ -25,13 +25,13 @@
 
 .baseBox{
     display: block;
-    height: 0px;
+    height: var(--small-2-4);
     width: var(--small-1-4);
 }
 
 .stopBox{
     display: block;
-    height: 0px;
+    height: var(--loMed-1-3);
     width: var(--loMed-2-4);
 }
 
