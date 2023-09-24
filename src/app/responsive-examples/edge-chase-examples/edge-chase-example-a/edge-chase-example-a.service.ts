@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EdgeChaseExampleAService {
 
-  constructor() { }
+  DataChannel!: BroadcastChannel;
+  ChannelName!: string;
+  TargetName!: string;
+
+  constructor(private zone: NgZone) { }
 }
