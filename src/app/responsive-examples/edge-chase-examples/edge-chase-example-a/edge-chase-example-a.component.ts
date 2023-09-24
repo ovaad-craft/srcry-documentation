@@ -31,6 +31,7 @@ export class EdgeChaseExampleAComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngOnDestroy(): void {
+    this.dataService.closeChannel();
   }
 
   private determineActivWidthProp():string{
