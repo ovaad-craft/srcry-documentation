@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,5 +10,8 @@ import { CommonModule } from '@angular/common';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class EdgeChaseExampleAComponent {
+  @Input() BroadcastName!: string;
+  @Input() ChannelName!: string;
+  @Input() TargetName!: string;
 
 }
