@@ -4,7 +4,7 @@ import { EdgeChaseReadoutService } from './edge-chase-readout.service';
 import { SrcryPropReadings } from '@site-types';
 
 @Component({
-  selector: 'app-edge-chase-readout',
+  selector: 'edge-chase-readout',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './edge-chase-readout.component.html',
@@ -22,6 +22,7 @@ export class EdgeChaseReadoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.dataService.Readings$.subscribe(a => this.Readings = a);
+    this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
   }
 
   ngOnDestroy(): void {
