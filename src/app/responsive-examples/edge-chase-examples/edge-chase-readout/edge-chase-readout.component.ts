@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseReadoutService } from './edge-chase-readout.service';
+import { SrcryPropReadings } from '@site-types';
 
 @Component({
   selector: 'app-edge-chase-readout',
@@ -9,12 +10,22 @@ import { EdgeChaseReadoutService } from './edge-chase-readout.service';
   templateUrl: './edge-chase-readout.component.html',
   styleUrls: ['./edge-chase-readout.component.css']
 })
-export class EdgeChaseReadoutComponent {
+export class EdgeChaseReadoutComponent implements OnInit, OnDestroy {
 
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
   @Input()Targetname!: string;
 
+  Readings!: SrcryPropReadings;
+
   constructor(private dataService: EdgeChaseReadoutService){}
+
+  ngOnInit(): void {
+    this.dataService.Readings$.subscribe(a => this.Readings = a);
+  }
+
+  ngOnDestroy(): void {
+      this.dataService.closeDataChannel();
+  }
 
 }
