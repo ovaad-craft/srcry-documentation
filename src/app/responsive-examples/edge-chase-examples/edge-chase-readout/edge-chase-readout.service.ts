@@ -33,4 +33,6 @@ export class EdgeChaseReadoutService {
       }
     };
   }
+
+  public closeDataChannel():void{ this.DataChannel.close(); }
 }
