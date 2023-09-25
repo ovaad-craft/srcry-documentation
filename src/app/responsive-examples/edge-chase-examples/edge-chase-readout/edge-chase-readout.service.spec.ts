@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EdgeChaseReadoutServiceTsService } from './edge-chase-readout.service.ts.service';
+import { EdgeChaseReadoutService } from './edge-chase-readout.service';
 
-describe('EdgeChaseReadoutServiceTsService', () => {
-  let service: EdgeChaseReadoutServiceTsService;
+describe('EdgeChaseReadoutService', () => {
+  let service: EdgeChaseReadoutService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EdgeChaseReadoutServiceTsService);
+    service = TestBed.inject(EdgeChaseReadoutService);
   });
 
   it('should be created', () => {
