@@ -45,10 +45,10 @@ export class EdgeChaseExampleAComponent implements OnInit, AfterViewInit, OnDest
     
     let prop: string = '';
 
-    if(box < baseBox){ prop = 'crushGap'; }
-    if(box === baseBox){ prop = 'baseSize'; }
-    if(box > baseBox && box < stopBox){ prop = 'edgeChase'; }
-    if(box === stopBox){ prop = 'chaseStop'; }
+    if(box < baseBox - 3){ prop = 'crushGap'; }
+    else if(box > baseBox + 3 && box < stopBox -3){ prop = 'edgeChase'; }
+    else if(box > stopBox - 4){ prop = 'chaseStop'}
+    else{ prop = 'baseSize'; }
 
     return prop;  
   }
@@ -60,10 +60,10 @@ export class EdgeChaseExampleAComponent implements OnInit, AfterViewInit, OnDest
     
     let prop: string = '';
 
-    if(box < baseBox){ prop = 'crushGap'; }
-    if(box === baseBox){ prop = 'baseSize'; }
-    if(box > baseBox && box < stopBox){ prop = 'edgeChase'; }
-    if(box === stopBox){ prop = 'chaseStop'; }
+    if(box < baseBox - 3){ prop = 'crushGap'; }
+    else if(box > baseBox + 3 && box < stopBox -3){ prop = 'edgeChase'; }
+    else if(box > stopBox - 4){ prop = 'chaseStop'}
+    else{ prop = 'baseSize'; }
 
     return prop;  
   }
