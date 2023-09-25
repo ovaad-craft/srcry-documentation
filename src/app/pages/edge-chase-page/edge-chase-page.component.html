@@ -23,7 +23,7 @@
 
             <demonstration-frame
                 [Demonstration]="DemoComponent_01"
-                [BroadcastName]="'EdgeChaseExampleA'"
+                [BroadcastName]="'EdgeChaseChannel'"
                 [ChannelName]="'EdgeChaseDemoA'"
                 [TargetName]="'EdgeChaseDemoAController'"
                 [ShowDimensions]="true"
@@ -32,7 +32,11 @@
                 [WindowHeight]="'var(--loMed-1-4)'"
                 [MinWindowHeight]="'150px'"
             >
-
+                <edge-chase-readout
+                    controlArea
+                    [BroadcastName]="'EdgeChaseChannel'"
+                    [ChannelName]="'EdgeChaseDemoAController'"
+                />
             </demonstration-frame>
         </article>
     </article>

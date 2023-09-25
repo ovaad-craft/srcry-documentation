@@ -6,6 +6,7 @@ import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.c
 import { PaginationData, PropChartData } from '@site-types';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
 import { EdgeChaseExampleAComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-example-a/edge-chase-example-a.component';
+import { EdgeChaseReadoutComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-readout/edge-chase-readout.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -91,7 +92,8 @@ const PROPCHART: PropChartData[] = [
     PaginateComponent,
     DemonstrationFrameComponent,
     PropChartComponent,
-    CodeDisplayComponent
+    CodeDisplayComponent,
+    EdgeChaseReadoutComponent
   ],
   templateUrl: './edge-chase-page.component.html',
   styleUrls: ['./edge-chase-page.component.css']
@@ -102,13 +104,13 @@ export class EdgeChasePageComponent {
   PropData: PropChartData[] = PROPCHART;
 
   Demo_01: string = ` .myClass{
-    --baseSize-w: var(--tiny-1-4);
-    --crushGap-w: var(--line-narrow);
-    --edgeChase-w: var(--small-2-3);
+    --baseSize-w: var(--small-1-4);
+    --crushGap-w: var(--xTiny-1-3);
+    --edgeChase-w: var(--loMed-2-3);
     --chaseStop-w: var(--loMed-2-4);
-    --baseSize-h: var(--tiny-2-4);
-    --crushGap-h: var(--line-narrow);
-    --edgeChase-h: var(--tiny-1-3);
+    --baseSize-h: var(--small-2-4);
+    --crushGap-h: var(--xTiny-1-3);
+    --edgeChase-h: var(--small-1-4);
     --chaseStop-h: var(--loMed-1-3);
   }
  `;
