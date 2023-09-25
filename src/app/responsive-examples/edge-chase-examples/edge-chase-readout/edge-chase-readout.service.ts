@@ -23,5 +23,14 @@ export class EdgeChaseReadoutService {
   public createBroadcastChannel(broadcastName: string, channelName: string):void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
+    this.createChannelListener();
+  }
+
+  public createChannelListener():void{
+    this.DataChannel.onmessage = (event)=>{
+      if(event.data.target === this.ChannelName){
+        this.Readings.next(event.data.payload);
+      }
+    };
   }
 }
