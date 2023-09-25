@@ -5,8 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class EdgeChaseReadoutService {
 
-  private DataChannel!: BroadcastChannelEventMap;
+  private DataChannel!: BroadcastChannel;
   private ChannelName!: string;
-  
+
   constructor() { }
+
+  public createBroadcastChannel(broadcastName: string, channelName: string):void{
+    this.DataChannel = new BroadcastChannel(broadcastName);
+    this.ChannelName = channelName;
+  }
 }
