@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EdgeChaseData, SrcryPropReadings } from '@site-types';
+import { EdgeChaseData, EdgeChaseSettings, SrcryPropReadings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -66,5 +66,12 @@ export class EdgeChaseControllerService {
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
     this.TargetName = targetName;
+  }
+
+  public sendData(data: EdgeChaseSettings): void{
+    this.DataChannel.postMessage({
+      target: this.TargetName,
+      payload: data
+    });
   }
 }
