@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { SrcryPropReadings } from '@site-types';
+import { Injectable, NgZone } from '@angular/core';
+import { EdgeChaseSettings, SrcryPropReadings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -11,14 +11,41 @@ export class EdgeChaseAnalyzerService {
   private ChannelName!: string;
   private TargetName!: string;
 
-  private Readings: BehaviorSubject<SrcryPropReadings> = new BehaviorSubject<SrcryPropReadings>({
-    activePropW: '--',
-    activePropH: '--',
-    width: 0,
-    height: 0
+  private Readings: BehaviorSubject<EdgeChaseSettings> = new BehaviorSubject<EdgeChaseSettings>({
+    edgeChaseW: '--',
+    edgeChaseWNudgeChunk: 0,
+    edgeChaseWNudgeSlice: 0,
+    edgeChaseH: '--',
+    edgeChaseHNudgeChunk: 0,
+    edgeChaseHNudgeSlice: 0,
+    chaseStopW: '--',
+    chaseStopWNudgeChunk: 0,
+    chaseStopWNudgeSlice: 0,
+    chaseStopH: '--',
+    chaseStopHNudgeChunk: 0,
+    chaseStopHNudgeSlice: 0
+
   });
 
   public Readings$ = this.Readings.asObservable();
 
-  constructor() { }
+  constructor(private zone: NgZone) { }
+
+  private createChannelListener():void{
+    this.DataChannel.onmessage = (event)=>{
+      this.zone.run(()=>{
+        if(event.data.target === this.ChannelName){
+          this.Readings.next(event.data.payload);
+        }
+      });
+    };
+  }
+
+  public createBroadcastChannel(dataChannelName: string, channelName: string, targetName: string): void{
+    this.DataChannel = new BroadcastChannel(dataChannelName);
+    this.ChannelName = channelName;
+    this.TargetName = targetName;
+    this.createChannelListener();
+  }
+
 }
