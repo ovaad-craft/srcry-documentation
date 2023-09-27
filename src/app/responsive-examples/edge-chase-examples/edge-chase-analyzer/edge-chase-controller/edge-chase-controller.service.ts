@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { EdgeChaseData, EdgeChaseSettings, SrcryPropReadings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
+import { createBoxSize } from 'src/app/utils/create-box-size';
+import { createCssVariable } from 'src/app/utils/create-css-variable';
 
 @Injectable({
   providedIn: 'root'
@@ -56,8 +58,41 @@ export class EdgeChaseControllerService {
   private createChannelListener():void{
     this.DataChannel.onmessage = (event)=>{
       if(event.data.target === this.ChannelName){
-        if(event.data.notification === 'loadComplete'){}
-        if(event.data.notification === 'data'){}
+        if(event.data.notification === 'loadComplete'){
+          this.sendData({
+            edgeChaseW: createCssVariable(createBoxSize(
+              this.DefaultSettings.edgeChaseW.size,
+              this.DefaultSettings.edgeChaseW.scale,
+              this.DefaultSettings.edgeChaseW.speed
+            )),
+            edgeChaseWNudgeChunk: this.DefaultSettings.edgeChaseWNudgeChunk,
+            edgeChaseWNudgeSlice: this.DefaultSettings.edgeChaseWNudgeSlice,
+            edgeChaseH: createCssVariable(createBoxSize(
+              this.DefaultSettings.edgeChaseH.size,
+              this.DefaultSettings.edgeChaseH.scale,
+              this.DefaultSettings.edgeChaseH.speed
+            )),
+            edgeChaseHNudgeChunk: this.DefaultSettings.edgeChaseHNudgeChunk,
+            edgeChaseHNudgeSlice: this.DefaultSettings.edgeChaseHNudgeSlice,
+            chaseStopW: createCssVariable(createBoxSize(
+              this.DefaultSettings.chaseStopW.size,
+              this.DefaultSettings.chaseStopW.scale,
+              this.DefaultSettings.chaseStopW.speed
+            )),
+            chaseStopWNudgeChunk: this.DefaultSettings.chaseStopWNudgeChunk,
+            chaseStopWNudgeSlice: this.DefaultSettings.chaseStopWNudgeSlice,
+            chaseStopH: createCssVariable(createBoxSize(
+              this.DefaultSettings.chaseStopH.size,
+              this.DefaultSettings.chaseStopH.scale,
+              this.DefaultSettings.chaseStopH.speed
+            )),
+            chaseStopHNudgeChunk: this.DefaultSettings.chaseStopHNudgeChunk,
+            chaseStopHNudgeSlice: this.DefaultSettings.chaseStopHNudgeSlice,
+          });
+        }
+        if(event.data.notification === 'data'){
+          this.Readings.next(event.data.payload);
+        }
       }
     };
   }
@@ -66,6 +101,7 @@ export class EdgeChaseControllerService {
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
     this.TargetName = targetName;
+    this.createChannelListener();
   }
 
   public sendData(data: EdgeChaseSettings): void{
