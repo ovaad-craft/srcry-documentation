@@ -16,12 +16,12 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
   @Input() ChannelName!: string;
   @Input() TargetName!: string;
 
-  Readings!: EdgeChaseSettings;
+  Settings!: EdgeChaseSettings;
 
   constructor(private dataService: EdgeChaseAnalyzerService){}
 
   ngOnInit(): void {
-    this.dataService.Readings$.subscribe(a => this.Readings = a);
+    this.dataService.Settings$.subscribe(a => this.Settings = a);
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 

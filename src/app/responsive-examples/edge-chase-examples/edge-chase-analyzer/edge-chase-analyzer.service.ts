@@ -11,7 +11,7 @@ export class EdgeChaseAnalyzerService {
   private ChannelName!: string;
   private TargetName!: string;
 
-  private Readings: BehaviorSubject<EdgeChaseSettings> = new BehaviorSubject<EdgeChaseSettings>({
+  private Settings: BehaviorSubject<EdgeChaseSettings> = new BehaviorSubject<EdgeChaseSettings>({
     edgeChaseW: '--',
     edgeChaseWNudgeChunk: 0,
     edgeChaseWNudgeSlice: 0,
@@ -27,7 +27,7 @@ export class EdgeChaseAnalyzerService {
 
   });
 
-  public Readings$ = this.Readings.asObservable();
+  public Settings$ = this.Settings.asObservable();
 
   constructor(private zone: NgZone) { }
 
@@ -35,7 +35,7 @@ export class EdgeChaseAnalyzerService {
     this.DataChannel.onmessage = (event)=>{
       this.zone.run(()=>{
         if(event.data.target === this.ChannelName){
-          this.Readings.next(event.data.payload);
+          this.Settings.next(event.data.payload);
         }
       });
     };
