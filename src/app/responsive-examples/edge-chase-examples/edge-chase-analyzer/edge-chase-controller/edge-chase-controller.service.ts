@@ -52,4 +52,10 @@ export class EdgeChaseControllerService {
   }
 
   constructor() { }
+
+  public createBroadcastChannel(broadcastName: string, channelName: string, targetName: string): void{
+    this.DataChannel = new BroadcastChannel(broadcastName);
+    this.ChannelName = channelName;
+    this.TargetName = targetName;
+  }
 }
