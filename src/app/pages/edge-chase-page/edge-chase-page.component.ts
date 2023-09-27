@@ -7,6 +7,8 @@ import { PaginationData, PropChartData } from '@site-types';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
 import { EdgeChaseExampleAComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-example-a/edge-chase-example-a.component';
 import { EdgeChaseReadoutComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-readout/edge-chase-readout.component';
+import { EdgeChaseAnalyzerComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-analyzer/edge-chase-analyzer.component';
+import { EdgeChaseControllerComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-analyzer/edge-chase-controller/edge-chase-controller.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -93,7 +95,8 @@ const PROPCHART: PropChartData[] = [
     DemonstrationFrameComponent,
     PropChartComponent,
     CodeDisplayComponent,
-    EdgeChaseReadoutComponent
+    EdgeChaseReadoutComponent,
+    EdgeChaseControllerComponent
   ],
   templateUrl: './edge-chase-page.component.html',
   styleUrls: ['./edge-chase-page.component.css']
@@ -116,5 +119,7 @@ export class EdgeChasePageComponent {
  `;
 
  DemoComponent_01 = EdgeChaseExampleAComponent;
+
+ DemoComponent_02 = EdgeChaseAnalyzerComponent;
 
 }
