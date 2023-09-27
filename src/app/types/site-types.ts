@@ -230,3 +230,48 @@ export interface SrcryPropReadings extends ActivePropReadings{
     width: number;
     height: number;
 }
+
+export interface EdgeChaseProps{
+    edgeChaseW: BoxSizeProps;
+    edgeChaseWNudgeChunk: number;
+    edgeChaseWNudgeSlice: number;
+    edgeChaseH: BoxSizeProps;
+    edgeChaseHNudgeChunk: number;
+    edgeChaseHNudgeSlice: number;
+    chaseStopW: BoxSizeProps;
+    chaseStopWNudgeChunk: number;
+    chaseStopWNudgeSlice: number;
+    chaseStopH: BoxSizeProps;
+    chaseStopHNudgeChunk: number;
+    chaseStopHNudgeSlice: number;
+}
+
+export interface EdgeChaseData{
+    edgeChaseW: BoxSizeInterface;
+    edgeChaseWNudgeChunk: number;
+    edgeChaseWNudgeSlice: number;
+    edgeChaseH: BoxSizeInterface;
+    edgeChaseHNudgeChunk: number;
+    edgeChaseHNudgeSlice: number;
+    chaseStopW: BoxSizeInterface;
+    chaseStopWNudgeChunk: number;
+    chaseStopWNudgeSlice: number;
+    chaseStopH: BoxSizeInterface;
+    chaseStopHNudgeChunk: number;
+    chaseStopHNudgeSlice: number;
+}
+
+export interface EdgeChaseSettings{
+    edgeChaseW: string;
+    edgeChaseWNudgeChunk: number;
+    edgeChaseWNudgeSlice: number;
+    edgeChaseH: string;
+    edgeChaseHNudgeChunk: number;
+    edgeChaseHNudgeSlice: number;
+    chaseStopW: string;
+    chaseStopWNudgeChunk: number;
+    chaseStopWNudgeSlice: number;
+    chaseStopH: string;
+    chaseStopHNudgeChunk: number;
+    chaseStopHNudgeSlice: number;
+}
