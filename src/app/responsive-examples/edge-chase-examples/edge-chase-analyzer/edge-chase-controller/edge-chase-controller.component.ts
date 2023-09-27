@@ -32,6 +32,6 @@ export class EdgeChaseControllerComponent implements OnInit, AfterViewInit, OnDe
   }
 
   ngOnDestroy(): void {
-      
+    this.dataService.closeChannel();
   }
 }
