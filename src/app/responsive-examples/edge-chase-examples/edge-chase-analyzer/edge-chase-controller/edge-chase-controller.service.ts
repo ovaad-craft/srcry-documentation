@@ -110,4 +110,8 @@ export class EdgeChaseControllerService {
       payload: data
     });
   }
+
+  public closeChannel():void{
+    this.DataChannel.close();
+  }
 }
