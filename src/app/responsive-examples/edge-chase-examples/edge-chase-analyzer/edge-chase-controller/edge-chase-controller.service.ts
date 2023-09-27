@@ -53,6 +53,15 @@ export class EdgeChaseControllerService {
 
   constructor() { }
 
+  private createChannelListener():void{
+    this.DataChannel.onmessage = (event)=>{
+      if(event.data.target === this.ChannelName){
+        if(event.data.notification === 'loadComplete'){}
+        if(event.data.notification === 'data'){}
+      }
+    };
+  }
+
   public createBroadcastChannel(broadcastName: string, channelName: string, targetName: string): void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
