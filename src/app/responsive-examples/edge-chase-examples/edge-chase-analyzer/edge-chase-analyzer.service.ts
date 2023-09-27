@@ -46,6 +46,26 @@ export class EdgeChaseAnalyzerService {
     this.ChannelName = channelName;
     this.TargetName = targetName;
     this.createChannelListener();
+    this.sendLoadCompleteNotification();
+  }
+
+  private sendLoadCompleteNotification():void{
+    this.zone.run(()=>{
+      this.DataChannel.postMessage({
+        target: this.TargetName,
+        notification: 'loadComplete'
+      });
+    });
+  }
+
+  public sendData(data: SrcryPropReadings):void{
+    this.zone.run(()=>{
+      this.DataChannel.postMessage({
+        target: this.TargetName,
+        notification: 'data',
+        payload: data
+      });
+    });
   }
 
 }
