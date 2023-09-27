@@ -68,4 +68,8 @@ export class EdgeChaseAnalyzerService {
     });
   }
 
+  public closeChannel():void{
+    this.DataChannel.close();
+  }
+
 }
