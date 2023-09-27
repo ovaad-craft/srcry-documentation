@@ -111,6 +111,10 @@ export class EdgeChaseControllerService {
     });
   }
 
+  public getDefaultSettings():EdgeChaseData{
+    return this.DefaultSettings;
+  }
+
   public closeChannel():void{
     this.DataChannel.close();
   }
