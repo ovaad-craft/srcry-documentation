@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseAnalyzerService } from './edge-chase-analyzer.service';
+import { EdgeChaseSettings } from '@site-types';
 
 @Component({
   selector: 'app-edge-chase-analyzer',
@@ -15,10 +16,13 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
   @Input() ChannelName!: string;
   @Input() TargetName!: string;
 
+  Readings!: EdgeChaseSettings;
+
   constructor(private dataService: EdgeChaseAnalyzerService){}
 
   ngOnInit(): void {
-      
+    this.dataService.Readings$.subscribe(a => this.Readings = a);
+    this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
   ngAfterViewInit(): void {
@@ -26,7 +30,7 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngOnDestroy(): void {
-      
+    this.dataService.closeChannel();
   }
 
 }
