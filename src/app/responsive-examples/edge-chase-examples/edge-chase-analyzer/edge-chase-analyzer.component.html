@@ -1,1 +1,33 @@
-<p>edge-chase-analyzer works!</p>
+<section class="mainContainer">
+
+    <article class="readingContainer">
+
+        <div #baseBox class="baseBox"></div>
+        <div #stopBox class="stopbox"></div>
+
+    </article>
+
+    <article class="boxContainer">
+
+        <div
+            class="srcryBox box"
+            #box
+            [ngStyle]="{
+                '--edgeChase-w': Settings.edgeChaseW,
+                '--edgeChase-w-nudge-chunk': Settings.edgeChaseWNudgeChunk,
+                '--edgeChase-w-nudge-slice': Settings.edgeChaseWNudgeSlice,
+                '--edgeChase-h': Settings.edgeChaseH,
+                '--edgeChase-h-nudge-chunk': Settings.edgeChaseHNudgeChunk,
+                '--edgeChase-h-nudge-slice': Settings.edgeChaseHNudgeSlice,
+                '--chaseStop-w': Settings.chaseStopW,
+                '--chaseStop-w-nudge-chunk': Settings.chaseStopWNudgeChunk,
+                '--chaseStop-w-nudge-slice': Settings.chaseStopWNudgeSlice,
+                '--chaseStop-h': Settings.chaseStopH,
+                '--chaseStop-h-nudge-chunk': Settings.chaseStopHNudgeChunk,
+                '--chaseStop-h-nudge-slice': Settings.chaseStopHNudgeSlice
+            }"
+        ></div>
+
+    </article>
+
+</section>
