@@ -31,7 +31,9 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngAfterViewInit(): void {
-      
+    const boxListener: ResizeObserver = new ResizeObserver((element)=>{});
+
+    boxListener.observe(this.Box.nativeElement);
   }
 
   ngOnDestroy(): void {
