@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseAnalyzerService } from './edge-chase-analyzer.service';
 import { EdgeChaseSettings } from '@site-types';
@@ -16,6 +16,10 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
   @Input() BroadcastName!: string;
   @Input() ChannelName!: string;
   @Input() TargetName!: string;
+
+  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
+  @ViewChild('stopBox', {static: true, read: ElementRef}) StopBox!: ElementRef;
+  @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
 
   Settings!: EdgeChaseSettings;
 
