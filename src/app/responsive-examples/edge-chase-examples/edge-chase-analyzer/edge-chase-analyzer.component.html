@@ -3,7 +3,14 @@
     <article class="readingContainer">
 
         <div #baseBox class="baseBox"></div>
-        <div #stopBox class="stopbox"></div>
+        <div
+            #stopBox
+            class="stopbox"
+            [ngStyle]="{
+                width: Settings.chaseStopW,
+                height: Settings.chaseStopH
+            }"
+        ></div>
 
     </article>
 
