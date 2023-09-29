@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseAnalyzerService } from './edge-chase-analyzer.service';
-import { EdgeChaseSettings } from '@site-types';
+import { EdgeChaseSettings, SrcryPropReadings } from '@site-types';
 
 @Component({
   selector: 'app-edge-chase-analyzer',
@@ -38,6 +38,45 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
 
   ngOnDestroy(): void {
     this.dataService.closeChannel();
+  }
+
+  private determineActivWidthProp():string{
+    const baseBox: number = this.BaseBox.nativeElement.offsetWidth;
+    const stopBox: number = this.StopBox.nativeElement.offsetWidth;
+    const box: number = this.Box.nativeElement.offsetWidth;
+    
+    let prop: string = '';
+
+    if(box < baseBox - 3){ prop = 'crushGap'; }
+    else if(box > baseBox + 3 && box < stopBox -3){ prop = 'edgeChase'; }
+    else if(box > stopBox - 4){ prop = 'chaseStop'}
+    else{ prop = 'baseSize'; }
+
+    return prop;  
+  }
+  
+  private determineActivHeightProp():string{
+    const baseBox: number = this.BaseBox.nativeElement.offsetHeight;
+    const stopBox: number = this.StopBox.nativeElement.offsetHeight;
+    const box: number = this.Box.nativeElement.offsetHeight;
+    
+    let prop: string = '';
+
+    if(box < baseBox - 3){ prop = 'crushGap'; }
+    else if(box > baseBox + 3 && box < stopBox -3){ prop = 'edgeChase'; }
+    else if(box > stopBox - 4){ prop = 'chaseStop'}
+    else{ prop = 'baseSize'; }
+
+    return prop;  
+  }
+
+  private readElements():SrcryPropReadings{
+    return {
+      activePropW: this.determineActivWidthProp(),
+      activePropH: this.determineActivHeightProp(),
+      width: this.Box.nativeElement.offsetWidth,
+      height: this.Box.nativeElement.offsetHeight
+    };
   }
 
 }
