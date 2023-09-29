@@ -24,14 +24,14 @@ export class EdgeChaseControllerService {
 
   public DefaultSettings: EdgeChaseData = {
     edgeChaseW: {
-      size: 'tiny',
+      size: 'loMed',
       scale: '2',
       speed: '8'
     },
     edgeChaseWNudgeChunk: 0,
     edgeChaseWNudgeSlice: 0,
     edgeChaseH: {
-      size: 'tiny',
+      size: 'loMed',
       scale: '2',
       speed: '8'
     },
