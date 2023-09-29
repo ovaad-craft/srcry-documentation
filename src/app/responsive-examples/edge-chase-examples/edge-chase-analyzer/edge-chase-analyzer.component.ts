@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, NgZone, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EdgeChaseAnalyzerService } from './edge-chase-analyzer.service';
 import { EdgeChaseSettings, SrcryPropReadings } from '@site-types';
@@ -23,7 +23,7 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
 
   Settings!: EdgeChaseSettings;
 
-  constructor(private dataService: EdgeChaseAnalyzerService){}
+  constructor(private dataService: EdgeChaseAnalyzerService, private zone: NgZone){}
 
   ngOnInit(): void {
     this.dataService.Settings$.subscribe(a => this.Settings = a);
@@ -31,7 +31,11 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngAfterViewInit(): void {
-    const boxListener: ResizeObserver = new ResizeObserver((element)=>{});
+    const boxListener: ResizeObserver = new ResizeObserver((element)=>{
+      this.zone.run(()=>{
+        this.dataService.sendData(this.readElements());
+      });
+    });
 
     boxListener.observe(this.Box.nativeElement);
   }
