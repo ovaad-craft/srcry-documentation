@@ -2,11 +2,17 @@ import { Component, Input, OnInit, AfterViewInit, OnDestroy } from '@angular/cor
 import { CommonModule } from '@angular/common';
 import { EdgeChaseControllerService } from './edge-chase-controller.service';
 import { EdgeChaseData, EdgeChaseSettings, SrcryPropReadings } from '@site-types';
+import { EdgeChaseAnalyzerReadoutComponent } from './edge-chase-analyzer-readout/edge-chase-analyzer-readout.component';
+import { EdgeChaseInputComponent } from './edge-chase-input/edge-chase-input.component';
 
 @Component({
   selector: 'edge-chase-controller',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    EdgeChaseAnalyzerReadoutComponent,
+    EdgeChaseInputComponent
+  ],
   templateUrl: './edge-chase-controller.component.html',
   styleUrls: ['./edge-chase-controller.component.css']
 })
