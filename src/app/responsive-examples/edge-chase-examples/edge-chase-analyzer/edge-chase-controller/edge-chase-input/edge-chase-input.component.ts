@@ -18,10 +18,10 @@ export class EdgeChaseInputComponent implements OnInit {
   PropSettings!: EdgeChaseProps;
 
   ngOnInit(): void {
-    this.InitSettings();
+    this.initSettings();
   }
 
-  private InitSettings():void{
+  private initSettings():void{
     this.PropSettings = {
       edgeChaseW: createBoxSize(
         this.DefaultSettings.edgeChaseW.size,
@@ -52,6 +52,10 @@ export class EdgeChaseInputComponent implements OnInit {
       chaseStopHNudgeChunk: this.DefaultSettings.chaseStopHNudgeChunk,
       chaseStopHNudgeSlice: this.DefaultSettings.chaseStopHNudgeSlice
     }
+  }
+
+  private updateProps(): void{
+    this.UpdateProps.emit(this.PropSettings);
   }
 
 }
