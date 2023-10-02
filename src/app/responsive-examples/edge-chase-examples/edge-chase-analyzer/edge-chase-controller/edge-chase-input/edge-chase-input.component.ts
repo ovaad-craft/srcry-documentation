@@ -2,11 +2,19 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BoxSizeInterface, EdgeChaseData, EdgeChaseProps } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
+import { BoxSizeSelectorComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/box-size-selector/box-size-selector.component';
+import { NumberInputComponent } from 'src/app/layout/number-input/number-input.component';
+import { SrcryPropButtonComponent } from 'src/app/layout/srcry-prop-button/srcry-prop-button.component';
 
 @Component({
   selector: 'edge-chase-input',
   standalone: true,
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    BoxSizeSelectorComponent,
+    NumberInputComponent,
+    SrcryPropButtonComponent
+  ],
   templateUrl: './edge-chase-input.component.html',
   styleUrls: ['./edge-chase-input.component.css']
 })
