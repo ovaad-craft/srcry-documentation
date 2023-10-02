@@ -17,6 +17,22 @@ export class EdgeChaseInputComponent implements OnInit {
 
   PropSettings!: EdgeChaseProps;
 
+  SelectorStatus: boolean = false;
+  PropButtonsActive: boolean = true;
+
+  ToggleEdgeChaseW: boolean = true;
+  ToggleEdgeChaseWNudgeChunk: boolean = true;
+  ToggleEdgeChaseWNudgeSlice: boolean = true;
+  ToggleEdgeChaseH: boolean = true;
+  ToggleEdgeChaseHNudgeChunk: boolean = true;
+  ToggleEdgeChaseHNudgeSlice: boolean = true;
+  ToggleChaseStopW: boolean = true;
+  ToggleChaseStopWNudgeChunk: boolean = true;
+  ToggleChaseStopWNudgeSlice: boolean = true;
+  ToggleChaseStopH: boolean = true;
+  ToggleChaseStopHNudgeChunk: boolean = true;
+  ToggleChaseStopHNudgeSlice: boolean = true;
+
   ngOnInit(): void {
     this.initSettings();
   }
