@@ -4,6 +4,20 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
+import { PaginationData } from '@site-types';
+
+const PAGINATIONDATA: PaginationData = {
+  previous: {
+    id: 'edgeChasePage',
+    title: 'EdgeChase',
+    path: '/edge-chase'
+  },
+  next: {
+    id: 'stretchShrink',
+    title: 'Stretch Shrink',
+    path: '/stretch-shrink'
+  }
+}
 
 @Component({
   selector: 'app-squish-growth-page',
