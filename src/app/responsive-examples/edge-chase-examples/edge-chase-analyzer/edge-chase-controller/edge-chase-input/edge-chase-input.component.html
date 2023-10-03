@@ -1,1 +1,181 @@
-<p>edge-chase-input works!</p>
+<section class="mainContainer">
+
+    <article class="dimensionToggleContainer">
+        <button
+            class="srcryTxt dimensionToggleButton"
+            type="button"
+            (click)="dimensionToggler(false)"
+            [ngClass]="!DimensionToggle ? 'togglerActive' : 'togglerInnactive'"
+        >
+            width
+        </button>
+
+        <button
+            class="srcryTxt dimensionToggleButton"
+            type="button"
+            (click)="dimensionToggler(true)"
+            [ngClass]="DimensionToggle ? 'togglerActive' : 'togglerInnactive'"
+        >
+            height
+        </button>
+    </article>
+
+    <section class="dimensionContainer">
+
+        <section
+            class="propSelector widthProps"
+            [ngClass]="!DimensionToggle ? 'dimensionActive' : 'dimensionInnactive'"
+        >
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--edgeChase-w'"
+                    [Active]="PropButtonsActive"
+                    [Value]="makeIntoVariable(PropSettings.edgeChaseW)"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleEdgeChaseW()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleEdgeChaseW ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <box-size-selector
+                        [DefaultSettings]="DefaultSettings.edgeChaseW"
+                        class="selector"
+                        [ngClass]="ToggleEdgeChaseW ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSelection)="updateEdgeChaseW($event)"
+                        (UpdateStatus)="updateSelectorStatus($event)"
+                    />
+                </article>
+            </article>
+
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--edgeChase-w-nudge-chunk'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.edgeChaseWNudgeChunk"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleEdgeChaseWNudgeChunk()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleEdgeChaseWNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.edgeChaseWNudgeChunk"
+                        [ngClass]="ToggleEdgeChaseWNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateEdgeChaseWNudgeChunk($event)"
+                    />
+                </article>
+            </article>
+            
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--edgeChase-w-nudge-slice'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.edgeChaseWNudgeSlice"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleEdgeChaseWNudgeSlice()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleEdgeChaseWNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.edgeChaseWNudgeSlice"
+                        [ngClass]="ToggleEdgeChaseWNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateEdgeChaseWNudgeSlice($event)"
+                    />
+                </article>
+            </article>
+            
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--chaseStop-w'"
+                    [Active]="PropButtonsActive"
+                    [Value]="makeIntoVariable(PropSettings.chaseStopW)"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleChaseStopW()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleChaseStopW ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <box-size-selector
+                        [DefaultSettings]="DefaultSettings.chaseStopW"
+                        class="selector"
+                        [ngClass]="ToggleChaseStopW ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSelection)="updateChaseStopW($event)"
+                        (UpdateStatus)="updateSelectorStatus($event)"
+                    />
+                </article>
+            </article>
+
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--chaseStop-w-nudge-chunk'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.chaseStopWNudgeChunk"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleChaseStopWNudgeChunk()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleChaseStopWNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.chaseStopWNudgeChunk"
+                        [ngClass]="ToggleChaseStopWNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateChaseStopWNudgeChunk($event)"
+                    />
+                </article>
+            </article>
+            
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--chaseStop-w-nudge-slice'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.chaseStopWNudgeSlice"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleChaseStopWNudgeSlice()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleChaseStopWNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.edgeChaseWNudgeSlice"
+                        [ngClass]="ToggleChaseStopWNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateChaseStopWNudgeSlice($event)"
+                    />
+                </article>
+            </article>
+        </section>
+
+        <section
+            class="propSelector heightProps"
+            [ngClass]="DimensionToggle ? 'dimensionActive' : 'dimensionInnactive'"
+        >
+            height container
+        </section>
+
+    </section>
+
+</section>
