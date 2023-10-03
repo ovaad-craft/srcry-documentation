@@ -1,1 +1,80 @@
-<p>edge-chase-page works!</p>
+<section class="pageContainer">
+
+    <h1 class="srcryTxt pageTitle">Edge Chase and Chase Stop</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            These are two separate properties but are both being covered here because they work together to achieve the desired behavior.  The <b>edgeChase</b> property is somewhat similar to the <b>crushGap</b> property with the difference being the <b>edgeChase</b> defines the size of the margin to preserve as the screen expands while the <b>crushGap</b> defines the margin to preserve as the screen shrinks.
+        </p>
+
+        <p class="srcryTxt textContent">
+            The <b>chaseStop</b> property defines the maximum size you want the element to expand to before it stops preserving the margin defined by the <b>edgeChase</b> property. The following chart outlines the use of all available properties. 
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <prop-chart [ChartData]="PropData" />
+    </article>
+
+    <article class="contentContainer">
+        <article class="demonstrationContainer">
+
+            <code-display [Language]="'css'" [Code]="Demo_01" />
+
+            <demonstration-frame
+                [Demonstration]="DemoComponent_01"
+                [BroadcastName]="'EdgeChaseChannel'"
+                [ChannelName]="'EdgeChaseDemoA'"
+                [TargetName]="'EdgeChaseDemoAController'"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-1-4)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--loMed-1-4)'"
+                [MinWindowHeight]="'150px'"
+            >
+                <edge-chase-readout
+                    controlArea
+                    [BroadcastName]="'EdgeChaseChannel'"
+                    [ChannelName]="'EdgeChaseDemoAController'"
+                />
+            </demonstration-frame>
+        </article>
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The demonstration above shows how all the properties we've covered so far work together.  When you shrink the window beneath the width or height of the <b>baseSize</b> property the <b>crushGap</b> property takes over.  When you expand the screen there comes a point where is equal to the size you set in the <b>edgeChase</b> properties.  As you expand the screen beyond that point the box expands to maintain that amount of distance between the edges of the element and the edges of the screen.  Once the box grows to the size defined in the <b>chaseStop</b> properties it stop chasing the edges and continues to scale accordingly with the speed setting of the <b>box size</b> used as a value for this property.
+        </p>
+
+        <p class="srcryTxt textContent">
+            Use the following example to play with these settings for yourself to better understand how they work.  The <b>baseSize</b> and <b>crushGap</b> properties are already set for you to keep the demonstration focused. 
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <article class="demonstrationContainer">
+
+            <demonstration-frame
+                [Demonstration]="DemoComponent_02"
+                [BroadcastName]="'EdgeChaseChannel'"
+                [ChannelName]="'EdgeChaseDemoB'"
+                [TargetName]="'EdgeChaseController'"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-1-4)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--loMed-1-4)'"
+                [MinWindowHeight]="'150px'"
+            >
+                <edge-chase-controller
+                    controlArea
+                    [BrodcastName]="'EdgeChaseChannel'"
+                    [ChannelName]="'EdgeChaseController'"
+                    [TargetName]="'EdgeChaseDemoB'"
+                />
+            </demonstration-frame>
+            
+        </article>
+    </article>
+
+    <paginate [PageData]="Pagination" />
+</section>

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CrushGapReadings } from '@site-types';
+import { SrcryPropReadings } from '@site-types';
 
 @Component({
   selector: 'crush-gap-readout',
@@ -10,6 +10,6 @@ import { CrushGapReadings } from '@site-types';
   styleUrls: ['./crush-gap-readout.component.css']
 })
 export class CrushGapReadoutComponent {
-  @Input() Readings!: CrushGapReadings;
+  @Input() Readings!: SrcryPropReadings;
 
 }
