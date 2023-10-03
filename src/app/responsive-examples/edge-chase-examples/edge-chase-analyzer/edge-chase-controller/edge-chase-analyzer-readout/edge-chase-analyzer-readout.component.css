@@ -8,8 +8,6 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: var(--line-bold);
-    background-color: hsl(var(--gray-200), .29);
-    border: solid var(--line-light) hsl(var(--gray-200), 1);
     padding: var(--line-semiWide);
 }
 
