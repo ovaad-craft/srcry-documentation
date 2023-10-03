@@ -85,6 +85,10 @@ export class EdgeChaseInputComponent implements OnInit {
     this.DimensionToggle = value;
   }
 
+  public updateSelectorStatus(value: boolean): void{
+    this.SelectorStatus = value;
+  }
+
   private updateProps(): void{
     this.UpdateProps.emit(this.PropSettings);
   }
