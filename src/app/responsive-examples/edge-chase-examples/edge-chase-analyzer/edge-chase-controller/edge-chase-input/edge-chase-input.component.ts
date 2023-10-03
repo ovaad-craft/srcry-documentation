@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoxSizeInterface, EdgeChaseData, EdgeChaseProps } from '@site-types';
+import { BoxSizeInterface, BoxSizeProps, EdgeChaseData, EdgeChaseProps } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
 import { BoxSizeSelectorComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/box-size-selector/box-size-selector.component';
 import { NumberInputComponent } from 'src/app/layout/number-input/number-input.component';
 import { SrcryPropButtonComponent } from 'src/app/layout/srcry-prop-button/srcry-prop-button.component';
+import { createCssVariable } from 'src/app/utils/create-css-variable';
 
 @Component({
   selector: 'edge-chase-input',
@@ -90,6 +91,10 @@ export class EdgeChaseInputComponent implements OnInit {
 
   public updatePropButtons(value: boolean): void{
     this.PropButtonsActive = value;
+  }
+
+  public makeIntoVariable(value: BoxSizeProps): string{
+    return createCssVariable(value);
   }
 
   public toggleEdgeChaseW():void{
