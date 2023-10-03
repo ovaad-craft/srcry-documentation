@@ -31,18 +31,18 @@ export class EdgeChaseInputComponent implements OnInit {
 
   DimensionToggle: boolean = false;
 
-  ToggleEdgeChaseW: boolean = true;
-  ToggleEdgeChaseWNudgeChunk: boolean = true;
-  ToggleEdgeChaseWNudgeSlice: boolean = true;
-  ToggleEdgeChaseH: boolean = true;
-  ToggleEdgeChaseHNudgeChunk: boolean = true;
-  ToggleEdgeChaseHNudgeSlice: boolean = true;
-  ToggleChaseStopW: boolean = true;
-  ToggleChaseStopWNudgeChunk: boolean = true;
-  ToggleChaseStopWNudgeSlice: boolean = true;
-  ToggleChaseStopH: boolean = true;
-  ToggleChaseStopHNudgeChunk: boolean = true;
-  ToggleChaseStopHNudgeSlice: boolean = true;
+  ToggleEdgeChaseW: boolean = false;
+  ToggleEdgeChaseWNudgeChunk: boolean = false;
+  ToggleEdgeChaseWNudgeSlice: boolean = false;
+  ToggleEdgeChaseH: boolean = false;
+  ToggleEdgeChaseHNudgeChunk: boolean = false;
+  ToggleEdgeChaseHNudgeSlice: boolean = false;
+  ToggleChaseStopW: boolean = false;
+  ToggleChaseStopWNudgeChunk: boolean = false;
+  ToggleChaseStopWNudgeSlice: boolean = false;
+  ToggleChaseStopH: boolean = false;
+  ToggleChaseStopHNudgeChunk: boolean = false;
+  ToggleChaseStopHNudgeSlice: boolean = false;
 
   ngOnInit(): void {
     this.initSettings();
