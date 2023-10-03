@@ -28,6 +28,8 @@ export class EdgeChaseInputComponent implements OnInit {
   SelectorStatus: boolean = false;
   PropButtonsActive: boolean = true;
 
+  DimensionToggle: boolean = false;
+
   ToggleEdgeChaseW: boolean = true;
   ToggleEdgeChaseWNudgeChunk: boolean = true;
   ToggleEdgeChaseWNudgeSlice: boolean = true;
@@ -76,6 +78,10 @@ export class EdgeChaseInputComponent implements OnInit {
       chaseStopHNudgeChunk: this.DefaultSettings.chaseStopHNudgeChunk,
       chaseStopHNudgeSlice: this.DefaultSettings.chaseStopHNudgeSlice
     }
+  }
+
+  public dimensionToggler(value: boolean): void{
+    this.DimensionToggle = value;
   }
 
   private updateProps(): void{
