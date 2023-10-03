@@ -1,0 +1,15 @@
+:host{
+    display: grid;
+    width: min(var(--small-2-9), 92vw);
+    background-color: hsl(var(--gray-200), .29);
+    border: solid var(--line-light) hsl(var(--gray-200), 1);
+    place-items: center;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
+    justify-items: center;
+    gap: var(--line-bold) 0;
+}
