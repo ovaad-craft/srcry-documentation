@@ -173,7 +173,147 @@
             class="propSelector heightProps"
             [ngClass]="DimensionToggle ? 'dimensionActive' : 'dimensionInnactive'"
         >
-            height container
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--edgeChase-h'"
+                    [Active]="PropButtonsActive"
+                    [Value]="makeIntoVariable(PropSettings.edgeChaseH)"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleEdgeChaseH()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleEdgeChaseH ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <box-size-selector
+                        [DefaultSettings]="DefaultSettings.edgeChaseH"
+                        class="selector"
+                        [ngClass]="ToggleEdgeChaseH ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSelection)="updateEdgeChaseH($event)"
+                        (UpdateStatus)="updateSelectorStatus($event)"
+                    />
+                </article>
+            </article>
+
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--edgeChase-h-nudge-chunk'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.edgeChaseHNudgeChunk"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleEdgeChaseHNudgeChunk()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleEdgeChaseHNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.edgeChaseHNudgeChunk"
+                        [ngClass]="ToggleEdgeChaseHNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateEdgeChaseHNudgeChunk($event)"
+                    />
+                </article>
+            </article>
+            
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--edgeChase-h-nudge-slice'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.edgeChaseHNudgeSlice"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleEdgeChaseHNudgeSlice()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleEdgeChaseHNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.edgeChaseHNudgeSlice"
+                        [ngClass]="ToggleEdgeChaseHNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateEdgeChaseHNudgeSlice($event)"
+                    />
+                </article>
+            </article>
+            
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--chaseStop-h'"
+                    [Active]="PropButtonsActive"
+                    [Value]="makeIntoVariable(PropSettings.chaseStopH)"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleChaseStopH()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleChaseStopH ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <box-size-selector
+                        [DefaultSettings]="DefaultSettings.chaseStopH"
+                        class="selector"
+                        [ngClass]="ToggleChaseStopH ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSelection)="updateChaseStopH($event)"
+                        (UpdateStatus)="updateSelectorStatus($event)"
+                    />
+                </article>
+            </article>
+
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--chaseStop-h-nudge-chunk'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.chaseStopHNudgeChunk"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleChaseStopHNudgeChunk()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleChaseStopHNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.chaseStopHNudgeChunk"
+                        [ngClass]="ToggleChaseStopHNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateChaseStopHNudgeChunk($event)"
+                    />
+                </article>
+            </article>
+            
+            <article class="propContainer">
+                <srcry-prop-button
+                    class="propButton"
+                    [Prop]="'--chaseStop-h-nudge-slice'"
+                    [Active]="PropButtonsActive"
+                    [Value]="PropSettings.chaseStopHNudgeSlice"
+                    [SelectorStatus]="SelectorStatus"
+                    (SelectionToggle)="toggleChaseStopHNudgeSlice()"
+                    (UpdateActive)="updatePropButtons($event)"
+                />
+
+                <article
+                    class="selectorContainer"
+                    [ngClass]="ToggleChaseStopHNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
+                >
+                    <number-input
+                        [DefaultSetting]="DefaultSettings.edgeChaseHNudgeSlice"
+                        [ngClass]="ToggleChaseStopHNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateChaseStopHNudgeSlice($event)"
+                    />
+                </article>
+            </article>
         </section>
 
     </section>
