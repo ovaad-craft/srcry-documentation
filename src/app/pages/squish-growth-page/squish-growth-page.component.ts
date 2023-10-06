@@ -5,6 +5,8 @@ import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.compone
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
 import { PaginationData, PropChartData } from '@site-types';
+import { SquishGrowthExampleAControllerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-example-a/squish-growth-example-a-controller/squish-growth-example-a-controller.component';
+import { SquishGrowthExampleAComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-example-a/squish-growth-example-a.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -80,11 +82,24 @@ const PROPCHART: PropChartData[] =[
     PaginateComponent,
     PropChartComponent,
     DemonstrationFrameComponent,
-    CodeDisplayComponent
+    CodeDisplayComponent,
+    SquishGrowthExampleAControllerComponent
   ],
   templateUrl: './squish-growth-page.component.html',
   styleUrls: ['./squish-growth-page.component.css']
 })
 export class SquishGrowthPageComponent {
 
+  Pagination: PaginationData = PAGINATIONDATA;
+  ChartData: PropChartData[] = PROPCHART;
+
+  Demo01Code: string = ` .myClass{
+   --crushGap-w: var(--xTiny-2-4);
+   --baseSize-w: var(--small-2-8);
+   --squishGrowth-w-start: 600px;
+   --squishGrowth-w-speed: 8;
+   --squishGrowth-w-max: var(--loMed-2-5);
+ }
+  `;
+  DemoComponent01= SquishGrowthExampleAComponent;
 }

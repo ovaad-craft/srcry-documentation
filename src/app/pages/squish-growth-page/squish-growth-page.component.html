@@ -1,1 +1,41 @@
-<p>squish-growth-page works!</p>
+<section class="pageContainer">
+
+    <h1 class="srcryTxt pageTitle">Squish Growth</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The <b>squishGrowth</b> properties are used to make an element's dimensions expand as the screen size shrinks.  For example, the <b>squishGrowth-h</b> properties make the height of the element increase as the width of the screen decreases and the <b>squishGrowth-w</b> properties makes the width of the element increase as the height of the screen decreases.
+        </p>
+
+        <p class="srcryTxt textContent">
+            This functionality can be useful for handling a lot of the changes we typically make to our layouts when transitioning from mobile to tablets and laptops.  If you recall on the introduction page there's a demonstration of a navbar that grows taller when you decrease the width of the frame, that was done with the <b>squishGrowth</b> property.  Below is a chart of all the <b>squishGrowth</b> properties and how they're to be used.
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <prop-chart [ChartData]="ChartData" />
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The following example demonstrates the <b>squishGrowth-w</b> properties to show how they work together.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <code-display
+                [Code]="Demo01Code"
+                [Language]="'css'"
+            />
+
+            <demonstration-frame
+                [Demonstration]="DemoComponent01"
+            >
+                <squish-growth-example-a-controller controlArea/>
+            </demonstration-frame>
+
+        </article>
+    </article>
+
+    <paginate [PageData]="Pagination" />
+</section>
