@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ViewChild, ElementRef, OnInit, AfterViewInit, OnDestroy, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SquishGrowthExampleAService } from './squish-growth-example-a.service';
 
@@ -10,7 +10,7 @@ import { SquishGrowthExampleAService } from './squish-growth-example-a.service';
   styleUrls: ['./squish-growth-example-a.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class SquishGrowthExampleAComponent implements AfterViewInit {
+export class SquishGrowthExampleAComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
   @Input()TargetName!: string;
@@ -21,6 +21,10 @@ export class SquishGrowthExampleAComponent implements AfterViewInit {
 
   constructor(private dataService: SquishGrowthExampleAService, private zone: NgZone){}
 
+  ngOnInit(): void {
+      this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+  }
+
   ngAfterViewInit(): void {
       const boxListener: ResizeObserver = new ResizeObserver(element => {
         this.zone.run(()=> this.readElements());
@@ -29,6 +33,16 @@ export class SquishGrowthExampleAComponent implements AfterViewInit {
       boxListener.observe(this.FullBox.nativeElement);
   }
 
-  private readElements(): void{}
+  ngOnDestroy(): void {
+      this.dataService.closeChannel();
+  }
+
+  private readElements(): void{
+    this.dataService.sendData({
+      fullSize: this.FullBox.nativeElement.offsetWidth,
+      baseSize: this.BaseBox.nativeElement.offsetWidth,
+      growthSize: this.SquishBox.nativeElement.offsetWidth
+    });
+  }
 
 }
