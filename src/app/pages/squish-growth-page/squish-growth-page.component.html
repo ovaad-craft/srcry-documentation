@@ -18,7 +18,7 @@
 
     <article class="contentContainer">
         <p class="srcryTxt textContent">
-            The following example demonstrates the <b>squishGrowth-w</b> properties to show how they work together.
+            The following example demonstrates the <b>squishGrowth-w</b> properties to show how they work.
         </p>
 
         <article class="demonstrationContainer">
@@ -47,6 +47,26 @@
                 />
             </demonstration-frame>
 
+        </article>
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The <b>squishGrowth-h</b> properties work the same exact way with the exception of the element's height increasing as the width of the page decreases.  The following demonstration allows you to experiment with both properties to see the results.
+        </p>
+
+        <article class="demonstrationContainer">
+            <demonstration-frame
+                [Demonstration]="DemoComponent02"
+                [ShowDimensions]="true"
+                [BroadcastName]="'SquishGrowthChannel'"
+                [ChannelName]="'SquishGrowthDemo02'"
+                [TargetName]="'SquishGrowthAnalyzerController'"
+            >
+                <squish-growth-analyzer-controller
+                    controlArea
+                />
+            </demonstration-frame>
         </article>
     </article>
 

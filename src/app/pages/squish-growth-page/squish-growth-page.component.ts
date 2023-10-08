@@ -7,6 +7,8 @@ import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.c
 import { PaginationData, PropChartData } from '@site-types';
 import { SquishGrowthExampleAControllerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-example-a/squish-growth-example-a-controller/squish-growth-example-a-controller.component';
 import { SquishGrowthExampleAComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-example-a/squish-growth-example-a.component';
+import { SquishGrowthAnalyzerControllerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-analyzer/squish-growth-analyzer-controller/squish-growth-analyzer-controller.component';
+import { SquishGrowthAnalyzerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-analyzer/squish-growth-analyzer.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -83,7 +85,8 @@ const PROPCHART: PropChartData[] =[
     PropChartComponent,
     DemonstrationFrameComponent,
     CodeDisplayComponent,
-    SquishGrowthExampleAControllerComponent
+    SquishGrowthExampleAControllerComponent,
+    SquishGrowthAnalyzerControllerComponent
   ],
   templateUrl: './squish-growth-page.component.html',
   styleUrls: ['./squish-growth-page.component.css']
@@ -103,4 +106,6 @@ export class SquishGrowthPageComponent {
  }
   `;
   DemoComponent01= SquishGrowthExampleAComponent;
+
+  DemoComponent02 = SquishGrowthAnalyzerComponent;
 }
