@@ -309,10 +309,10 @@ export interface SquishGrowthSettings{
 }
 
 export interface SquishGrowthAnalyzerReadings{
-    fullSizW: number;
+    fullSizeW: number;
     baseSizeW: number;
     growthSizeW: number;
-    fullSizH: number;
+    fullSizeH: number;
     baseSizeH: number;
     growthSizeH: number;
 }
