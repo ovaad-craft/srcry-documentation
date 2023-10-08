@@ -281,3 +281,38 @@ export interface SquishGrowthReadings{
     baseSize: number;
     growthSize: number;
 }
+
+export interface SquishGrowthData{
+    squishGrowthWStart: string;
+    squishGrowthWSpeed: number;
+    squishGrowthWMax: BoxSizeInterface;
+    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeSlice: number;
+    squishGrowthHStart: string;
+    squishGrowthHSpeed: number;
+    squishGrowthHMax: BoxSizeInterface;
+    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeSlice: number;
+}
+
+export interface SquishGrowthSettings{
+    squishGrowthWStart: string;
+    squishGrowthWSpeed: number;
+    squishGrowthWMax: string;
+    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeSlice: number;
+    squishGrowthHStart: string;
+    squishGrowthHSpeed: number;
+    squishGrowthHMax: string;
+    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeSlice: number;
+}
+
+export interface SquishGrowthAnalyzerReadings{
+    fullSizW: number;
+    baseSizeW: number;
+    growthSizeW: number;
+    fullSizH: number;
+    baseSizeH: number;
+    growthSizeH: number;
+}
