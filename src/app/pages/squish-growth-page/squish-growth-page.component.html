@@ -30,8 +30,21 @@
 
             <demonstration-frame
                 [Demonstration]="DemoComponent01"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--loMed-2-7)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--large-1-7)'"
+                [MinWindowHeight]="'150px'"
+                [BroadcastName]="'SquishGrowthChannel'"
+                [ChannelName]="'SquishGrowthDemoA'"
+                [TargetName]="'SquishGrowthControllerA'"
             >
-                <squish-growth-example-a-controller controlArea/>
+                <squish-growth-example-a-controller
+                    controlArea
+                    [BroadcastName]="'SquishGrowthChannel'"
+                    [ChannelName]="'SquishGrowthControllerA'"
+                    [TargetName]="'SquishGrowthDemoA'"
+                />
             </demonstration-frame>
 
         </article>
