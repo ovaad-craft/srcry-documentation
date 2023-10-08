@@ -95,10 +95,11 @@ export class SquishGrowthPageComponent {
 
   Demo01Code: string = ` .myClass{
    --crushGap-w: var(--xTiny-2-4);
-   --baseSize-w: var(--small-2-8);
-   --squishGrowth-w-start: 600px;
-   --squishGrowth-w-speed: 8;
+   --baseSize-w: var(--small-1-3);
+   --squishGrowth-w-start: 700px;
+   --squishGrowth-w-speed: 14;
    --squishGrowth-w-max: var(--loMed-2-5);
+   max-width: 90vw;
  }
   `;
   DemoComponent01= SquishGrowthExampleAComponent;
