@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SquishGrowthExampleAService } from './squish-growth-example-a.service';
 
@@ -10,7 +10,7 @@ import { SquishGrowthExampleAService } from './squish-growth-example-a.service';
   styleUrls: ['./squish-growth-example-a.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class SquishGrowthExampleAComponent {
+export class SquishGrowthExampleAComponent implements AfterViewInit {
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
   @Input()TargetName!: string;
@@ -19,6 +19,16 @@ export class SquishGrowthExampleAComponent {
   @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
   @ViewChild('squishBox', {static: true, read: ElementRef}) SquishBox!: ElementRef;
 
-  constructor(private dataService: SquishGrowthExampleAService){}
+  constructor(private dataService: SquishGrowthExampleAService, private zone: NgZone){}
+
+  ngAfterViewInit(): void {
+      const boxListener: ResizeObserver = new ResizeObserver(element => {
+        this.zone.run(()=> this.readElements());
+      });
+
+      boxListener.observe(this.FullBox.nativeElement);
+  }
+
+  private readElements(): void{}
 
 }
