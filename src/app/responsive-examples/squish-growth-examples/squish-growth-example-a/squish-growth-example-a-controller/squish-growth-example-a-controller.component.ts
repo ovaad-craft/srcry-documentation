@@ -1,6 +1,7 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SquishGrowthExampleAControllerService } from './squish-growth-example-a-controller.service';
+import { SquishGrowthReadings } from '@site-types';
 
 @Component({
   selector: 'squish-growth-example-a-controller',
@@ -9,16 +10,18 @@ import { SquishGrowthExampleAControllerService } from './squish-growth-example-a
   templateUrl: './squish-growth-example-a-controller.component.html',
   styleUrls: ['./squish-growth-example-a-controller.component.css']
 })
-export class SquishGrowthExampleAControllerComponent {
+export class SquishGrowthExampleAControllerComponent implements OnInit {
 
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
   @Input()TargetName!: string;
 
-  @ViewChild('fullBox', {static: true, read: ElementRef}) FullBox!: ElementRef;
-  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
-  @ViewChild('squishBox', {static: true, read: ElementRef}) SquishBox!: ElementRef;
+  public Readings!: SquishGrowthReadings;
 
   constructor(private dataService: SquishGrowthExampleAControllerService){}
+
+  ngOnInit(): void {
+      this.dataService.Readings$.subscribe(a => this.Readings = a);
+  }
 
 }
