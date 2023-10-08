@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SquishGrowthExampleAControllerService } from './squish-growth-example-a-controller.service';
 import { SquishGrowthReadings } from '@site-types';
@@ -10,7 +10,7 @@ import { SquishGrowthReadings } from '@site-types';
   templateUrl: './squish-growth-example-a-controller.component.html',
   styleUrls: ['./squish-growth-example-a-controller.component.css']
 })
-export class SquishGrowthExampleAControllerComponent implements OnInit {
+export class SquishGrowthExampleAControllerComponent implements OnInit, OnDestroy {
 
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
@@ -23,6 +23,10 @@ export class SquishGrowthExampleAControllerComponent implements OnInit {
   ngOnInit(): void {
       this.dataService.Readings$.subscribe(a => this.Readings = a);
       this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+  }
+
+  ngOnDestroy(): void {
+      this.dataService.closeChannel();
   }
 
 }
