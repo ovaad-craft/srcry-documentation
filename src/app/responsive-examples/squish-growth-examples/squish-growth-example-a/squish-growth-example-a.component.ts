@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SquishGrowthExampleAService } from './squish-growth-example-a.service';
 
@@ -14,6 +14,10 @@ export class SquishGrowthExampleAComponent {
   @Input()BroadcastName!: string;
   @Input()ChannelName!: string;
   @Input()TargetName!: string;
+
+  @ViewChild('fullBox', {static: true, read: ElementRef}) FullBox!: ElementRef;
+  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
+  @ViewChild('squishBox', {static: true, read: ElementRef}) SquishBox!: ElementRef;
 
   constructor(private dataService: SquishGrowthExampleAService){}
 
