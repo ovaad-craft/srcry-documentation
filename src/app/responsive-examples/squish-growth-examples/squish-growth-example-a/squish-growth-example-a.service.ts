@@ -6,9 +6,9 @@ import { SquishGrowthReadings } from '@site-types';
 })
 export class SquishGrowthExampleAService {
 
-  DataChannel!: BroadcastChannel;
-  ChannelName!: string;
-  TargetName!: string;
+  private DataChannel!: BroadcastChannel;
+  private ChannelName!: string;
+  private TargetName!: string;
 
   constructor(private zone: NgZone) { }
 
