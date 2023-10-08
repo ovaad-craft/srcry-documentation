@@ -22,7 +22,7 @@ export class SquishGrowthExampleAService {
     this.zone.run(()=>{
       this.DataChannel.postMessage({
         target: this.TargetName,
-        data: data
+        payload: data
       });
     });
   }
