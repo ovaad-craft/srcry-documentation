@@ -275,3 +275,9 @@ export interface EdgeChaseSettings{
     chaseStopHNudgeChunk: number;
     chaseStopHNudgeSlice: number;
 }
+
+export interface SquishGrowthReadings{
+    fullSize: number;
+    baseSize: number;
+    growthSize: number;
+}
