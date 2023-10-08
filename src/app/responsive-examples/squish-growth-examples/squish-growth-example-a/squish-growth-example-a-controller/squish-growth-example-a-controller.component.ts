@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SquishGrowthExampleAService } from '../squish-growth-example-a.service';
+import { SquishGrowthExampleAControllerService } from './squish-growth-example-a-controller.service';
 
 @Component({
   selector: 'squish-growth-example-a-controller',
@@ -15,6 +15,10 @@ export class SquishGrowthExampleAControllerComponent {
   @Input()ChannelName!: string;
   @Input()TargetName!: string;
 
-  constructor(private dataService: SquishGrowthExampleAService){}
+  @ViewChild('fullBox', {static: true, read: ElementRef}) FullBox!: ElementRef;
+  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
+  @ViewChild('squishBox', {static: true, read: ElementRef}) SquishBox!: ElementRef;
+
+  constructor(private dataService: SquishGrowthExampleAControllerService){}
 
 }
