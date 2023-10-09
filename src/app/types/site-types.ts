@@ -295,6 +295,19 @@ export interface SquishGrowthData{
     squishGrowthHMaxNudgeSlice: number;
 }
 
+export interface SquishGrowthProps{
+    squishGrowthWStart: string;
+    squishGrowthWSpeed: number;
+    squishGrowthWMax: BoxSizeProps;
+    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeSlice: number;
+    squishGrowthHStart: string;
+    squishGrowthHSpeed: number;
+    squishGrowthHMax: BoxSizeProps;
+    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeSlice: number;
+}
+
 export interface SquishGrowthSettings{
     squishGrowthWStart: string;
     squishGrowthWSpeed: number;
