@@ -38,4 +38,15 @@ export class SquishGrowthAnalyzerComponent implements OnInit, AfterViewInit, OnD
       this.dataService.closeChannel();
   }
 
+  private updateReadings():void{
+    this.dataService.sendData({
+      baseSizeW: this.BaseBox.nativeElement.offsetWidth,
+      baseSizeH: this.BaseBox.nativeElement.offsetHeight,
+      growthSizeW: this.SquishBoxW.nativeElement.offsetWidth,
+      growthSizeH: this.SquishBoxH.nativeElement.offsetHeight,
+      fullSizeW: this.FullBox.nativeElement.offsetWidth,
+      fullSizeH: this.FullBox.nativeElement.offsetHeight
+    });
+  }
+
 }
