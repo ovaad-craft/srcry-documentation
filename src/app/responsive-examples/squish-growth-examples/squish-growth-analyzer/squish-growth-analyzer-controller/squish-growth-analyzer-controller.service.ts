@@ -56,28 +56,26 @@ export class SquishGrowthAnalyzerControllerService {
 
   private createChannelListener():void{
     this.DataChannel.onmessage = (event)=>{
-      this.zone.run(()=>{
-        if(event.data.target === this.ChannelName){
-          if(event.data.notification === 'loadComplete'){
-            this.sendData({
-              ...this.DefaultSettings,
-              squishGrowthWMax: createBoxSize(
-                this.DefaultSettings.squishGrowthWMax.size,
-                this.DefaultSettings.squishGrowthWMax.scale,
-                this.DefaultSettings.squishGrowthWMax.speed
-              ),
-              squishGrowthHMax: createBoxSize(
-                this.DefaultSettings.squishGrowthHMax.size,
-                this.DefaultSettings.squishGrowthHMax.scale,
-                this.DefaultSettings.squishGrowthHMax.speed
-              ),
-            });
-          }
-          if(event.data.notification === 'data'){
-            this.updateReadings(event.data.payload);
-          }
+      if(event.data.target === this.ChannelName){
+        if(event.data.notification === 'loadComplete'){
+          this.sendData({
+            ...this.DefaultSettings,
+            squishGrowthWMax: createBoxSize(
+              this.DefaultSettings.squishGrowthWMax.size,
+              this.DefaultSettings.squishGrowthWMax.scale,
+              this.DefaultSettings.squishGrowthWMax.speed
+            ),
+            squishGrowthHMax: createBoxSize(
+              this.DefaultSettings.squishGrowthHMax.size,
+              this.DefaultSettings.squishGrowthHMax.scale,
+              this.DefaultSettings.squishGrowthHMax.speed
+            )
+          });
         }
-      });
+        if(event.data.notification === 'data'){
+          this.updateReadings(event.data.payload);
+        }
+      };
     };
   }
 
@@ -86,22 +84,13 @@ export class SquishGrowthAnalyzerControllerService {
   }
 
   public sendData(data: SquishGrowthProps):void{
-    this.zone.run(()=>{
-      this.DataChannel.postMessage({
-        target: this.TargetName,
-        payload: {
-          squishGrowthWStart: data.squishGrowthWStart,
-          squishGrowthWSpeed: data.squishGrowthWStart,
-          squishGrowthWMax: createCssVariable(data.squishGrowthWMax),
-          squishGrowthWMaxNudgeScale: data.squishGrowthWMaxNudgeScale,
-          squishGrowthWMaxNudgeSlice: data.squishGrowthWMaxNudgeSlice,
-          squishGrowthHStart: data.squishGrowthHStart,
-          squishGrowthHSpeed: data.squishGrowthHStart,
-          squishGrowthHMax: createCssVariable(data.squishGrowthHMax),
-          squishGrowthHMaxNudgeScale: data.squishGrowthHMaxNudgeScale,
-          squishGrowthHMaxNudgeSlice: data.squishGrowthHMaxNudgeSlice,
-        }
-      });
+    this.DataChannel.postMessage({
+      target: this.TargetName,
+      payload: {
+        ...data,
+        squishGrowthWMax: createCssVariable(data.squishGrowthWMax),
+        squishGrowthHMax: createCssVariable(data.squishGrowthHMax)
+      }
     });
   }
 
