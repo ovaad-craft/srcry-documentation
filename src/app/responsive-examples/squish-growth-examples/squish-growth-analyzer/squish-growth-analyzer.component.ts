@@ -19,6 +19,11 @@ export class SquishGrowthAnalyzerComponent implements OnInit, AfterViewInit, OnD
 
   Settings!: SquishGrowthSettings;
 
+  @ViewChild('fullBox', {static: true, read: ElementRef}) FullBox!: ElementRef;
+  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
+  @ViewChild('squishBoxW', {static: true, read: ElementRef}) SquishBoxW!: ElementRef;
+  @ViewChild('squishBoxH', {static: true, read: ElementRef}) SquishBoxH!: ElementRef;
+
   constructor(private zone: NgZone, private dataService: SquishGrowthAnalyzerService){}
 
   ngOnInit(): void {
