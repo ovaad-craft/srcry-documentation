@@ -1,4 +1,6 @@
-<section class="srcryBox mainContainer"
+<section
+    #fullBox
+    class="srcryBox mainContainer"
     [ngStyle]="{
         '--squishGrowth-w-start': Settings.squishGrowthWStart,
         '--squishGrowth-w-speed': Settings.squishGrowthWSpeed,
@@ -12,7 +14,7 @@
         '--squishGrowth-h-max-nudge-slice': Settings.squishGrowthHMaxNudgeSlice
     }"
 >
-    <div class="baseBox"></div>
-    <div class="squishBoxW"></div>
-    <div class="squishBoxH"></div>
+    <div #baseBox class="baseBox"></div>
+    <div #squishBoxW class="squishBoxW"></div>
+    <div #squishBoxH class="squishBoxH"></div>
 </section>
