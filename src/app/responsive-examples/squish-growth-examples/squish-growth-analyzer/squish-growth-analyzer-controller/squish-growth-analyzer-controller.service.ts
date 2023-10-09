@@ -1,6 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
-import { SquishGrowthAnalyzerReadings, SquishGrowthData } from '@site-types';
+import { SquishGrowthAnalyzerReadings, SquishGrowthData, SquishGrowthSettings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
+import { createBoxSize } from 'src/app/utils/create-box-size';
+import { createCssVariable } from 'src/app/utils/create-css-variable';
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +46,66 @@ export class SquishGrowthAnalyzerControllerService {
   };
 
   constructor(private zone: NgZone) { }
+
+  public createChannel(dataChannelName: string, channelName: string, targetName: string):void{
+    this.DataChannel = new BroadcastChannel(dataChannelName);
+    this.ChannelName = channelName;
+    this.TargetName = targetName;
+    this.createChannelListener();
+  }
+
+  private createChannelListener():void{
+    this.DataChannel.onmessage = (event)=>{
+      this.zone.run(()=>{
+        if(event.data.target === this.ChannelName){
+          if(event.data.notification === 'loadComplete'){
+            this.sendData(this.DefaultSettings);
+          }
+          if(event.data.notification === 'data'){
+            this.updateReadings(event.data.payload);
+          }
+        }
+      });
+    };
+  }
+
+  private updateReadings(data:SquishGrowthAnalyzerReadings):void{
+    this.Readings.next(data);
+  }
+
+  public sendData(data: SquishGrowthData):void{
+    this.zone.run(()=>{
+      this.DataChannel.postMessage({
+        target: this.TargetName,
+        payload: {
+          squishGrowthWStart: data.squishGrowthWStart,
+          squishGrowthWSpeed: data.squishGrowthWStart,
+          squishGrowthWMax: createCssVariable(createBoxSize(
+            data.squishGrowthWMax.size,
+            data.squishGrowthWMax.scale,
+            data.squishGrowthWMax.speed
+          )),
+          squishGrowthWMaxNudgeScale: data.squishGrowthWMaxNudgeScale,
+          squishGrowthWMaxNudgeSlice: data.squishGrowthWMaxNudgeSlice,
+          squishGrowthHStart: data.squishGrowthHStart,
+          squishGrowthHSpeed: data.squishGrowthHStart,
+          squishGrowthHMax: createCssVariable(createBoxSize(
+            data.squishGrowthHMax.size,
+            data.squishGrowthHMax.scale,
+            data.squishGrowthHMax.speed
+          )),
+          squishGrowthHMaxNudgeScale: data.squishGrowthHMaxNudgeScale,
+          squishGrowthHMaxNudgeSlice: data.squishGrowthHMaxNudgeSlice,
+        }
+      });
+    });
+  }
+
+  public getDefaults():SquishGrowthData{
+    return this.DefaultSettings;
+  }
+
+  public closeChannel():void{
+    this.DataChannel.close();
+  }
 }
