@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { SquishGrowthAnalyzerReadings, SquishGrowthData, SquishGrowthSettings } from '@site-types';
+import { SquishGrowthAnalyzerReadings, SquishGrowthData, SquishGrowthProps, SquishGrowthSettings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
 import { createBoxSize } from 'src/app/utils/create-box-size';
 import { createCssVariable } from 'src/app/utils/create-css-variable';
@@ -59,7 +59,19 @@ export class SquishGrowthAnalyzerControllerService {
       this.zone.run(()=>{
         if(event.data.target === this.ChannelName){
           if(event.data.notification === 'loadComplete'){
-            this.sendData(this.DefaultSettings);
+            this.sendData({
+              ...this.DefaultSettings,
+              squishGrowthWMax: createBoxSize(
+                this.DefaultSettings.squishGrowthWMax.size,
+                this.DefaultSettings.squishGrowthWMax.scale,
+                this.DefaultSettings.squishGrowthWMax.speed
+              ),
+              squishGrowthHMax: createBoxSize(
+                this.DefaultSettings.squishGrowthHMax.size,
+                this.DefaultSettings.squishGrowthHMax.scale,
+                this.DefaultSettings.squishGrowthHMax.speed
+              ),
+            });
           }
           if(event.data.notification === 'data'){
             this.updateReadings(event.data.payload);
@@ -73,27 +85,19 @@ export class SquishGrowthAnalyzerControllerService {
     this.Readings.next(data);
   }
 
-  public sendData(data: SquishGrowthData):void{
+  public sendData(data: SquishGrowthProps):void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
         target: this.TargetName,
         payload: {
           squishGrowthWStart: data.squishGrowthWStart,
           squishGrowthWSpeed: data.squishGrowthWStart,
-          squishGrowthWMax: createCssVariable(createBoxSize(
-            data.squishGrowthWMax.size,
-            data.squishGrowthWMax.scale,
-            data.squishGrowthWMax.speed
-          )),
+          squishGrowthWMax: createCssVariable(data.squishGrowthWMax),
           squishGrowthWMaxNudgeScale: data.squishGrowthWMaxNudgeScale,
           squishGrowthWMaxNudgeSlice: data.squishGrowthWMaxNudgeSlice,
           squishGrowthHStart: data.squishGrowthHStart,
           squishGrowthHSpeed: data.squishGrowthHStart,
-          squishGrowthHMax: createCssVariable(createBoxSize(
-            data.squishGrowthHMax.size,
-            data.squishGrowthHMax.scale,
-            data.squishGrowthHMax.speed
-          )),
+          squishGrowthHMax: createCssVariable(data.squishGrowthHMax),
           squishGrowthHMaxNudgeScale: data.squishGrowthHMaxNudgeScale,
           squishGrowthHMaxNudgeSlice: data.squishGrowthHMaxNudgeSlice,
         }
