@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { SquishGrowthAnalyzerReadings, SquishGrowthData, SquishGrowthProps, SquishGrowthSettings } from '@site-types';
 import { BehaviorSubject } from 'rxjs';
 import { createBoxSize } from 'src/app/utils/create-box-size';
@@ -45,7 +45,7 @@ export class SquishGrowthAnalyzerControllerService {
     squishGrowthHMaxNudgeSlice: 0
   };
 
-  constructor(private zone: NgZone) { }
+  constructor() { }
 
   public createChannel(dataChannelName: string, channelName: string, targetName: string):void{
     this.DataChannel = new BroadcastChannel(dataChannelName);
