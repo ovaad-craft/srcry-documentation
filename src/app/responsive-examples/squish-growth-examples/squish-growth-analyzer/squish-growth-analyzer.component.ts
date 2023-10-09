@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Input, ViewChild, ElementRef, NgZone, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SquishGrowthSettings } from '@site-types';
 import { SquishGrowthAnalyzerService } from './squish-growth-analyzer.service';
@@ -8,7 +8,8 @@ import { SquishGrowthAnalyzerService } from './squish-growth-analyzer.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './squish-growth-analyzer.component.html',
-  styleUrls: ['./squish-growth-analyzer.component.css']
+  styleUrls: ['./squish-growth-analyzer.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class SquishGrowthAnalyzerComponent implements OnInit, AfterViewInit, OnDestroy {
 
