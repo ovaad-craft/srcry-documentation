@@ -28,6 +28,7 @@ export class SquishGrowthAnalyzerControllerComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
+    this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
 }
