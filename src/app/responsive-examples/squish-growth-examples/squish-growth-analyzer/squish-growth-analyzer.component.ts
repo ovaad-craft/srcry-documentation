@@ -32,6 +32,11 @@ export class SquishGrowthAnalyzerComponent implements OnInit, AfterViewInit, OnD
   }
 
   ngAfterViewInit(): void {
+    const boxListener: ResizeObserver = new ResizeObserver((element)=>{
+      this.zone.run(()=> this.updateReadings());
+    });
+
+    boxListener.observe(this.FullBox.nativeElement);
   }
 
   ngOnDestroy(): void {
