@@ -1,13 +1,39 @@
 <section class="mainContainer">
 
     <article class="dimensionToggleContainer">
-        <button class="srcryTxt dimensionToggleButton" type="button">width</button>
-        <button class="srcryTxt dimensionToggleButton" type="button">height</button>
+        <button
+            class="srcryTxt dimensionToggleButton"
+            type="button"
+            (click)="dimensionToggler(false)"
+            [ngClass]="!DimensionToggle ? 'togglerActive' : 'togglerInnactive'"
+        >
+            width            
+        </button>
+
+        <button
+            class="srcryTxt dimensionToggleButton"
+            type="button"
+            (click)="dimensionToggler(true)"
+            [ngClass]="DimensionToggle ? 'togglerActive' : 'togglerInnactive'"
+        >
+            height
+        </button>
     </article>
 
-    <section class="propArea">
-        <article class="widthProps">width props</article>
-        <article class="heightProps">height props</article>
+    <section class="dimensionContainer">
+        <article
+            class="propSelector widthProps"
+            [ngClass]="!DimensionToggle ? 'dimensionActive' : 'dimensionInnactive'"
+        >
+            width props
+        </article>
+
+        <article
+            class="propSelector heightProps"
+            [ngClass]="DimensionToggle ? 'dimensionActive' : 'dimensionInnactive'"
+        >
+            height props
+        </article>
     </section>
 
 </section>

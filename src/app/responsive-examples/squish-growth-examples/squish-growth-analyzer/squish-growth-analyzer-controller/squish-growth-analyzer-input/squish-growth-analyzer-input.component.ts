@@ -25,6 +25,8 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
 
   PropSettings!: SquishGrowthProps;
 
+  DimensionToggle: boolean = false;
+
   ngOnInit(): void {
       this.initSettings(this.DefaultSettings);
   }
@@ -43,6 +45,10 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
         data.squishGrowthHMax.speed,
       )
     };
+  }
+
+  public dimensionToggler(value: boolean):void{
+    this.DimensionToggle = value;
   }
 
 }
