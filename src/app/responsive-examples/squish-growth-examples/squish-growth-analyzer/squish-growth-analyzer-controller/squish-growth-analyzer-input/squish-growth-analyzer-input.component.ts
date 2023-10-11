@@ -27,6 +27,17 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
 
   DimensionToggle: boolean = false;
 
+  ToggleSquishGrowthWStart: boolean = false;
+  ToggleSquishGrowthWSpeed: boolean = false;
+  ToggleSquishGrowthWMax: boolean = false;
+  ToggleSquishGrowthWMaxNudgeScale: boolean = false;
+  ToggleSquishGrowthWMaxNudgeSlice: boolean = false;
+  ToggleSquishGrowthHStart: boolean = false;
+  ToggleSquishGrowthHSpeed: boolean = false;
+  ToggleSquishGrowthHMax: boolean = false;
+  ToggleSquishGrowthHMaxNudgeScale: boolean = false;
+  ToggleSquishGrowthHMaxNudgeSlice: boolean = false;
+
   ngOnInit(): void {
       this.initSettings(this.DefaultSettings);
   }
@@ -49,6 +60,46 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
 
   public dimensionToggler(value: boolean):void{
     this.DimensionToggle = value;
+  }
+
+  public toggleSquishGrowthWStart():void{
+    this.ToggleSquishGrowthWStart = !this.ToggleSquishGrowthWStart;
+  }
+  
+  public toggleSquishGrowthWSpeed():void{
+    this.ToggleSquishGrowthWSpeed = !this.ToggleSquishGrowthWSpeed;
+  }
+  
+  public toggleSquishGrowthWMax():void{
+    this.ToggleSquishGrowthWMax = !this.ToggleSquishGrowthWMax;
+  }
+  
+  public toggleSquishGrowthWMaxNudgeScale():void{
+    this.ToggleSquishGrowthWMaxNudgeScale = !this.ToggleSquishGrowthWMaxNudgeScale;
+  }
+  
+  public toggleSquishGrowthWMaxNudgeSlice():void{
+    this.ToggleSquishGrowthWMaxNudgeSlice = !this.ToggleSquishGrowthWMaxNudgeSlice;
+  }
+  
+  public toggleSquishGrowthHStart():void{
+    this.ToggleSquishGrowthHStart = !this.ToggleSquishGrowthHStart;
+  }
+  
+  public toggleSquishGrowthHSpeed():void{
+    this.ToggleSquishGrowthHSpeed = !this.ToggleSquishGrowthHSpeed;
+  }
+  
+  public toggleSquishGrowthHMax():void{
+    this.ToggleSquishGrowthHMax = !this.ToggleSquishGrowthHMax;
+  }
+  
+  public toggleSquishGrowthHMaxNudgeScale():void{
+    this.ToggleSquishGrowthHMaxNudgeScale = !this.ToggleSquishGrowthHMaxNudgeScale;
+  }
+  
+  public toggleSquishGrowthHMaxNudgeSlice():void{
+    this.ToggleSquishGrowthHMaxNudgeSlice = !this.ToggleSquishGrowthHMaxNudgeSlice;
   }
 
 }
