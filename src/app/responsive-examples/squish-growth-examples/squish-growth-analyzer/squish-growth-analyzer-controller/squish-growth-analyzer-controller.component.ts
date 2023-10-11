@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SquishGrowthAnalyzerControllerService } from './squish-growth-analyzer-controller.service';
 import { SquishGrowthAnalyzerReadoutComponent } from './squish-growth-analyzer-readout/squish-growth-analyzer-readout.component';
 import { SquishGrowthAnalyzerInputComponent } from './squish-growth-analyzer-input/squish-growth-analyzer-input.component';
-import { SquishGrowthAnalyzerReadings } from '@site-types';
+import { SquishGrowthAnalyzerReadings, SquishGrowthData, SquishGrowthProps } from '@site-types';
 
 @Component({
   selector: 'squish-growth-analyzer-controller',
@@ -23,12 +23,18 @@ export class SquishGrowthAnalyzerControllerComponent implements OnInit {
   @Input()TargetName!: string;
 
   Readings!: SquishGrowthAnalyzerReadings;
+  DefaultSettings!: SquishGrowthData;
 
   constructor(private dataService: SquishGrowthAnalyzerControllerService){}
 
   ngOnInit(): void {
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
+    this.DefaultSettings = this.dataService.getDefaults();
     this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+  }
+
+  public updateSettings(data: SquishGrowthProps): void{
+    this.dataService.sendData(data);
   }
 
 }
