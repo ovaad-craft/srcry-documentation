@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SrcryPropButtonComponent } from 'src/app/layout/srcry-prop-button/srcry-prop-button.component';
 import { NumberInputComponent } from 'src/app/layout/number-input/number-input.component';
 import { BoxSizeSelectorComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/box-size-selector/box-size-selector.component';
-import { BoxSizeProps, SquishGrowthData, SquishGrowthProps } from '@site-types';
+import { BoxSizeInterface, BoxSizeProps, SquishGrowthData, SquishGrowthProps } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
+import { createCssVariable } from 'src/app/utils/create-css-variable';
 
 @Component({
   selector: 'squish-growth-analyzer-input',
@@ -26,6 +27,8 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
   PropSettings!: SquishGrowthProps;
 
   DimensionToggle: boolean = false;
+  PropButtonsActive: boolean = true;
+  SelectorStatus: boolean = false;
 
   ToggleSquishGrowthWStart: boolean = false;
   ToggleSquishGrowthWSpeed: boolean = false;
@@ -39,12 +42,14 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
   ToggleSquishGrowthHMaxNudgeSlice: boolean = false;
 
   ngOnInit(): void {
-      this.initSettings(this.DefaultSettings);
+      this.PropSettings = this.initSettings(this.DefaultSettings);
   }
 
   private initSettings(data: SquishGrowthData): SquishGrowthProps{
     return {
       ...data,
+      squishGrowthWStart: `${this.DefaultSettings.squishGrowthWStart}px`,
+      squishGrowthHStart: `${this.DefaultSettings.squishGrowthHStart}px`,
       squishGrowthWMax: createBoxSize(
         data.squishGrowthWMax.size,
         data.squishGrowthWMax.scale,
@@ -62,8 +67,20 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
     this.UpdateProps.emit(this.PropSettings);
   }
 
+  public makeIntoVariable(value: BoxSizeProps):string{
+    return createCssVariable(value);
+  }
+
   public dimensionToggler(value: boolean):void{
     this.DimensionToggle = value;
+  }
+
+  public updatePropButtons(value: boolean): void{
+    this.PropButtonsActive = value;
+  }
+
+  public updateSelectorStatus(value: boolean):void{
+    this.SelectorStatus = value;
   }
 
   public toggleSquishGrowthWStart():void{
@@ -88,8 +105,8 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
     this.ToggleSquishGrowthWMax = !this.ToggleSquishGrowthWMax;
   }
 
-  public updateSquishGrowthWMax(value: BoxSizeProps):void{
-    this.PropSettings.squishGrowthWMax = value;
+  public updateSquishGrowthWMax(value: BoxSizeInterface):void{
+    this.PropSettings.squishGrowthWMax = createBoxSize(value.size, value.scale, value.speed);
     this.updateSettings();
   }
   
@@ -133,8 +150,8 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
     this.ToggleSquishGrowthHMax = !this.ToggleSquishGrowthHMax;
   }
 
-  public updateSquishGrowthHMax(value: BoxSizeProps):void{
-    this.PropSettings.squishGrowthHMax = value;
+  public updateSquishGrowthHMax(value: BoxSizeInterface):void{
+    this.PropSettings.squishGrowthHMax = createBoxSize(value.size, value.scale, value.speed);
     this.updateSettings();
   }
   
