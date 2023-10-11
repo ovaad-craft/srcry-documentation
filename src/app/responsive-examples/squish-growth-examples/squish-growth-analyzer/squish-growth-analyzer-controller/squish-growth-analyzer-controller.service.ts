@@ -25,7 +25,7 @@ export class SquishGrowthAnalyzerControllerService {
   public Readings$ = this.Readings.asObservable();
 
   public DefaultSettings: SquishGrowthData = {
-    squishGrowthWStart: '1px',
+    squishGrowthWStart: 1,
     squishGrowthWSpeed: 0,
     squishGrowthWMax: {
       size: 'micro',
@@ -34,7 +34,7 @@ export class SquishGrowthAnalyzerControllerService {
     },
     squishGrowthWMaxNudgeScale: 0,
     squishGrowthWMaxNudgeSlice: 0,
-    squishGrowthHStart: '1px',
+    squishGrowthHStart: 1,
     squishGrowthHSpeed: 0,
     squishGrowthHMax: {
       size: 'micro',
@@ -60,6 +60,8 @@ export class SquishGrowthAnalyzerControllerService {
         if(event.data.notification === 'loadComplete'){
           this.sendData({
             ...this.DefaultSettings,
+            squishGrowthWStart: `${this.DefaultSettings.squishGrowthWStart}px`,
+            squishGrowthHStart: `${this.DefaultSettings.squishGrowthHStart}px`,
             squishGrowthWMax: createBoxSize(
               this.DefaultSettings.squishGrowthWMax.size,
               this.DefaultSettings.squishGrowthWMax.scale,
