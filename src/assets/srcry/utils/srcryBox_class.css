@@ -209,14 +209,17 @@
 
     /* Squish Growth Equations */
     --SquishCore-w         : calc(var(--squishGrowth-w-start) - 100vh);
-    --SquishChunk-w        : calc(var(--SquishCore-w)         / 11);
+    --SquishChunk-w        : calc(var(--SquishCore-w)         / 33);
     --SquishTotal-w        : calc(var(--SquishChunk-w)        * var(--squishGrowth-w-speed));
     --SquishGrowthSize-w   : calc(var(--ChaseStopToggle-w)    + var(--SquishTotal-w));
     
     /*--SquishGrowthMaxNudgeEquation-w : calc(var(--squishGrowth-w-max-nudgeScale) * var(--squishGrowth-w-max-nudgeAmount));*/
-    --SquishGrowthMaxSize-w          : calc(var(--SquishTotal-w)                 + var(--SquishGrowth-W-Max-NudgeMaster));
+    --SquishGrowthWMaxEquation: calc(var(--squishGrowth-w-max) + var(--SquishGrowth-W-Max-NudgeMaster));
     
-    --SquishGrowthMaster-w : min(var(--SquishGrowthSize-w), var(--SquishGrowthMaxSize-w));
+    /*--SquishGrowthMaxSize-w          : calc(var(--SquishTotal-w)                 + var(--SquishGrowth-W-Max-NudgeMaster));*/
+    
+    --SquishGrowthMaster-w : min(var(--SquishGrowthWMaxEquation), var(--SquishGrowthSize-w));
+    /*--SquishGrowthMaster-w : min(var(--SquishGrowthSize-w), var(--SquishGrowthMaxSize-w));*/
 
     --SquishCore-h         : calc(var(--squishGrowth-h-start) - 100vw);
     --SquishChunk-h        : calc(var(--SquishCore-h)         / 33);
@@ -224,9 +227,11 @@
     --SquishGrowthSize-h   : calc(var(--ChaseStopToggle-h)    + var(--SquishTotal-h));
 
     /*--SquishGrowthMaxNudgeEquation-h : calc(var(--squishGrowth-h-max-nudgeScale) * var(--squishGrowth-h-max-nudgeAmount));*/
+    --SquishGrowthHMaxEquation: calc(var(--squishGrowth-h-max) + var(--SquishGrowth-H-Max-NudgeMaster));
     --SquishGrowthMaxSize-h          : calc(var(--SquishTotal-h)                 + var(--SquishGrowth-H-Max-NudgeMaster));
 
-    --SquishGrowthMaster-h : min(var(--SquishGrowthSize-h), var(--squishGrowth-h-max));
+    --SquishGrowthMaster-h : min(var(--SquishGrowthHMaxEquation), var(--SquishGrowthSize-h));
+    /*--SquishGrowthMaster-h : min(var(--SquishGrowthSize-h), var(--squishGrowth-h-max));*/
 
 
 

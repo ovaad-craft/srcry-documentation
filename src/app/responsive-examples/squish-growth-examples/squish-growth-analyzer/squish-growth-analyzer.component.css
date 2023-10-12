@@ -1,0 +1,49 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:host{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-columns: var(--tiny-2-4) auto;
+    grid-template-rows: var(--tiny-2-4) auto;
+    --crushGap-w: var(--line-thick);
+    --baseSize-w: var(--tiny-2-4);
+    --crushGap-h: var(--line-thick);
+    --baseSize-h: var(--tiny-2-4);
+    background-color: hsl(var(--blue-400), 1);
+    max-width: 97vw;
+    max-height: 97vh;
+}
+
+.baseBox{
+    grid-area: 1/1/2/2;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.squishBoxW{
+    grid-area: 1/2/2/3;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.squishBoxH{
+    display: 2/1/3/3;
+    display: block;
+    width: 100%;
+    height: 100%;
+}

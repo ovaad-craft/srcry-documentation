@@ -38,7 +38,7 @@
     max-width: 95vw;
     min-height: var(--minHeight, unset);
     height: min(var(--defaultHeight), calc(100vh - var(--line-bold)));
-    max-height: 97vh;
+    max-height: 120vh;
 }
 
 .domFrame{

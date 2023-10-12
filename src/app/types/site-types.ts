@@ -275,3 +275,57 @@ export interface EdgeChaseSettings{
     chaseStopHNudgeChunk: number;
     chaseStopHNudgeSlice: number;
 }
+
+export interface SquishGrowthReadings{
+    fullSize: number;
+    baseSize: number;
+    growthSize: number;
+}
+
+export interface SquishGrowthData{
+    squishGrowthWStart: number;
+    squishGrowthWSpeed: number;
+    squishGrowthWMax: BoxSizeInterface;
+    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeSlice: number;
+    squishGrowthHStart: number;
+    squishGrowthHSpeed: number;
+    squishGrowthHMax: BoxSizeInterface;
+    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeSlice: number;
+}
+
+export interface SquishGrowthProps{
+    squishGrowthWStart: string;
+    squishGrowthWSpeed: number;
+    squishGrowthWMax: BoxSizeProps;
+    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeSlice: number;
+    squishGrowthHStart: string;
+    squishGrowthHSpeed: number;
+    squishGrowthHMax: BoxSizeProps;
+    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeSlice: number;
+}
+
+export interface SquishGrowthSettings{
+    squishGrowthWStart: string;
+    squishGrowthWSpeed: number;
+    squishGrowthWMax: string;
+    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeSlice: number;
+    squishGrowthHStart: string;
+    squishGrowthHSpeed: number;
+    squishGrowthHMax: string;
+    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeSlice: number;
+}
+
+export interface SquishGrowthAnalyzerReadings{
+    fullSizeW: number;
+    baseSizeW: number;
+    growthSizeW: number;
+    fullSizeH: number;
+    baseSizeH: number;
+    growthSizeH: number;
+}

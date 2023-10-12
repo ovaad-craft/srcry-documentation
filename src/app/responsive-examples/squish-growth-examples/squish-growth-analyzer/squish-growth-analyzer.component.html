@@ -1,0 +1,20 @@
+<section
+    #fullBox
+    class="srcryBox mainContainer"
+    [ngStyle]="{
+        '--squishGrowth-w-start': Settings.squishGrowthWStart,
+        '--squishGrowth-w-speed': Settings.squishGrowthWSpeed,
+        '--squishGrowth-w-max': Settings.squishGrowthWMax,
+        '--squishGrowth-w-max-nudge-scale': Settings.squishGrowthWMaxNudgeScale,
+        '--squishGrowth-w-max-nudge-slice': Settings.squishGrowthWMaxNudgeSlice,
+        '--squishGrowth-h-start': Settings.squishGrowthHStart,
+        '--squishGrowth-h-speed': Settings.squishGrowthHSpeed,
+        '--squishGrowth-h-max': Settings.squishGrowthHMax,
+        '--squishGrowth-h-max-nudge-scale': Settings.squishGrowthHMaxNudgeScale,
+        '--squishGrowth-h-max-nudge-slice': Settings.squishGrowthHMaxNudgeSlice
+    }"
+>
+    <div #baseBox class="baseBox"></div>
+    <div #squishBoxW class="squishBoxW"></div>
+    <div #squishBoxH class="squishBoxH"></div>
+</section>

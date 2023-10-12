@@ -1,0 +1,14 @@
+<section class="mainContainer">
+    <article class="readingContainer baseReading">
+        <div class="readingIndicator" [ngStyle]="{'--readingColor': 'hsl(var(--blue-400), 1)'}"></div>
+        <p class="srcryTxt readingTxt">{{Readings.baseSize}}<small>px</small></p>
+    </article>
+    <article class="readingContainer growthReading">
+        <div class="readingIndicator" [ngStyle]="{'--readingColor': 'hsl(var(--blue-300), 1)'}"></div>
+        <p class="srcryTxt readingTxt">{{Readings.growthSize}}<small>px</small></p>
+    </article>
+    <article class="readingContainer fullReading">
+        <h3 class="srcryTxt fullReadingTitle">Full Size</h3>
+        <p class="srcryTxt readingTxt">{{Readings.fullSize}}<small>px</small></p>
+    </article>
+</section>
