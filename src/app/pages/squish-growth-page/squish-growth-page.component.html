@@ -62,9 +62,16 @@
                 [BroadcastName]="'SquishGrowthChannel'"
                 [ChannelName]="'SquishGrowthDemo02'"
                 [TargetName]="'SquishGrowthAnalyzerController'"
+                [WindowWidth]="'var(--large-1-5)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--large-1-5)'"
+                [MinWindowHeight]="'150px'"
             >
                 <squish-growth-analyzer-controller
                     controlArea
+                    [BroadcastName]="'SquishGrowthChannel'"
+                    [ChannelName]="'SquishGrowthAnalyzerController'"
+                    [TargetName]="'SquishGrowthDemo02'"
                 />
             </demonstration-frame>
         </article>
