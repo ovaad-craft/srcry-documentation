@@ -1,1 +1,15 @@
-<p>stretch-shrink-page works!</p>
+<section class="pageContainer">
+    <h1 class="srcryTxt pageTitle">Stretch Shrink</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The <b>stretchShrink</b> properties are used to make an element's dimensions shrink as the screen size expands.  Similar to the <b>squishGrowth</b> properties, the <b>stetchShrink-w</b> properties make the width of an element shrink as the height of the page expands while the <b>stretchShrink-h</b> properties make the height of the element decrease as the width of the screen increases.  This functionality is useful for handling situations where an element may start to grow out of control when scaling to larger screen sizes.
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <prop-chart [ChartData]="ChartData"/>
+    </article>
+
+    <paginate [PageData]="Pagination" />
+</section>
