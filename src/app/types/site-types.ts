@@ -329,3 +329,49 @@ export interface SquishGrowthAnalyzerReadings{
     baseSizeH: number;
     growthSizeH: number;
 }
+
+export interface StretchShrinkData{
+    stretchShrinkWStart: number;
+    stretchShrinkWSpeed: number;
+    stretchShrinkWMin: BoxSizeInterface;
+    stretchShrinkWMinNudgeScale: number;
+    stretchShrinkWMinNudgeSlice: number;
+    stretchShrinkHStart: number;
+    stretchShrinkHSpeed: number;
+    stretchShrinkHMin: BoxSizeInterface;
+    stretchShrinkHMinNudgeScale: number;
+    stretchShrinkHMinNudgeSlice: number;
+}
+
+export interface StretchShrinkProps{
+    stretchShrinkWStart: string;
+    stretchShrinkWSpeed: number;
+    stretchShrinkWMin: BoxSizeProps;
+    stretchShrinkWMinNudgeScale: number;
+    stretchShrinkWMinNudgeSlice: number;
+    stretchShrinkHStart: string;
+    stretchShrinkHSpeed: number;
+    stretchShrinkHMin: BoxSizeProps;
+    stretchShrinkHMinNudgeScale: number;
+    stretchShrinkHMinNudgeSlice: number;
+}
+
+export interface StretchShrinkSettings{
+    stretchShrinkWStart: string;
+    stretchShrinkWSpeed: number;
+    stretchShrinkWMin: string;
+    stretchShrinkWMinNudgeScale: number;
+    stretchShrinkWMinNudgeSlice: number;
+    stretchShrinkHStart: string;
+    stretchShrinkHSpeed: number;
+    stretchShrinkHMin: string;
+    stretchShrinkHMinNudgeScale: number;
+    stretchShrinkHMinNudgeSlice: number;
+}
+
+export interface StretchShrinkReadings{
+    width?: number;
+    shrinkAmountW?: number;
+    height?: number;
+    ShrinkAmountH?: number;
+}
