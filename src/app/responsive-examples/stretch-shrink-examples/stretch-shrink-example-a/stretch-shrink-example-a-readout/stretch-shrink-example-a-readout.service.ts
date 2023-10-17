@@ -35,4 +35,8 @@ export class StretchShrinkExampleAReadoutService {
 
     this.setChannelListener();
   }
+
+  public closeChannel():void{
+    this.DataChannel.close();
+  }
 }
