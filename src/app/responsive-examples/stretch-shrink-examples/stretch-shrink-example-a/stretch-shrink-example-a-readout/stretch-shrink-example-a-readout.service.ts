@@ -13,7 +13,7 @@ export class StretchShrinkExampleAReadoutService {
 
   private Readings: BehaviorSubject<StretchShrinkReadings> = new BehaviorSubject<StretchShrinkReadings>({
     height: 0,
-    ShrinkAmountH: 0
+    shrinkAmountH: 0
   });
 
   public Readings$ = this.Readings.asObservable();
