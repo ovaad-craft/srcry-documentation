@@ -22,6 +22,7 @@ export class StretchShrinkExampleAReadoutComponent implements OnInit, OnDestroy 
 
   ngOnInit(): void {
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
+    this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
   ngOnDestroy(): void {
