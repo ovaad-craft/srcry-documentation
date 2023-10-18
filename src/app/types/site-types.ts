@@ -373,5 +373,5 @@ export interface StretchShrinkReadings{
     width?: number;
     shrinkAmountW?: number;
     height?: number;
-    ShrinkAmountH?: number;
+    shrinkAmountH?: number;
 }
