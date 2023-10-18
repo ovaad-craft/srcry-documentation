@@ -41,7 +41,7 @@ export class StretchShrinkExampleAComponent implements OnInit, AfterViewInit, On
   private readElements():void{
     this.dataService.sendData({
       height: this.Box.nativeElement.offsetHeight,
-      ShrinkAmountH: this.ShrinkBox.nativeElement.offsetHeight
+      shrinkAmountH: this.ShrinkBox.nativeElement.offsetHeight
     });
   }
 
