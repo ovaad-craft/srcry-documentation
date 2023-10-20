@@ -1,0 +1,120 @@
+:host{
+    display: grid;
+    width: 100%;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
+    gap: var(--line-semiThick) 0;
+}
+
+.dimensionToggleContainer{
+    grid-area: 1/1/2/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: max-content;
+    justify-self: center;
+    gap: 0 var(--line-semiThick);
+}
+
+.dimensionToggleButton{
+    --text-size: var(--text-widget-2);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    border-style: none;
+    width: 9ch;
+    height: 5ch;
+    justify-self: center;
+    cursor: pointer;
+    color: hsl(var(--gray-100), 1);
+    transition: 200ms ease-in-out;
+}
+
+
+.togglerInnactive{
+    background-color: hsl(var(--purple-300), 1);
+}
+
+.togglerInnactive:hover{
+    background-color: hsl(var(--purple-400), 1);
+}
+
+.togglerActive{
+    background-color: hsl(var(--purple-500), 1);
+}
+
+.dimensionContainer{
+    grid-area: 2/1/3/2;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.propContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    height: auto;
+}
+
+.propSelector{
+    grid-area: 1/1/2/2;
+    display: grid;
+    transition: 200ms ease-in-out;
+    width: 92%;
+    gap: var(--line-bold) 0;
+    padding-bottom: var(--line-thick);
+}
+
+.propButton{
+    grid-area: 1/1/2/2;
+}
+
+.widthProps{
+    --defaultPosition: -105%;
+}
+
+.heightProps{
+    --defaultPosition: 105%;
+    transform: translateX(var(--defaultPosition));
+}
+
+.dimensionActive{
+    transform: translateX(0);
+}
+
+.dimensionInnactive{
+    transform: translateX(var(--defaultPosition));
+}
+
+.propButton{
+    grid-area: 1/1/2/2;
+}
+
+.selectorContainer{
+    grid-area: 2/1/3/2;
+    display: grid;
+    overflow: hidden;
+    transition: 200ms ease-in-out;
+}
+
+.selectorOpen{
+    max-height: 100%;
+}
+
+.selectorClosed{
+    max-height: 0;
+}
+
+.selector{
+    transition: 200ms ease-in-out;
+}
+
+.propContainerActive{
+    transform: translateY(0);
+}
+
+.propContainerInnactive{
+    transform: translateY(-110%);
+}

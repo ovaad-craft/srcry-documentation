@@ -1,1 +1,7 @@
-<p>stretch-shrink-controller works!</p>
+<section class="mainContainer">
+    <stretch-shrink-readout [Readings]="Readings" />
+    <stretch-shrink-input
+        [DefaultSettings]="DefaultSettings"
+        (UpdateProps)="updateSettings($event)"
+    />
+</section>
