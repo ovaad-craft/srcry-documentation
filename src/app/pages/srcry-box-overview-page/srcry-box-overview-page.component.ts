@@ -9,36 +9,36 @@ const LINKS: Link[] = [
   {
     id: 'baseSize',
     title: 'Base Size',
-    path: 'base-size'
+    path: '/base-size'
   },{
     id: 'crushGap',
     title: 'Crush Gap',
-    path: 'crus-gap'
+    path: '/crush-gap'
   },
   {
     id: 'edgeChase',
     title: 'Edge Chase',
-    path: 'edge-chase'
+    path: '/edge-chase'
   },
   {
     id: 'chaseStop',
     title: 'Chase Stop',
-    path: 'chase-stop'
+    path: '/chase-stop'
   },
   {
     id: 'squishGrowth',
     title: 'Squish Growth',
-    path: 'squish-growth'
+    path: '/squish-growth'
   },
   {
     id: 'stretchShrink',
     title: 'Stretch Shrink',
-    path: 'stretch-shrink'
+    path: '/stretch-shrink'
   },
   {
     id: 'bleed',
     title: 'Bleed',
-    path: 'bleed'
+    path: '/bleed'
   }
 ]
 const PAGINATIONDATA: PaginationData = {
