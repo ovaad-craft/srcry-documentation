@@ -286,12 +286,12 @@ export interface SquishGrowthData{
     squishGrowthWStart: number;
     squishGrowthWSpeed: number;
     squishGrowthWMax: BoxSizeInterface;
-    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeChunk: number;
     squishGrowthWMaxNudgeSlice: number;
     squishGrowthHStart: number;
     squishGrowthHSpeed: number;
     squishGrowthHMax: BoxSizeInterface;
-    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeChunk: number;
     squishGrowthHMaxNudgeSlice: number;
 }
 
@@ -299,12 +299,12 @@ export interface SquishGrowthProps{
     squishGrowthWStart: string;
     squishGrowthWSpeed: number;
     squishGrowthWMax: BoxSizeProps;
-    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeChunk: number;
     squishGrowthWMaxNudgeSlice: number;
     squishGrowthHStart: string;
     squishGrowthHSpeed: number;
     squishGrowthHMax: BoxSizeProps;
-    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeChunk: number;
     squishGrowthHMaxNudgeSlice: number;
 }
 
@@ -312,12 +312,12 @@ export interface SquishGrowthSettings{
     squishGrowthWStart: string;
     squishGrowthWSpeed: number;
     squishGrowthWMax: string;
-    squishGrowthWMaxNudgeScale: number;
+    squishGrowthWMaxNudgeChunk: number;
     squishGrowthWMaxNudgeSlice: number;
     squishGrowthHStart: string;
     squishGrowthHSpeed: number;
     squishGrowthHMax: string;
-    squishGrowthHMaxNudgeScale: number;
+    squishGrowthHMaxNudgeChunk: number;
     squishGrowthHMaxNudgeSlice: number;
 }
 
@@ -328,4 +328,50 @@ export interface SquishGrowthAnalyzerReadings{
     fullSizeH: number;
     baseSizeH: number;
     growthSizeH: number;
+}
+
+export interface StretchShrinkData{
+    stretchShrinkWStart: number;
+    stretchShrinkWSpeed: number;
+    stretchShrinkWMin: BoxSizeInterface;
+    stretchShrinkWMinNudgeChunk: number;
+    stretchShrinkWMinNudgeSlice: number;
+    stretchShrinkHStart: number;
+    stretchShrinkHSpeed: number;
+    stretchShrinkHMin: BoxSizeInterface;
+    stretchShrinkHMinNudgeChunk: number;
+    stretchShrinkHMinNudgeSlice: number;
+}
+
+export interface StretchShrinkProps{
+    stretchShrinkWStart: string;
+    stretchShrinkWSpeed: number;
+    stretchShrinkWMin: BoxSizeProps;
+    stretchShrinkWMinNudgeChunk: number;
+    stretchShrinkWMinNudgeSlice: number;
+    stretchShrinkHStart: string;
+    stretchShrinkHSpeed: number;
+    stretchShrinkHMin: BoxSizeProps;
+    stretchShrinkHMinNudgeChunk: number;
+    stretchShrinkHMinNudgeSlice: number;
+}
+
+export interface StretchShrinkSettings{
+    stretchShrinkWStart: string;
+    stretchShrinkWSpeed: number;
+    stretchShrinkWMin: string;
+    stretchShrinkWMinNudgeChunk: number;
+    stretchShrinkWMinNudgeSlice: number;
+    stretchShrinkHStart: string;
+    stretchShrinkHSpeed: number;
+    stretchShrinkHMin: string;
+    stretchShrinkHMinNudgeChunk: number;
+    stretchShrinkHMinNudgeSlice: number;
+}
+
+export interface StretchShrinkReadings{
+    width?: number;
+    shrinkAmountW?: number;
+    height?: number;
+    shrinkAmountH?: number;
 }

@@ -28,23 +28,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-w-start'"
+                    [Prop]="'--stretchShrink-w-start'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthWStart"
+                    [Value]="PropSettings.stretchShrinkWStart"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthWStart()"
+                    (SelectionToggle)="toggleStretchShrinkWStart()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthWStart ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkWStart ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthWStart"
-                        [ngClass]="ToggleSquishGrowthWStart ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthWStart($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkWStart"
+                        [ngClass]="ToggleStretchShrinkWStart ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkWStart($event)"
                     />
                 </article>
             </article>
@@ -52,23 +52,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-w-speed'"
+                    [Prop]="'--stretchShrink-w-speed'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthWSpeed"
+                    [Value]="PropSettings.stretchShrinkWSpeed"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthWSpeed()"
+                    (SelectionToggle)="toggleStretchShrinkWSpeed()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthWSpeed ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkWSpeed ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthWSpeed"
-                        [ngClass]="ToggleSquishGrowthWSpeed ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthWSpeed($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkWSpeed"
+                        [ngClass]="ToggleStretchShrinkWSpeed ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkWSpeed($event)"
                     />
                 </article>
             </article>
@@ -77,24 +77,24 @@
 
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-w-max'"
+                    [Prop]="'--stretchShrink-w-min'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthWMax"
+                    [Value]="PropSettings.stretchShrinkWMin"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthWMax()"
+                    (SelectionToggle)="toggleStretchShrinkWMin()"
                     (UpdateActive)="updatePropButtons($event)"
                 /> 
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthWMax ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkWMin ? 'selectorOpen' : 'selectorClosed'"
                 >
 
                     <box-size-selector
                         class="selector"
-                        [DefaultSettings]="DefaultSettings.squishGrowthWMax"
-                        [ngClass]="ToggleSquishGrowthWMax ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSelection)="updateSquishGrowthWMax($event)"
+                        [DefaultSettings]="DefaultSettings.stretchShrinkWMin"
+                        [ngClass]="ToggleStretchShrinkWMin ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSelection)="updateStretchShrinkWMin($event)"
                         (UpdateStatus)="updateSelectorStatus($event)"
                     />
                 </article>
@@ -104,23 +104,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-w-max-nudge-chunk'"
+                    [Prop]="'--stretchShrink-w-min-nudge-chunk'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthWMaxNudgeChunk"
+                    [Value]="PropSettings.stretchShrinkWMinNudgeChunk"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthWMaxNudgeChunk()"
+                    (SelectionToggle)="toggleStretchShrinkWMinNudgeChunk()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthWMaxNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkWMinNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthWMaxNudgeChunk"
-                        [ngClass]="ToggleSquishGrowthWMaxNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthWMaxNudgeChunk($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkWMinNudgeChunk"
+                        [ngClass]="ToggleStretchShrinkWMinNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkWMinNudgeChunk($event)"
                     />
                 </article>
             </article>
@@ -128,23 +128,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-w-max-nudge-slice'"
+                    [Prop]="'--stretchShrink-w-min-nudge-slice'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthWMaxNudgeSlice"
+                    [Value]="PropSettings.stretchShrinkWMinNudgeSlice"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthWMaxNudgeSlice()"
+                    (SelectionToggle)="toggleStretchShrinkWMinNudgeSlice()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthWMaxNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkWMinNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthWMaxNudgeSlice"
-                        [ngClass]="ToggleSquishGrowthWMaxNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthWMaxNudgeSlice($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkWMinNudgeSlice"
+                        [ngClass]="ToggleStretchShrinkWMinNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkWMinNudgeSlice($event)"
                     />
                 </article>
             </article>
@@ -158,23 +158,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-h-start'"
+                    [Prop]="'--stretchShrink-h-start'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthHStart"
+                    [Value]="PropSettings.stretchShrinkHStart"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthHStart()"
+                    (SelectionToggle)="toggleStretchShrinkHStart()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthHStart ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkHStart ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthHStart"
-                        [ngClass]="ToggleSquishGrowthHStart ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthHStart($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkHStart"
+                        [ngClass]="ToggleStretchShrinkHStart ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkHStart($event)"
                     />
                 </article>
             </article>
@@ -182,23 +182,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-h-speed'"
+                    [Prop]="'--stretchShrink-h-speed'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthHSpeed"
+                    [Value]="PropSettings.stretchShrinkHSpeed"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthHSpeed()"
+                    (SelectionToggle)="toggleStretchShrinkHSpeed()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthHSpeed ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkHSpeed ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthHSpeed"
-                        [ngClass]="ToggleSquishGrowthHSpeed ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthHSpeed($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkHSpeed"
+                        [ngClass]="ToggleStretchShrinkHSpeed ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkHSpeed($event)"
                     />
                 </article>
             </article>
@@ -207,24 +207,24 @@
 
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-h-max'"
+                    [Prop]="'--stretchShrink-h-min'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthHMax"
+                    [Value]="PropSettings.stretchShrinkHMin"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthHMax()"
+                    (SelectionToggle)="toggleStretchShrinkHMin()"
                     (UpdateActive)="updatePropButtons($event)"
                 /> 
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthHMax ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkHMin ? 'selectorOpen' : 'selectorClosed'"
                 >
 
                     <box-size-selector
                         class="selector"
-                        [DefaultSettings]="DefaultSettings.squishGrowthHMax"
-                        [ngClass]="ToggleSquishGrowthHMax ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSelection)="updateSquishGrowthHMax($event)"
+                        [DefaultSettings]="DefaultSettings.stretchShrinkHMin"
+                        [ngClass]="ToggleStretchShrinkHMin ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSelection)="updateStretchShrinkHMin($event)"
                         (UpdateStatus)="updateSelectorStatus($event)"
                     />
                 </article>
@@ -234,23 +234,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-h-max-nudge-chunk'"
+                    [Prop]="'--stretchShrink-h-min-nudge-chunk'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthHMaxNudgeChunk"
+                    [Value]="PropSettings.stretchShrinkHMinNudgeChunk"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthHMaxNudgeChunk()"
+                    (SelectionToggle)="toggleStretchShrinkHMinNudgeChunk()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthHMaxNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkHMinNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthHMaxNudgeChunk"
-                        [ngClass]="ToggleSquishGrowthHMaxNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthHMaxNudgeChunk($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkHMinNudgeChunk"
+                        [ngClass]="ToggleStretchShrinkHMinNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkHMinNudgeChunk($event)"
                     />
                 </article>
             </article>
@@ -258,23 +258,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-h-max-nudge-slice'"
+                    [Prop]="'--stretchShrink-h-min-nudge-slice'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthHMaxNudgeSlice"
+                    [Value]="PropSettings.stretchShrinkHMinNudgeSlice"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthHMaxNudgeSlice()"
+                    (SelectionToggle)="toggleStretchShrinkHMinNudgeSlice()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthHMaxNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleStretchShrinkHMinNudgeSlice ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthHMaxNudgeSlice"
-                        [ngClass]="ToggleSquishGrowthHMaxNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthHMaxNudgeSlice($event)"
+                        [DefaultSetting]="DefaultSettings.stretchShrinkHMinNudgeSlice"
+                        [ngClass]="ToggleStretchShrinkHMinNudgeSlice ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateStretchShrinkHMinNudgeSlice($event)"
                     />
                 </article>
             </article>

@@ -237,7 +237,7 @@
 
     /* Stretch Shrink Equations */
     --StretchShrinkCore-w  : calc(100vh                      - var(--stretchShrink-w-start));
-    --StretchShrinkChunk-w : calc(var(--StretchShrinkCore-w) / 11);
+    --StretchShrinkChunk-w : calc(var(--StretchShrinkCore-w) / 33);
     --StretchShrinkTotal-w : calc(var(--StretchShrinkCore-w) * var(--stretchShrink-w-speed));
     --StretchShrinkSize-w  : calc(var(--ChaseStopToggle-w)   - var(--StretchShrinkTotal-w));
 
@@ -251,7 +251,7 @@
 
     
     --StretchShrinkCore-h  : calc(100vw                      - var(--stretchShrink-h-start));
-    --StretchShrinkChunk-h : calc(var(--StretchShrinkCore-h) / 11);
+    --StretchShrinkChunk-h : calc(var(--StretchShrinkCore-h) / 33);
     --StretchShrinkTotal-h : calc(var(--StretchShrinkCore-h) * var(--stretchShrink-h-speed));
     --StretchShrinkSize-h  : calc(var(--ChaseStopToggle-h)   - var(--StretchShrinkTotal-h));
 

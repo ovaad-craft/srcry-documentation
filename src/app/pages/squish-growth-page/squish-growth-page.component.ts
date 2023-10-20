@@ -32,7 +32,7 @@ const PROPCHART: PropChartData[] =[
   {
     id: 'squishGrowthWSpeed',
     title: '--squishGrowth-w-speed',
-    description: 'The speed at which the width of the element should grow as the height decreases.  This property is defined with a number'
+    description: 'The speed at which the width of the element should grow as the height decreases.  This property is defined with a number.'
   },
   {
     id: 'squishGrowthWMax',

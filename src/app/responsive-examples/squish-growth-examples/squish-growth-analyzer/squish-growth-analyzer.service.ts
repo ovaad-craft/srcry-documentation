@@ -14,12 +14,12 @@ export class SquishGrowthAnalyzerService {
     squishGrowthWStart: '',
     squishGrowthWSpeed: 0,
     squishGrowthWMax: '',
-    squishGrowthWMaxNudgeScale: 0,
+    squishGrowthWMaxNudgeChunk: 0,
     squishGrowthWMaxNudgeSlice: 0,
     squishGrowthHStart: '',
     squishGrowthHSpeed: 0,
     squishGrowthHMax: '',
-    squishGrowthHMaxNudgeScale: 0,
+    squishGrowthHMaxNudgeChunk: 0,
     squishGrowthHMaxNudgeSlice: 0
   });
 

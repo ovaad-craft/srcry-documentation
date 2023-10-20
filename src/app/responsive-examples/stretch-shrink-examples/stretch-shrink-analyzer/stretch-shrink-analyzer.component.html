@@ -1,0 +1,20 @@
+<article class="coreBoxContainer">
+    <div #coreBox class="coreBox"></div>
+</article>
+
+<div
+    #box
+    class="srcryBox box"
+    [ngStyle]="{
+        '--stretchShrink-w-start': Settings.stretchShrinkWStart,
+        '--stretchShrink-w-speed': Settings.stretchShrinkWSpeed,
+        '--stretchShrink-w-min': Settings.stretchShrinkWMin,
+        '--stretchShrink-w-min-nudge-chunk': Settings.stretchShrinkWMinNudgeChunk,
+        '--stretchShrink-w-min-nudge-slice': Settings.stretchShrinkWMinNudgeSlice,
+        '--stretchShrink-h-start': Settings.stretchShrinkHStart,
+        '--stretchShrink-h-speed': Settings.stretchShrinkHSpeed,
+        '--stretchShrink-h-min': Settings.stretchShrinkHMin,
+        '--stretchShrink-h-min-nudge-chunk': Settings.stretchShrinkHMinNudgeChunk,
+        '--stretchShrink-h-min-nudge-slice': Settings.stretchShrinkHMinNudgeSlice
+    }"
+></div>
