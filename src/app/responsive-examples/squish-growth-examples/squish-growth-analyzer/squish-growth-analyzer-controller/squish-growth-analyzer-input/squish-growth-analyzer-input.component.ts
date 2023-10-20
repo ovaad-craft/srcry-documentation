@@ -33,12 +33,12 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
   ToggleSquishGrowthWStart: boolean = false;
   ToggleSquishGrowthWSpeed: boolean = false;
   ToggleSquishGrowthWMax: boolean = false;
-  ToggleSquishGrowthWMaxNudgeScale: boolean = false;
+  ToggleSquishGrowthWMaxNudgeChunk: boolean = false;
   ToggleSquishGrowthWMaxNudgeSlice: boolean = false;
   ToggleSquishGrowthHStart: boolean = false;
   ToggleSquishGrowthHSpeed: boolean = false;
   ToggleSquishGrowthHMax: boolean = false;
-  ToggleSquishGrowthHMaxNudgeScale: boolean = false;
+  ToggleSquishGrowthHMaxNudgeChunk: boolean = false;
   ToggleSquishGrowthHMaxNudgeSlice: boolean = false;
 
   ngOnInit(): void {
@@ -110,12 +110,12 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
     this.updateSettings();
   }
   
-  public toggleSquishGrowthWMaxNudgeScale():void{
-    this.ToggleSquishGrowthWMaxNudgeScale = !this.ToggleSquishGrowthWMaxNudgeScale;
+  public toggleSquishGrowthWMaxNudgeChunk():void{
+    this.ToggleSquishGrowthWMaxNudgeChunk = !this.ToggleSquishGrowthWMaxNudgeChunk;
   }
 
-  public updateSquishGrowthWMaxNudgeScale(value: number): void{
-    this.PropSettings.squishGrowthWMaxNudgeScale = value;
+  public updateSquishGrowthWMaxNudgeChunk(value: number): void{
+    this.PropSettings.squishGrowthWMaxNudgeChunk = value;
     this.updateSettings();
   }
   
@@ -155,12 +155,12 @@ export class SquishGrowthAnalyzerInputComponent implements OnInit {
     this.updateSettings();
   }
   
-  public toggleSquishGrowthHMaxNudgeScale():void{
-    this.ToggleSquishGrowthHMaxNudgeScale = !this.ToggleSquishGrowthHMaxNudgeScale;
+  public toggleSquishGrowthHMaxNudgeChunk():void{
+    this.ToggleSquishGrowthHMaxNudgeChunk = !this.ToggleSquishGrowthHMaxNudgeChunk;
   }
 
-  public updateSquishGrowthHMaxNudgeScale(value: number): void{
-    this.PropSettings.squishGrowthHMaxNudgeScale = value;
+  public updateSquishGrowthHMaxNudgeChunk(value: number): void{
+    this.PropSettings.squishGrowthHMaxNudgeChunk = value;
     this.updateSettings();
   }
   

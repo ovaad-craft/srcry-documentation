@@ -32,7 +32,7 @@ export class SquishGrowthAnalyzerControllerService {
       scale: '1',
       speed: '1'
     },
-    squishGrowthWMaxNudgeScale: 0,
+    squishGrowthWMaxNudgeChunk: 0,
     squishGrowthWMaxNudgeSlice: 0,
     squishGrowthHStart: 1,
     squishGrowthHSpeed: 0,
@@ -41,7 +41,7 @@ export class SquishGrowthAnalyzerControllerService {
       scale: '1',
       speed: '1'
     },
-    squishGrowthHMaxNudgeScale: 0,
+    squishGrowthHMaxNudgeChunk: 0,
     squishGrowthHMaxNudgeSlice: 0
   };
 

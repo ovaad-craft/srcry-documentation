@@ -104,23 +104,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-w-max-nudge-scale'"
+                    [Prop]="'--squishGrowth-w-max-nudge-chunk'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthWMaxNudgeScale"
+                    [Value]="PropSettings.squishGrowthWMaxNudgeChunk"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthWMaxNudgeScale()"
+                    (SelectionToggle)="toggleSquishGrowthWMaxNudgeChunk()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthWMaxNudgeScale ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleSquishGrowthWMaxNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthWMaxNudgeScale"
-                        [ngClass]="ToggleSquishGrowthWMaxNudgeScale ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthWMaxNudgeScale($event)"
+                        [DefaultSetting]="DefaultSettings.squishGrowthWMaxNudgeChunk"
+                        [ngClass]="ToggleSquishGrowthWMaxNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateSquishGrowthWMaxNudgeChunk($event)"
                     />
                 </article>
             </article>
@@ -234,23 +234,23 @@
             <article class="propContainer">
                 <srcry-prop-button
                     class="propButton"
-                    [Prop]="'--squishGrowth-h-max-nudge-scale'"
+                    [Prop]="'--squishGrowth-h-max-nudge-chunk'"
                     [Active]="PropButtonsActive"
-                    [Value]="PropSettings.squishGrowthHMaxNudgeScale"
+                    [Value]="PropSettings.squishGrowthHMaxNudgeChunk"
                     [SelectorStatus]="SelectorStatus"
-                    (SelectionToggle)="toggleSquishGrowthHMaxNudgeScale()"
+                    (SelectionToggle)="toggleSquishGrowthHMaxNudgeChunk()"
                     (UpdateActive)="updatePropButtons($event)"
                 />
 
                 <article
                     class="selectorContainer"
-                    [ngClass]="ToggleSquishGrowthHMaxNudgeScale ? 'selectorOpen' : 'selectorClosed'"
+                    [ngClass]="ToggleSquishGrowthHMaxNudgeChunk ? 'selectorOpen' : 'selectorClosed'"
                 >
                     <number-input
                         class="selector"
-                        [DefaultSetting]="DefaultSettings.squishGrowthHMaxNudgeScale"
-                        [ngClass]="ToggleSquishGrowthHMaxNudgeScale ? 'propContainerActive' : 'propContainerInnactive'"
-                        (UpdateSize)="updateSquishGrowthHMaxNudgeScale($event)"
+                        [DefaultSetting]="DefaultSettings.squishGrowthHMaxNudgeChunk"
+                        [ngClass]="ToggleSquishGrowthHMaxNudgeChunk ? 'propContainerActive' : 'propContainerInnactive'"
+                        (UpdateSize)="updateSquishGrowthHMaxNudgeChunk($event)"
                     />
                 </article>
             </article>
