@@ -3,6 +3,12 @@ import { CommonModule } from '@angular/common';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
 import { PaginationData, PropChartData } from '@site-types';
+import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
+import { StretchShrinkExampleAComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-example-a/stretch-shrink-example-a.component';
+import { StretchShrinkExampleAReadoutComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-example-a/stretch-shrink-example-a-readout/stretch-shrink-example-a-readout.component';
+import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
+import { StretchShrinkAnalyzerComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-analyzer/stretch-shrink-analyzer.component';
+import { StretchShrinkControllerComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-analyzer/stretch-shrink-controller/stretch-shrink-controller.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -76,7 +82,11 @@ const PROPCHART: PropChartData[] = [
   imports: [
     CommonModule,
     PaginateComponent,
-    PropChartComponent
+    PropChartComponent,
+    CodeDisplayComponent,
+    DemonstrationFrameComponent,
+    StretchShrinkExampleAReadoutComponent,
+    StretchShrinkControllerComponent
   ],
   templateUrl: './stretch-shrink-page.component.html',
   styleUrls: ['./stretch-shrink-page.component.css']
@@ -85,4 +95,15 @@ export class StretchShrinkPageComponent {
 
   Pagination: PaginationData = PAGINATIONDATA;
   ChartData: PropChartData[] = PROPCHART;
+
+  Demo01Code: string = ` .myClass{
+    --baseSize-w: var(--small-1-3);
+    --baseSize-h: var(--small-1-3);
+    --stretchShrink-h-start: 700px;
+    --stretchShrink-h-speed: 3;
+    --stretchShrink-h-min: var(--tiny-1-3);
+ }`;
+  Demo01Component = StretchShrinkExampleAComponent;
+
+  Demo02Component = StretchShrinkAnalyzerComponent;
 }

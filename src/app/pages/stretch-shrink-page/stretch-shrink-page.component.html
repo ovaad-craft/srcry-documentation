@@ -3,12 +3,72 @@
 
     <article class="contentContainer">
         <p class="srcryTxt textContent">
-            The <b>stretchShrink</b> properties are used to make an element's dimensions shrink as the screen size expands.  Similar to the <b>squishGrowth</b> properties, the <b>stetchShrink-w</b> properties make the width of an element shrink as the height of the page expands while the <b>stretchShrink-h</b> properties make the height of the element decrease as the width of the screen increases.  This functionality is useful for handling situations where an element may start to grow out of control when scaling to larger screen sizes.
+            The <b>stretchShrink</b> properties are used to make an element shrink as the screen size expands.  Similar to the <b>squishGrowth</b> properties, the <b>stetchShrink-w</b> properties make the width of an element decrease as the height of the page expands while the <b>stretchShrink-h</b> properties make the height of the element decrease as the width of the screen increases.  This functionality is useful for handling situations where an element may start to grow out of control when scaling to larger screen sizes.  The properties used to control this functionality are outlined in the chart below.
         </p>
     </article>
 
     <article class="contentContainer">
         <prop-chart [ChartData]="ChartData"/>
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The following example demonstrates the <b>stretchShrink-h</b> properties to show how they work.  Expand the width of the screen beyond the size of the <b>stretchShrink-h-start</b> property to see it take effect.
+        </p>
+
+        <article class="demonstrationContainer">
+
+            <code-display
+                [Language]="'css'"
+                [Code]="Demo01Code"
+            />
+
+            <demonstration-frame
+                [Demonstration]="Demo01Component"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-2-3)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--small-2-3)'"
+                [MinWindowHeight]="'150px'"
+                [BroadcastName]="'StretchShrinkChannel'"
+                [ChannelName]="'StretchShrinkExampleA'"
+                [TargetName]="'ExampleAReadout'"
+            >
+                <stretch-shrink-example-a-readout
+                    controlArea
+                    [BroadcastName]="'StretchShrinkChannel'"
+                    [ChannelName]="'ExampleAReadout'"
+                    [TargetName]="'StretchShrinkExampleA'"
+                />
+            </demonstration-frame>
+        </article>
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            Use the following demonstration to experiment with these properties for yourself to better understand how they can be used in your project.  The box has been given a default width and height of <b>--small-1-3</b> so you can focus on the <b>stretchShrink</b> properties.  Set the <b>stretchShrink-min</b> properties to a size smaller than the default width and height to see them take effect.
+        </p>
+    </article>
+
+    <article class="demonstrationContainer">
+        <demonstration-frame
+            [Demonstration]="Demo02Component"
+            [ShowDimensions]="true"
+            [BroadcastName]="'StretchShrinkChannel'"
+            [ChannelName]="'StretchShrinkExampleB'"
+            [TargetName]="'ExampleBController'"
+            [WindowWidth]="'var(--small-2-4)'"
+            [MinWindowWidth]="'98px'"
+            [WindowHeight]="'var(--small-2-4)'"
+            [MinWindowHeight]="'150px'"
+        >
+            <stretch-shrink-controller
+                controlArea
+                [BroadcastName]="'StretchShrinkChannel'"
+                [ChannelName]="'ExampleBController'"
+                [TargetName]="'StretchShrinkExampleB'"
+            />
+        </demonstration-frame>
     </article>
 
     <paginate [PageData]="Pagination" />
