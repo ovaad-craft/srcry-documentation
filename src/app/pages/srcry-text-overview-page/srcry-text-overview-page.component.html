@@ -1,1 +1,39 @@
-<p>srcry-text-overview-page works!</p>
+<section class="pageContainer">
+
+    <h1 class="srcryTxt pageTitle">srcryTxt Overview</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The <b>srcryTxt</b> class is a small yet effective class for formatting your text.  It only has four properties so this section will be extremely short in comparison to the <b>srcryBox</b> section.  You apply the <b>srcryTxt</b> class to your element the exact same way you apply the <b>srcryBox</b> class which goes as follows.
+        </p>
+
+        <code-display
+            [Language]="'xml'"
+            [Code]="Demo_01"
+        />
+
+        <code-display
+            [Language]="'css'"
+            [Code]="Demo_02"
+        />
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            You can use both the <b>srcryTxt</b> and <b>srcryBox</b> classes on the same element if needed so don't be afraid to experiment.  Go to the next page to learn about the <b>--text-size</b> property or follow one of the links below if you're just here to refresh yourself.
+        </p>
+    </article>
+
+    <article class="linkGrid">
+        <button
+            *ngFor="let link of Links"
+            type="button"
+            class="srcryBox srcryTxt buttonLink"
+            [routerLink]="link.path"
+        >
+            {{link.title}}
+        </button>
+    </article>
+
+    <paginate [PageData]="Pagination" />
+</section>
