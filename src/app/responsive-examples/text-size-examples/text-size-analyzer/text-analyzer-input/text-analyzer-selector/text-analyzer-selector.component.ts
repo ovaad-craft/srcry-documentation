@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextSizeInterface, TextSizeSize, TextSizeSpeed } from '@site-types';
 import { TextAnalyzerSelectorService } from './text-analyzer-selector.service';
@@ -14,7 +14,10 @@ import { DropdownAnimation } from 'src/app/layout/sidebar/link/link.component';
 })
 export class TextAnalyzerSelectorComponent implements OnInit{
 
+  @Input() DefaultSettings!: TextSizeInterface;
+
   @Output() UpdateSelection: EventEmitter<TextSizeInterface> = new EventEmitter<TextSizeInterface>();
+  @Output() UpdateStatus: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   TextSizeSizes!: TextSizeSize[];
   TextSizeSpeeds!: TextSizeSpeed[];
@@ -32,6 +35,11 @@ export class TextAnalyzerSelectorComponent implements OnInit{
   ngOnInit(): void {
       this.TextSizeSizes = this.sizeService.getTextSizes();
       this.TextSizeSpeeds = this.sizeService.getTextSpeeds();
+      
+      if(this.DefaultSettings !== undefined){
+        this.SelectedSize = this.DefaultSettings.size;
+        this.SelectedSpeed = this.DefaultSettings.speed;
+      }
 
       this.UpdateSelection.emit({size: this.SelectedSize, speed: this.SelectedSpeed});
   }
@@ -42,11 +50,13 @@ export class TextAnalyzerSelectorComponent implements OnInit{
       this.ActiveSelector = 'none';
       this.SizeToggle = false;
       this.SpeedToggle = false;
+      this.UpdateStatus.emit(false);
     }
     else{
       this.ActiveSelector = selector;
       if(selector === 'size'){ this.SizeToggle = true; }
       if(selector === 'speed'){ this.SpeedToggle = true; }
+      this.UpdateStatus.emit(true);
     }
 
   }
@@ -59,6 +69,7 @@ export class TextAnalyzerSelectorComponent implements OnInit{
       size: this.SelectedSize,
       speed: this.SelectedSpeed
     });
+    this.UpdateStatus.emit(false);
   }
 
   public updateSpeed(speed: TextSizeSpeed):void{
@@ -69,6 +80,7 @@ export class TextAnalyzerSelectorComponent implements OnInit{
       size: this.SelectedSize,
       speed: this.SelectedSpeed
     });
+    this.UpdateStatus.emit(false);
   }
 
 }

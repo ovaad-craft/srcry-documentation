@@ -1,1 +1,40 @@
-<p>text-size-page works!</p>
+<section class="pageContainer">
+
+    <h1 class="srcryTxt pageTitle">Text Size</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            The <b>text-size</b> properties are for, as the name suggests, setting the size of your text.  The <b>text size library</b> was designed to be used here however you can use any standard css unit if you wish.  The chart below outlines the use of each property.
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <prop-chart [ChartData]="ChartData" />
+    </article>
+
+    <article class="contentContainer">
+        <article class="demonstrationContainer">
+            <demonstration-frame
+                [Demonstration]="DemoComponent"
+                [ShowDimensions]="true"
+                [BroadcastName]="'TextDemo'"
+                [ChannelName]="'TextDemoChannel'"
+                [TargetName]="'TextAnalyzerController'"
+                [WindowWidth]="'var(--small-1-3)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--small-2-3)'"
+                [MinWindowHeight]="'150px'"
+            >
+                <text-analyzer-b-controller
+                    controlArea
+                    [BroadcastName]="'TextDemo'"
+                    [ChannelName]="'TextAnalyzerController'"
+                    [TargetName]="'TextDemoChannel'"
+                />
+            </demonstration-frame>
+        </article>
+    </article>
+
+    <paginate [PageData]="Pagination" />
+
+</section>
