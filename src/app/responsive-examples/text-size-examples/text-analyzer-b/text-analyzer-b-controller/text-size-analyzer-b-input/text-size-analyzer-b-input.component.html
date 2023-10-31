@@ -1,0 +1,49 @@
+<section class="mainContainer">
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--text-size'"
+            [Active]="PropButtonsActive"
+            [Value]="makeIntoVariable(PropSettings.textSize)"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleTextSize()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+        <article
+            class="selectorContainer"
+            [ngClass]="ToggleTextSize ? 'selectorOpen' : 'selectorClosed'"
+        >
+            <text-analyzer-selector
+                class="selector"
+                [DefaultSettings]="DefaultSettings.textSize"
+                [ngClass]="ToggleTextSize ? 'propContainerActive' : 'propContainerInnactive'"
+                (UpdateSelection)="updateTextSize($event)"
+                (UpdateStatus)="updateSelectorStatus($event)"
+            />
+        </article>
+    </article>
+
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--text-nudge'"
+            [Active]="PropButtonsActive"
+            [Value]="PropSettings.textNudge"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleTextNudge()"
+            (UpdateActive)="updatePropButtons($event)"
+        />
+
+        <article
+            class="selectorContainer"
+            [ngClass]="ToggleTextNudge ? 'selectorOpen' : 'selectorClosed'"
+        >
+            <number-input
+                class="selector"
+                [DefaultSetting]="DefaultSettings.textNudge"
+                [ngClass]="ToggleTextNudge ? 'propContainerActive' : 'propContainerInnactive'"
+                (UpdateSize)="updateTextNudge($event)"
+            />
+        </article>
+    </article>
+</section>

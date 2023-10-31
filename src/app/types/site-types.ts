@@ -100,6 +100,20 @@ export interface TextAnalyzerInterface{
     fullTextSize: number;
 }
 
+export interface TextAnalyzerBInterface{
+    textSize: string;
+    textNudge: number;
+}
+
+export interface TextAnalyzerBData{
+    textSize: TextSizeInterface;
+    textNudge: number;
+}
+
+export interface TextAnalyzerBReading{
+    size: number;
+}
+
 export type FineLineSize = 'fine';
 export type LightLineSize = 'light';
 export type NarrowLineSize = 'narrow';
