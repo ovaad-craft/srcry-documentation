@@ -16,7 +16,7 @@ const PAGINATIONDATA: PaginationData = {
   next: {
     id: 'kerningNudgeAmount',
     title: 'Kerning Nudge Amount',
-    path: '/kerning-nudge-amt'
+    path: '/kerning-nudge-amount'
   }
 };
 

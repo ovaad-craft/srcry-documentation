@@ -1,0 +1,27 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host{
+    display: grid;
+    grid-template-rows: 0px auto;
+    width: 100%;
+    place-items: center;
+}
+
+.measurementBox{
+    display: block;
+    width: 0px;
+    --text-size: var(--text-article-3);
+    height: var(--kerningMaster);
+}
+
+.demoText{
+    --text-size: var(--text-article-3);
+    color: hsl(var(--blue-400), 1);
+}
