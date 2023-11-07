@@ -1,0 +1,20 @@
+@import url('src/assets/srcry/srcry.css');
+@import url('src/assets/color-defs.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host{
+    display: grid;
+    width: 100%;
+    place-items: center;
+}
+
+.demoText{
+    --text-size: var(--text-article-3);
+    --kerning-nudge-amt: 11;
+    color: hsl(var(--blue-400), 1);
+}

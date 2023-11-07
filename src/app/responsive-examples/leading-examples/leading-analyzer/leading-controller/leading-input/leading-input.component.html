@@ -1,0 +1,24 @@
+<section class="mainContainer">
+    <article class="propContainer">
+        <srcry-prop-button
+            class="propButton"
+            [Prop]="'--leading-nudge-amt'"
+            [Active]="PropButtonActive"
+            [Value]="PropSetting"
+            [SelectorStatus]="SelectorStatus"
+            (SelectionToggle)="toggleKerningNudge()"
+            (UpdateActive)="updatePropButton($event)"
+        />
+        <article
+            class="selectorContainer"
+            [ngClass]="ToggleLeadingNudge ? 'selectorOpen' : 'selectorClosed'"
+        >
+            <number-input
+                class="selector"
+                [DefaultSetting]="DefaultSetting"
+                [ngClass]="ToggleLeadingNudge ? 'propContainerActive' : 'propContainerInnactive'"
+                (UpdateSize)="updateProp($event)"
+            />
+        </article>
+    </article>
+</section>

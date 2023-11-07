@@ -1,1 +1,64 @@
-<p>leading-nudge-amount-page works!</p>
+<section class="pageContainer">
+    <h1 class="srcryTxt pageTitle">Leading Nudge Amount</h1>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            In typography <b>leading</b> is the amount of space between each line of text.  The <b>leading-nudge-amt</b> property of the <b>srcryTxt</b> class is used to adjust the line height of your text proportionately with your <b>text-size</b> setting to improve the readability of your text.
+        </p>
+    </article>
+
+    <article class="contentContainer">
+        <prop-chart [ChartData]="ChartData" />
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            Adding the following code to your styling will result as the text in the demonstration below.
+        </p>
+
+        <code-display
+            [Language]="'css'"
+            [Code]="DemonstrationCode01"
+        />
+
+        <article class="demonstrationContainer">
+            <demonstration-frame
+                [Demonstration]="DemonstrationComponent01"
+                [ShowDimensions]="true"
+                [WindowWidth]="'var(--small-1-4)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--small-2-4)'"
+                [MinWindowHeight]="'150px'"
+            ></demonstration-frame>
+        </article>
+    </article>
+
+    <article class="contentContainer">
+        <p class="srcryTxt textContent">
+            Use the following demo to try different settings for yourself to better understand how this property works.
+        </p>
+
+        <article class="demonstrationContainer">
+            <demonstration-frame
+                [Demonstration]="DemonstrationComponent02"
+                [ShowDimensions]="true"
+                [BroadcastName]="'LeadingChannel'"
+                [ChannelName]="'LeadingExampleB'"
+                [TargetName]="'LeadingController'"
+                [WindowWidth]="'var(--small-1-4)'"
+                [MinWindowWidth]="'98px'"
+                [WindowHeight]="'var(--small-2-4)'"
+                [MinWindowHeight]="'150px'"
+            >
+                <leading-controller
+                    controlArea
+                    [BroadcastName]="'LeadingChannel'"
+                    [ChannelName]="'LeadingController'"
+                    [TargetName]="'LeadingExampleB'"
+                />
+            </demonstration-frame>
+        </article>
+    </article>
+
+    <paginate [PageData]="Pagination" />
+</section>

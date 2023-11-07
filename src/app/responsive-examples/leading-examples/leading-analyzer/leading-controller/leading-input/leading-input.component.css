@@ -1,0 +1,57 @@
+:host{
+    display: grid;
+    width: 100%;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
+    gap: var(--line-semiThick) 0;
+}
+
+.propContainer{
+    display: grid;
+    grid-template-rows: auto auto;
+    height: auto;
+}
+
+.propSelector{
+    grid-area: 1/1/2/2;
+    display: grid;
+    transition: 200ms ease-in-out;
+    width: 92%;
+    gap: var(--line-bold) 0;
+    padding-bottom: var(--line-thick);
+}
+
+.propButton{
+    grid-area: 1/1/2/2;
+}
+
+.selectorContainer{
+    grid-area: 2/1/3/2;
+    display: grid;
+    overflow: hidden;
+    transition: 200ms ease-in-out;
+}
+
+.selectorOpen{
+    max-height: 100%;
+}
+
+.selectorClosed{
+    max-height: 0;
+}
+
+.selector{
+    transition: 200ms ease-in-out;
+}
+
+.propContainerActive{
+    transform: translateY(0);
+}
+
+.propContainerInnactive{
+    transform: translateY(-110%);
+}
