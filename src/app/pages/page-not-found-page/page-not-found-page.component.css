@@ -1,0 +1,19 @@
+:host{
+    display: grid;
+    width: 100%;
+    place-items: center;
+    height: var(--hiMed-2-4);
+}
+
+.errorText{
+    --text-size: var(--text-title-3);
+    --kerning-nudge-amt: 6;
+    font-weight: 600;
+    color: hsl(var(--purple-400), 1);
+}
+
+.errorMessage{
+    --text-size: var(--text-widget-3);
+    --kerning-nudge-amt: 6;
+    color: hsl(var(--purple-600), 1);
+}
