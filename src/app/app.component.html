@@ -9,8 +9,8 @@
     [@sidebarAnimation]="SidebarActive ? 'open' : 'close'"
     (CloseSidebar)="toggleSidebar($event)"
   ></sidebar>
-  <main class="main">
-    <router-outlet></router-outlet>
+  <main [@pageAnimation]="routeState(outlet)" class="main">
+    <router-outlet #outlet="outlet"></router-outlet>
   </main>
   <footer-component class="footer-component"></footer-component>
 </section>
