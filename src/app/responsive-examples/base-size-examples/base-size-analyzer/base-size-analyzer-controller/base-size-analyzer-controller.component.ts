@@ -12,18 +12,18 @@ import { BaseSizeInputComponent } from './base-size-input/base-size-input.compon
   styleUrls: ['./base-size-analyzer-controller.component.css']
 })
 export class BaseSizeAnalyzerControllerComponent implements OnInit, OnDestroy {
-  @Input()BroadcastName!: string;
-  @Input()ChannelName!: string;
-  @Input()TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  Values!: BaseSizeProps;
-  Readings!: BaseSizeValues;
+  Values!   : BaseSizeProps;
+  Readings! : BaseSizeValues;
 
-  DefaultSettings!: BaseSizePropData;
+  DefaultSettings! : BaseSizePropData;
 
-  constructor(private dataService: BaseSizeAnalyzerControllerService){}
+  constructor(private dataService : BaseSizeAnalyzerControllerService){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.Readings$.subscribe(a => this.Readings = a);
     this.DefaultSettings = this.dataService.getDefaultSettings();
     this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);

@@ -1,6 +1,12 @@
 @import url('src/assets/srcry/srcry.css');
 @import url('src/assets/color-defs.css');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 :host{
     display: grid;
     justify-items: center;
@@ -49,7 +55,7 @@
 .productDescription{
     --text-size: var(--text-widget-1);
     --kerning-nudge-amt: 6;
-    margin: 0;
+    padding: var(--line-thick);
 }
 
 .price{
@@ -57,7 +63,7 @@
     --kerning-nudge-amt: 6;
     color: hsl(var(--blue-300), 1);
     font-weight: 700;
-    margin: 0 0 0 var(--line-bold);
+    padding: var(--line-thick);
 }
 
 .addToCartBtn{

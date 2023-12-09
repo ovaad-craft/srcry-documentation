@@ -21,98 +21,90 @@ import { createCssVariable } from 'src/app/utils/create-css-variable';
 })
 export class EdgeChaseInputComponent implements OnInit {
 
-  @Input()DefaultSettings!: EdgeChaseData;
-  @Output()UpdateProps: EventEmitter<EdgeChaseProps> = new EventEmitter<EdgeChaseProps>();
+  @Input()  DefaultSettings! : EdgeChaseData;
+  @Output() UpdateProps      : EventEmitter<EdgeChaseProps> = new EventEmitter<EdgeChaseProps>();
 
-  PropSettings!: EdgeChaseProps;
+  PropSettings! : EdgeChaseProps;
 
-  SelectorStatus: boolean = false;
-  PropButtonsActive: boolean = true;
+  SelectorStatus    : boolean = false;
+  PropButtonsActive : boolean = true;
+  DimensionToggle   : boolean = false;
 
-  DimensionToggle: boolean = false;
+  ToggleEdgeChaseW           : boolean = false;
+  ToggleEdgeChaseWNudgeChunk : boolean = false;
+  ToggleEdgeChaseWNudgeSlice : boolean = false;
+  ToggleEdgeChaseH           : boolean = false;
+  ToggleEdgeChaseHNudgeChunk : boolean = false;
+  ToggleEdgeChaseHNudgeSlice : boolean = false;
+  ToggleChaseStopW           : boolean = false;
+  ToggleChaseStopWNudgeChunk : boolean = false;
+  ToggleChaseStopWNudgeSlice : boolean = false;
+  ToggleChaseStopH           : boolean = false;
+  ToggleChaseStopHNudgeChunk : boolean = false;
+  ToggleChaseStopHNudgeSlice : boolean = false;
 
-  ToggleEdgeChaseW: boolean = false;
-  ToggleEdgeChaseWNudgeChunk: boolean = false;
-  ToggleEdgeChaseWNudgeSlice: boolean = false;
-  ToggleEdgeChaseH: boolean = false;
-  ToggleEdgeChaseHNudgeChunk: boolean = false;
-  ToggleEdgeChaseHNudgeSlice: boolean = false;
-  ToggleChaseStopW: boolean = false;
-  ToggleChaseStopWNudgeChunk: boolean = false;
-  ToggleChaseStopWNudgeSlice: boolean = false;
-  ToggleChaseStopH: boolean = false;
-  ToggleChaseStopHNudgeChunk: boolean = false;
-  ToggleChaseStopHNudgeSlice: boolean = false;
-
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.initSettings();
   }
 
-  private initSettings():void{
+  private initSettings() : void{
     this.PropSettings = {
-      edgeChaseW: createBoxSize(
+      ...this.DefaultSettings,
+      edgeChaseW : createBoxSize(
         this.DefaultSettings.edgeChaseW.size,
         this.DefaultSettings.edgeChaseW.scale,
         this.DefaultSettings.edgeChaseW.speed,
       ),
-      edgeChaseWNudgeChunk: this.DefaultSettings.edgeChaseWNudgeChunk,
-      edgeChaseWNudgeSlice: this.DefaultSettings.edgeChaseWNudgeSlice,
-      edgeChaseH: createBoxSize(
+      edgeChaseH : createBoxSize(
         this.DefaultSettings.edgeChaseH.size,
         this.DefaultSettings.edgeChaseH.scale,
         this.DefaultSettings.edgeChaseH.speed,
       ),
-      edgeChaseHNudgeChunk: this.DefaultSettings.edgeChaseHNudgeChunk,
-      edgeChaseHNudgeSlice: this.DefaultSettings.edgeChaseHNudgeSlice,
-      chaseStopW: createBoxSize(
+      chaseStopW : createBoxSize(
         this.DefaultSettings.chaseStopW.size,
         this.DefaultSettings.chaseStopW.scale,
         this.DefaultSettings.chaseStopW.speed,
       ),
-      chaseStopWNudgeChunk: this.DefaultSettings.chaseStopWNudgeChunk,
-      chaseStopWNudgeSlice: this.DefaultSettings.chaseStopWNudgeSlice,
-      chaseStopH: createBoxSize(
+      chaseStopH : createBoxSize(
         this.DefaultSettings.chaseStopH.size,
         this.DefaultSettings.chaseStopH.scale,
         this.DefaultSettings.chaseStopH.speed,
-      ),
-      chaseStopHNudgeChunk: this.DefaultSettings.chaseStopHNudgeChunk,
-      chaseStopHNudgeSlice: this.DefaultSettings.chaseStopHNudgeSlice
+      )
     }
   }
 
-  public dimensionToggler(value: boolean): void{
+  public dimensionToggler(value : boolean) : void{
     this.DimensionToggle = value;
   }
 
-  public updateSelectorStatus(value: boolean): void{
+  public updateSelectorStatus(value : boolean) : void{
     this.SelectorStatus = value;
   }
 
-  private updateProps(): void{
+  private updateProps() : void{
     this.UpdateProps.emit(this.PropSettings);
   }
 
-  public updatePropButtons(value: boolean): void{
+  public updatePropButtons(value : boolean) : void{
     this.PropButtonsActive = value;
   }
 
-  public makeIntoVariable(value: BoxSizeProps): string{
+  public makeIntoVariable(value : BoxSizeProps) : string{
     return createCssVariable(value);
   }
 
-  public toggleEdgeChaseW():void{
+  public toggleEdgeChaseW() : void{
     this.ToggleEdgeChaseW = !this.ToggleEdgeChaseW;
   }
-  public updateEdgeChaseW(size: BoxSizeInterface):void{
+  public updateEdgeChaseW(size : BoxSizeInterface) : void{
     this.PropSettings.edgeChaseW = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleEdgeChaseWNudgeChunk(): void{
+  public toggleEdgeChaseWNudgeChunk() : void{
     this.ToggleEdgeChaseWNudgeChunk = !this.ToggleEdgeChaseWNudgeChunk;
   }
-  public updateEdgeChaseWNudgeChunk(size: number):void{
+  public updateEdgeChaseWNudgeChunk(size : number) :void{
     this.PropSettings.edgeChaseWNudgeChunk = size;
     this.updateProps();
   }
@@ -120,79 +112,79 @@ export class EdgeChaseInputComponent implements OnInit {
   public toggleEdgeChaseWNudgeSlice(): void{
     this.ToggleEdgeChaseWNudgeSlice = !this.ToggleEdgeChaseWNudgeSlice;
   }
-  public updateEdgeChaseWNudgeSlice(size: number):void{
+  public updateEdgeChaseWNudgeSlice(size : number) : void{
     this.PropSettings.edgeChaseWNudgeSlice = size;
     this.updateProps();
   }
   
-  public toggleChaseStopW():void{
+  public toggleChaseStopW() : void{
     this.ToggleChaseStopW = !this.ToggleChaseStopW;
   }
-  public updateChaseStopW(size: BoxSizeInterface):void{
+  public updateChaseStopW(size : BoxSizeInterface) : void{
     this.PropSettings.chaseStopW = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleChaseStopWNudgeChunk(): void{
+  public toggleChaseStopWNudgeChunk() : void{
     this.ToggleChaseStopWNudgeChunk = !this.ToggleChaseStopWNudgeChunk;
   }
-  public updateChaseStopWNudgeChunk(size: number):void{
+  public updateChaseStopWNudgeChunk(size : number) : void{
     this.PropSettings.chaseStopWNudgeChunk = size;
     this.updateProps();
   }
   
-  public toggleChaseStopWNudgeSlice(): void{
+  public toggleChaseStopWNudgeSlice() : void{
     this.ToggleChaseStopWNudgeSlice = !this.ToggleChaseStopWNudgeSlice;
   }
-  public updateChaseStopWNudgeSlice(size: number):void{
+  public updateChaseStopWNudgeSlice(size : number) : void{
     this.PropSettings.chaseStopWNudgeSlice = size;
     this.updateProps();
   }
   
-  public toggleEdgeChaseH():void{
+  public toggleEdgeChaseH() : void{
     this.ToggleEdgeChaseH = !this.ToggleEdgeChaseH;
   }
-  public updateEdgeChaseH(size: BoxSizeInterface):void{
+  public updateEdgeChaseH(size : BoxSizeInterface) : void{
     this.PropSettings.edgeChaseH = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleEdgeChaseHNudgeChunk(): void{
+  public toggleEdgeChaseHNudgeChunk() : void{
     this.ToggleEdgeChaseHNudgeChunk = !this.ToggleEdgeChaseHNudgeChunk;
   }
-  public updateEdgeChaseHNudgeChunk(size: number):void{
+  public updateEdgeChaseHNudgeChunk(size : number) : void{
     this.PropSettings.edgeChaseHNudgeChunk = size;
     this.updateProps();
   }
   
-  public toggleEdgeChaseHNudgeSlice(): void{
+  public toggleEdgeChaseHNudgeSlice() : void{
     this.ToggleEdgeChaseHNudgeSlice = !this.ToggleEdgeChaseHNudgeSlice;
   }
-  public updateEdgeChaseHNudgeSlice(size: number):void{
+  public updateEdgeChaseHNudgeSlice(size : number) : void{
     this.PropSettings.edgeChaseHNudgeSlice = size;
     this.updateProps();
   }
   
-  public toggleChaseStopH():void{
+  public toggleChaseStopH() : void{
     this.ToggleChaseStopH = !this.ToggleChaseStopH;
   }
-  public updateChaseStopH(size: BoxSizeInterface):void{
+  public updateChaseStopH(size : BoxSizeInterface) : void{
     this.PropSettings.chaseStopH = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleChaseStopHNudgeChunk(): void{
+  public toggleChaseStopHNudgeChunk() : void{
     this.ToggleChaseStopHNudgeChunk = !this.ToggleChaseStopHNudgeChunk;
   }
-  public updateChaseStopHNudgeChunk(size: number):void{
+  public updateChaseStopHNudgeChunk(size : number) : void{
     this.PropSettings.chaseStopHNudgeChunk = size;
     this.updateProps();
   }
   
-  public toggleChaseStopHNudgeSlice(): void{
+  public toggleChaseStopHNudgeSlice() : void{
     this.ToggleChaseStopHNudgeSlice = !this.ToggleChaseStopHNudgeSlice;
   }
-  public updateChaseStopHNudgeSlice(size: number):void{
+  public updateChaseStopHNudgeSlice(size : number) : void{
     this.PropSettings.chaseStopHNudgeSlice = size;
     this.updateProps();
   }

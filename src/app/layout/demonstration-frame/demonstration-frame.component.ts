@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Type, ElementRef, ComponentRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResponsiveWindowComponent } from './responsive-window/responsive-window.component';
 import { FirefoxMessageComponent } from './firefox-message/firefox-message.component';
@@ -12,17 +12,17 @@ import { FirefoxMessageComponent } from './firefox-message/firefox-message.compo
 })
 export class DemonstrationFrameComponent implements OnInit{
 
-  @Input() Demonstration!: any;
-  @Input() BroadcastName: string = '';
-  @Input() ChannelName: string = '';
-  @Input() TargetName: string = '';
-  @Input() WindowWidth: string = '';
-  @Input() MinWindowWidth: string = '';
-  @Input() WindowHeight: string = '';
-  @Input() MinWindowHeight: string = '';
-  @Input() ShowDimensions!: boolean;
+  @Input() Demonstration!  : any;
+  @Input() BroadcastName   : string = '';
+  @Input() ChannelName     : string = '';
+  @Input() TargetName      : string = '';
+  @Input() WindowWidth     : string = '';
+  @Input() MinWindowWidth  : string = '';
+  @Input() WindowHeight    : string = '';
+  @Input() MinWindowHeight : string = '';
+  @Input() ShowDimensions! : boolean;
 
-  FirefoxBrowser!: boolean;
+  FirefoxBrowser! : boolean;
 
 
   ngOnInit(): void {

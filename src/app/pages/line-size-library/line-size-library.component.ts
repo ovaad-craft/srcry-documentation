@@ -43,7 +43,6 @@ export class LineSizeLibraryComponent implements OnInit {
   Pagination!: PaginationData;
 
   Demo_01: string = ` .myClass{
-     /*styling that will be covered later*/
      border: var(--line-narrow) solid blue;
    }`;
 

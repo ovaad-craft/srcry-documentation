@@ -12,13 +12,13 @@ import { BaseSizeAnalyzerInterface } from '@site-types';
 })
 export class BaseSizeCReadoutComponent implements OnInit, OnDestroy {
 
-  @Input()BroadcastName!: string;
-  @Input()ChannelName!: string;
-  @Input()TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  Readings!: BaseSizeAnalyzerInterface;
+  Readings! : BaseSizeAnalyzerInterface;
 
-  constructor(private dataChannel: BaseSizeCReadoutService){}
+  constructor(private dataChannel : BaseSizeCReadoutService){}
 
   ngOnInit(): void {
     this.dataChannel.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);

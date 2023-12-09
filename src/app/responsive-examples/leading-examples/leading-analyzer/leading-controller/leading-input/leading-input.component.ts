@@ -16,36 +16,35 @@ import { NumberInputComponent } from 'src/app/layout/number-input/number-input.c
 })
 export class LeadingInputComponent implements OnInit {
 
-  @Input() DefaultSetting!: number;
-  @Output() UpdateProp: EventEmitter<number> = new EventEmitter<number>();
+  @Input()  DefaultSetting! : number;
+  @Output() UpdateProp      : EventEmitter<number> = new EventEmitter<number>();
 
-  PropSetting!: number;
-  PropButtonActive: boolean = true;
-  SelectorStatus: boolean = false;
+  PropSetting!       : number;
+  PropButtonActive   : boolean = true;
+  SelectorStatus     : boolean = false;
+  ToggleLeadingNudge : boolean = false;
 
-  ToggleLeadingNudge: boolean = false;
-
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.PropSetting = this.DefaultSetting;
   }
 
-  private updateSetting():void{
+  private updateSetting() : void{
     this.UpdateProp.emit(this.PropSetting);
   }
 
-  public updatePropButton(value: boolean): void{
+  public updatePropButton(value : boolean) : void{
     this.PropButtonActive = value;
   }
 
-  public updateSelectorStatus(value: boolean): void{
+  public updateSelectorStatus(value : boolean) : void{
     this.SelectorStatus = value;
   }
 
-  public toggleKerningNudge(): void{
+  public toggleKerningNudge() : void{
     this.ToggleLeadingNudge = !this.ToggleLeadingNudge;
   }
 
-  public updateProp(size: number): void{
+  public updateProp(size : number) : void{
     this.PropSetting = size;
     this.updateSetting();
   }

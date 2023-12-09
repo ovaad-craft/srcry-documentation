@@ -11,37 +11,37 @@ import { SquishGrowthExampleAService } from './squish-growth-example-a.service';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class SquishGrowthExampleAComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input()BroadcastName!: string;
-  @Input()ChannelName!: string;
-  @Input()TargetName!: string;
+  @Input()BroadcastName! : string;
+  @Input()ChannelName!   : string;
+  @Input()TargetName!    : string;
 
-  @ViewChild('fullBox', {static: true, read: ElementRef}) FullBox!: ElementRef;
-  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
-  @ViewChild('squishBox', {static: true, read: ElementRef}) SquishBox!: ElementRef;
+  @ViewChild('fullBox',   {static : true, read : ElementRef}) FullBox!   : ElementRef;
+  @ViewChild('baseBox',   {static : true, read : ElementRef}) BaseBox!   : ElementRef;
+  @ViewChild('squishBox', {static : true, read : ElementRef}) SquishBox! : ElementRef;
 
-  constructor(private dataService: SquishGrowthExampleAService, private zone: NgZone){}
+  constructor(private dataService : SquishGrowthExampleAService, private zone : NgZone){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
       this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
-  ngAfterViewInit(): void {
-      const boxListener: ResizeObserver = new ResizeObserver(element => {
+  ngAfterViewInit() : void {
+      const boxListener : ResizeObserver = new ResizeObserver(element => {
         this.zone.run(()=> this.readElements());
       });
 
       boxListener.observe(this.FullBox.nativeElement);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeChannel();
   }
 
-  private readElements(): void{
+  private readElements() : void{
     this.dataService.sendData({
-      fullSize: this.FullBox.nativeElement.offsetWidth,
-      baseSize: this.BaseBox.nativeElement.offsetWidth,
-      growthSize: this.SquishBox.nativeElement.offsetWidth
+      fullSize   : this.FullBox.nativeElement.offsetWidth,
+      baseSize   : this.BaseBox.nativeElement.offsetWidth,
+      growthSize : this.SquishBox.nativeElement.offsetWidth
     });
   }
 

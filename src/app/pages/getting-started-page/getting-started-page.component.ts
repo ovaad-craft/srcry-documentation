@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { HighlightModule } from 'ngx-highlightjs';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PaginationData } from '@site-types';
+import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -26,6 +27,7 @@ const PAGINATIONDATA: PaginationData = {
     CommonModule,
     RouterLink,
     HighlightModule,
+    CodeDisplayComponent,
     PaginateComponent
   ],
   templateUrl: './getting-started-page.component.html',
@@ -33,10 +35,10 @@ const PAGINATIONDATA: PaginationData = {
 })
 export class GettingStartedPageComponent {
 
-  code: string =
+  Code: string =
   `@import url('path/to/folder/srcry.css');`;
 
-Pagination!: PaginationData;
+  Pagination!: PaginationData;
 
   constructor(){
     this.Pagination = PAGINATIONDATA;

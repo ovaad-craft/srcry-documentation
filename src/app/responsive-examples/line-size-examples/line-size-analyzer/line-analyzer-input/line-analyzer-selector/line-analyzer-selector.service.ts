@@ -10,9 +10,7 @@ export const LINESIZES: LineSizes[] = [
 })
 export class LineAnalyzerSelectorService {
 
-  Sizes: LineSizes[]= LINESIZES;
+  Sizes : LineSizes[] = LINESIZES;
 
-  constructor() {}
-
-  public getSizes(): LineSizes[]{ return this.Sizes; }
+  public getSizes() : LineSizes[]{ return this.Sizes; }
 }

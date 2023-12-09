@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextSizeInterface, TextSizeSize, TextSizeSpeed } from '@site-types';
 import { TextAnalyzerSelectorService } from './text-analyzer-selector.service';
-import { DropdownAnimation } from 'src/app/layout/sidebar/link/link.component';
+import { DropdownAnimation } from 'src/assets/animations';
 
 @Component({
   selector: 'text-analyzer-selector',

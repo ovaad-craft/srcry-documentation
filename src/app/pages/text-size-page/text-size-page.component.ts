@@ -29,7 +29,7 @@ const PROPCHART: PropChartData[] = [
   {
     id: 'textNudgeAmt',
     title: '--text-nudge-amt',
-    description: 'For adjusting the size of your text up or down in small incraments.  This property uses numbers.'
+    description: 'For adjusting the size of your text up or down in small increments.  This property uses numbers.'
   }
 ];
 

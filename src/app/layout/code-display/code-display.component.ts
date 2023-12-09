@@ -11,7 +11,7 @@ import { HighlightModule } from 'ngx-highlightjs';
 })
 export class CodeDisplayComponent {
 
-  @Input()Code!: string;
-  @Input()Language!: string;
+  @Input() Code!     : string;
+  @Input() Language! : string;
 
 }

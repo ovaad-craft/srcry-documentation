@@ -17,14 +17,14 @@ import { LeadingReadoutComponent } from './leading-readout/leading-readout.compo
 })
 export class LeadingControllerComponent implements OnInit, OnDestroy {
 
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
-  @Input() TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  DefaultSetting!: number;
-  Reading!: number;
+  DefaultSetting! : number;
+  Reading!        : number;
 
-  constructor(private dataService: LeadingControllerService){}
+  constructor(private dataService : LeadingControllerService){}
 
   ngOnInit(): void {
     this.DefaultSetting = this.dataService.getDefault();
@@ -32,11 +32,11 @@ export class LeadingControllerComponent implements OnInit, OnDestroy {
     this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
     this.dataService.closeChannel();
   }
 
-  public updateSetting(data: number):void{
+  public updateSetting(data : number):void{
     this.dataService.sendData(data);
   }
 

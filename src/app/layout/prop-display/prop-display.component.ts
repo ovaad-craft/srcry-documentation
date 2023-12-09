@@ -11,10 +11,10 @@ import { BoxSizeInterface, LineSizes, TextSizeInterface } from '@site-types';
 })
 export class PropDisplayComponent {
 
-  @Input() DefaultCategory?: string;
-  @Input() BoxSizeProps?: BoxSizeInterface;
-  @Input() TextSizeProps?: TextSizeInterface;
-  @Input() LineSizeProp?: LineSizes;
+  @Input() DefaultCategory? : string;
+  @Input() BoxSizeProps?    : BoxSizeInterface;
+  @Input() TextSizeProps?   : TextSizeInterface;
+  @Input() LineSizeProp?    : LineSizes;
 
 
 

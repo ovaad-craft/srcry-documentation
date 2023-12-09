@@ -20,120 +20,117 @@ import { createCssVariable } from 'src/app/utils/create-css-variable';
   styleUrls: ['./crush-gap-input.component.css']
 })
 export class CrushGapInputComponent implements OnInit {
-  @Input()DefaultSettings!: CrushGapPropData;
-  @Output()UpdateProps: EventEmitter<CrushGapProps> = new EventEmitter<CrushGapProps>();
 
-  PropSettings: CrushGapProps = {
-    crushGapW: '--',
-    crushGapWNudgeChunk: 0,
-    crushGapWNudgeSlice: 0,
-    crushGapH: '--',
-    crushGapHNudgeChunk: 0,
-    crushGapHNudgeSlice: 0
+  @Input()  DefaultSettings! : CrushGapPropData;
+  @Output() UpdateProps      : EventEmitter<CrushGapProps> = new EventEmitter<CrushGapProps>();
+
+  PropSettings : CrushGapProps = {
+    crushGapW           : '--',
+    crushGapWNudgeChunk : 0,
+    crushGapWNudgeSlice : 0,
+    crushGapH           : '--',
+    crushGapHNudgeChunk : 0,
+    crushGapHNudgeSlice : 0
   };
 
-  SelectorStatus: boolean = false;
+  SelectorStatus    : boolean = false;
+  PropButtonsActive : boolean = true;
 
-  PropButtonsActive: boolean = true;
-
-  ToggleCrushGapW: boolean = false;
-  ToggleCrushGapWNudgeChunk: boolean = false;
-  ToggleCrushGapWNudgeSlice: boolean = false;
-  ToggleCrushGapH: boolean = false;
-  ToggleCrushGapHNudgeChunk: boolean = false;
-  ToggleCrushGapHNudgeSlice: boolean = false;
+  ToggleCrushGapW           : boolean = false;
+  ToggleCrushGapWNudgeChunk : boolean = false;
+  ToggleCrushGapWNudgeSlice : boolean = false;
+  ToggleCrushGapH           : boolean = false;
+  ToggleCrushGapHNudgeChunk : boolean = false;
+  ToggleCrushGapHNudgeSlice : boolean = false;
 
   ngOnInit(): void {
       this.initDefaults();
   }
 
-  private initDefaults():void{
-    const props: CrushGapProps = {
-      crushGapW: createBoxSize(
+  private initDefaults() : void{
+    const props : CrushGapProps = {
+      ...this.DefaultSettings,
+      crushGapW : createBoxSize(
         this.DefaultSettings.crushGapW.size,
         this.DefaultSettings.crushGapW.scale,
         this.DefaultSettings.crushGapW.speed
       ),
-      crushGapWNudgeChunk: this.DefaultSettings.crushGapHNudgeChunk,
-      crushGapWNudgeSlice: this.DefaultSettings.crushGapHNudgeSlice,
-      crushGapH: createBoxSize(
+      crushGapH : createBoxSize(
         this.DefaultSettings.crushGapH.size,
         this.DefaultSettings.crushGapH.scale,
         this.DefaultSettings.crushGapH.speed
-      ),
-      crushGapHNudgeChunk: this.DefaultSettings.crushGapHNudgeChunk,
-      crushGapHNudgeSlice: this.DefaultSettings.crushGapHNudgeSlice
+      )
     };
 
     this.PropSettings = props;
   }
 
-  private updateProps(): void{
+  private updateProps() : void{
     this.UpdateProps.emit(this.PropSettings);
   }
 
-  public updatePropButtons(value: boolean): void{
+  public updatePropButtons(value : boolean) : void{
     this.PropButtonsActive = value;
   }
 
-  public updateSelectorStatus(status: boolean): void{
+  public updateSelectorStatus(status : boolean) : void{
     this.SelectorStatus = status;
   }
 
-  public toggleCrushGapW(): void{
+  public toggleCrushGapW() : void{
     this.ToggleCrushGapW = !this.ToggleCrushGapW;
   }
 
-  public updateCrushGapW(size: BoxSizeInterface): void{
+  public updateCrushGapW(size : BoxSizeInterface) : void{
     this.PropSettings.crushGapW = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleCrushGapWNudgeChunk():void{
+  public toggleCrushGapWNudgeChunk() : void{
     this.ToggleCrushGapWNudgeChunk = !this.ToggleCrushGapWNudgeChunk;
   }
 
-  public updateCrushGapWNudgeChunk(size: number):void{
+  public updateCrushGapWNudgeChunk(size : number) : void{
     this.PropSettings.crushGapWNudgeChunk = size;
     this.updateProps();
   }
 
-  public toggleCrushGapWNudgeSlice(): void{
+  public toggleCrushGapWNudgeSlice() : void{
     this.ToggleCrushGapWNudgeSlice = !this.ToggleCrushGapWNudgeSlice;
   }
 
-  public updateCrushGapWNudgeSlice(size: number): void{
+  public updateCrushGapWNudgeSlice(size : number) : void{
     this.PropSettings.crushGapWNudgeSlice = size;
     this.updateProps();
   }
   
-  public toggleCrushGapH(): void{
+  public toggleCrushGapH() : void{
     this.ToggleCrushGapH = !this.ToggleCrushGapH;
   }
 
-  public updateCrushGapH(size: BoxSizeInterface): void{
+  public updateCrushGapH(size : BoxSizeInterface) : void{
     this.PropSettings.crushGapH = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleCrushGapHNudgeChunk():void{
+  public toggleCrushGapHNudgeChunk() : void{
     this.ToggleCrushGapHNudgeChunk = !this.ToggleCrushGapHNudgeChunk;
   }
 
-  public updateCrushGapHNudgeChunk(size: number): void{
+  public updateCrushGapHNudgeChunk(size : number) : void{
     this.PropSettings.crushGapHNudgeChunk = size;
     this.updateProps();
   }
 
-  public toggleCrushGapHNudgeSlice(): void{
+  public toggleCrushGapHNudgeSlice() : void{
     this.ToggleCrushGapHNudgeSlice = !this.ToggleCrushGapHNudgeSlice;
   }
 
-  public makeIntoVariable(value: BoxSizeProps): string{
+  public makeIntoVariable(value : BoxSizeProps) : string{
     return createCssVariable(value);
   }
 
-  public updateCrushGapHNudgeSlice(size: number): void{
+  public updateCrushGapHNudgeSlice(size : number) : void{
     this.PropSettings.crushGapHNudgeSlice = size;
     this.updateProps();
   }

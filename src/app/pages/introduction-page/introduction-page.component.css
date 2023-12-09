@@ -89,7 +89,6 @@
     --kerning-nudge-amt: 3;
     --leading-nudge-amt: 14;
     justify-self: center;
-    /*width: 92%;*/
 }
 
 .valueButton{
@@ -246,7 +245,8 @@
 }
 
 .demonstrationText{
-    justify-self: left;
+    justify-self: center;
+    
 }
 
 .conclusion{

@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineSizes } from '@site-types';
 import { LineAnalyzerSelectorService } from './line-analyzer-selector.service';
-import { DropdownAnimation } from 'src/app/layout/sidebar/link/link.component';
+import { DropdownAnimation } from 'src/assets/animations';
 
 @Component({
   selector: 'line-analyzer-selector',
@@ -14,25 +14,25 @@ import { DropdownAnimation } from 'src/app/layout/sidebar/link/link.component';
 })
 export class LineAnalyzerSelectorComponent implements OnInit {
 
-  @Output() UpdateSize: EventEmitter<LineSizes> = new EventEmitter<LineSizes>();
+  @Output() UpdateSize : EventEmitter<LineSizes> = new EventEmitter<LineSizes>();
 
-  Sizes!: LineSizes[];
-  CurrentSize: LineSizes = 'narrow';
-  SizeActive: boolean = false;
+  Sizes!      : LineSizes[];
+  CurrentSize : LineSizes = 'narrow';
+  SizeActive  : boolean = false;
 
-  constructor(private dataService: LineAnalyzerSelectorService){}
+  constructor(private dataService : LineAnalyzerSelectorService){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
       this.Sizes = this.dataService.getSizes();
   }
 
-  public updateSize(size: LineSizes): void{
+  public updateSize(size : LineSizes) : void{
     this.CurrentSize = size;
     this.UpdateSize.emit(size);
     this.closeSizeList();
   }
 
-  public toggleSizeList(): void{ this.SizeActive = !this.SizeActive; }
-  public closeSizeList():void{ this.SizeActive = false; }
+  public toggleSizeList() : void{ this.SizeActive = !this.SizeActive; }
+  public closeSizeList() : void{ this.SizeActive = false; }
 
 }

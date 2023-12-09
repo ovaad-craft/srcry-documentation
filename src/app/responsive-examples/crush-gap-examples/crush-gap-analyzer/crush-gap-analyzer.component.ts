@@ -13,24 +13,24 @@ import { ActivePropReadings, CrushGapSettings } from '@site-types';
 })
 export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
-  @Input() TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
   Settings!: CrushGapSettings;
 
-  @ViewChild('frame', {static: true, read: ElementRef}) Frame!: ElementRef;
-  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
-  @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
+  @ViewChild('frame',   {static : true, read : ElementRef}) Frame!   : ElementRef;
+  @ViewChild('baseBox', {static : true, read : ElementRef}) BaseBox! : ElementRef;
+  @ViewChild('box',     {static : true, read : ElementRef}) Box!     : ElementRef;
 
-  constructor(private dataService: CrushGapAnalyzerService, private zone: NgZone){}
+  constructor(private dataService : CrushGapAnalyzerService, private zone : NgZone){}
   
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.Settings$.subscribe(a=> this.Settings = a);
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);      
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() : void {
       const frameListener: ResizeObserver = new ResizeObserver((element)=>{
         this.zone.run(()=>{ this.updateReadings() });
       });
@@ -38,32 +38,32 @@ export class CrushGapAnalyzerComponent implements OnInit, AfterViewInit, OnDestr
       frameListener.observe(this.Box.nativeElement);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeChannel();
   }
 
-  private determineActiveProp():ActivePropReadings{
-    const widthComparison: boolean = this.Frame.nativeElement.offsetWidth >
+  private determineActiveProp() : ActivePropReadings{
+    const widthComparison : boolean = this.Frame.nativeElement.offsetWidth >
                                      this.BaseBox.nativeElement.offsetWidth ?
                                      true : false;
-    const heightComparison: boolean = this.Frame.nativeElement.offsetHeight >
+    const heightComparison : boolean = this.Frame.nativeElement.offsetHeight >
                                       this.BaseBox.nativeElement.offsetHeight ?
                                       true : false;
                                       
     return {
-      activePropW : widthComparison ? 'baseSize' : 'crushGap',
-      activePropH : heightComparison? 'baseSize' : 'crushGap'
+      activePropW : widthComparison  ? 'baseSize' : 'crushGap',
+      activePropH : heightComparison ? 'baseSize' : 'crushGap'
     };
   }
 
-  private updateReadings():void{
-    const activeProps: ActivePropReadings = this.determineActiveProp();
+  private updateReadings() : void{
+    const activeProps : ActivePropReadings = this.determineActiveProp();
 
     this.dataService.sendData({
-      activePropW: activeProps.activePropW,
-      activePropH: activeProps.activePropH,
-      width: this.Box.nativeElement.offsetWidth,
-      height: this.Box.nativeElement.offsetHeight
+      activePropW : activeProps.activePropW,
+      activePropH : activeProps.activePropH,
+      width       : this.Box.nativeElement.offsetWidth,
+      height      : this.Box.nativeElement.offsetHeight
     });
   }
 

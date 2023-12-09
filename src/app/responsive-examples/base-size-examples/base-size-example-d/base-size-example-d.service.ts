@@ -6,23 +6,23 @@ import { BaseSizeAnalyzerInterface } from '@site-types';
 })
 export class BaseSizeExampleDService {
 
-  DataChannel!: BroadcastChannel;
-  ComponentChannelName!: string;
-  TargetName!: string;
+  DataChannel!          : BroadcastChannel;
+  ComponentChannelName! : string;
+  TargetName!           : string;
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone : NgZone) { }
 
-  public createChannel(broadcastName: string, componentChannelName: string, targetName: string):void{
-    this.DataChannel = new BroadcastChannel(broadcastName);
+  public createChannel(broadcastName : string, componentChannelName : string, targetName : string) : void{
+    this.DataChannel          = new BroadcastChannel(broadcastName);
     this.ComponentChannelName = componentChannelName;
-    this.TargetName = targetName;
+    this.TargetName           = targetName;
   }
 
   public sendData(data: BaseSizeAnalyzerInterface):void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.TargetName,
-        payload: data
+        target  : this.TargetName,
+        payload : data
       });
     });
   }

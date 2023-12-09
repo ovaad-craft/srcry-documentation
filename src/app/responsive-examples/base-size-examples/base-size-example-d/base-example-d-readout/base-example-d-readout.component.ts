@@ -13,20 +13,20 @@ import { BaseExampleDReadoutService } from './base-example-d-readout.service';
 })
 export class BaseExampleDReadoutComponent implements OnInit, OnDestroy {
   
-  @Input()BroadcastName!: string;
-  @Input()ChannelName!: string;
-  @Input()TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  Readings!: BaseSizeAnalyzerInterface;
+  Readings! : BaseSizeAnalyzerInterface;
 
-  constructor(private dataService: BaseExampleDReadoutService){}
+  constructor(private dataService : BaseExampleDReadoutService){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
       this.dataService.Readings$.subscribe(a=> this.Readings = a);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeChannel();
   }
 

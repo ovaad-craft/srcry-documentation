@@ -10,6 +10,6 @@ import { SrcryPropReadings } from '@site-types';
   styleUrls: ['./crush-gap-readout.component.css']
 })
 export class CrushGapReadoutComponent {
-  @Input() Readings!: SrcryPropReadings;
+  @Input() Readings! : SrcryPropReadings;
 
 }

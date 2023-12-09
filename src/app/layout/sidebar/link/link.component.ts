@@ -1,16 +1,9 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import {  trigger, state, style, animate, transition } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Link } from '@site-types';
 import { SidebarService } from '../sidebar.service';
 import { RouterLink } from '@angular/router';
-
-export const DropdownAnimation = trigger('dropdownAnimation',[
-    state('open', style({height: '*'})),
-    state('close', style({height: '0px'})),
-    transition('open <=> close', [animate('300ms ease-in-out')])
-  ]
-);
+import { DropdownAnimation } from 'src/assets/animations';
 
 @Component({
   selector: 'nav-link',
@@ -21,12 +14,12 @@ export const DropdownAnimation = trigger('dropdownAnimation',[
   animations: [DropdownAnimation]
 })
 export class LinkComponent implements OnInit {
-  @Input() Link!: Link;
-  @Input() BreadCrumbs: string[] = [];
-  @Output() CloseNav: EventEmitter<void> = new EventEmitter<void>()
-  Category: boolean = false;
-  SubLinksActive: boolean = false;
-  SelectedLink: boolean = false;
+  @Input()  Link!       : Link;
+  @Input()  BreadCrumbs : string[]           = [];
+  @Output() CloseNav    : EventEmitter<void> = new EventEmitter<void>()
+  Category              : boolean            = false;
+  SubLinksActive        : boolean            = false;
+  SelectedLink          : boolean            = false;
 
   constructor(private navService: SidebarService){}
 

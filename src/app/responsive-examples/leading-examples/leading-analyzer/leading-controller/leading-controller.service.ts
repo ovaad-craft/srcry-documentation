@@ -6,18 +6,16 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class LeadingControllerService {
 
-  DataChannel!: BroadcastChannel;
-  ChannelName!: string;
-  TargetName!: string;
+  DataChannel! : BroadcastChannel;
+  ChannelName! : string;
+  TargetName!  : string;
 
-  DefaultSetting: number = 0;
+  DefaultSetting : number = 0;
 
-  private Reading: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private Reading : BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public Reading$ = this.Reading.asObservable();
 
-  constructor() { }
-
-  private setChannelListener():void{
+  private setChannelListener() : void{
     this.DataChannel.onmessage = (event)=>{
       if(event.data.target === this.ChannelName){
 
@@ -32,25 +30,25 @@ export class LeadingControllerService {
     }
   }
 
-  public createChannel(broadcastName: string, channelName: string, targetName: string):void{
+  public createChannel(broadcastName : string, channelName : string, targetName : string) : void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
-    this.TargetName = targetName;
+    this.TargetName  = targetName;
     this.setChannelListener();
   }
 
-  public sendData(data: number):void{
+  public sendData(data : number) : void{
     this.DataChannel.postMessage({
-      target: this.TargetName,
-      payload: data
+      target  : this.TargetName,
+      payload : data
     });
   }
 
-  public getDefault():number{
+  public getDefault() : number{
     return this.DefaultSetting;
   }
 
-  public closeChannel():void{
+  public closeChannel() : void{
     this.DataChannel.close();
   }
 }

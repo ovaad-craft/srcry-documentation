@@ -29,3 +29,10 @@ export const NavbarAnimation = trigger('navbarAnimation', [
       ])
     ])
   ]);
+
+  export const DropdownAnimation = trigger('dropdownAnimation',[
+    state('open', style({height: '*'})),
+    state('close', style({height: '0px'})),
+    transition('open <=> close', [animate('300ms ease-in-out')])
+  ]
+);

@@ -12,21 +12,21 @@ import { StretchShrinkExampleAService } from './stretch-shrink-example-a.service
 })
 export class StretchShrinkExampleAComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
-  @Input() TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  @ViewChild('boxFrame', {static: true, read: ElementRef}) BoxFrame!: ElementRef;
-  @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
-  @ViewChild('shrinkBox', {static: true, read: ElementRef}) ShrinkBox!: ElementRef;
+  @ViewChild('boxFrame',  {static : true, read : ElementRef}) BoxFrame!  : ElementRef;
+  @ViewChild('box',       {static : true, read : ElementRef}) Box!       : ElementRef;
+  @ViewChild('shrinkBox', {static : true, read : ElementRef}) ShrinkBox! : ElementRef;
 
-  constructor(private dataService: StretchShrinkExampleAService, private zone: NgZone){}
+  constructor(private dataService : StretchShrinkExampleAService, private zone : NgZone){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() : void {
     const frameListener: ResizeObserver = new ResizeObserver((element)=>{
       this.zone.run(()=> this.readElements());
     });
@@ -34,14 +34,14 @@ export class StretchShrinkExampleAComponent implements OnInit, AfterViewInit, On
     frameListener.observe(this.BoxFrame.nativeElement);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
     this.dataService.closeChannel();
   }
 
-  private readElements():void{
+  private readElements() : void{
     this.dataService.sendData({
-      height: this.Box.nativeElement.offsetHeight,
-      shrinkAmountH: this.ShrinkBox.nativeElement.offsetHeight
+      height        : this.Box.nativeElement.offsetHeight,
+      shrinkAmountH : this.ShrinkBox.nativeElement.offsetHeight
     });
   }
 

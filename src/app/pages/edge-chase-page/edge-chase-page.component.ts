@@ -27,7 +27,7 @@ const PROPCHART: PropChartData[] = [
   {
     id: 'edgeChaseW',
     title: '--edgeChase-w',
-    description: 'Defines the maximum amount of white space to preserve between the left and right edges of your element and the edges of the screen triggering the element to expand once the threshold is met.'
+    description: 'Defines the maximum amount of white space to preserve between the left and right edges of your element and the edges of the screen.'
   },
   {
     id: 'edgeChaseWNudgeChunk',
@@ -57,7 +57,7 @@ const PROPCHART: PropChartData[] = [
   {
     id: 'edgeChaseH',
     title: '--edgeChase-h',
-    description: 'Defines the maximum amount of white space to preserve between the top and bottom edges of your element and the edges of the screen triggering the element to expand once the threshold is met.'
+    description: 'Defines the maximum amount of white space to preserve between the top and bottom edges of your element and the edges of the screen.'
   },
   {
     id: 'edgeChaseHNudgeChunk',
