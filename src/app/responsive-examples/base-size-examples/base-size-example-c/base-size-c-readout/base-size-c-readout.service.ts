@@ -7,22 +7,22 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class BaseSizeCReadoutService {
 
-  private DataChannel!: BroadcastChannel;
-  private ComponentChannelName!: string;
-  private TargetName!: string;
+  private DataChannel!          : BroadcastChannel;
+  private ComponentChannelName! : string;
+  private TargetName!           : string;
 
-  private Readings: BehaviorSubject<BaseSizeAnalyzerInterface> = new BehaviorSubject<BaseSizeAnalyzerInterface>({
-    fullWidth: 0,
-    baseWidth: 0,
-    chunkWidth: 0,
-    sliceWidth: 0
+  private Readings : BehaviorSubject<BaseSizeAnalyzerInterface> = new BehaviorSubject<BaseSizeAnalyzerInterface>({
+    fullWidth  : 0,
+    baseWidth  : 0,
+    chunkWidth : 0,
+    sliceWidth : 0
   });
 
   public Readings$ = this.Readings.asObservable();
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone : NgZone) { }
 
-  private createChannelListener():void{
+  private createChannelListener() : void{
     this.DataChannel.onmessage = ((event)=>{
       this.zone.run(()=>{
         if(event.data.target === this.ComponentChannelName){
@@ -32,10 +32,10 @@ export class BaseSizeCReadoutService {
     });
   }
 
-  public createBroadcastChannel(broadcastName: string, channelName: string, targetName: string): void{
-    this.DataChannel = new BroadcastChannel(broadcastName);
+  public createBroadcastChannel(broadcastName : string, channelName : string, targetName : string) : void{
+    this.DataChannel          = new BroadcastChannel(broadcastName);
     this.ComponentChannelName = channelName;
-    this.TargetName = targetName;
+    this.TargetName           = targetName;
     this.createChannelListener();
   }
 

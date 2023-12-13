@@ -4,7 +4,7 @@
 
     <section class="contentContainer">
         <p class="srcryTxt textContent">
-            The box size library is a collection of 198 size definitions that can be used to define the size of your elements, margins and padding.  To make them more intuitive to use they're organized into nine sizes with two scales and eleven growth speeds.  Before we go any further lets explain what each of these 3 parts are.
+            The box size library is a collection of 198 flexible settings which can be used to define the width and height of your elements as well as margins and padding&#46;  These settings are organized into nine sizes that each have two scales and eleven growth speeds to make using them intuitive and simple&#46;  Before we go any further lets explain what each of these parts are&#46;
         </p>
 
         <section class="definitionContainer">
@@ -12,34 +12,34 @@
             <article class="definition">
                 <h2 class="srcryTxt definitionTitle">Size</h2>
                 <p class="srcryTxt definitionText">
-                    The 9 sizes are called <b>micro, xTiny, tiny, xSmall, small, loMed, hiMed, large</b> and <b>jumbo</b>.  Seeing that they're designed to be adaptable each name should be regarded arbitrarily as a relative range of sizes rather than exact pixel values.
+                    The 9 sizes are called <strong>micro&#44; xTiny&#44; tiny&#44; xSmall&#44; small&#44; loMed&#44; hiMed&#44; large</strong> and <b>jumbo</b>.  Seeing that they&#39;re designed to be adaptable each name should be regarded as a relative range of sizes rather than exact pixel values&#46;
                 </p>
             </article>
             
             <article class="definition">
                 <h2 class="srcryTxt definitionTitle">Scale</h2>
                 <p class="srcryTxt definitionText">
-                    As mentioned there are two scales for each size which is simply <b>1</b> or <b>2</b>.  The purpose is to broaden the range of each size by providing two core sizes to scale from.
+                    The scale settings are used to broaden the range of each size by providing two core sizes to scale from&#46;  This is applied by simply adding a <strong>1</strong> or <strong>2</strong> to the size definition&#46;
                 </p>
             </article>
             
             <article class="definition">
                 <h2 class="srcryTxt definitionTitle">Speed</h2>
                 <p class="srcryTxt definitionText">
-                    The eleven speeds are used just like the scale settings which is applying any number between <b>1</b> and <b>11</b> to your settings.  The speed controls how subtly or drastically an elements scales with the size of the screen with <b>1</b> being the slowest / most subtle and <b>11</b> being the fastest / most drastic.
+                    The speed setting controls how subtly or drastically the element will scale up and down with the size of the screen&#46;  This is applied by adding a number between <strong>1</strong> and <strong>11</strong> to the size definition&#46;
                 </p>
             </article>
 
         </section>
 
         <p class="srcryTxt textContent">
-            Combining these parts into a usable property is done with the following syntax.
+            Combining these parts into a usable box size property is done with the following syntax&#46;
         </p>
 
         <syntax-frame [Parts]="['size', 'scale', 'speed']" />
 
         <p class="srcryTxt textContent">
-            To give a real world example for how this works lets look at some code.
+            To show how this works look at the width and height settings in the following code then resize the window underneath it to see how the element scales&#46;
         </p>
 
         <pre class="srcryTxt codeFrame">
@@ -62,7 +62,7 @@
         ></demonstration-frame>
 
         <p class="srcryTxt textContent">
-            The example above shows an element that uses higher speed settings in its width and height definitions.  Lets see what happens with the same exact size and scale but with lower speed settings. 
+            The example above shows an element that uses higher speed settings for the <strong>width</strong> and <strong>height</strong> properties which causes the element to expand and contract drastically with the screen&#46;  Lets see what happens with the same exact size and scale but with lower speed settings&#46; 
         </p>
 
         <pre class="srcryTxt codeFrame">
@@ -85,11 +85,11 @@
         ></demonstration-frame>
 
         <p class="srcryTxt textContent">
-            In this example the blue box hardly grows at all when you scale the window to its maximum size.  Not only can you define the size of your elements with this library, but you can use it to define your margins and padding as well.
+            As you can see&#44; the blue box barely expands or contracts when you resize the window&#46;  This is due to the lower speed settings which shows the range of flexibility you can apply to your size definitions&#46;
         </p>
         
         <p class="srcryTxt textContent">
-            To gain a visual understanding for how these sizes work, use the following demonstration to select deifferent sizes at different speeds to see how they scale when you shrink and expand the frame.  The orange portion represents the core pixel value of the selected size and the green portion represents the amount of growth added on as the screen expands and contracts.
+            To better understand how these settings are designed to work&#44; use the following demonstration to test the variations and how they scale when you resize the frame&#46;  The orange portion represents the core pixel value of the selected size and the green portion represents the amount of adaptation that occurs as the screen expands and contracts&#46;
         </p>
     
         <demonstration-frame
@@ -111,7 +111,7 @@
         </demonstration-frame>
     
         <p class="srcryTxt textContent">
-            What's being shown here is how each scale of every box size has a static pixel value at its core with the speed setting being the determining factor in how much the element grows as the screen scales up and down.  Bellow is a chart that shows the core pixel values used for each size and scale to further help you determine the best starting point to use for each element in your project.
+            Now that you&#39;ve experimented with a few settings to see what the results are you&#39;re probably wondering what core pixel values are used for each size&#46;  The chart below shows these values so you can better rationalize the best way to use them in your projects&#46;
         </p>
 
         <table class="srcryTxt sizeChart">
@@ -168,7 +168,7 @@
         </table>
 
         <p class="srcryTxt textContent">
-            To help make these sizes usable for more applications Srcry provides negative values for each size which can be used simply by placing a "<b>-</b>" at the end of the size definition you want to use.  This is perfect for animations or if you're positioning your elements with <b>absolute</b>, <b>relative</b> or <b>fixed</b>.  Bellow is an example of how you can use these negative values.
+            To make these sizes even more useful Srcry provides negative values for each size which can be used simply by adding a &#34;<strong>-</strong>&#34; at the end of the size definition&#46;  This is perfect for animations or if you&#39;re positioning your elements with <strong>absolute</strong>&#44; <strong>relative</strong> or <strong>fixed</strong>&#46;  Below is an example of how you can use these negative values&#46;
         </p>
     
         <pre class="srcryTxt codeFrame">
@@ -181,11 +181,11 @@
         </pre>
 
         <p class="srcryTxt textContent">
-            Notice how the <b>left</b> and <b>top</b> properties have a "<b>-</b>" at the end while the <b>width</b> and <b>height</b> properties don't?  That's all it takes to use the box sizes as negative values should you find yourself needing to do such a thing.
+            Make note of how the <strong>left</strong> and <strong>top</strong> properties have a &#34;<strong>-</strong>&#34; at the end while the <strong>width</strong> and <strong>height</strong> properties don&#39;t&#46;  That&#39;s all it takes to use the box sizes as negative values should you find yourself needing to do such a thing&#46;
         </p>
         
         <p class="srcryTxt textContent">
-            The box size library becomes even more powerful with the <b>srcryBox</b> class but is flexible enough on it's own to handle a lot of common use cases.  That's pretty much all there is to using this library so lets mvoe on to the <b>text size library</b>.
+            The box size library becomes even more powerful with the <strong>srcryBox</strong> class which will be shown later on but is flexible enough on it&#39;s own to handle a lot of common use cases&#46;
         </p>
 
     </section>

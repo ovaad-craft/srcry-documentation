@@ -57,7 +57,7 @@ const PROPCHART: PropChartData[] =[
   {
     id: 'squishGrowthHSpeed',
     title: '--squishGrowth-h-speed',
-    description: 'The speed at which the height of the element should grow as the width decreases.  This property is defined with a number'
+    description: 'The speed at which the height of the element should grow as the width decreases.  This property is defined with a number.'
   },
   {
     id: 'squishGrowthHMax',
@@ -105,7 +105,7 @@ export class SquishGrowthPageComponent {
    max-width: 90vw;
  }
   `;
-  DemoComponent01= SquishGrowthExampleAComponent;
+  DemoComponent01 = SquishGrowthExampleAComponent;
 
   DemoComponent02 = SquishGrowthAnalyzerComponent;
 }

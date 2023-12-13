@@ -8,32 +8,33 @@ import { createCssVariable } from 'src/app/utils/create-css-variable';
 })
 export class BaseSizeAnalyzerService {
 
-  DataChannel!: BroadcastChannel;
-  ChannelName!: string;
-  TargetName!: string;
+  DataChannel! : BroadcastChannel;
+  ChannelName! : string;
+  TargetName!  : string;
 
-  private Settings: BehaviorSubject<BaseSizeSettings> = new BehaviorSubject<BaseSizeSettings>({
-    baseSizeW: '--',
-    baseSizeWNudgeChunk: 0,
-    baseSizeWNudgeSlice: 0,
-    baseSizeH: '--',
-    baseSizeHNudgeChunk: 0,
-    baseSizeHNudgeSlice: 0
+  private Settings : BehaviorSubject<BaseSizeSettings> = new BehaviorSubject<BaseSizeSettings>({
+    baseSizeW           : '--',
+    baseSizeWNudgeChunk : 0,
+    baseSizeWNudgeSlice : 0,
+    baseSizeH           : '--',
+    baseSizeHNudgeChunk : 0,
+    baseSizeHNudgeSlice : 0
   });
+
   Settings$ = this.Settings.asObservable();
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone : NgZone) { }
 
-  private sendLoadCompleteNotification(): void{
+  private sendLoadCompleteNotification() : void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.TargetName,
-        notification: 'loadComplete'
+        target       : this.TargetName,
+        notification : 'loadComplete'
       });
     });
   }
 
-  private createChannelListener():void{
+  private createChannelListener() : void{
     this.DataChannel.onmessage = (event)=>{
       this.zone.run(()=>{
         if(event.data.target === this.ChannelName){
@@ -43,32 +44,32 @@ export class BaseSizeAnalyzerService {
     };
   }
 
-  public createBroadcastChannel(dataChannelName: string, channelName: string, targetName: string): void{
+  public createBroadcastChannel(dataChannelName : string, channelName : string, targetName : string) : void{
     this.DataChannel = new BroadcastChannel(dataChannelName);
     this.ChannelName = channelName;
-    this.TargetName = targetName;
+    this.TargetName  = targetName;
     this.createChannelListener();
     this.sendLoadCompleteNotification();
   }
 
-  public sendData(data: BaseSizeValues): void{
+  public sendData(data : BaseSizeValues) : void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.TargetName,
-        notification: 'data',
-        payload: data
+        target       : this.TargetName,
+        notification : 'data',
+        payload      : data
       });
     });
   }
 
-  private updateProps(props: BaseSizeProps):void{
-    const settings: BaseSizeSettings = {
-      baseSizeW: createCssVariable(props.baseSizeW),
-      baseSizeWNudgeChunk: props.baseSizeWNudgeChunk,
-      baseSizeWNudgeSlice: props.baseSizeWNudgeSlice,
-      baseSizeH: createCssVariable(props.baseSizeH),
-      baseSizeHNudgeChunk: props.baseSizeHNudgeChunk,
-      baseSizeHNudgeSlice: props.baseSizeHNudgeSlice
+  private updateProps(props : BaseSizeProps) : void{
+    const settings : BaseSizeSettings = {
+      baseSizeW           : createCssVariable(props.baseSizeW),
+      baseSizeWNudgeChunk : props.baseSizeWNudgeChunk,
+      baseSizeWNudgeSlice : props.baseSizeWNudgeSlice,
+      baseSizeH           : createCssVariable(props.baseSizeH),
+      baseSizeHNudgeChunk : props.baseSizeHNudgeChunk,
+      baseSizeHNudgeSlice : props.baseSizeHNudgeSlice
     };
 
     this.Settings.next(settings);

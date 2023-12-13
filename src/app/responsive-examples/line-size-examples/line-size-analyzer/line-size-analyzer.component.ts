@@ -8,30 +8,29 @@ import { LineSizeAnalyzerService } from './line-size-analyzer.service';
   imports: [CommonModule],
   templateUrl: './line-size-analyzer.component.html',
   styleUrls: ['./line-size-analyzer.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom,
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class LineSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
 
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
 
-  @ViewChild('frame', {static: true, read: ElementRef}) Frame!: ElementRef;
-  @ViewChild('measurementBox', {static: true, read: ElementRef}) MeasurementBox!: ElementRef;
+  @ViewChild('frame',          {static: true, read: ElementRef}) Frame!          : ElementRef;
+  @ViewChild('measurementBox', {static: true, read: ElementRef}) MeasurementBox! : ElementRef;
 
   LineSize!: string;
 
   constructor(
-    private dataService: LineSizeAnalyzerService,
-    private zone: NgZone
+    private dataService : LineSizeAnalyzerService,
+    private zone : NgZone
   ){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
       this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
       this.dataService.CurrentSize$.subscribe(a=> this.LineSize = a);
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() : void {
     const frameListener = new ResizeObserver((element)=>{
       this.zone.run(()=>{
         this.updateSize();
@@ -41,15 +40,15 @@ export class LineSizeAnalyzerComponent implements OnInit, AfterViewInit, AfterVi
     frameListener.observe(this.Frame.nativeElement);
   }
 
-  ngAfterViewChecked(): void {
+  ngAfterViewChecked() : void {
       this.updateSize();
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeChannel();
   }
 
-  private updateSize():void{
+  private updateSize() : void {
     this.dataService.sendData(this.MeasurementBox.nativeElement.offsetWidth);
   }
 

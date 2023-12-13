@@ -14,12 +14,13 @@ import { PropDisplayComponent } from '../../../../layout/prop-display/prop-displ
 })
 export class AnalyzerInputComponent implements OnInit, OnDestroy {
 
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
-  BoxReadings!: BoxAnalyzerInterface;
-  CurrentSize!: BoxSizeInterface;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
 
-  constructor(private dataService: AnalyzerInputService){}
+  BoxReadings! : BoxAnalyzerInterface;
+  CurrentSize! : BoxSizeInterface;
+
+  constructor(private dataService : AnalyzerInputService){}
 
   ngOnInit(): void {
       this.dataService.createDataChannel(this.BroadcastName, this.ChannelName);

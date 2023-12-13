@@ -19,8 +19,6 @@ export class SummaryCardComponent {
 
   public updateRoute():void{
     this.navService.updatePath(this.CardData.path);
-    console.log(this.CardData.path);
-    //this.navService.updateRoute(this.CardData.path);
     if(this.CardData.breadCrumbs){
       this.navService.updateBreadCrumbs(this.CardData.breadCrumbs);
     }

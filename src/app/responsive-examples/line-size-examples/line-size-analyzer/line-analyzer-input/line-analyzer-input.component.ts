@@ -14,24 +14,24 @@ import { LineSizes } from '@site-types';
 })
 export class LineAnalyzerInputComponent implements OnInit, OnDestroy {
 
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
 
-  LineSizeReadout: number = 0;
-  SelectedSize: LineSizes = 'narrow';
+  LineSizeReadout : number    = 0;
+  SelectedSize    : LineSizes = 'narrow';
 
   constructor(private dataService: LineAnalyzerInputService){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
       this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
       this.dataService.ReadoutValue$.subscribe(a => this.LineSizeReadout = a);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeChannel();
   }
 
-  public updateSize(size: LineSizes):void{
+  public updateSize(size : LineSizes) : void{
     this.SelectedSize = size;
     this.dataService.sendData(size);
   }

@@ -27,7 +27,7 @@ const PROPCHART: PropChartData[] = [
   {
     id: 'stretchShrinkWStart',
     title: '--stretchShrink-w-start',
-    description: 'The screen height at which the width of the element should begin decreasing as the height continues to increase.  This should be defined as a pixel value'
+    description: 'The screen height at which the width of the element should begin decreasing as the height continues to increase.  This should be defined as a pixel value.'
   },
   {
     id: 'stetchShrinkWSpeed',
@@ -47,12 +47,12 @@ const PROPCHART: PropChartData[] = [
   {
     id: 'stretchShrinkWMinNudgeSlice',
     title: '--stretchShrink-w-min-nudge-slice',
-    description: 'Defineds the amount of nudge slices to add to the --squishGrowth-w-min property.'
+    description: 'Defines the amount of nudge slices to add to the --squishGrowth-w-min property.'
   },
   {
     id: 'stretchShrinkHStart',
     title: '--stretchShrink-h-start',
-    description: 'The screen width at which the height of the element should begin decreasing as the screen width continues to increase.  This should be defined as a pixel value'
+    description: 'The screen width at which the height of the element should begin decreasing as the screen width continues to increase.  This should be defined as a pixel value.'
   },
   {
     id: 'stetchShrinkHSpeed',
@@ -72,7 +72,7 @@ const PROPCHART: PropChartData[] = [
   {
     id: 'stretchShrinkHMinNudgeSlice',
     title: '--stretchShrink-h-min-nudge-slice',
-    description: 'Defineds the amount of nudge slices to add to the --squishGrowth-h-min property.'
+    description: 'Defines the amount of nudge slices to add to the --squishGrowth-h-min property.'
   }
 ];
 

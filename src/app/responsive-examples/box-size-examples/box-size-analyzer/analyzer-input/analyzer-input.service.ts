@@ -7,15 +7,15 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AnalyzerInputService {
 
-  DataChannel!: BroadcastChannel;
-  ComponentChannelName!: string;
+  DataChannel!          : BroadcastChannel;
+  ComponentChannelName! : string;
 
-  private BoxReadings: BehaviorSubject<BoxAnalyzerInterface> = new BehaviorSubject<BoxAnalyzerInterface>({coreBoxWidth: 0, fullBoxWidth: 0});
+  private BoxReadings : BehaviorSubject<BoxAnalyzerInterface> = new BehaviorSubject<BoxAnalyzerInterface>({coreBoxWidth: 0, fullBoxWidth: 0});
   BoxReadings$ = this.BoxReadings.asObservable();
 
-  DefaultValue: BoxSizeInterface = {size: 'xTiny', scale: '1', speed: '5'}
+  DefaultValue : BoxSizeInterface = {size: 'xTiny', scale: '1', speed: '5'}
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone : NgZone) { }
 
   private setChannelListener():void{
     this.DataChannel.onmessage = (event) => {
@@ -39,14 +39,14 @@ export class AnalyzerInputService {
   public sendData(data: BoxSizeInterface): void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.ComponentChannelName,
-        payload: data
+        target  : this.ComponentChannelName,
+        payload : data
       });
     });
   }
 
   public createDataChannel(dataChannelName: string, componentChannelName: string): void{
-    this.DataChannel = new BroadcastChannel(dataChannelName);
+    this.DataChannel          = new BroadcastChannel(dataChannelName);
     this.ComponentChannelName = componentChannelName;
     this.setChannelListener();
   }

@@ -27,12 +27,12 @@ const LINKS: Link[] = [
   {
     id: 'kerningNudgeAmt',
     title: 'Kerning Nudge Amount',
-    path: 'kerning-nudge-amt'
+    path: '/kerning-nudge-amount'
   },
   {
     id: 'leadingNudgeAmt',
     title: 'Leading Nudge Amount',
-    path: 'leading-nudge-amt'
+    path: '/leading-nudge-amount'
   }
 ]
 

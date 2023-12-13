@@ -13,24 +13,24 @@ import { BaseSizeAnalyzerInterface } from '@site-types';
 })
 export class BaseSizeExampleDComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @Input()BroadcastName!: string;
-  @Input()ChannelName!: string;
-  @Input()TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  @ViewChild('fullBox', {static: true, read: ElementRef})FullBox!: ElementRef;
-  @ViewChild('baseBox', {static: true, read: ElementRef})BaseBox!: ElementRef;
-  @ViewChild('chunkBox', {static: true, read: ElementRef})ChunkBox!: ElementRef;
+  @ViewChild('fullBox',  {static : true, read : ElementRef})FullBox!  : ElementRef;
+  @ViewChild('baseBox',  {static : true, read : ElementRef})BaseBox!  : ElementRef;
+  @ViewChild('chunkBox', {static : true, read : ElementRef})ChunkBox! : ElementRef;
 
-  constructor(private zone: NgZone, private dataService: BaseSizeExampleDService){
+  constructor(private zone : NgZone, private dataService : BaseSizeExampleDService){
 
   }
   
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
   
-  ngAfterViewInit(): void {
-    const frameListener: ResizeObserver = new ResizeObserver((element)=>{
+  ngAfterViewInit() : void {
+    const frameListener : ResizeObserver = new ResizeObserver((element)=>{
       this.zone.run(()=>this.readElements());
     });
     
@@ -38,15 +38,15 @@ export class BaseSizeExampleDComponent implements OnInit, AfterViewInit, OnDestr
     
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeChannel();
   }
 
-  private readElements():void{
-    const sizes: BaseSizeAnalyzerInterface = {
-      fullWidth: this.FullBox.nativeElement.offsetWidth,
-      baseWidth: this.BaseBox.nativeElement.offsetWidth,
-      chunkWidth: this.ChunkBox.nativeElement.offsetWidth
+  private readElements() : void{
+    const sizes : BaseSizeAnalyzerInterface = {
+      fullWidth  : this.FullBox.nativeElement.offsetWidth,
+      baseWidth  : this.BaseBox.nativeElement.offsetWidth,
+      chunkWidth : this.ChunkBox.nativeElement.offsetWidth
     };
 
     this.dataService.sendData(sizes);

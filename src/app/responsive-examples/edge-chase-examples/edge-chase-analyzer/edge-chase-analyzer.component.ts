@@ -13,25 +13,25 @@ import { EdgeChaseSettings, SrcryPropReadings } from '@site-types';
 })
 export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
-  @Input() TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  @ViewChild('baseBox', {static: true, read: ElementRef}) BaseBox!: ElementRef;
-  @ViewChild('stopBox', {static: true, read: ElementRef}) StopBox!: ElementRef;
-  @ViewChild('box', {static: true, read: ElementRef}) Box!: ElementRef;
+  @ViewChild('baseBox', {static : true, read : ElementRef}) BaseBox! : ElementRef;
+  @ViewChild('stopBox', {static : true, read : ElementRef}) StopBox! : ElementRef;
+  @ViewChild('box',     {static : true, read : ElementRef}) Box!     : ElementRef;
 
-  Settings!: EdgeChaseSettings;
+  Settings! : EdgeChaseSettings;
 
-  constructor(private dataService: EdgeChaseAnalyzerService, private zone: NgZone){}
+  constructor(private dataService : EdgeChaseAnalyzerService, private zone : NgZone){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.Settings$.subscribe(a => this.Settings = a);
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
-  ngAfterViewInit(): void {
-    const boxListener: ResizeObserver = new ResizeObserver((element)=>{
+  ngAfterViewInit() : void {
+    const boxListener : ResizeObserver = new ResizeObserver((element)=>{
       this.zone.run(()=>{
         this.dataService.sendData(this.readElements());
       });
@@ -40,16 +40,16 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
     boxListener.observe(this.Box.nativeElement);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
     this.dataService.closeChannel();
   }
 
-  private determineActivWidthProp():string{
-    const baseBox: number = this.BaseBox.nativeElement.offsetWidth;
-    const stopBox: number = this.StopBox.nativeElement.offsetWidth;
-    const box: number = this.Box.nativeElement.offsetWidth;
+  private determineActivWidthProp() : string{
+    const baseBox : number = this.BaseBox.nativeElement.offsetWidth;
+    const stopBox : number = this.StopBox.nativeElement.offsetWidth;
+    const box     : number = this.Box.nativeElement.offsetWidth;
     
-    let prop: string = '';
+    let prop : string = '';
 
     if(box < baseBox - 3){ prop = 'crushGap'; }
     else if(box > baseBox + 3 && box < stopBox -3){ prop = 'edgeChase'; }
@@ -60,11 +60,11 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
   }
   
   private determineActivHeightProp():string{
-    const baseBox: number = this.BaseBox.nativeElement.offsetHeight;
-    const stopBox: number = this.StopBox.nativeElement.offsetHeight;
-    const box: number = this.Box.nativeElement.offsetHeight;
+    const baseBox : number = this.BaseBox.nativeElement.offsetHeight;
+    const stopBox : number = this.StopBox.nativeElement.offsetHeight;
+    const box     : number = this.Box.nativeElement.offsetHeight;
     
-    let prop: string = '';
+    let prop : string = '';
 
     if(box < baseBox - 3){ prop = 'crushGap'; }
     else if(box > baseBox + 3 && box < stopBox -3){ prop = 'edgeChase'; }
@@ -74,12 +74,12 @@ export class EdgeChaseAnalyzerComponent implements OnInit, AfterViewInit, OnDest
     return prop;  
   }
 
-  private readElements():SrcryPropReadings{
+  private readElements() : SrcryPropReadings{
     return {
-      activePropW: this.determineActivWidthProp(),
-      activePropH: this.determineActivHeightProp(),
-      width: this.Box.nativeElement.offsetWidth,
-      height: this.Box.nativeElement.offsetHeight
+      activePropW : this.determineActivWidthProp(),
+      activePropH : this.determineActivHeightProp(),
+      width       : this.Box.nativeElement.offsetWidth,
+      height      : this.Box.nativeElement.offsetHeight
     };
   }
 

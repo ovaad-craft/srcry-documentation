@@ -16,121 +16,117 @@ import { NumberInputComponent } from 'src/app/layout/number-input/number-input.c
 })
 export class BaseSizeInputComponent implements OnInit {
 
-  @Input() DefaultSettings!: BaseSizePropData;
-  @Output()UpdateProps: EventEmitter<BaseSizeProps> = new EventEmitter<BaseSizeProps>();
+  @Input()  DefaultSettings! : BaseSizePropData;
+  @Output() UpdateProps      : EventEmitter<BaseSizeProps> = new EventEmitter<BaseSizeProps>();
 
-  PropSettings: BaseSizeProps = {
-    baseSizeW: '--',
-    baseSizeWNudgeChunk: 0,
-    baseSizeWNudgeSlice: 0,
-    baseSizeH: '--',
-    baseSizeHNudgeChunk: 0,
-    baseSizeHNudgeSlice: 0
+  PropSettings : BaseSizeProps = {
+    baseSizeW           : '--',
+    baseSizeWNudgeChunk : 0,
+    baseSizeWNudgeSlice : 0,
+    baseSizeH           : '--',
+    baseSizeHNudgeChunk : 0,
+    baseSizeHNudgeSlice : 0
   };
 
-  SelectorStatus:boolean = false;
+  SelectorStatus    : boolean = false;
+  PropButtonsActive : boolean = true;
 
-  PropButtonsActive: boolean = true;
+  ToggleBaseW      : boolean = false;
+  ToggleBaseWChunk : boolean = false;  
+  ToggleBaseWSlice : boolean = false;  
+  ToggleBaseH      : boolean = false;
+  ToggleBaseHChunk : boolean = false;  
+  ToggleBaseHSlice : boolean = false;
 
-  ToggleBaseW: boolean = false;
-  ToggleBaseWChunk: boolean = false;  
-  ToggleBaseWSlice: boolean = false;  
-  ToggleBaseH: boolean = false;
-  ToggleBaseHChunk: boolean = false;  
-  ToggleBaseHSlice: boolean = false;
-
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.initDefaults();
   }
 
-  public updatePropButtons(value: boolean):void{
+  public updatePropButtons(value : boolean) : void{
     this.PropButtonsActive = value;
   }
 
-  public updateBaseSizeW(size:BoxSizeInterface):void{
+  public updateBaseSizeW(size : BoxSizeInterface) : void{
     this.PropSettings.baseSizeW = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleBaseWselector():void{
+  public toggleBaseWselector() : void{
     this.ToggleBaseW = !this.ToggleBaseW;
   }
 
-  public updateBaseWChunk(size: number):void{
+  public updateBaseWChunk(size : number) : void{
     this.PropSettings.baseSizeWNudgeChunk = size;
     this.updateProps();
   }
 
-  public toggleBaseWChunk():void{
+  public toggleBaseWChunk() : void{
     this.ToggleBaseWChunk = !this.ToggleBaseWChunk;
   }
   
-  public updateBaseWSlice(size: number):void{
+  public updateBaseWSlice(size : number) : void{
     this.PropSettings.baseSizeWNudgeSlice = size;
     this.updateProps();
   }
 
-  public toggleBaseWSlice():void{
+  public toggleBaseWSlice() : void{
     this.ToggleBaseWSlice = !this.ToggleBaseWSlice;
   }
   
-  public updateBaseSizeH(size:BoxSizeInterface):void{
+  public updateBaseSizeH(size : BoxSizeInterface) : void{
     this.PropSettings.baseSizeH = createBoxSize(size.size, size.scale, size.speed);
     this.updateProps();
   }
 
-  public toggleBaseHselector():void{
+  public toggleBaseHselector() : void{
     this.ToggleBaseH = !this.ToggleBaseH;
   }
 
-  public updateBaseHChunk(size: number):void{
+  public updateBaseHChunk(size : number) : void{
     this.PropSettings.baseSizeHNudgeChunk = size;
     this.updateProps();
   }
 
-  public toggleBaseHChunk():void{
+  public toggleBaseHChunk() : void{
     this.ToggleBaseHChunk = !this.ToggleBaseHChunk;
   }
   
-  public updateBaseHSlice(size: number):void{
+  public updateBaseHSlice(size : number) : void{
     this.PropSettings.baseSizeHNudgeSlice = size;
     this.updateProps();
   }
 
-  public toggleBaseHSlice():void{
+  public toggleBaseHSlice() : void{
     this.ToggleBaseHSlice = !this.ToggleBaseHSlice;
   }
 
-  public updateSelectorStatus(status: boolean):void{
+  public updateSelectorStatus(status : boolean) : void{
     this.SelectorStatus = status;
   }
 
-  public makeIntoVariable(value: BoxSizeProps):string{
+  public makeIntoVariable(value : BoxSizeProps) : string{
     return createCssVariable(value);
   }
 
-  private initDefaults():void{
+  private initDefaults() : void{
     const props: BaseSizeProps = {
-      baseSizeW: createBoxSize(
+      ...this.DefaultSettings,
+      baseSizeW : createBoxSize(
         this.DefaultSettings.baseSizeW.size,
         this.DefaultSettings.baseSizeW.scale,
         this.DefaultSettings.baseSizeW.speed
       ),
-      baseSizeWNudgeChunk: this.DefaultSettings.baseSizeWNudgeChunk,
-      baseSizeWNudgeSlice: this.DefaultSettings.baseSizeWNudgeSlice,
-      baseSizeH: createBoxSize(
+      baseSizeH : createBoxSize(
         this.DefaultSettings.baseSizeH.size,
         this.DefaultSettings.baseSizeH.scale,
         this.DefaultSettings.baseSizeH.speed
-      ),
-      baseSizeHNudgeChunk: this.DefaultSettings.baseSizeHNudgeChunk,
-      baseSizeHNudgeSlice: this.DefaultSettings.baseSizeHNudgeSlice
+      )
     };
 
     this.PropSettings = props;
   }
 
-  private updateProps():void{
+  private updateProps() : void{
     this.UpdateProps.emit(this.PropSettings);
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';

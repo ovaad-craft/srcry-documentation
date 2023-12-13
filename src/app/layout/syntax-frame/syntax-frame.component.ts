@@ -10,6 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class SyntaxFrameComponent {
 
-  @Input() Cattegory: string = '';
-  @Input() Parts!: string[];
+  @Input() Cattegory : string = '';
+  @Input() Parts!    : string[];
 }

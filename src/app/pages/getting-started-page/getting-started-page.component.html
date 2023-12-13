@@ -1,62 +1,58 @@
-<section class="mainContainer">
+<section class="pageContainer">
+    <h1 class="srcryTxt pageTitle">Getting Started</h1>
 
-    <h1 class="srcryTxt pageTitle sectionTitle">Getting Started</h1>
-
-    <section class="contentSection contentContainer">
-
-        <article class="srcryTxt paragraphText">
-            <p>
-                As the user base grows there will be a CDN available for easier use but for now you can get started by downloading the files from the repo.
-            </p>
-        </article>
-    
-        <article class="srcryTxt paragraphText">
+    <section class="contentContainer">
+        <article class="stepContainer">
             <h2 class="srcryTxt sectionSubTitle">#1 Download the files</h2>
-            <p>
-                Click on the button bellow to open the repository then click the green "Code" button on the upper right hand side just above the project view. When the dropdown opens click the "Download ZIP" option at the bottom to begin downloading.
+
+            <p class="srcryTxt textContent">
+                Click on the button below to open the repository then click the green &#34;Code&#34; button on the upper right hand side just above the project view&#46; When the dropdown opens click the &#34;Download ZIP&#34; option at the bottom to begin downloading&#46; 
             </p>
             <a class="srcryTxt repoLink" href="https://github.com/ovaad-craft/srcry-css" target="_blank">
                 Srcry Repo
             </a>
         </article>
-    
-        <article class="srcryTxt paragraphText">
+
+        <article class="stepContainer">
             <h2 class="srcryTxt sectionSubTitle">
                 #2 Unzip and add files to your project
             </h2>
     
-            <p>
-                Once the download completes open your downloads folder and unzip the package.  Once its all done simply click and drag it to wherever you want it in your project.
+            <p class="srcryTxt textContent">
+                Once the download completes open your downloads folder and unzip the package&#46;  When its done unpacking simply click and drag it to wherever you want it in your project&#46;
             </p>
         </article>
-       
-        <article class="srcryTxt paragraphText">
+
+        <article class="stepContainer">
             <h2 class="srcryTxt sectionSubTitle">
                 #3 Add Srcry to your main stylesheet
             </h2>
     
-            <p>
-                Now that you have Srcry added to your project all you have to do is import it into your main stylesheet by adding the following line of code to the top of the page.
+            <p class="srcryTxt textContent">
+                Now that you have Srcry added to your project&#39; all you have to do is import it into your main stylesheet by adding the following line of code to the top of the page&#46;
             </p>
-            <pre class="codeFrame">
-                <code
-                    [highlight]="code"
-                    [languages]="['css']"
-                    [lineNumbers]="true"
-                >
-    
-                </code>
-            </pre>
 
-            <p>
-                That's all there is to setting it up in your project.  You're now ready to start building some awesome UIs.
+            <code-display [Language]="'css'" [Code]="Code" />
+
+        </article>
+
+        <article class="stepContainer">
+            <p class="srcryTxt textContent">
+                That&#39;s all there is to adding it to your project&#46;  Now you&#39;re ready to start building some awesome UIs&#46;
             </p>
         </article>
 
+        <article class="stepContainer">
+            <p class="srcryTxt textContent noteContainer">
+                Note&#58;
+                <small>
+                    <i>
+                        There will be a CDN available in the future for simpler use as the user base grows&#46;
+                    </i>
+                </small>
+            </p>
+        </article>
     </section>
 
-    <section class="paginationContainer">
-        <paginate [PageData]="Pagination" />
-    </section>
-
+    <paginate [PageData]="Pagination" />
 </section>

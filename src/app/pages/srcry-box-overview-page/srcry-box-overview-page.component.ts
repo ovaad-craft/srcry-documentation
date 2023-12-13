@@ -34,11 +34,6 @@ const LINKS: Link[] = [
     id: 'stretchShrink',
     title: 'Stretch Shrink',
     path: '/stretch-shrink'
-  },
-  {
-    id: 'bleed',
-    title: 'Bleed',
-    path: '/bleed'
   }
 ]
 const PAGINATIONDATA: PaginationData = {

@@ -12,22 +12,22 @@ import { TextAnalyzerBService } from './text-analyzer-b.service';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class TextAnalyzerBComponent implements OnInit, AfterViewInit, OnDestroy {
-  @Input() BroadcastName!: string;
-  @Input() ChannelName!: string;
-  @Input() TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  @ViewChild('textBox', {static: true, read: ElementRef}) TextBox!: ElementRef;
+  @ViewChild('textBox', {static : true, read : ElementRef}) TextBox! : ElementRef;
 
-  Settings!: TextAnalyzerBInterface;
+  Settings! : TextAnalyzerBInterface;
 
-  constructor(private zone: NgZone, private dataService: TextAnalyzerBService){}
+  constructor(private zone : NgZone, private dataService : TextAnalyzerBService){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.Settings$.subscribe(a => this.Settings = a);
     this.dataService.createDataChannel(this.BroadcastName, this.ChannelName, this.TargetName);  
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit() : void {
     const boxListener: ResizeObserver = new ResizeObserver((element)=>{
       this.zone.run(()=> this.dataService.sendData(this.TextBox.nativeElement.offsetHeight) );
     });
@@ -35,11 +35,11 @@ export class TextAnalyzerBComponent implements OnInit, AfterViewInit, OnDestroy 
     boxListener.observe(this.TextBox.nativeElement);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
     this.dataService.closeChannel();      
   }
 
-  private updateSize():void{
+  private updateSize() : void{
     this.dataService.sendData(this.TextBox.nativeElement.offsetHeight);
   }
 

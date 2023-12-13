@@ -72,7 +72,7 @@ export const LINKS: Link[] = [
           {
             id: 'chaseStop',
             title: 'Chase Stop',
-            path: 'chase-stop',
+            path: 'edge-chase',
             breadCrumbs: ['classes', 'srcryBox']
           },
           {
@@ -85,12 +85,6 @@ export const LINKS: Link[] = [
             id: 'stretchShrink',
             title: 'Stretch Shrink',
             path: 'stretch-shrink',
-            breadCrumbs: ['classes', 'srcryBox']
-          },
-          {
-            id: 'bleed',
-            title: 'Bleed',
-            path: 'bleed',
             breadCrumbs: ['classes', 'srcryBox']
           }
         ],
@@ -110,12 +104,6 @@ export const LINKS: Link[] = [
             id: 'textSize',
             title: 'Text Size',
             path: 'text-size',
-            breadCrumbs: ['classes', 'srcryTxt']
-          },
-          {
-            id: 'textNudgeAmount',
-            title: 'Text Nudge Amount',
-            path: 'text-nudge-amount',
             breadCrumbs: ['classes', 'srcryTxt']
           },
           {
@@ -145,9 +133,6 @@ export class SidebarService {
   private Links : Link[] = [];
   private CurrentPath$: BehaviorSubject<string> = new BehaviorSubject<string>('');
   public CurrentPath = this.CurrentPath$.asObservable();
-
-  private StandardPage$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-  public StandardPage = this.StandardPage$.asObservable();
 
   private BreadCrumbs$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public BreadCrumbs = this.BreadCrumbs$.asObservable();
@@ -200,14 +185,9 @@ export class SidebarService {
     return this.Links;
   }
 
-  public setPageType(pageType: boolean): void{
-    this.StandardPage$.next(pageType);
-  }
-
   public updatePath(path: string): void{ this.CurrentPath$.next(path); }
 
   public updateBreadCrumbs(crumbs: string[]): void{
-
     this.BreadCrumbs$.next(crumbs);
   }
 

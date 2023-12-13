@@ -5,28 +5,28 @@ import { StretchShrinkReadings } from '@site-types';
   providedIn: 'root'
 })
 export class StretchShrinkExampleAService {
-  DataChannel!: BroadcastChannel;
-  ChannelName!: string;
-  TargetName!: string;
+  DataChannel! : BroadcastChannel;
+  ChannelName! : string;
+  TargetName!  : string;
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone : NgZone) { }
 
-  public createChannel(broadcastName: string, channelName: string, targetName: string): void{
+  public createChannel(broadcastName : string, channelName : string, targetName : string) : void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
-    this.TargetName = targetName;
+    this.TargetName  = targetName;
   }
 
-  public sendData(data: StretchShrinkReadings):void{
+  public sendData(data : StretchShrinkReadings) : void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.TargetName,
-        payload: data
+        target  : this.TargetName,
+        payload : data
       });
     });
   }
 
-  public closeChannel():void{
+  public closeChannel() : void{
     this.DataChannel.close();
   }
 }

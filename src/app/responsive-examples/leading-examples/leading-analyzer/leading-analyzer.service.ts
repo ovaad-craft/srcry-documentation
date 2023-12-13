@@ -6,25 +6,25 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class LeadingAnalyzerService {
 
-  DataChannel!: BroadcastChannel;
-  ChannelName!: string;
-  TargetName!: string;
+  DataChannel! : BroadcastChannel;
+  ChannelName! : string;
+  TargetName!  : string;
 
-  private Setting: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  private Setting : BehaviorSubject<number> = new BehaviorSubject<number>(0);
   Setting$ = this.Setting.asObservable();
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone : NgZone) { }
 
-  private sendLoadCompleteNotification():void{
+  private sendLoadCompleteNotification() : void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.TargetName,
-        notification: 'loadComplete'
+        target       : this.TargetName,
+        notification : 'loadComplete'
       });
     });
   }
 
-  private setChannelListener():void{
+  private setChannelListener() : void{
     this.DataChannel.onmessage = (event)=>{
       this.zone.run(()=>{
         if(event.data.target === this.ChannelName){
@@ -36,24 +36,24 @@ export class LeadingAnalyzerService {
     this.sendLoadCompleteNotification();
   }
 
-  public createChannel(broadcastName: string, channelName: string, targetName: string): void{
+  public createChannel(broadcastName : string, channelName : string, targetName : string) : void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
-    this.TargetName = targetName;
+    this.TargetName  = targetName;
     this.setChannelListener();
   }
 
-  public sendData(data: number):void {
+  public sendData(data : number) : void {
     this.zone.run(()=>{
       this.DataChannel.postMessage({
-        target: this.TargetName,
-        notification: 'data',
-        payload: data
+        target       : this.TargetName,
+        notification : 'data',
+        payload      : data
       });
     });
   }
 
-  public closeChannel():void{
+  public closeChannel() : void{
     this.DataChannel.close();
   }
 }

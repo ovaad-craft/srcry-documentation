@@ -14,34 +14,34 @@ import { CrushGapReadoutComponent } from './crush-gap-readout/crush-gap-readout.
 })
 export class CrushGapControllerComponent implements OnInit, OnDestroy {
 
-  @Input()BroadcastName!: string;
-  @Input()ChannelName!: string;
-  @Input()TargetName!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() TargetName!    : string;
 
-  Readings!: SrcryPropReadings;
+  Readings! : SrcryPropReadings;
 
-  DefaultSettings!: CrushGapPropData;
+  DefaultSettings! : CrushGapPropData;
 
-  constructor(private dataService: CrushGapControllerService){}
+  constructor(private dataService : CrushGapControllerService){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
     this.DefaultSettings = this.dataService.getDefaultSettings();
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeChannel();
   }
 
-  public updateData(data: CrushGapProps):void{
-    const props: CrushGapSettings = {
-      crushGapW: `var(--${data.crushGapW})`,
-      crushGapWNudgeChunk: data.crushGapWNudgeChunk,
-      crushGapWNudgeSlice: data.crushGapWNudgeSlice,
-      crushGapH: `var(--${data.crushGapH})`,
-      crushGapHNudgeChunk: data.crushGapHNudgeChunk,
-      crushGapHNudgeSlice: data.crushGapHNudgeSlice
+  public updateData(data : CrushGapProps) : void{
+    const props : CrushGapSettings = {
+      crushGapW           : `var(--${data.crushGapW})`,
+      crushGapWNudgeChunk : data.crushGapWNudgeChunk,
+      crushGapWNudgeSlice : data.crushGapWNudgeSlice,
+      crushGapH           : `var(--${data.crushGapH})`,
+      crushGapHNudgeChunk : data.crushGapHNudgeChunk,
+      crushGapHNudgeSlice : data.crushGapHNudgeSlice
     };
 
     this.dataService.sendData(props);

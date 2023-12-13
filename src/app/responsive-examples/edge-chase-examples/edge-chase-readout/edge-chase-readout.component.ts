@@ -12,20 +12,20 @@ import { SrcryPropReadings } from '@site-types';
 })
 export class EdgeChaseReadoutComponent implements OnInit, OnDestroy {
 
-  @Input()BroadcastName!: string;
-  @Input()ChannelName!: string;
-  @Input()Targetname!: string;
+  @Input() BroadcastName! : string;
+  @Input() ChannelName!   : string;
+  @Input() Targetname!    : string;
 
-  Readings!: SrcryPropReadings;
+  Readings! : SrcryPropReadings;
 
-  constructor(private dataService: EdgeChaseReadoutService){}
+  constructor(private dataService : EdgeChaseReadoutService){}
 
-  ngOnInit(): void {
+  ngOnInit() : void {
     this.dataService.Readings$.subscribe(a => this.Readings = a);
     this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() : void {
       this.dataService.closeDataChannel();
   }
 
