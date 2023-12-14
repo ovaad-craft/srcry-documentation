@@ -9,6 +9,7 @@
     padding: var(--line-bold) var(--line-semiBold);
     transition: 200ms ease-in-out;
     border-style: none;
+    cursor: pointer;
 }
 
 
