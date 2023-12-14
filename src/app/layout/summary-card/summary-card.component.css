@@ -49,6 +49,7 @@
     font-weight: 600;
     transition: 100ms ease-in-out;
     align-self: flex-end;
+    cursor:pointer;
 }
 
 .learnMoreButton:hover{

@@ -53,6 +53,7 @@ input[type=number] {
     border-style: none;
     background-color: hsl(var(--purple-300), 1);
     transition: 200ms ease-in-out;
+    cursor: pointer;
 }
 
 .incramentButton:hover{

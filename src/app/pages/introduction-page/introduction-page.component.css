@@ -109,6 +109,7 @@
     background-color: hsl(var(--purple-300), 1);
     color: hsl(var(--gray-100), 1);
     transition: 100ms ease-in-out;
+    cursor: pointer;
 }
 
 .valueButton:hover{
