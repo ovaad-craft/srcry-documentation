@@ -36,7 +36,11 @@ const PAGINATIONDATA: PaginationData = {
 export class GettingStartedPageComponent {
 
   Code: string =
-  `@import url('path/to/folder/srcry.css');`;
+  `
+   @import url('path/to/folder/srcry.css');
+   /*or if you're using the minified version*/
+   @import url(path/to/folder/srcry.min.css)
+  `;
 
   Pagination!: PaginationData;
 
