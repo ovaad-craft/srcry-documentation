@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { HighlightModule } from 'ngx-highlightjs';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PaginationData } from '@site-types';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
@@ -26,7 +25,6 @@ const PAGINATIONDATA: PaginationData = {
   imports: [
     CommonModule,
     RouterLink,
-    HighlightModule,
     CodeDisplayComponent,
     PaginateComponent
   ],
@@ -38,7 +36,7 @@ export class GettingStartedPageComponent {
   Code: string =
   `
    @import url('path/to/folder/srcry.css');
-   
+
    /*or if you prefer the minified version*/
    @import url('path/to/folder/srcry.min.css');
   `;
