@@ -38,8 +38,9 @@ export class GettingStartedPageComponent {
   Code: string =
   `
    @import url('path/to/folder/srcry.css');
-   /*or if you're using the minified version*/
-   @import url(path/to/folder/srcry.min.css)
+   
+   /*or if you prefer the minified version*/
+   @import url('path/to/folder/srcry.min.css');
   `;
 
   Pagination!: PaginationData;
