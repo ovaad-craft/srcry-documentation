@@ -2,16 +2,21 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { SITEROUTES } from './app/routes';
 import { HIGHLIGHT_OPTIONS, HighlightOptions } from 'ngx-highlightjs';
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(SITEROUTES, withInMemoryScrolling({scrollPositionRestoration: 'enabled'})),
     provideAnimations(),
+    importProvidersFrom(
+      NgxGoogleAnalyticsModule.forRoot('G-HT13W96W03'),
+      NgxGoogleAnalyticsRouterModule
+    ),
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: <HighlightOptions>{
@@ -28,4 +33,4 @@ export const appConfig: ApplicationConfig = {
 };
 
 
-bootstrapApplication(AppComponent, appConfig).catch(err => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch((err:any) => console.error(err));

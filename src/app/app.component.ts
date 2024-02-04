@@ -7,8 +7,9 @@ import { RouterOutlet } from '@angular/router';
 import { SidebarService } from './layout/sidebar/sidebar.service';
 import { FooterComponent } from './layout/footer/footer.component';
 import { IntroductionPageService } from './pages/introduction-page/introduction-page.service';
-import { Subscription, Observable, fromEvent } from 'rxjs';
+import { Subscription, Observable, fromEvent, filter } from 'rxjs';
 import { NavbarAnimation, PageAnimation, SidebarAnimation } from 'src/assets/animations';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector    : 'app-root',
@@ -33,10 +34,12 @@ export class AppComponent implements OnInit, OnDestroy {
   public  NavBarActive        : boolean           = false;
 
   constructor(
+    protected gService  : GoogleAnalyticsService,
     private location    : Location,
     private navService  : SidebarService,
     private homeService : IntroductionPageService
     ){}
+    
 
   ngOnInit() : void {
     this.CurrentPage = this.cleanPath(this.location.path());
@@ -46,6 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.location.onUrlChange(a => {
       const path : string = this.cleanPath(a);
       
+      this.gService.pageView(path, 'page viewed');
       this.CurrentPage = path;
       this.navService.setInitPath(path);
       this.navbarManager();

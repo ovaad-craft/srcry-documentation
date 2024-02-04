@@ -1,9 +1,11 @@
 <section class="mainContainer">
+
   <navbar
     [@navbarAnimation]="NavBarActive ? 'open' : 'close'"
     class="navbar"
     (OpenSidebar)="toggleSidebar($event)"
   />
+  
   <sidebar
     class="sidebar"
     [@sidebarAnimation]="SidebarActive ? 'open' : 'close'"
