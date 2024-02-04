@@ -14,7 +14,11 @@ export const NavbarAnimation = trigger('navbarAnimation', [
   
   export const PageAnimation = trigger('pageAnimation', [
     transition('* <=> *', [
-      query(':enter, :leave', [style({position: 'relative', 'grid-area': 1/1/2/2, width: '100%'})]),
+      query(
+        ':enter, :leave',
+        [style({position: 'relative', 'grid-area': 1/1/2/2, width: '100%'})],
+        {optional: true}
+      ),
       group([
         query(':enter', [
           style({opacity: 0}),

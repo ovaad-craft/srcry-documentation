@@ -1,6 +1,6 @@
 import { Component,
   ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef,
-  OnInit, ViewChild, AfterContentChecked, ElementRef, AfterViewInit, reflectComponentType, OnDestroy } from '@angular/core';
+  OnInit, ViewChild, AfterContentChecked, ElementRef, AfterViewInit, reflectComponentType, OnDestroy, afterRender } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 import { WindowSize } from '@site-types';
@@ -35,7 +35,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
   FirefoxBrowser!                   : boolean;
   ShowDemonstration!                : boolean;
   WindowDimensions                  : WindowSize        = {width: 0, height: 0};
-  ParentWindowSize$                 : Observable<Event> = fromEvent(window, 'resize');
+  ParentWindowSize$!                 : Observable<Event>;
   private ParentWindowSubscription! : Subscription;
   ShowSuggestion!                   : boolean;
 
@@ -43,10 +43,9 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
     private cdr   : ChangeDetectorRef,
     private vcRef : ViewContainerRef,
     private zone  : NgZone
-  ){}
+  ){ }
 
   ngOnInit(): void {
-    this.ParentWindowSubscription = this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
   }
 
   ngAfterViewInit(): void {
@@ -70,7 +69,10 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
   }
 
   ngOnDestroy(): void {
+    if(this.ParentWindowSubscription !== undefined){
       this.ParentWindowSubscription.unsubscribe();
+
+    }
   }
 
   private getParentWindowSize(): void{

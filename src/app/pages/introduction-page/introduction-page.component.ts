@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, AfterViewInit, ChangeDetectionStrategy, AfterContentChecked, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, AfterViewInit, ChangeDetectionStrategy, AfterContentChecked, ChangeDetectorRef, afterRender } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IntroductionPageService } from './introduction-page.service';
 import { SidebarService } from 'src/app/layout/sidebar/sidebar.service';
@@ -49,14 +49,13 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
     private homeService : IntroductionPageService,
     private navService  : SidebarService,
     private cdr         : ChangeDetectorRef
-    ){
-    this.homeService.LibraryDescriptionData.subscribe(a=> this.LibraryDescriptionData = a);
-    this.homeService.ClassDescriptionData.subscribe(a=> this.ClassDescriptionData = a);
-    this.Pagination = PAGINATIONDATA;
-  }
-
-  ngOnInit() : void {
+    ){}
+    
+    ngOnInit() : void {
       this.checkIfFirefox();
+      this.homeService.LibraryDescriptionData.subscribe(a=> this.LibraryDescriptionData = a);
+      this.homeService.ClassDescriptionData.subscribe(a=> this.ClassDescriptionData = a);
+      this.Pagination = PAGINATIONDATA;
   }
 
   ngAfterViewInit() : void {
