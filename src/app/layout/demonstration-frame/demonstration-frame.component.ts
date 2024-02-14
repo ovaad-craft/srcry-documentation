@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, afterRender } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResponsiveWindowComponent } from './responsive-window/responsive-window.component';
 import { FirefoxMessageComponent } from './firefox-message/firefox-message.component';
