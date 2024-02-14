@@ -35,7 +35,7 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
   FirefoxBrowser!                   : boolean;
   ShowDemonstration!                : boolean;
   WindowDimensions                  : WindowSize        = {width: 0, height: 0};
-  ParentWindowSize$!                 : Observable<Event>;
+  ParentWindowSize$                 : Observable<Event> = fromEvent(window, 'resize');
   private ParentWindowSubscription! : Subscription;
   ShowSuggestion!                   : boolean;
 
@@ -43,9 +43,10 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
     private cdr   : ChangeDetectorRef,
     private vcRef : ViewContainerRef,
     private zone  : NgZone
-  ){ }
+  ){}
 
   ngOnInit(): void {
+    this.ParentWindowSubscription = this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
   }
 
   ngAfterViewInit(): void {
