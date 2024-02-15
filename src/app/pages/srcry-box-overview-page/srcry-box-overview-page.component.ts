@@ -72,7 +72,7 @@ export class SrcryBoxOverviewPageComponent {
   constructor(private gService: GoogleAnalyticsService){}
 
   public analyticsTrigger(page: string): void{
-    this.gService.event('event', 'link_click', page);
+    this.gService.event('event', 'srcryBox_Overview_link_click', page);
   }
 
 }
