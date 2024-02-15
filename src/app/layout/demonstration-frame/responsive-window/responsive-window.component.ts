@@ -1,6 +1,6 @@
 import { Component,
   ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef,
-  OnInit, ViewChild, AfterContentChecked, ElementRef, AfterViewInit, reflectComponentType, OnDestroy, afterRender } from '@angular/core';
+  OnInit, ViewChild, AfterContentChecked, ElementRef, AfterViewInit, reflectComponentType, OnDestroy, afterRender, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 import { WindowSize } from '@site-types';
@@ -29,6 +29,9 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
   @Input() WindowHeight    : string = '';
   @Input() MinWindowHeight : string = '';
   @Input() ShowDimensions! : boolean;
+
+  AnalyticsTriggered : boolean = false;
+  @Output() AnalyticsTrigger : EventEmitter<void> = new EventEmitter<void>();
 
   @ViewChild('domFrame', {static: true, read: ElementRef}) DomFrame! : ElementRef;
 
@@ -117,6 +120,13 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
       width  : Math.floor(this.DomFrame.nativeElement.offsetWidth),
       height : Math.floor(this.DomFrame.nativeElement.offsetHeight)
     };
+  }
+
+  public triggerAnalytics(): void{
+    if(!this.AnalyticsTriggered){
+      this.AnalyticsTrigger.emit();
+      this.AnalyticsTriggered = true;
+    }
   }
   
 }

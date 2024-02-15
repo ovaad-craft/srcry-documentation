@@ -12,6 +12,7 @@
         id="resizeFrame"
         class="resizeFrame"
         [ngStyle]="{'--defaultWidth': WindowWidth, '--minWidth': MinWindowWidth, '--defaultHeight': WindowHeight, '--minHeight': MinWindowHeight}"
+        (click)="triggerAnalytics()"
     >
         <iframe
             #domFrame
