@@ -15,8 +15,7 @@ export class AnalyzerInputService {
   private BoxReadings : BehaviorSubject<BoxAnalyzerInterface> = new BehaviorSubject<BoxAnalyzerInterface>({coreBoxWidth: 0, fullBoxWidth: 0});
   BoxReadings$ = this.BoxReadings.asObservable();
 
-  DefaultValue : BoxSizeInterface = {size: 'xTiny', scale: '1', speed: '5'}
-  AnalyticsTriggered: boolean = false;
+  DefaultValue : BoxSizeInterface = {size: 'xTiny', scale: '1', speed: '5'};
 
   constructor(private zone : NgZone, private gService: GoogleAnalyticsService) { }
 
@@ -46,10 +45,6 @@ export class AnalyzerInputService {
         payload : data
       });
     });
-    if(!this.AnalyticsTriggered){
-      this.gService.event('event', 'demonstration', 'Box Size Demo 03 Controller', undefined, true);
-      this.AnalyticsTriggered = true;
-    }
   }
 
   public createDataChannel(dataChannelName: string, componentChannelName: string): void{

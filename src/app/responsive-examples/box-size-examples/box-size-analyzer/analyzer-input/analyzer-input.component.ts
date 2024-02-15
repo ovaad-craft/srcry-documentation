@@ -1,9 +1,10 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnalyzerInputService } from './analyzer-input.service';
 import { BoxAnalyzerInterface, BoxSizeInterface } from '@site-types';
 import { BoxSizeSelectorComponent } from './box-size-selector/box-size-selector.component';
 import { PropDisplayComponent } from '../../../../layout/prop-display/prop-display.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'analyzer-input',
@@ -16,11 +17,15 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
 
   @Input() BroadcastName! : string;
   @Input() ChannelName!   : string;
+  @Output() AnalyticsTrigger : EventEmitter<void> = new EventEmitter<void>();
 
   BoxReadings! : BoxAnalyzerInterface;
   CurrentSize! : BoxSizeInterface;
 
-  constructor(private dataService : AnalyzerInputService){}
+  DataInit           : boolean = false;
+  AnalyticsTriggered : boolean = false;
+
+  constructor(private dataService : AnalyzerInputService, private gService: GoogleAnalyticsService){}
 
   ngOnInit(): void {
       this.dataService.createDataChannel(this.BroadcastName, this.ChannelName);
@@ -34,6 +39,12 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
   public updateCurrentSize(size: BoxSizeInterface):void{
     this.CurrentSize = size;
     this.dataService.sendData(size);
+    
+    if(this.DataInit && !this.AnalyticsTriggered){
+      this.gService.event('event', 'demonstration', 'Box Size Demo 03 Controller', undefined, true);
+      this.AnalyticsTriggered = true;
+    }
+    if(!this.DataInit){ this.DataInit = true; }
   }
 
 }

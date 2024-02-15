@@ -3,13 +3,14 @@ import { BehaviorSubject } from 'rxjs';
 import { CrushGapPropData, SrcryPropReadings, CrushGapSettings } from '@site-types';
 import { createBoxSize } from 'src/app/utils/create-box-size';
 import { createCssVariable } from 'src/app/utils/create-css-variable';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrushGapControllerService {
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone: NgZone, private gService: GoogleAnalyticsService) { }
 
   DataChannel! : BroadcastChannel;
   ChannelName! : string;
@@ -77,6 +78,8 @@ export class CrushGapControllerService {
         payload : data
       });
     });
+
+    //this.gService.event('event', 'demonstration_click', 'Crush Gap Analyzer', undefined, undefined, {...data});
   }
 
   public getDefaultSettings() : CrushGapPropData{ return this.DefaultSettings; }
