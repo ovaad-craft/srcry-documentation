@@ -8,6 +8,7 @@ import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/
 import { TextSizeDemoAComponent } from 'src/app/responsive-examples/text-size-examples/text-size-demo-a/text-size-demo-a.component';
 import { TextSizeAnalyzerComponent } from 'src/app/responsive-examples/text-size-examples/text-size-analyzer/text-size-analyzer.component';
 import { TextAnalyzerInputComponent } from 'src/app/responsive-examples/text-size-examples/text-size-analyzer/text-analyzer-input/text-analyzer-input.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -61,8 +62,24 @@ export class TextSizeLibraryComponent implements OnInit {
 
   Pagination!: PaginationData;
 
+  Demo01WindowTrigger : boolean = false;
+  Demo02WindowTrigger : boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
   ngOnInit(): void {
       this.Pagination = PAGINATIONDATA;
+  }
+
+  public analyticsWindowTrigger(demo: string) : void {
+    if(demo === 'Demo01WindowTrigger'){
+      this.Demo01WindowTrigger = true;
+      this.gService.event('event', 'demonstration', 'Text Size Library Window 01', undefined, true);
+    }
+    if(demo === 'Demo02WindowTrigger'){
+      this.Demo02WindowTrigger = true;
+      this.gService.event('event', 'demonstration', 'Text Size Library Window 02', undefined, true);
+    }
   }
 
 }

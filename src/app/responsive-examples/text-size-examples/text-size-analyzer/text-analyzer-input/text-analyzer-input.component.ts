@@ -4,6 +4,7 @@ import { PropDisplayComponent } from 'src/app/layout/prop-display/prop-display.c
 import { TextAnalyzerInputService } from './text-analyzer-input.service';
 import { TextSizeInterface, TextSizePropInterface } from '@site-types';
 import { TextAnalyzerSelectorComponent } from './text-analyzer-selector/text-analyzer-selector.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'text-analyzer-input',
@@ -19,7 +20,10 @@ export class TextAnalyzerInputComponent implements OnInit, OnDestroy {
   TextSelectorValue!: TextSizeInterface;
   TextSizeReading!: number;
 
-  constructor(private dataService: TextAnalyzerInputService){}
+  DataInit : boolean = false;
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService: TextAnalyzerInputService, private gService: GoogleAnalyticsService){}
 
   ngOnInit(): void {
 
@@ -35,5 +39,11 @@ export class TextAnalyzerInputComponent implements OnInit, OnDestroy {
   public updateCurrentSize(size: TextSizeInterface):void{
     this.TextSelectorValue = size;
     this.dataService.sendTextSize(size);
+
+    if(this.DataInit && !this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Text Library Demo 02 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
+    if(!this.DataInit){ this.DataInit = true; }
   }
 }

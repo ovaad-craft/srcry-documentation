@@ -29,11 +29,13 @@
         <demonstration-frame
             class="demonstrationFrame"
             [Demonstration]="Demo_01Component"
+            [AnalyticsName]="'Demo01WindowTrigger'"
             [ShowDimensions]="true"
             [MinWindowWidth]="'220px'"
             [WindowWidth]="'var(--small-1-3)'"
             [MinWindowHeight]="'264px'"
             [WindowHeight]="'var(--loMed-1-2)'"
+            (AnalyticsTrigger)="analyticsWindowTrigger($event)"
         ></demonstration-frame>
 
     </article>
@@ -46,6 +48,7 @@
         <demonstration-frame
             class="demonstrationFrame"
             [Demonstration]="Demo_02Component"
+            [AnalyticsName]="'Demo02WindowTrigger'"
             [BroadcastName]="'textSizeChannel'"
             [ChannelName]="'textAnalyzerChannel'"
             [ShowDimensions]="true"
@@ -53,6 +56,7 @@
             [WindowWidth]="'var(--tiny-2-3)'"
             [MinWindowHeight]="'50px'"
             [WindowHeight]="'var(--small-1-2)'"
+            (AnalyticsTrigger)="analyticsWindowTrigger($event)"
         >
             <text-analyzer-input
                 controlArea
