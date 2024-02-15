@@ -4,6 +4,7 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { Link, PaginationData } from '@site-types';
 import { RouterLink } from '@angular/router';
 import { HighlightModule } from 'ngx-highlightjs';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const LINKS: Link[] = [
   {
@@ -67,5 +68,11 @@ export class SrcryBoxOverviewPageComponent {
   /*define srcryBox properties here*/
  }
   `;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+  public analyticsTrigger(page: string): void{
+    this.gService.event('event', 'link_click', page);
+  }
 
 }
