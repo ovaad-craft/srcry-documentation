@@ -1,6 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BoxAnalyzerInterface, BoxSizeInterface } from '@site-types';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { BehaviorSubject } from 'rxjs';
+import { createBoxSize } from 'src/app/utils/create-box-size';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +16,9 @@ export class AnalyzerInputService {
   BoxReadings$ = this.BoxReadings.asObservable();
 
   DefaultValue : BoxSizeInterface = {size: 'xTiny', scale: '1', speed: '5'}
+  AnalyticsTriggered: boolean = false;
 
-  constructor(private zone : NgZone) { }
+  constructor(private zone : NgZone, private gService: GoogleAnalyticsService) { }
 
   private setChannelListener():void{
     this.DataChannel.onmessage = (event) => {
@@ -43,6 +46,10 @@ export class AnalyzerInputService {
         payload : data
       });
     });
+    if(!this.AnalyticsTriggered){
+      this.gService.event('event', 'demonstration', 'Box Size Demo 03 Controller', undefined, true);
+      this.AnalyticsTriggered = true;
+    }
   }
 
   public createDataChannel(dataChannelName: string, componentChannelName: string): void{
