@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PaginationData } from '@site-types';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -43,8 +44,12 @@ export class GettingStartedPageComponent {
 
   Pagination!: PaginationData;
 
-  constructor(){
+  constructor(private gService: GoogleAnalyticsService){
     this.Pagination = PAGINATIONDATA;
+  }
+
+  public launchRepo():void{
+    this.gService.event('event', 'getting_started_repo_btn_click');
   }
 
 }
