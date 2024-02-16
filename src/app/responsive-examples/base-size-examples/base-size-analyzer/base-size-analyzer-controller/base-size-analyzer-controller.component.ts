@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BaseSizeAnalyzerControllerService } from './base-size-analyzer-controller.service';
 import { BaseSizePropData, BaseSizeProps, BaseSizeSettings, BaseSizeValues } from '@site-types';
 import { BaseSizeInputComponent } from './base-size-input/base-size-input.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'base-size-analyzer-controller',
@@ -21,7 +22,9 @@ export class BaseSizeAnalyzerControllerComponent implements OnInit, OnDestroy {
 
   DefaultSettings! : BaseSizePropData;
 
-  constructor(private dataService : BaseSizeAnalyzerControllerService){}
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService : BaseSizeAnalyzerControllerService, private gService: GoogleAnalyticsService){}
 
   ngOnInit() : void {
     this.dataService.Readings$.subscribe(a => this.Readings = a);
@@ -35,5 +38,10 @@ export class BaseSizeAnalyzerControllerComponent implements OnInit, OnDestroy {
 
   public updateValues(value: BaseSizeProps):void{
     this.dataService.sendData(value);
+
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Base Size Page Demo 05 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 }

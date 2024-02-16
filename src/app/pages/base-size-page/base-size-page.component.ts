@@ -13,6 +13,7 @@ import { BaseSizeExampleDComponent } from 'src/app/responsive-examples/base-size
 import { BaseExampleDReadoutComponent } from 'src/app/responsive-examples/base-size-examples/base-size-example-d/base-example-d-readout/base-example-d-readout.component';
 import { BaseSizeAnalyzerComponent } from 'src/app/responsive-examples/base-size-examples/base-size-analyzer/base-size-analyzer.component';
 import { BaseSizeAnalyzerControllerComponent } from 'src/app/responsive-examples/base-size-examples/base-size-analyzer/base-size-analyzer-controller/base-size-analyzer-controller.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous:{
@@ -117,5 +118,36 @@ export class BaseSizePageComponent {
 
   Pagination: PaginationData = PAGINATIONDATA;
   PropData: PropChartData[] = PROPCHART;
+
+  Demo01WindowTrigger: boolean = false;
+  Demo02WindowTrigger: boolean = false;
+  Demo03WindowTrigger: boolean = false;
+  Demo04WindowTrigger: boolean = false;
+  Demo05WindowTrigger: boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+  public analyticsTrigger(demo: string): void{
+    if(demo === 'Demo01WindowTrigger'){
+      this.gService.event('event', 'demonstration', 'Base Size Demo 01 Window', undefined, true);
+      this.Demo01WindowTrigger = true;
+    }
+    if(demo === 'Demo02WindowTrigger'){
+      this.gService.event('event', 'demonstration', 'Base Size Demo 02 Window', undefined, true);
+      this.Demo02WindowTrigger = true;
+    }
+    if(demo === 'Demo03WindowTrigger'){
+      this.gService.event('event', 'demonstration', 'Base Size Demo 03 Window', undefined, true);
+      this.Demo03WindowTrigger = true;
+    }
+    if(demo === 'Demo04WindowTrigger'){
+      this.gService.event('event', 'demonstration', 'Base Size Demo 04 Window', undefined, true);
+      this.Demo04WindowTrigger = true;
+    }
+    if(demo === 'Demo05WindowTrigger'){
+      this.gService.event('event', 'demonstration', 'Base Size Demo 05 Window', undefined, true);
+      this.Demo05WindowTrigger = true;
+    }
+  }
 
 }

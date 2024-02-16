@@ -21,10 +21,12 @@
             <demonstration-frame
                 [Demonstration]="Demo_01_Component"
                 [ShowDimensions]="true"
+                [AnalyticsName]="'Demo01WindowTrigger'"
                 [WindowWidth]="'var(--small-1-2)'"
                 [MinWindowWidth]="'48px'"
                 [WindowHeight]="'var(--tiny-1-2)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             ></demonstration-frame>
 
         </article>
@@ -40,10 +42,12 @@
             <demonstration-frame
                 [Demonstration]="Demo_02_Component"
                 [ShowDimensions]="true"
+                [AnalyticsName]="'Demo02WindowTrigger'"
                 [WindowWidth]="'var(--small-1-2)'"
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--tiny-1-2)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             ></demonstration-frame>
 
         </article>
@@ -59,6 +63,7 @@
             <demonstration-frame
                 [Demonstration]="Demo_03_Component"
                 [BroadcastName]="'baseSizeExample'"
+                [AnalyticsName]="'Demo03WindowTrigger'"
                 [ChannelName]="'baseSizeNudgeA'"
                 [TargetName]="'baseSizeNudgeAController'"
                 [ShowDimensions]="true"
@@ -66,6 +71,7 @@
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--tiny-1-2)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
     
                 <base-size-c-readout
@@ -90,6 +96,7 @@
             <demonstration-frame
                 [Demonstration]="Demo_04_Component"
                 [BroadcastName]="'baseSizeExample'"
+                [AnalyticsName]="'Demo03WindowTrigger'"
                 [ChannelName]="'baseSizeNudgeB'"
                 [TargetName]="'baseSizeNudgeBController'"
                 [ShowDimensions]="true"
@@ -97,6 +104,7 @@
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--tiny-1-2)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
     
                 <base-example-d-readout
@@ -119,6 +127,7 @@
             <demonstration-frame
                 [Demonstration]="Demo_05_Component"
                 [BroadcastName]="'baseSizeExample'"
+                [AnalyticsName]="'Demo05WindowTrigger'"
                 [ChannelName]="'baseSizeAnalyzer'"
                 [TargetName]="'baseSizeAnalyzerController'"
                 [ShowDimensions]="true"
@@ -126,6 +135,7 @@
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--tiny-1-2)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <base-size-analyzer-controller
                     controlArea
