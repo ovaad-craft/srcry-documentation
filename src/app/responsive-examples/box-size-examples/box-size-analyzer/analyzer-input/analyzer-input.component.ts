@@ -29,6 +29,7 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
       this.dataService.createDataChannel(this.BroadcastName, this.ChannelName);
       this.dataService.BoxReadings$.subscribe(a => this.BoxReadings = a);
+      this.CurrentSize = this.dataService.DefaultValue;
   }
 
   ngOnDestroy(): void {
