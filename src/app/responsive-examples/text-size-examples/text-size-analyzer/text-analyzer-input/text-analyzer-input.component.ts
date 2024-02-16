@@ -20,7 +20,6 @@ export class TextAnalyzerInputComponent implements OnInit, OnDestroy {
   TextSelectorValue!: TextSizeInterface;
   TextSizeReading!: number;
 
-  DataInit : boolean = false;
   AnalyticsTrigger : boolean = false;
 
   constructor(private dataService: TextAnalyzerInputService, private gService: GoogleAnalyticsService){}
@@ -29,6 +28,7 @@ export class TextAnalyzerInputComponent implements OnInit, OnDestroy {
 
     this.dataService.createDataChannel(this.BroadcastName, this.ChannelName);
     this.dataService.TextSizeReading$.subscribe(a=> this.TextSizeReading = a);
+    this.TextSelectorValue = this.dataService.DefaultValue;
       
   }
 
@@ -40,10 +40,9 @@ export class TextAnalyzerInputComponent implements OnInit, OnDestroy {
     this.TextSelectorValue = size;
     this.dataService.sendTextSize(size);
 
-    if(this.DataInit && !this.AnalyticsTrigger){
+    if(!this.AnalyticsTrigger){
       this.gService.event('event', 'demonstration', 'Text Library Demo 02 Controller', undefined, true);
       this.AnalyticsTrigger = true;
     }
-    if(!this.DataInit){ this.DataInit = true; }
   }
 }

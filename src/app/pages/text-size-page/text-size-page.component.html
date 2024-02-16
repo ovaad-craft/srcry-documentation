@@ -20,10 +20,12 @@
                 [BroadcastName]="'TextDemo'"
                 [ChannelName]="'TextDemoChannel'"
                 [TargetName]="'TextAnalyzerController'"
+                [AnalyticsName]="'Demo01WindowTrigger'"
                 [WindowWidth]="'var(--small-1-3)'"
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--small-2-3)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <text-analyzer-b-controller
                     controlArea

@@ -23,11 +23,9 @@ export class TextAnalyzerInputService {
           
           if(event.data.notification === 'loadComplete'){
             this.sendTextSize(this.DefaultValue);
-            console.log(event.data.notification);
           }
           if(event.data.notification === 'data'){
             this.setSize(event.data.payload);
-            console.log(event.data.payload);
           }
         }
       });

@@ -4,6 +4,7 @@ import { TextAnalyzerBControllerService } from './text-analyzer-b-controller.ser
 import { TextAnalyzerBReadoutComponent } from './text-analyzer-b-readout/text-analyzer-b-readout.component';
 import { TextSizeAnalyzerBInputComponent } from './text-size-analyzer-b-input/text-size-analyzer-b-input.component';
 import { TextAnalyzerBData, TextAnalyzerBInterface } from '@site-types';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'text-analyzer-b-controller',
@@ -25,7 +26,9 @@ export class TextAnalyzerBControllerComponent implements OnInit, OnDestroy {
   Reading!: number;
   DefaultSettings!: TextAnalyzerBData;
 
-  constructor(private dataService: TextAnalyzerBControllerService){}
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService: TextAnalyzerBControllerService, private gService: GoogleAnalyticsService){}
 
   ngOnInit(): void {
     this.dataService.Reading$.subscribe(a => this.Reading = a);
@@ -39,6 +42,11 @@ export class TextAnalyzerBControllerComponent implements OnInit, OnDestroy {
 
   public updateSettings(settings: TextAnalyzerBInterface):void{
     this.dataService.sendData(settings);
+
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Text Size Page Demo 01 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 
 }

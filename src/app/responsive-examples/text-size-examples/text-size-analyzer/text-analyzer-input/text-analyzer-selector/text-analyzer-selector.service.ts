@@ -20,6 +20,4 @@ export class TextAnalyzerSelectorService {
   public getTextSizes(): TextSizeSize[]{ return this.TextSizeSizes; }
   
   public getTextSpeeds(): TextSizeSpeed[]{ return this.TextSpeeds; }
-
-  constructor() { }
 }
