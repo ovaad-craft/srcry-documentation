@@ -4,6 +4,7 @@ import { StretchShrinkControllerService } from './stretch-shrink-controller.serv
 import { StretchShrinkData, StretchShrinkProps, StretchShrinkReadings, StretchShrinkSettings } from '@site-types';
 import { StretchShrinkReadoutComponent } from './stretch-shrink-readout/stretch-shrink-readout.component';
 import { StretchShrinkInputComponent } from './stretch-shrink-input/stretch-shrink-input.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'stretch-shrink-controller',
@@ -25,7 +26,9 @@ export class StretchShrinkControllerComponent implements OnInit, OnDestroy {
   Readings!: StretchShrinkReadings;
   DefaultSettings!: StretchShrinkData;
 
-  constructor(private dataService: StretchShrinkControllerService){}
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService: StretchShrinkControllerService, private gService: GoogleAnalyticsService){}
 
   ngOnInit(): void {
     this.dataService.Readings$.subscribe(a => this.Readings = a);
@@ -39,6 +42,11 @@ export class StretchShrinkControllerComponent implements OnInit, OnDestroy {
 
   public updateSettings(data: StretchShrinkProps): void{
     this.dataService.sendData(data);
+
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Stretch Shrink Demo 02 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 
 }

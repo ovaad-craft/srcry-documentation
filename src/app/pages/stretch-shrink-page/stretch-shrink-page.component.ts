@@ -9,6 +9,7 @@ import { StretchShrinkExampleAReadoutComponent } from 'src/app/responsive-exampl
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { StretchShrinkAnalyzerComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-analyzer/stretch-shrink-analyzer.component';
 import { StretchShrinkControllerComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-analyzer/stretch-shrink-controller/stretch-shrink-controller.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -106,4 +107,20 @@ export class StretchShrinkPageComponent {
   Demo01Component = StretchShrinkExampleAComponent;
 
   Demo02Component = StretchShrinkAnalyzerComponent;
+
+  Demo01WindowTrigger : boolean = false;
+  Demo02WindowTrigger : boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+  public analyticsTrigger(demo: string): void{
+    if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Squish Growth Demo 01 Window', undefined, true);
+      this.Demo01WindowTrigger = true;
+    }
+    if(demo === 'Demo02WindowTrigger' && !this.Demo02WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Squish Growth Demo 02 Window', undefined, true);
+      this.Demo02WindowTrigger = true;
+    }
+  }
 }

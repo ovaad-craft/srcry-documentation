@@ -33,6 +33,8 @@
                 [BroadcastName]="'StretchShrinkChannel'"
                 [ChannelName]="'StretchShrinkExampleA'"
                 [TargetName]="'ExampleAReadout'"
+                [AnalyticsName]="'Demo01WindowTrigger'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <stretch-shrink-example-a-readout
                     controlArea
@@ -54,6 +56,7 @@
         <demonstration-frame
             [Demonstration]="Demo02Component"
             [ShowDimensions]="true"
+            [AnalyticsName]="'Demo02WindowTrigger'"
             [BroadcastName]="'StretchShrinkChannel'"
             [ChannelName]="'StretchShrinkExampleB'"
             [TargetName]="'ExampleBController'"
@@ -61,6 +64,7 @@
             [MinWindowWidth]="'98px'"
             [WindowHeight]="'var(--small-2-4)'"
             [MinWindowHeight]="'150px'"
+            (AnalyticsTrigger)="analyticsTrigger($event)"
         >
             <stretch-shrink-controller
                 controlArea
