@@ -4,6 +4,7 @@ import { CrushGapInputComponent } from './crush-gap-input/crush-gap-input.compon
 import { CrushGapControllerService } from './crush-gap-controller.service';
 import { CrushGapPropData, CrushGapProps, SrcryPropReadings, CrushGapSettings } from '@site-types';
 import { CrushGapReadoutComponent } from './crush-gap-readout/crush-gap-readout.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'crush-gap-controller',
@@ -22,7 +23,9 @@ export class CrushGapControllerComponent implements OnInit, OnDestroy {
 
   DefaultSettings! : CrushGapPropData;
 
-  constructor(private dataService : CrushGapControllerService){}
+  AnalyticsTrigger: boolean = false;
+
+  constructor(private dataService : CrushGapControllerService, private gService: GoogleAnalyticsService){}
 
   ngOnInit() : void {
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
@@ -45,6 +48,11 @@ export class CrushGapControllerComponent implements OnInit, OnDestroy {
     };
 
     this.dataService.sendData(props);
+
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Crush Gap Demo 02 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 
 }

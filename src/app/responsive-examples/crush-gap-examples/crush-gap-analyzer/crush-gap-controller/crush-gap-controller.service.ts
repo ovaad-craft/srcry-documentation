@@ -78,8 +78,6 @@ export class CrushGapControllerService {
         payload : data
       });
     });
-
-    //this.gService.event('event', 'demonstration_click', 'Crush Gap Analyzer', undefined, undefined, {...data});
   }
 
   public getDefaultSettings() : CrushGapPropData{ return this.DefaultSettings; }

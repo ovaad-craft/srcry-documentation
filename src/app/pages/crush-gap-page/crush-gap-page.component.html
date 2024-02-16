@@ -21,10 +21,12 @@
             <demonstration-frame
                 [Demonstration]="Demo_01_Component"
                 [ShowDimensions]="true"
+                [AnalyticsName]="'Demo01WindowTrigger'"
                 [WindowWidth]="'var(--loMed-2-2)'"
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--loMed-2-2)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
             </demonstration-frame>
 
@@ -43,6 +45,7 @@
             <demonstration-frame
                 [Demonstration]="Demo_02_Component"
                 [BroadcastName]="'CrushGapAnalyzer'"
+                [AnalyticsName]="'Demo02WindowTrigger'"
                 [ChannelName]="'CrushGapDemoB'"
                 [TargetName]="'CrushGapDemoBController'"
                 [ShowDimensions]="true"
@@ -50,6 +53,7 @@
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--loMed-2-2)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <crush-gap-controller
                     controlArea
