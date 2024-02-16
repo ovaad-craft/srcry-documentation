@@ -9,6 +9,7 @@ import { EdgeChaseExampleAComponent } from 'src/app/responsive-examples/edge-cha
 import { EdgeChaseReadoutComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-readout/edge-chase-readout.component';
 import { EdgeChaseAnalyzerComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-analyzer/edge-chase-analyzer.component';
 import { EdgeChaseControllerComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-analyzer/edge-chase-controller/edge-chase-controller.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -121,5 +122,21 @@ export class EdgeChasePageComponent {
  DemoComponent_01 = EdgeChaseExampleAComponent;
 
  DemoComponent_02 = EdgeChaseAnalyzerComponent;
+
+ Demo01WindowTrigger: boolean = false;
+ Demo02WindowTrigger: boolean = false;
+
+ constructor(private gService: GoogleAnalyticsService){}
+
+ public analyticsTrigger(demo: string): void{
+  if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+    this.gService.event('event', 'demonstration', 'Edge Chase Demo 01 Window', undefined, true);
+    this.Demo01WindowTrigger = true;
+  }
+  if(demo === 'Demo02WindowTrigger' && !this.Demo02WindowTrigger){
+    this.gService.event('event', 'demonstration', 'Edge Chase Demo 02 Window', undefined, true);
+    this.Demo02WindowTrigger = true;
+  }
+ }
 
 }
