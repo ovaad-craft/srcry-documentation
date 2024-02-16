@@ -22,7 +22,6 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
   BoxReadings! : BoxAnalyzerInterface;
   CurrentSize! : BoxSizeInterface;
 
-  DataInit           : boolean = false;
   AnalyticsTriggered : boolean = false;
 
   constructor(private dataService : AnalyzerInputService, private gService: GoogleAnalyticsService){}
@@ -40,11 +39,10 @@ export class AnalyzerInputComponent implements OnInit, OnDestroy {
     this.CurrentSize = size;
     this.dataService.sendData(size);
     
-    if(this.DataInit && !this.AnalyticsTriggered){
+    if(!this.AnalyticsTriggered){
       this.gService.event('event', 'demonstration', 'Box Size Demo 03 Controller', undefined, true);
       this.AnalyticsTriggered = true;
     }
-    if(!this.DataInit){ this.DataInit = true; }
   }
 
 }
