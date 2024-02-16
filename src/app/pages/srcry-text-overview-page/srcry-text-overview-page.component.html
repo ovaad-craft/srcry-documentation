@@ -30,6 +30,7 @@
             type="button"
             class="srcryBox srcryTxt buttonLink"
             [routerLink]="link.path"
+            (click)="analyticsTrigger(link.id)"
         >
             {{link.title}}
         </button>
