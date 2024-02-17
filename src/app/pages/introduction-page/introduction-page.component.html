@@ -124,9 +124,11 @@
             <demonstration-frame
                 class="demonstrationFrame"
                 [Demonstration]="NavDemo"
+                [AnalyticsName]="'NavDemoTrigger'"
                 [ShowDimensions]="true"
                 [WindowWidth]="'var(--large-1-7)'"
                 [WindowHeight]="'var(--loMed-2-7)'"
+                (AnalyticsTrigger)="sendDemoAnalytics($event)"
             >
             </demonstration-frame>
 
@@ -149,11 +151,13 @@
             <demonstration-frame
                 class="demonstrationFrame"
                 [Demonstration]="ProductDemo"
+                [AnalyticsName]="'ProductCardTrigger'"
                 [ShowDimensions]="true"
                 [MinWindowWidth]="'162px'"
                 [MinWindowHeight]="'320px'"
                 [WindowWidth]="'var(--small-1-4)'"
                 [WindowHeight]="'var(--small-1-11)'"
+                (AnalyticsTrigger)="sendDemoAnalytics($event)"
             >
             </demonstration-frame>
 
@@ -176,11 +180,13 @@
             <demonstration-frame
                 class="demonstrationFrame"
                 [Demonstration]="ArticleDemo"
+                [AnalyticsName]="'ArticleDemoTrigger'"
                 [ShowDimensions]="true"
                 [WindowWidth]="'var(--tiny-2-4)'"
                 [MinWindowWidth]="'113px'"
                 [WindowHeight]="'var(--tiny-2-5)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="sendDemoAnalytics($event)"
             >
             </demonstration-frame>
 

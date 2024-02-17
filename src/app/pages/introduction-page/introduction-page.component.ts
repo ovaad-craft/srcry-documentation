@@ -10,6 +10,7 @@ import { NavigationComponent } from 'src/app/responsive-examples/introduction-ex
 import { ProductComponent } from 'src/app/responsive-examples/introduction-examples/product/product.component';
 import { ArticleComponent } from 'src/app/responsive-examples/introduction-examples/article/article.component';
 import { RouterLink } from '@angular/router';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA : PaginationData = {
   next : {
@@ -45,9 +46,14 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
   ProductDemo = ProductComponent;
   ArticleDemo = ArticleComponent;
 
+  NavDemoAnalytic     : boolean = false;
+  ProductCardAnalytic : boolean = false;
+  ArticleCardAnalytic : boolean = false;
+
   constructor(
     private homeService : IntroductionPageService,
     private navService  : SidebarService,
+    private gService    : GoogleAnalyticsService,
     private cdr         : ChangeDetectorRef
     ){}
     
@@ -72,10 +78,26 @@ export class IntroductionPageComponent implements OnInit, AfterViewInit, AfterCo
 
   public changePath(path : string) : void{
     this.navService.updatePath(path);
+    this.gService.event('event', 'intro_get_started_btn_clicked');
   }
 
   private checkIfFirefox() : void{
     if(navigator.userAgent.indexOf('Firefox') !== -1){ this.FirefoxBrowser = true; }
     else{ this.FirefoxBrowser = false; }
+  }
+
+  public sendDemoAnalytics(demo: string):void{
+    if(demo === 'NavDemoTrigger' && !this.NavDemoAnalytic){
+      this.gService.event('event', 'demonstration', 'Intro Nav Demo Window', undefined, true);
+      this.NavDemoAnalytic = true;
+    }
+    if(demo === 'ProductCardTrigger' && !this.ProductCardAnalytic){
+      this.gService.event('event', 'demonstration', 'Intro Product Card Window', undefined, true);
+      this.ProductCardAnalytic = true;      
+    }
+    if(demo === 'ArticleDemoTrigger' && !this.ArticleCardAnalytic){
+      this.gService.event('event', 'demonstration', 'Intro Article Demo Window', undefined, true);
+      this.ArticleCardAnalytic = true;
+    }
   }
 }

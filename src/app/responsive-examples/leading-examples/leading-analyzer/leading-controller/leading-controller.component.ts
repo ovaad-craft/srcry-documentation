@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LeadingControllerService } from './leading-controller.service';
 import { LeadingInputComponent } from './leading-input/leading-input.component';
 import { LeadingReadoutComponent } from './leading-readout/leading-readout.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'leading-controller',
@@ -24,7 +25,9 @@ export class LeadingControllerComponent implements OnInit, OnDestroy {
   DefaultSetting! : number;
   Reading!        : number;
 
-  constructor(private dataService : LeadingControllerService){}
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService : LeadingControllerService, private gService: GoogleAnalyticsService){}
 
   ngOnInit(): void {
     this.DefaultSetting = this.dataService.getDefault();
@@ -38,6 +41,11 @@ export class LeadingControllerComponent implements OnInit, OnDestroy {
 
   public updateSetting(data : number):void{
     this.dataService.sendData(data);
+
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Leading Demo 02 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 
 }

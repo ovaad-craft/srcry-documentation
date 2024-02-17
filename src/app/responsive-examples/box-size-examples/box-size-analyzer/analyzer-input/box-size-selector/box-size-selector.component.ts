@@ -45,11 +45,11 @@ export class BoxSizeSelectorComponent implements OnInit {
         this.SelectedSpeed = this.DefaultSettings.speed;
       }
 
-      this.UpdateSelection.emit({
+      /*this.UpdateSelection.emit({
         size  : this.SelectedSize,
         scale : this.SelectedScale,
         speed : this.SelectedSpeed
-      });
+      });*/
   }
 
   public updateSelector(selector: string):void{

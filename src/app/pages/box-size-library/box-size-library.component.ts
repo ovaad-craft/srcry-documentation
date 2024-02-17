@@ -9,6 +9,7 @@ import { BoxSizeDemoAComponent } from 'src/app/responsive-examples/box-size-exam
 import { BoxSizeDemoBComponent } from 'src/app/responsive-examples/box-size-examples/box-size-demo-b/box-size-demo-b.component';
 import { BoxSizeAnalyzerComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/box-size-analyzer.component';
 import { AnalyzerInputComponent } from 'src/app/responsive-examples/box-size-examples/box-size-analyzer/analyzer-input/analyzer-input.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -75,8 +76,24 @@ export class BoxSizeLibraryComponent {
 
   Pagination!: PaginationData;
 
-  constructor(){
+  Demonstration01WindowAnalytics : boolean = false;
+  Demonstration02WindowAnalytics : boolean = false;
+  Demonstration03WindowAnalytics : boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){
     this.Pagination = PAGINATIONDATA;
+  }
+
+  public sendAnalytics(demo: string) : void{
+    if(demo === 'Demonstration01WindowTrigger' && !this.Demonstration01WindowAnalytics){
+      this.gService.event('event', 'demonstration', 'Box Size Demonstration 01 Window', undefined, true);
+    }
+    if(demo === 'Demonstration02WindowTrigger' && !this.Demonstration02WindowAnalytics){
+      this.gService.event('event', 'demonstration', 'Box Size Demonstration 02 Window', undefined, true);
+    }
+    if(demo === 'Demonstration03WindowTrigger' && !this.Demonstration03WindowAnalytics){
+      this.gService.event('event', 'demonstration', 'Box Size Demonstration 03 Window', undefined, true);
+    }
   }
 
 }

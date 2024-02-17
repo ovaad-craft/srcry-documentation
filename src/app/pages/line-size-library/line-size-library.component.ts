@@ -8,6 +8,7 @@ import { LineSizeDemoAComponent } from 'src/app/responsive-examples/line-size-ex
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { LineAnalyzerInputComponent } from 'src/app/responsive-examples/line-size-examples/line-size-analyzer/line-analyzer-input/line-analyzer-input.component';
 import { LineSizeAnalyzerComponent } from 'src/app/responsive-examples/line-size-examples/line-size-analyzer/line-size-analyzer.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -50,7 +51,23 @@ export class LineSizeLibraryComponent implements OnInit {
 
    Demo_02_Component = LineSizeAnalyzerComponent;
 
+   Demo01WindowTrigger : boolean = false;
+   Demo02WindowTrigger : boolean = false;
+
+   constructor(private gService: GoogleAnalyticsService){}
+
   ngOnInit(): void {
       this.Pagination = PAGINATIONDATA;
+  }
+
+  public triggerAnalytics(demo: string) : void {
+    if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Line Size Library Window 01', undefined, true);
+      this.Demo01WindowTrigger = true;
+    }
+    if(demo === 'Demo02WindowTrigger' && !this.Demo02WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Line Size Library Window 02', undefined, true);
+      this.Demo02WindowTrigger = true;
+    }
   }
 }

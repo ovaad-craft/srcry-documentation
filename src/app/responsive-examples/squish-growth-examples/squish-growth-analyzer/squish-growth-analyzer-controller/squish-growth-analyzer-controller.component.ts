@@ -4,6 +4,7 @@ import { SquishGrowthAnalyzerControllerService } from './squish-growth-analyzer-
 import { SquishGrowthAnalyzerReadoutComponent } from './squish-growth-analyzer-readout/squish-growth-analyzer-readout.component';
 import { SquishGrowthAnalyzerInputComponent } from './squish-growth-analyzer-input/squish-growth-analyzer-input.component';
 import { SquishGrowthAnalyzerReadings, SquishGrowthData, SquishGrowthProps } from '@site-types';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'squish-growth-analyzer-controller',
@@ -25,7 +26,9 @@ export class SquishGrowthAnalyzerControllerComponent implements OnInit {
   Readings!: SquishGrowthAnalyzerReadings;
   DefaultSettings!: SquishGrowthData;
 
-  constructor(private dataService: SquishGrowthAnalyzerControllerService){}
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService: SquishGrowthAnalyzerControllerService, private gService: GoogleAnalyticsService){}
 
   ngOnInit(): void {
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
@@ -35,6 +38,10 @@ export class SquishGrowthAnalyzerControllerComponent implements OnInit {
 
   public updateSettings(data: SquishGrowthProps): void{
     this.dataService.sendData(data);
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Squish Growth Demo 02 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 
 }

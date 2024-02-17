@@ -4,6 +4,7 @@ import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { RouterLink } from '@angular/router';
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
 import { Link, PaginationData } from '@site-types';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -62,5 +63,11 @@ export class SrcryTextOverviewPageComponent {
     /* define srcryTxt properies here */
  }
   `;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+  public analyticsTrigger(page: string): void{
+    this.gService.event('event', 'srcryText_Overview_link_click', page);
+  }
 
 }

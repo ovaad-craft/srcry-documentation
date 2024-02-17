@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
 
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
@@ -25,7 +25,7 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
   styleUrls   : ['./app.component.css'],
   animations  : [NavbarAnimation, SidebarAnimation, PageAnimation]
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public  SidebarActive       : boolean           = false;
   private ScrollWatcher       : Observable<Event> = fromEvent(window, 'scroll');
@@ -49,7 +49,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.location.onUrlChange(a => {
       const path : string = this.cleanPath(a);
       
-      this.gService.pageView(path, 'page viewed');
       this.CurrentPage = path;
       this.navService.setInitPath(path);
       this.navbarManager();
@@ -63,6 +62,11 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     });
     
+  }
+  
+  ngAfterViewInit():void{
+    this.gService.pageView(this.CurrentPage, 'site initialized');
+
   }
 
   ngOnDestroy() : void {

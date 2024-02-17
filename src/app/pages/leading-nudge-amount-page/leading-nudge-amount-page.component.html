@@ -24,11 +24,13 @@
         <article class="demonstrationContainer">
             <demonstration-frame
                 [Demonstration]="DemonstrationComponent01"
+                [AnalyticsName]="'Demo01WindowTrigger'"
                 [ShowDimensions]="true"
                 [WindowWidth]="'var(--small-1-4)'"
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--small-2-4)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             ></demonstration-frame>
         </article>
     </article>
@@ -45,10 +47,12 @@
                 [BroadcastName]="'LeadingChannel'"
                 [ChannelName]="'LeadingExampleB'"
                 [TargetName]="'LeadingController'"
+                [AnalyticsName]="'Demo02WindowTrigger'"
                 [WindowWidth]="'var(--small-1-4)'"
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--small-2-4)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <leading-controller
                     controlArea

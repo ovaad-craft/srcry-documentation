@@ -6,6 +6,7 @@ import { PaginationData, PropChartData } from '@site-types';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
 import { TextAnalyzerBComponent } from 'src/app/responsive-examples/text-size-examples/text-analyzer-b/text-analyzer-b.component';
 import { TextAnalyzerBControllerComponent } from 'src/app/responsive-examples/text-size-examples/text-analyzer-b/text-analyzer-b-controller/text-analyzer-b-controller.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -52,5 +53,16 @@ export class TextSizePageComponent {
   ChartData: PropChartData[] = PROPCHART;
 
   DemoComponent = TextAnalyzerBComponent;
+
+  Demo01WindowTrigger: boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+  public analyticsTrigger(demo: string): void{
+    if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Squish Growth Demo 01 Window', undefined, true);
+      this.Demo01WindowTrigger = true;
+    }
+  }
 
 }

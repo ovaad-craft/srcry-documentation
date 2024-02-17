@@ -4,6 +4,7 @@ import { Link } from '@site-types';
 import { SidebarService } from '../sidebar.service';
 import { RouterLink } from '@angular/router';
 import { DropdownAnimation } from 'src/assets/animations';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'nav-link',
@@ -21,7 +22,7 @@ export class LinkComponent implements OnInit {
   SubLinksActive        : boolean            = false;
   SelectedLink          : boolean            = false;
 
-  constructor(private navService: SidebarService){}
+  constructor(private navService: SidebarService, private gService: GoogleAnalyticsService){}
 
   ngOnInit(): void {
     this.checkIfCategory();
@@ -57,6 +58,7 @@ export class LinkComponent implements OnInit {
       this.navService.updatePath(this.Link.path!);
     }
     if(this.BreadCrumbs.length === 0){ this.navService.updateBreadCrumbs([]); }
+    this.gService.event('event', 'sidebar_btn_click', undefined, undefined, undefined, {'link_id' : this.Link.id});
   }
 
   private checkBreadCrumbs(crumbs: string[]){

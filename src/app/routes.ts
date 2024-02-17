@@ -87,12 +87,6 @@ export const SITEROUTES: Routes = [
         data: {state: 'textSize'}
     },
     {
-        path: 'text-nudge-amount',
-        loadComponent: ()=> import('./pages/text-nudge-amount-page/text-nudge-amount-page.component')
-        .then(mod => mod.TextNudgeAmountPageComponent),
-        data: {state: 'textNudgeAmount'}
-    },
-    {
         path: 'kerning-nudge-amount',
         loadComponent: ()=> import('./pages/kerning-nudge-amount-page/kerning-nudge-amount-page.component')
         .then(mod => mod.KerningNudgeAmountPageComponent),

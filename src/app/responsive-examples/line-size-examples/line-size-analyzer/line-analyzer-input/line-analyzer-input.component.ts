@@ -4,6 +4,7 @@ import { LineAnalyzerSelectorComponent } from './line-analyzer-selector/line-ana
 import { LineAnalyzerInputService } from './line-analyzer-input.service';
 import { PropDisplayComponent } from 'src/app/layout/prop-display/prop-display.component';
 import { LineSizes } from '@site-types';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'line-analyzer-input',
@@ -20,7 +21,9 @@ export class LineAnalyzerInputComponent implements OnInit, OnDestroy {
   LineSizeReadout : number    = 0;
   SelectedSize    : LineSizes = 'narrow';
 
-  constructor(private dataService: LineAnalyzerInputService){}
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService: LineAnalyzerInputService, private gService: GoogleAnalyticsService){}
 
   ngOnInit() : void {
       this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName);
@@ -34,6 +37,10 @@ export class LineAnalyzerInputComponent implements OnInit, OnDestroy {
   public updateSize(size : LineSizes) : void{
     this.SelectedSize = size;
     this.dataService.sendData(size);
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Line Size Library Demo 02 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 
 }

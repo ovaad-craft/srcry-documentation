@@ -9,6 +9,7 @@ import { SquishGrowthExampleAControllerComponent } from 'src/app/responsive-exam
 import { SquishGrowthExampleAComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-example-a/squish-growth-example-a.component';
 import { SquishGrowthAnalyzerControllerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-analyzer/squish-growth-analyzer-controller/squish-growth-analyzer-controller.component';
 import { SquishGrowthAnalyzerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-analyzer/squish-growth-analyzer.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -108,4 +109,20 @@ export class SquishGrowthPageComponent {
   DemoComponent01 = SquishGrowthExampleAComponent;
 
   DemoComponent02 = SquishGrowthAnalyzerComponent;
+
+  Demo01WindowTrigger : boolean = false;
+  Demo02WindowTrigger : boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+  public analyticsTrigger(demo: string): void{
+    if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Squish Growth Demo 01 Window', undefined, true);
+      this.Demo01WindowTrigger = true;
+    }
+    if(demo === 'Demo02WindowTrigger' && !this.Demo02WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Squish Growth Demo 02 Window', undefined, true);
+      this.Demo02WindowTrigger = true;
+    }
+  }
 }

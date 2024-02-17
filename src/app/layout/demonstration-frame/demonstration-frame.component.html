@@ -9,6 +9,7 @@
     [MinWindowWidth]="MinWindowWidth"
     [WindowHeight]="WindowHeight"
     [MinWindowHeight]="MinWindowHeight"
+    (AnalyticsTrigger)="triggerAnalytics()"
 >
     <ng-content controlSection select="[controlArea]"></ng-content>
 </responsive-window>

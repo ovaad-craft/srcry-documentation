@@ -30,6 +30,7 @@
 
             <demonstration-frame
                 [Demonstration]="DemoComponent01"
+                [AnalyticsName]="'Demo01WindowTrigger'"
                 [ShowDimensions]="true"
                 [WindowWidth]="'var(--loMed-2-7)'"
                 [MinWindowWidth]="'98px'"
@@ -38,6 +39,7 @@
                 [BroadcastName]="'SquishGrowthChannel'"
                 [ChannelName]="'SquishGrowthDemoA'"
                 [TargetName]="'SquishGrowthControllerA'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <squish-growth-example-a-controller
                     controlArea
@@ -62,10 +64,12 @@
                 [BroadcastName]="'SquishGrowthChannel'"
                 [ChannelName]="'SquishGrowthDemo02'"
                 [TargetName]="'SquishGrowthAnalyzerController'"
+                [AnalyticsName]="'Demo02WindowTrigger'"
                 [WindowWidth]="'var(--large-1-5)'"
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--large-1-5)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <squish-growth-analyzer-controller
                     controlArea

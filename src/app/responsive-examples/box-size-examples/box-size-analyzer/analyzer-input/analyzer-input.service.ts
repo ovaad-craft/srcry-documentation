@@ -1,6 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BoxAnalyzerInterface, BoxSizeInterface } from '@site-types';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 import { BehaviorSubject } from 'rxjs';
+import { createBoxSize } from 'src/app/utils/create-box-size';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +15,9 @@ export class AnalyzerInputService {
   private BoxReadings : BehaviorSubject<BoxAnalyzerInterface> = new BehaviorSubject<BoxAnalyzerInterface>({coreBoxWidth: 0, fullBoxWidth: 0});
   BoxReadings$ = this.BoxReadings.asObservable();
 
-  DefaultValue : BoxSizeInterface = {size: 'xTiny', scale: '1', speed: '5'}
+  DefaultValue : BoxSizeInterface = {size: 'xTiny', scale: '1', speed: '5'};
 
-  constructor(private zone : NgZone) { }
+  constructor(private zone : NgZone, private gService: GoogleAnalyticsService) { }
 
   private setChannelListener():void{
     this.DataChannel.onmessage = (event) => {

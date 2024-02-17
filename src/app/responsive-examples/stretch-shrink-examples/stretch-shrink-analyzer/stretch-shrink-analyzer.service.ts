@@ -57,7 +57,6 @@ export class StretchShrinkAnalyzerService {
 
   public sendData(data: StretchShrinkReadings):void{
     this.zone.run(()=>{
-      console.log(data);
       this.DataChannel.postMessage({
         target: this.TargetName,
         notification: 'data',

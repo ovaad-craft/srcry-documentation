@@ -1,6 +1,6 @@
 import { Component,
   ChangeDetectionStrategy, Input, Type, ChangeDetectorRef, ViewContainerRef, NgZone, ComponentRef,
-  OnInit, ViewChild, AfterContentChecked, ElementRef, AfterViewInit, reflectComponentType, OnDestroy, afterRender } from '@angular/core';
+  OnInit, ViewChild, AfterContentChecked, ElementRef, AfterViewInit, reflectComponentType, OnDestroy, afterRender, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScreenDimensionsComponent } from './screen-dimensions/screen-dimensions.component';
 import { WindowSize } from '@site-types';
@@ -30,12 +30,15 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
   @Input() MinWindowHeight : string = '';
   @Input() ShowDimensions! : boolean;
 
+  AnalyticsTriggered : boolean = false;
+  @Output() AnalyticsTrigger : EventEmitter<void> = new EventEmitter<void>();
+
   @ViewChild('domFrame', {static: true, read: ElementRef}) DomFrame! : ElementRef;
 
   FirefoxBrowser!                   : boolean;
   ShowDemonstration!                : boolean;
   WindowDimensions                  : WindowSize        = {width: 0, height: 0};
-  ParentWindowSize$!                 : Observable<Event>;
+  ParentWindowSize$                 : Observable<Event> = fromEvent(window, 'resize');
   private ParentWindowSubscription! : Subscription;
   ShowSuggestion!                   : boolean;
 
@@ -43,9 +46,10 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
     private cdr   : ChangeDetectorRef,
     private vcRef : ViewContainerRef,
     private zone  : NgZone
-  ){ }
+  ){}
 
   ngOnInit(): void {
+    this.ParentWindowSubscription = this.ParentWindowSize$.subscribe(()=> this.getParentWindowSize());
   }
 
   ngAfterViewInit(): void {
@@ -116,6 +120,13 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
       width  : Math.floor(this.DomFrame.nativeElement.offsetWidth),
       height : Math.floor(this.DomFrame.nativeElement.offsetHeight)
     };
+  }
+
+  public triggerAnalytics(): void{
+    if(!this.AnalyticsTriggered){
+      this.AnalyticsTrigger.emit();
+      this.AnalyticsTriggered = true;
+    }
   }
   
 }

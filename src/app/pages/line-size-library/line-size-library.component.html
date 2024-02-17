@@ -26,11 +26,13 @@
             <demonstration-frame
                 class="demonstrationFrame"
                 [Demonstration]="Demo_01_Component"
+                [AnalyticsName]="'Demo01WindowTrigger'"
                 [ShowDimensions]="true"
                 [MinWindowWidth]="'80px'"
                 [WindowWidth]="'var(--xTiny-2-3)'"
                 [MinWindowHeight]="'150px'"
                 [WindowHeight]="'var(--tiny-2-3)'"
+                (AnalyticsTrigger)="triggerAnalytics($event)"
             ></demonstration-frame>
 
         </article>
@@ -44,6 +46,7 @@
             <demonstration-frame
                 class="demonstrationFrame"
                 [Demonstration]="Demo_02_Component"
+                [AnalyticsName]="'Demo02WindowTrigger'"
                 [BroadcastName]="'lineSizeChannel'"
                 [ChannelName]="'lineAnalyzerChannel'"
                 [ShowDimensions]="true"
@@ -51,6 +54,7 @@
                 [WindowWidth]="'var(--tiny-2-3)'"
                 [MinWindowHeight]="'150px'"
                 [WindowHeight]="'var(--tiny-2-3)'"
+                (AnalyticsTrigger)="triggerAnalytics($event)"
             >
                 <line-analyzer-input
                     controlArea

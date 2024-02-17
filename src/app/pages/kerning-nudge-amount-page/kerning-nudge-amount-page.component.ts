@@ -8,6 +8,7 @@ import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/
 import { KerningExampleAComponent } from 'src/app/responsive-examples/kerning-examples/kerning-example-a/kerning-example-a.component';
 import { KerningAnalyzerComponent } from 'src/app/responsive-examples/kerning-examples/kerning-analyzer/kerning-analyzer.component';
 import { KerningControllerComponent } from 'src/app/responsive-examples/kerning-examples/kerning-analyzer/kerning-controller/kerning-controller.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -56,5 +57,21 @@ export class KerningNudgeAmountPageComponent {
  }`;
 
  DemonstrationComponent02 = KerningAnalyzerComponent;
+
+ Demo01WindowTrigger : boolean = false;
+ Demo02WindowTrigger : boolean = false;
+
+ constructor(private gService: GoogleAnalyticsService){}
+
+ public analyticsTrigger(demo : string): void{
+  if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+    this.gService.event('event', 'demonstration', 'Kerning Demo 01 Window', undefined, true);
+    this.Demo01WindowTrigger = true;
+  }
+  if(demo === 'Demo02WindowTrigger' && !this.Demo02WindowTrigger){
+    this.gService.event('event', 'demonstration', 'Kerning Demo 02 Window', undefined, true);
+    this.Demo02WindowTrigger = true;
+  }
+ }
 
 }

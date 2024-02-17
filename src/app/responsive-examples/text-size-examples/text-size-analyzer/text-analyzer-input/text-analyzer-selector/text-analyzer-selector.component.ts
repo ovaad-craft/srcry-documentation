@@ -40,8 +40,6 @@ export class TextAnalyzerSelectorComponent implements OnInit{
         this.SelectedSize = this.DefaultSettings.size;
         this.SelectedSpeed = this.DefaultSettings.speed;
       }
-
-      this.UpdateSelection.emit({size: this.SelectedSize, speed: this.SelectedSpeed});
   }
 
   public updateSelector(selector: string):void{

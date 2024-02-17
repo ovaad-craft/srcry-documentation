@@ -8,6 +8,7 @@ import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/
 import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.component';
 import { CrushGapAnalyzerComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-analyzer/crush-gap-analyzer.component';
 import { CrushGapControllerComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-analyzer/crush-gap-controller/crush-gap-controller.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous:{
@@ -86,5 +87,21 @@ export class CrushGapPageComponent {
   Demo_01_Component = CrushGapExampleAComponent;
 
   Demo_02_Component = CrushGapAnalyzerComponent;
+
+  Demo01WindowTrigger : boolean = false;
+  Demo02WindowTrigger : boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+  public analyticsTrigger(demo: string): void {
+    if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Crush Gap Demo 01 Window', undefined, true);
+      this.Demo01WindowTrigger = true;
+    }
+    if(demo === 'Demo02WindowTrigger' && !this.Demo02WindowTrigger){
+      this.gService.event('event', 'demonstration', 'Crush Gap Demo 02 Window', undefined, true);
+      this.Demo02WindowTrigger = true;
+    }
+  }
   
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { KerningControllerService } from './kerning-controller.service';
 import { KerningReadoutComponent } from './kerning-readout/kerning-readout.component';
 import { KerningInputComponent } from './kerning-input/kerning-input.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 @Component({
   selector: 'kerning-controller',
@@ -24,7 +25,9 @@ export class KerningControllerComponent implements OnInit, OnDestroy {
   DefaultSetting! : number;
   Reading!        : number;
 
-  constructor(private dataService : KerningControllerService){}
+  AnalyticsTrigger : boolean = false;
+
+  constructor(private dataService : KerningControllerService, private gService: GoogleAnalyticsService){}
 
   ngOnInit() : void {
     this.DefaultSetting = this.dataService.getDefault();
@@ -38,6 +41,11 @@ export class KerningControllerComponent implements OnInit, OnDestroy {
 
   public updateSetting(data : number) : void{
     this.dataService.sendData(data);
+
+    if(!this.AnalyticsTrigger){
+      this.gService.event('event', 'demonstration', 'Kerning Demo 02 Controller', undefined, true);
+      this.AnalyticsTrigger = true;
+    }
   }
 
 }
