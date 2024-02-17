@@ -26,6 +26,8 @@
             <demonstration-frame
                 [Demonstration]="DemonstrationComponent01"
                 [ShowDimensions]="true"
+                [AnalyticsName]="'Demo01WindowTrigger'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             ></demonstration-frame>
         </article>
     </article>
@@ -42,10 +44,12 @@
                 [BroadcastName]="'KerningChannel'"
                 [ChannelName]="'KerningExampleB'"
                 [TargetName]="'KerningController'"
+                [AnalyticsName]="'Demo02WindowTrigger'"
                 [WindowWidth]="'var(--small-2-4)'"
                 [MinWindowWidth]="'98px'"
                 [WindowHeight]="'var(--small-2-4)'"
                 [MinWindowHeight]="'150px'"
+                (AnalyticsTrigger)="analyticsTrigger($event)"
             >
                 <kerning-controller
                     controlArea
