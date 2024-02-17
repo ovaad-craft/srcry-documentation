@@ -8,6 +8,7 @@ import { LeadingControllerComponent } from 'src/app/responsive-examples/leading-
 import { PaginationData, PropChartData } from '@site-types';
 import { LeadingExampleAComponent } from 'src/app/responsive-examples/leading-examples/leading-example-a/leading-example-a.component';
 import { LeadingAnalyzerComponent } from 'src/app/responsive-examples/leading-examples/leading-analyzer/leading-analyzer.component';
+import { GoogleAnalyticsService } from 'ngx-google-analytics';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -53,5 +54,21 @@ export class LeadingNudgeAmountPageComponent {
   `;
 
   DemonstrationComponent02 = LeadingAnalyzerComponent;
+
+  Demo01WindowTrigger : boolean = false;
+  Demo02WindowTrigger : boolean = false;
+
+  constructor(private gService: GoogleAnalyticsService){}
+
+ public analyticsTrigger(demo : string): void{
+  if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){
+    this.gService.event('event', 'demonstration', 'Leading Demo 01 Window', undefined, true);
+    this.Demo01WindowTrigger = true;
+  }
+  if(demo === 'Demo02WindowTrigger' && !this.Demo02WindowTrigger){
+    this.gService.event('event', 'demonstration', 'Leading Demo 02 Window', undefined, true);
+    this.Demo02WindowTrigger = true;
+  }
+ }
 
 }
