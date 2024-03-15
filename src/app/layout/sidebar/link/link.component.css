@@ -21,6 +21,7 @@
     margin-left: var(--line-light);
     background-color: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .mainContainer:hover{
