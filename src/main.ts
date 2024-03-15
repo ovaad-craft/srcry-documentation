@@ -26,7 +26,7 @@ export const appConfig: ApplicationConfig = {
           xml: () => import('highlight.js/lib/languages/xml'),
           css: () => import('highlight.js/lib/languages/css')
         },
-        themePath: '../node_modules/highlight.js/styles/a11y-dark.css'
+        themePath: './assets/a11y-dark.css'
       }
     }
   ]
