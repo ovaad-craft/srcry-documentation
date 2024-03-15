@@ -1,5 +1,4 @@
 @import url('src/assets/srcry/srcry.css');
-@import url('src/assets/color-defs.css');
 
 *{
     margin: 0;
@@ -76,6 +75,5 @@
     color: hsl(var(--blue-100), 1);
     height: auto;
     width: max-content;
-    /*margin-bottom: var(--xTiny-1-2);*/
     place-self: center;
 }
