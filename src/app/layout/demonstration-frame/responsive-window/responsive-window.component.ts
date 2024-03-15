@@ -103,15 +103,26 @@ export class ResponsiveWindowComponent implements OnInit, AfterViewInit, AfterCo
 
     const defaultStyles = document.createElement('style');
     const srcryLink = document.createElement('link');
+    const srcryLinkB = document.createElement('link');
+    const srcryLinkC = document.createElement('link');
 
-    defaultStyles.innerText = `*{ padding : 0; margin : 0; box-sizing: border-box; overflow: hidden; } body{ display : grid; place-items: center; min-height: 0px; max-height: 100vh; grid-template-columns: 1fr; grid-template-rows: 1fr; background-color: hsl(var(--gray-100), 1); }`;
+    defaultStyles.innerText = `*{ padding : 0; margin : 0; box-sizing: border-box; overflow: hidden; } body{ display : grid; place-items: center; min-height: 0px; max-height: 100vh; grid-template-columns: 1fr; grid-template-rows: 1fr; font-family: 'Roboto', sans-serif; background-color: hsl(var(--gray-100), 1); }`;
     
     srcryLink.rel = 'stylesheet';
     srcryLink.type = 'text/css';
-    srcryLink.href = 'styles.css';
+    srcryLink.href='assets/srcry/srcry.css';
 
-    frame.head.appendChild(defaultStyles);
+    srcryLinkB.rel = 'stylesheet';
+    srcryLinkB.type= 'text/css';
+    srcryLinkB.href = 'assets/color-defs.css';
+
+    srcryLinkC.rel = 'stylesheet';
+    srcryLinkC.type = 'text/css';
+    srcryLinkC.href = 'styles.css';
+
     frame.head.appendChild(srcryLink);
+    frame.head.appendChild(srcryLinkB);
+    frame.head.appendChild(defaultStyles);
     frame.body.appendChild(item.location.nativeElement);
   }
 
