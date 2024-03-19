@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
@@ -10,6 +10,7 @@ import { SquishGrowthExampleAComponent } from 'src/app/responsive-examples/squis
 import { SquishGrowthAnalyzerControllerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-analyzer/squish-growth-analyzer-controller/squish-growth-analyzer-controller.component';
 import { SquishGrowthAnalyzerComponent } from 'src/app/responsive-examples/squish-growth-examples/squish-growth-analyzer/squish-growth-analyzer.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { SquishGrowthPageService } from './squish-growth-page.service';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -92,7 +93,7 @@ const PROPCHART: PropChartData[] =[
   templateUrl: './squish-growth-page.component.html',
   styleUrls: ['./squish-growth-page.component.css']
 })
-export class SquishGrowthPageComponent {
+export class SquishGrowthPageComponent implements OnInit {
 
   Pagination: PaginationData = PAGINATIONDATA;
   ChartData: PropChartData[] = PROPCHART;
@@ -113,7 +114,11 @@ export class SquishGrowthPageComponent {
   Demo01WindowTrigger : boolean = false;
   Demo02WindowTrigger : boolean = false;
 
-  constructor(private gService: GoogleAnalyticsService){}
+  constructor(private channelService: SquishGrowthPageService, private gService: GoogleAnalyticsService){}
+
+  ngOnInit(): void {
+      this.channelService.createBroadcastChannel('SquishGrowthChannel');
+  }
 
   public analyticsTrigger(demo: string): void{
     if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){

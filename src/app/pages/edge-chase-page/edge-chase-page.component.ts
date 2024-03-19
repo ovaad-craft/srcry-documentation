@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/demonstration-frame.component';
@@ -10,6 +10,7 @@ import { EdgeChaseReadoutComponent } from 'src/app/responsive-examples/edge-chas
 import { EdgeChaseAnalyzerComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-analyzer/edge-chase-analyzer.component';
 import { EdgeChaseControllerComponent } from 'src/app/responsive-examples/edge-chase-examples/edge-chase-analyzer/edge-chase-controller/edge-chase-controller.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { EdgeChasePageService } from './edge-chase-page.service';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -102,7 +103,7 @@ const PROPCHART: PropChartData[] = [
   templateUrl: './edge-chase-page.component.html',
   styleUrls: ['./edge-chase-page.component.css']
 })
-export class EdgeChasePageComponent {
+export class EdgeChasePageComponent implements OnInit {
 
   Pagination: PaginationData = PAGINATIONDATA;
   PropData: PropChartData[] = PROPCHART;
@@ -126,7 +127,11 @@ export class EdgeChasePageComponent {
  Demo01WindowTrigger: boolean = false;
  Demo02WindowTrigger: boolean = false;
 
- constructor(private gService: GoogleAnalyticsService){}
+ constructor(private channelService: EdgeChasePageService, private gService: GoogleAnalyticsService){}
+
+ ngOnInit(): void {
+     this.channelService.createBroadcastChannel('EdgeChaseChannel');
+ }
 
  public analyticsTrigger(demo: string): void{
   if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){

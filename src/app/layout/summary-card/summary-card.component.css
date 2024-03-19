@@ -35,6 +35,8 @@
 }
 
 .learnMoreButton{
+    display: grid;
+    place-items: center;
     width: max-content;
     --baseSize-h: var(--xTiny-2-2);
     --squishGrowth-h-start: 600px;
@@ -50,6 +52,7 @@
     transition: 100ms ease-in-out;
     align-self: flex-end;
     cursor:pointer;
+    text-decoration: none;
 }
 
 .learnMoreButton:hover{

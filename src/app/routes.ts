@@ -57,12 +57,6 @@ export const SITEROUTES: Routes = [
         data: {state: 'edgeChase'}
     },
     {
-        path: 'chase-stop',
-        loadComponent: ()=> import('./pages/chase-stop-page/chase-stop-page.component')
-        .then(mod => mod.ChaseStopPageComponent),
-        data: {state: 'chaseStop'}
-    },
-    {
         path: 'squish-growth',
         loadComponent: ()=> import('./pages/squish-growth-page/squish-growth-page.component')
         .then(mod => mod.SquishGrowthPageComponent),

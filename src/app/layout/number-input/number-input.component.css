@@ -46,7 +46,9 @@ input[type=number] {
 }
 
 .incramentButton{
-    width: var(--micro-2-4);
+    display: grid;
+    place-items: center;
+    width: var(--xTiny-2-1);
     aspect-ratio: 1;
     display: grid;
     place-items: center;
@@ -58,4 +60,9 @@ input[type=number] {
 
 .incramentButton:hover{
     background-color: hsl(var(--purple-500), 1);
+}
+
+.incramentArrow{
+    grid-area: 1/1/2/2;
+    width: 33%;
 }

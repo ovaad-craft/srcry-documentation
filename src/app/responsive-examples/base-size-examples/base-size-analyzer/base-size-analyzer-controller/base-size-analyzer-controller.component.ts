@@ -4,6 +4,7 @@ import { BaseSizeAnalyzerControllerService } from './base-size-analyzer-controll
 import { BaseSizePropData, BaseSizeProps, BaseSizeSettings, BaseSizeValues } from '@site-types';
 import { BaseSizeInputComponent } from './base-size-input/base-size-input.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { BaseSizePageService } from 'src/app/pages/base-size-page/base-size-page.service';
 
 @Component({
   selector: 'base-size-analyzer-controller',
@@ -24,20 +25,30 @@ export class BaseSizeAnalyzerControllerComponent implements OnInit, OnDestroy {
 
   AnalyticsTrigger : boolean = false;
 
-  constructor(private dataService : BaseSizeAnalyzerControllerService, private gService: GoogleAnalyticsService){}
+  constructor(
+    private dataService : BaseSizeAnalyzerControllerService,
+    private channelService : BaseSizePageService,
+    private gService: GoogleAnalyticsService
+    ){}
 
   ngOnInit() : void {
+    this.channelService.addRegistry({
+      channel: this.ChannelName,
+      target: this.TargetName,
+      serviceName: 'exampleE',
+      defaultValues: true
+    });
     this.dataService.Readings$.subscribe(a => this.Readings = a);
     this.DefaultSettings = this.dataService.getDefaultSettings();
-    this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+    //this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
   ngOnDestroy(): void {
-      this.dataService.closeChannel();
+      //this.dataService.closeChannel();
   }
 
   public updateValues(value: BaseSizeProps):void{
-    this.dataService.sendData(value);
+    this.channelService.sendData(value, this.TargetName);
 
     if(!this.AnalyticsTrigger){
       this.gService.event('event', 'demonstration', 'Base Size Page Demo 05 Controller', undefined, true);

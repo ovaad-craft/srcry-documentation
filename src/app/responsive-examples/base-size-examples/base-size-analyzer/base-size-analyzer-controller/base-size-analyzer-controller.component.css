@@ -5,7 +5,7 @@
 }
 
 .mainContainer{
-    width: min(var(--small-2-6), 92vw);
+    width: min(var(--loMed-1-8), 92vw);
 }
 
 .readoutContainer{

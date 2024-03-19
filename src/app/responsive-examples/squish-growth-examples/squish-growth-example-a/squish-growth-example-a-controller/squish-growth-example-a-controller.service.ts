@@ -7,9 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SquishGrowthExampleAControllerService {
 
-  private DataChannel! : BroadcastChannel;
-  private ChannelName! : string;
-  private TargetName!  : string;
 
   private Readings : BehaviorSubject<SquishGrowthReadings> = new BehaviorSubject<SquishGrowthReadings>({
     fullSize   : 0,
@@ -19,22 +16,7 @@ export class SquishGrowthExampleAControllerService {
 
   public Readings$ = this.Readings.asObservable();
 
-  public createChannel(dataChannelName : string, channelName : string, targetName : string) : void{
-    this.DataChannel = new BroadcastChannel(dataChannelName);
-    this.ChannelName = channelName;
-    this.TargetName  = targetName;
-    this.createChannelListener();
-  }
-
-  private createChannelListener() : void{
-    this.DataChannel.onmessage = (event)=>{
-      if(event.data.target === this.ChannelName){
-        this.Readings.next(event.data.payload);
-      }
-    }
-  }
-
-  public closeChannel() : void{
-    this.DataChannel.close();
+  public updateReadings(readings: SquishGrowthReadings):void{
+    this.Readings.next(readings);
   }
 }

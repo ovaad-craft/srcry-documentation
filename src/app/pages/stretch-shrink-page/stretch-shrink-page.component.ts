@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
@@ -10,6 +10,7 @@ import { DemonstrationFrameComponent } from 'src/app/layout/demonstration-frame/
 import { StretchShrinkAnalyzerComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-analyzer/stretch-shrink-analyzer.component';
 import { StretchShrinkControllerComponent } from 'src/app/responsive-examples/stretch-shrink-examples/stretch-shrink-analyzer/stretch-shrink-controller/stretch-shrink-controller.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { StretchShrinkPageService } from './stretch-shrink-page.service';
 
 const PAGINATIONDATA: PaginationData = {
   previous: {
@@ -92,7 +93,7 @@ const PROPCHART: PropChartData[] = [
   templateUrl: './stretch-shrink-page.component.html',
   styleUrls: ['./stretch-shrink-page.component.css']
 })
-export class StretchShrinkPageComponent {
+export class StretchShrinkPageComponent implements OnInit {
 
   Pagination: PaginationData = PAGINATIONDATA;
   ChartData: PropChartData[] = PROPCHART;
@@ -111,7 +112,14 @@ export class StretchShrinkPageComponent {
   Demo01WindowTrigger : boolean = false;
   Demo02WindowTrigger : boolean = false;
 
-  constructor(private gService: GoogleAnalyticsService){}
+  constructor(
+    private channelService: StretchShrinkPageService,
+    private gService: GoogleAnalyticsService
+    ){}
+
+    ngOnInit(): void {
+        this.channelService.createBroadcastChannel('StretchShrinkChannel')
+    }
 
   public analyticsTrigger(demo: string): void{
     if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){

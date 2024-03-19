@@ -110,6 +110,7 @@
     color: hsl(var(--gray-100), 1);
     transition: 100ms ease-in-out;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .valueButton:hover{
@@ -181,6 +182,7 @@
 
 .introTitleContainer{
     display: grid;
+    justify-self: center;
     width: 98vw;
     background-color: hsl(var(--purple-700), 1);
     padding: var(--xTiny-1-3) 0;
@@ -207,6 +209,7 @@
 
 .summarySection{
     display: grid;
+    justify-self: center;
     gap: var(--xTiny-1-3) 0;
     width: 96vw;
 }
@@ -246,6 +249,7 @@
 }
 
 .demonstrationText{
+    width: 97%;
     justify-self: center;
     
 }

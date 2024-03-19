@@ -25,15 +25,17 @@
     </article>
 
     <article class="linkGrid">
-        <button
+        <a
             *ngFor="let link of Links"
             type="button"
             class="srcryBox srcryTxt buttonLink"
             [routerLink]="link.path"
             (click)="analyticsTrigger(link.id)"
         >
-            {{link.title}}
-        </button>
+            <p>
+                {{link.title}}
+            </p>
+        </a>
     </article>
 
     <paginate [PageData]="Pagination" />

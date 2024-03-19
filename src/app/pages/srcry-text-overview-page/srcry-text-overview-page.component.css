@@ -8,6 +8,10 @@
 }
 
 .buttonLink{
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    text-align: center;
     width: 17ch;
     --baseSize-h: var(--xTiny-2-3);
     --baseSize-h-nudge-slice: 4;

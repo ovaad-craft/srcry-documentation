@@ -11,13 +11,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class NumberInputComponent implements OnInit {
 
-  @Input()  DefaultSetting? : number;
+  @Input()  DefaultSetting : number = 0;
   @Output() UpdateSize      : EventEmitter<number> = new EventEmitter<number>();
   
   Value : number = 0;
 
   ngOnInit(): void {
-      if(this.DefaultSetting){
+      if(this.DefaultSetting !== 0){
         this.Value = this.DefaultSetting;
       }
   }
