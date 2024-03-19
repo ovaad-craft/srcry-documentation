@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
 import { PaginationData, PropChartData } from '@site-types';
@@ -9,6 +9,7 @@ import { CodeDisplayComponent } from 'src/app/layout/code-display/code-display.c
 import { CrushGapAnalyzerComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-analyzer/crush-gap-analyzer.component';
 import { CrushGapControllerComponent } from 'src/app/responsive-examples/crush-gap-examples/crush-gap-analyzer/crush-gap-controller/crush-gap-controller.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { CrushGapPageService } from './crush-gap-page.service';
 
 const PAGINATIONDATA: PaginationData = {
   previous:{
@@ -70,7 +71,7 @@ const PROPCHART: PropChartData[] = [
   templateUrl: './crush-gap-page.component.html',
   styleUrls: ['./crush-gap-page.component.css']
 })
-export class CrushGapPageComponent {
+export class CrushGapPageComponent implements OnInit {
 
   Pagination: PaginationData = PAGINATIONDATA;
   PropData: PropChartData[] = PROPCHART;
@@ -91,7 +92,14 @@ export class CrushGapPageComponent {
   Demo01WindowTrigger : boolean = false;
   Demo02WindowTrigger : boolean = false;
 
-  constructor(private gService: GoogleAnalyticsService){}
+  constructor(
+    private channelService: CrushGapPageService,
+    private gService: GoogleAnalyticsService
+    ){}
+
+  ngOnInit(): void {
+      this.channelService.createBroadcastChannel('CrushGapAnalyzer');
+  }
 
   public analyticsTrigger(demo: string): void {
     if(demo === 'Demo01WindowTrigger' && !this.Demo01WindowTrigger){

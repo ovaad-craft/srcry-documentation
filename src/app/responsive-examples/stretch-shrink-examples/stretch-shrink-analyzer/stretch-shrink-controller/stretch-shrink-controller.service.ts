@@ -43,7 +43,25 @@ export class StretchShrinkControllerService {
     stretchShrinkHMinNudgeSlice: 0
   };
 
-  constructor() { }
+  public getChannelDefaults():StretchShrinkProps{
+    return {
+      ...this.DefaultSettings,
+      stretchShrinkWStart: `${this.DefaultSettings.stretchShrinkWStart}px`,
+      stretchShrinkHStart: `${this.DefaultSettings.stretchShrinkHStart}px`,
+      stretchShrinkWMin: createBoxSize(
+        this.DefaultSettings.stretchShrinkWMin.size,
+        this.DefaultSettings.stretchShrinkWMin.scale,
+        this.DefaultSettings.stretchShrinkWMin.speed
+      ),
+      stretchShrinkHMin: createBoxSize(
+        this.DefaultSettings.stretchShrinkHMin.size,
+        this.DefaultSettings.stretchShrinkHMin.scale,
+        this.DefaultSettings.stretchShrinkHMin.speed
+      )
+    }
+  }
+
+  /*constructor() { }
 
   public createChannel(dataChannelName: string, channelName: string, targetName: string):void{
     this.DataChannel = new BroadcastChannel(dataChannelName);
@@ -77,13 +95,13 @@ export class StretchShrinkControllerService {
         }
       };
     };
-  }
+  }*/
 
-  private updateReadings(data:StretchShrinkReadings):void{
+  public updateReadings(data:StretchShrinkReadings):void{
     this.Readings.next(data);
   }
 
-  public sendData(data: StretchShrinkProps):void{
+  /*public sendData(data: StretchShrinkProps):void{
     this.DataChannel.postMessage({
       target: this.TargetName,
       payload: {
@@ -92,13 +110,13 @@ export class StretchShrinkControllerService {
         stretchShrinkHMin: createCssVariable(data.stretchShrinkHMin)
       }
     });
-  }
+  }*/
 
   public getDefaults():StretchShrinkData{
     return this.DefaultSettings;
   }
 
-  public closeChannel():void{
+  /*public closeChannel():void{
     this.DataChannel.close();
-  }
+  }*/
 }

@@ -18,9 +18,12 @@ export class StretchShrinkExampleAReadoutService {
 
   public Readings$ = this.Readings.asObservable();
 
-  constructor() { }
+  
+  public updateReadings(readings: StretchShrinkReadings): void{
+    this.Readings.next(readings);
+  }
 
-  private setChannelListener():void{
+  /*private setChannelListener():void{
     this.DataChannel.onmessage = (event)=>{
       if(event.data.target === this.ChannelName){
         this.Readings.next(event.data.payload);
@@ -38,5 +41,5 @@ export class StretchShrinkExampleAReadoutService {
 
   public closeChannel():void{
     this.DataChannel.close();
-  }
+  }*/
 }

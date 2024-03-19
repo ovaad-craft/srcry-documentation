@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation, OnInit, AfterViewInit, OnDestroy, NgZone,
 import { CommonModule } from '@angular/common';
 import { BaseSizeAnalyzerService } from './base-size-analyzer.service';
 import { BaseSizeSettings, BaseSizeValues } from '@site-types';
+import { BaseSizePageService } from 'src/app/pages/base-size-page/base-size-page.service';
 
 @Component({
   selector: 'app-base-size-analyzer',
@@ -21,7 +22,10 @@ export class BaseSizeAnalyzerComponent implements OnInit, AfterViewInit, OnDestr
 
   Settings! : BaseSizeSettings;
 
-  constructor(private dataService : BaseSizeAnalyzerService, private zone : NgZone){}
+  constructor(
+    private dataService : BaseSizeAnalyzerService,
+    private zone : NgZone
+    ){}
 
   ngOnInit(): void {
     this.dataService.Settings$.subscribe(a => this.Settings = a);

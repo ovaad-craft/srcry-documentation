@@ -5,6 +5,7 @@ import { CrushGapControllerService } from './crush-gap-controller.service';
 import { CrushGapPropData, CrushGapProps, SrcryPropReadings, CrushGapSettings } from '@site-types';
 import { CrushGapReadoutComponent } from './crush-gap-readout/crush-gap-readout.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { CrushGapPageService } from 'src/app/pages/crush-gap-page/crush-gap-page.service';
 
 @Component({
   selector: 'crush-gap-controller',
@@ -13,7 +14,7 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
   templateUrl: './crush-gap-controller.component.html',
   styleUrls: ['./crush-gap-controller.component.css']
 })
-export class CrushGapControllerComponent implements OnInit, OnDestroy {
+export class CrushGapControllerComponent implements OnInit {
 
   @Input() BroadcastName! : string;
   @Input() ChannelName!   : string;
@@ -25,17 +26,27 @@ export class CrushGapControllerComponent implements OnInit, OnDestroy {
 
   AnalyticsTrigger: boolean = false;
 
-  constructor(private dataService : CrushGapControllerService, private gService: GoogleAnalyticsService){}
+  constructor(
+    private channelService: CrushGapPageService,
+    private dataService : CrushGapControllerService,
+    private gService: GoogleAnalyticsService
+    ){}
 
   ngOnInit() : void {
+    this.channelService.createRegistry({
+      channel: this.ChannelName,
+      target: this.TargetName,
+      serviceName: 'exampleB',
+      defaultValues: true
+    });
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
-    this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+    //this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
     this.DefaultSettings = this.dataService.getDefaultSettings();
   }
 
-  ngOnDestroy() : void {
+  /*ngOnDestroy() : void {
       this.dataService.closeChannel();
-  }
+  }*/
 
   public updateData(data : CrushGapProps) : void{
     const props : CrushGapSettings = {
@@ -47,7 +58,7 @@ export class CrushGapControllerComponent implements OnInit, OnDestroy {
       crushGapHNudgeSlice : data.crushGapHNudgeSlice
     };
 
-    this.dataService.sendData(props);
+    this.channelService.sendData(props, this.TargetName);
 
     if(!this.AnalyticsTrigger){
       this.gService.event('event', 'demonstration', 'Crush Gap Demo 02 Controller', undefined, true);

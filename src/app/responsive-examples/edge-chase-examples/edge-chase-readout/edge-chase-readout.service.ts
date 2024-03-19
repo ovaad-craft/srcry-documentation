@@ -7,9 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class EdgeChaseReadoutService {
 
-  private DataChannel! : BroadcastChannel;
-  private ChannelName! : string;
-
   private Readings : BehaviorSubject<SrcryPropReadings> = new BehaviorSubject<SrcryPropReadings>({
     activePropW : '--',
     activePropH : '--',
@@ -18,21 +15,8 @@ export class EdgeChaseReadoutService {
   });
   public Readings$ = this.Readings.asObservable();
 
-  constructor() { }
-
-  public createBroadcastChannel(broadcastName : string, channelName : string) : void{
-    this.DataChannel = new BroadcastChannel(broadcastName);
-    this.ChannelName = channelName;
-    this.createChannelListener();
+  public updateReadings(readings: SrcryPropReadings): void{
+    this.Readings.next(readings);
   }
-
-  public createChannelListener() : void{
-    this.DataChannel.onmessage = (event)=>{
-      if(event.data.target === this.ChannelName){
-        this.Readings.next(event.data.payload);
-      }
-    };
-  }
-
-  public closeDataChannel() : void{ this.DataChannel.close(); }
+  
 }

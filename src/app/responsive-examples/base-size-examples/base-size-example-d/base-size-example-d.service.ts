@@ -22,6 +22,7 @@ export class BaseSizeExampleDService {
     this.zone.run(()=>{
       this.DataChannel.postMessage({
         target  : this.TargetName,
+        notification : 'data',
         payload : data
       });
     });

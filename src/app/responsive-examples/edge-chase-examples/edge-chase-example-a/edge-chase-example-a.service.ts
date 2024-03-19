@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { SrcryPropReadings } from '@site-types';
 
 @Injectable({
@@ -10,8 +10,6 @@ export class EdgeChaseExampleAService {
   ChannelName! : string;
   TargetName!  : string;
 
-  constructor(private zone : NgZone) { }
-
   public createBroadcastChannel(dataChannelName : string, channelName : string, targetName : string) : void{
     this.DataChannel = new BroadcastChannel(dataChannelName);
     this.ChannelName = channelName;
@@ -19,10 +17,11 @@ export class EdgeChaseExampleAService {
   }
 
   public sendData(data : SrcryPropReadings) : void{
-    this.zone.run(()=> this.DataChannel.postMessage({
+    this.DataChannel.postMessage({
+      notification: 'data',
       target  : this.TargetName,
       payload : data
-    }));
+    });
   }
 
   public closeChannel():void{ this.DataChannel.close(); }

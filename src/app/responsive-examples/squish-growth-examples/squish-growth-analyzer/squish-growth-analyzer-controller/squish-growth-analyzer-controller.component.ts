@@ -5,6 +5,7 @@ import { SquishGrowthAnalyzerReadoutComponent } from './squish-growth-analyzer-r
 import { SquishGrowthAnalyzerInputComponent } from './squish-growth-analyzer-input/squish-growth-analyzer-input.component';
 import { SquishGrowthAnalyzerReadings, SquishGrowthData, SquishGrowthProps } from '@site-types';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { SquishGrowthPageService } from 'src/app/pages/squish-growth-page/squish-growth-page.service';
 
 @Component({
   selector: 'squish-growth-analyzer-controller',
@@ -28,16 +29,25 @@ export class SquishGrowthAnalyzerControllerComponent implements OnInit {
 
   AnalyticsTrigger : boolean = false;
 
-  constructor(private dataService: SquishGrowthAnalyzerControllerService, private gService: GoogleAnalyticsService){}
+  constructor(
+    private channelService: SquishGrowthPageService,
+    private dataService: SquishGrowthAnalyzerControllerService,
+    private gService: GoogleAnalyticsService
+    ){}
 
   ngOnInit(): void {
+    this.channelService.addRegistry({
+      channel: this.ChannelName,
+      target: this.TargetName,
+      serviceName: 'exampleB',
+      defaultValues: true
+    });
     this.dataService.Readings$.subscribe(a=> this.Readings = a);
     this.DefaultSettings = this.dataService.getDefaults();
-    this.dataService.createChannel(this.BroadcastName, this.ChannelName, this.TargetName);
   }
 
   public updateSettings(data: SquishGrowthProps): void{
-    this.dataService.sendData(data);
+    this.channelService.sendData(data, this.TargetName);
     if(!this.AnalyticsTrigger){
       this.gService.event('event', 'demonstration', 'Squish Growth Demo 02 Controller', undefined, true);
       this.AnalyticsTrigger = true;

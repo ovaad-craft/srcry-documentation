@@ -10,8 +10,6 @@ import { GoogleAnalyticsService } from 'ngx-google-analytics';
 })
 export class CrushGapControllerService {
 
-  constructor(private zone: NgZone, private gService: GoogleAnalyticsService) { }
-
   DataChannel! : BroadcastChannel;
   ChannelName! : string;
   TargetName!  : string;
@@ -34,53 +32,25 @@ export class CrushGapControllerService {
 
   Readings$ = this.Readings.asObservable();
 
-
-  private createChannelListener():void{
-    this.DataChannel.onmessage = (event)=>{
-      this.zone.run(()=>{
-        if(event.data.target === this.ChannelName){
-
-          if(event.data.notification === 'loadComplete'){
-            this.sendData({
-              ...this.DefaultSettings,
-              crushGapW: createCssVariable(createBoxSize(
-                this.DefaultSettings.crushGapW.size,
-                this.DefaultSettings.crushGapW.scale,
-                this.DefaultSettings.crushGapW.speed
-              )),
-              crushGapH: createCssVariable(createBoxSize(
-                this.DefaultSettings.crushGapH.size,
-                this.DefaultSettings.crushGapH.scale,
-                this.DefaultSettings.crushGapH.speed
-              )),
-            });
-          }
-          if(event.data.notification === 'data'){
-            this.Readings.next(event.data.payload);
-          }
-
-        }
-      });
-    };
+  public getChannelDefaults(): CrushGapSettings{
+    return {
+      ...this.DefaultSettings,
+      crushGapW: createCssVariable(createBoxSize(
+        this.DefaultSettings.crushGapW.size,
+        this.DefaultSettings.crushGapW.scale,
+        this.DefaultSettings.crushGapW.speed
+      )),
+      crushGapH: createCssVariable(createBoxSize(
+        this.DefaultSettings.crushGapH.size,
+        this.DefaultSettings.crushGapH.scale,
+        this.DefaultSettings.crushGapH.speed
+      ))
+    }
   }
 
-  public createBroadcastChannel(broadcastName : string, channelName : string, targetName : string) : void{
-    this.DataChannel = new BroadcastChannel(broadcastName);
-    this.ChannelName = channelName;
-    this.TargetName  = targetName;
-    this.createChannelListener();
-  }
-
-  public sendData(data: CrushGapSettings):void{
-    this.zone.run(()=>{
-      this.DataChannel.postMessage({
-        target  : this.TargetName,
-        payload : data
-      });
-    });
+  public updateReadings(readings: SrcryPropReadings):void{
+    this.Readings.next(readings);
   }
 
   public getDefaultSettings() : CrushGapPropData{ return this.DefaultSettings; }
-
-  public closeChannel() : void{ this.DataChannel.close(); }
 }

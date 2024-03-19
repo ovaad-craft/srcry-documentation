@@ -35,42 +35,12 @@ export class BaseSizeAnalyzerControllerService {
 
   public Readings$ = this.Readings.asObservable();
 
-  constructor(private zone : NgZone) { }
+  constructor() { }
 
-  private createChannelListener() : void{
-    this.DataChannel.onmessage = (event)=>{
-      this.zone.run(()=>{
-        if(event.data.target === this.ChannelName  && event.data.notification === 'data'){
-          this.Readings.next(event.data.payload);
-        }
-        if(event.data.target === this.ChannelName && event.data.notification === 'loadComplete'){
-          this.sendData(this.DefaultSettings);
-        }
-      });
-    };
-  }
-
-  public createChannel(broadcastName : string, channelName : string, targetName : string) : void{
-    this.DataChannel = new BroadcastChannel(broadcastName);
-    this.ChannelName = channelName;
-    this.TargetName  = targetName;
-    this.createChannelListener();
-  }
-
-  public sendData(data : BaseSizeProps) : void{
-    this.zone.run(()=>{
-      this.DataChannel.postMessage({
-        target  : this.TargetName,
-        payload : data
-      });
-    });
-  }
+  public updateReadings(readings: BaseSizeValues):void{ this.Readings.next(readings); }
 
   public getDefaultSettings(): BaseSizePropData{
     return this.DefaultControlSettings;
   }
-
-  public closeChannel():void{
-    this.DataChannel.close();
-  }
+  
 }

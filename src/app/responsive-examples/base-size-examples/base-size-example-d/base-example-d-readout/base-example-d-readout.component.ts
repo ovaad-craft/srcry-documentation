@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BaseSizeExampleDService } from '../base-size-example-d.service';
 import { BaseSizeAnalyzerInterface } from '@site-types';
 import { BaseExampleDReadoutService } from './base-example-d-readout.service';
+import { BaseSizePageService } from 'src/app/pages/base-size-page/base-size-page.service';
 
 @Component({
   selector: 'base-example-d-readout',
@@ -19,15 +20,24 @@ export class BaseExampleDReadoutComponent implements OnInit, OnDestroy {
 
   Readings! : BaseSizeAnalyzerInterface;
 
-  constructor(private dataService : BaseExampleDReadoutService){}
+  constructor(
+    private dataService : BaseExampleDReadoutService,
+    private channelService : BaseSizePageService
+    ){}
 
   ngOnInit() : void {
-    this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
+    //this.dataService.createBroadcastChannel(this.BroadcastName, this.ChannelName, this.TargetName);
       this.dataService.Readings$.subscribe(a=> this.Readings = a);
+      this.channelService.addRegistry({
+        channel: this.ChannelName,
+        target: this.TargetName,
+        serviceName: 'exampleD',
+        defaultValues: false
+      });
   }
 
   ngOnDestroy() : void {
-      this.dataService.closeChannel();
+      //this.dataService.closeChannel();
   }
 
 }

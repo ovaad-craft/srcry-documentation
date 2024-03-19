@@ -45,62 +45,29 @@ export class SquishGrowthAnalyzerControllerService {
     squishGrowthHMaxNudgeSlice: 0
   };
 
-  constructor() { }
-
-  public createChannel(dataChannelName: string, channelName: string, targetName: string):void{
-    this.DataChannel = new BroadcastChannel(dataChannelName);
-    this.ChannelName = channelName;
-    this.TargetName = targetName;
-    this.createChannelListener();
-  }
-
-  private createChannelListener():void{
-    this.DataChannel.onmessage = (event)=>{
-      if(event.data.target === this.ChannelName){
-        if(event.data.notification === 'loadComplete'){
-          this.sendData({
-            ...this.DefaultSettings,
-            squishGrowthWStart: `${this.DefaultSettings.squishGrowthWStart}px`,
-            squishGrowthHStart: `${this.DefaultSettings.squishGrowthHStart}px`,
-            squishGrowthWMax: createBoxSize(
-              this.DefaultSettings.squishGrowthWMax.size,
-              this.DefaultSettings.squishGrowthWMax.scale,
-              this.DefaultSettings.squishGrowthWMax.speed
-            ),
-            squishGrowthHMax: createBoxSize(
-              this.DefaultSettings.squishGrowthHMax.size,
-              this.DefaultSettings.squishGrowthHMax.scale,
-              this.DefaultSettings.squishGrowthHMax.speed
-            )
-          });
-        }
-        if(event.data.notification === 'data'){
-          this.updateReadings(event.data.payload);
-        }
-      };
+  public getChannelDefaults():SquishGrowthProps{
+    return{
+      ...this.DefaultSettings,
+      squishGrowthWStart: `${this.DefaultSettings.squishGrowthWStart}px`,
+      squishGrowthHStart: `${this.DefaultSettings.squishGrowthHStart}px`,
+      squishGrowthWMax: createBoxSize(
+        this.DefaultSettings.squishGrowthWMax.size,
+        this.DefaultSettings.squishGrowthWMax.scale,
+        this.DefaultSettings.squishGrowthWMax.speed
+      ),
+      squishGrowthHMax: createBoxSize(
+        this.DefaultSettings.squishGrowthHMax.size,
+        this.DefaultSettings.squishGrowthHMax.scale,
+        this.DefaultSettings.squishGrowthHMax.speed
+      )
     };
   }
 
-  private updateReadings(data:SquishGrowthAnalyzerReadings):void{
+  public updateReadings(data:SquishGrowthAnalyzerReadings):void{
     this.Readings.next(data);
-  }
-
-  public sendData(data: SquishGrowthProps):void{
-    this.DataChannel.postMessage({
-      target: this.TargetName,
-      payload: {
-        ...data,
-        squishGrowthWMax: createCssVariable(data.squishGrowthWMax),
-        squishGrowthHMax: createCssVariable(data.squishGrowthHMax)
-      }
-    });
   }
 
   public getDefaults():SquishGrowthData{
     return this.DefaultSettings;
-  }
-
-  public closeChannel():void{
-    this.DataChannel.close();
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PropChartComponent } from 'src/app/layout/prop-chart/prop-chart.component';
 import { PaginateComponent } from 'src/app/layout/paginate/paginate.component';
@@ -14,6 +14,7 @@ import { BaseExampleDReadoutComponent } from 'src/app/responsive-examples/base-s
 import { BaseSizeAnalyzerComponent } from 'src/app/responsive-examples/base-size-examples/base-size-analyzer/base-size-analyzer.component';
 import { BaseSizeAnalyzerControllerComponent } from 'src/app/responsive-examples/base-size-examples/base-size-analyzer/base-size-analyzer-controller/base-size-analyzer-controller.component';
 import { GoogleAnalyticsService } from 'ngx-google-analytics';
+import { BaseSizePageService } from './base-size-page.service';
 
 const PAGINATIONDATA: PaginationData = {
   previous:{
@@ -77,7 +78,7 @@ const PROPCHART: PropChartData[] = [
   templateUrl: './base-size-page.component.html',
   styleUrls: ['./base-size-page.component.css']
 })
-export class BaseSizePageComponent {
+export class BaseSizePageComponent implements OnInit, OnDestroy {
   
   Demo_01: string = `  .myClass{
     --baseSize-w: var(--tiny-1-4);
@@ -125,7 +126,11 @@ export class BaseSizePageComponent {
   Demo04WindowTrigger: boolean = false;
   Demo05WindowTrigger: boolean = false;
 
-  constructor(private gService: GoogleAnalyticsService){}
+  constructor(private channelService: BaseSizePageService,private gService: GoogleAnalyticsService){}
+
+  ngOnInit(): void {
+      this.channelService.createBroadcastChannel('baseSizeExample');
+  }
 
   public analyticsTrigger(demo: string): void{
     if(demo === 'Demo01WindowTrigger'){
@@ -148,6 +153,10 @@ export class BaseSizePageComponent {
       this.gService.event('event', 'demonstration', 'Base Size Demo 05 Window', undefined, true);
       this.Demo05WindowTrigger = true;
     }
+  }
+
+  ngOnDestroy(): void {
+      this.channelService.closeChannel();
   }
 
 }

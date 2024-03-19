@@ -9,8 +9,6 @@ export class StretchShrinkExampleAService {
   ChannelName! : string;
   TargetName!  : string;
 
-  constructor(private zone : NgZone) { }
-
   public createChannel(broadcastName : string, channelName : string, targetName : string) : void{
     this.DataChannel = new BroadcastChannel(broadcastName);
     this.ChannelName = channelName;
@@ -18,11 +16,10 @@ export class StretchShrinkExampleAService {
   }
 
   public sendData(data : StretchShrinkReadings) : void{
-    this.zone.run(()=>{
-      this.DataChannel.postMessage({
-        target  : this.TargetName,
-        payload : data
-      });
+    this.DataChannel.postMessage({
+      notification: 'data',
+      target  : this.TargetName,
+      payload : data
     });
   }
 

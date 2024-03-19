@@ -21,6 +21,7 @@ export class SquishGrowthExampleAService {
   public sendData(data : SquishGrowthReadings) : void{
     this.zone.run(()=>{
       this.DataChannel.postMessage({
+        notification: 'data',
         target  : this.TargetName,
         payload : data
       });

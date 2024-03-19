@@ -26,11 +26,9 @@ export class BaseSizeAnalyzerService {
   constructor(private zone : NgZone) { }
 
   private sendLoadCompleteNotification() : void{
-    this.zone.run(()=>{
-      this.DataChannel.postMessage({
-        target       : this.TargetName,
-        notification : 'loadComplete'
-      });
+    this.DataChannel.postMessage({
+      target       : this.TargetName,
+      notification : 'loadComplete'
     });
   }
 
@@ -53,12 +51,10 @@ export class BaseSizeAnalyzerService {
   }
 
   public sendData(data : BaseSizeValues) : void{
-    this.zone.run(()=>{
-      this.DataChannel.postMessage({
-        target       : this.TargetName,
-        notification : 'data',
-        payload      : data
-      });
+    this.DataChannel.postMessage({
+      target       : this.TargetName,
+      notification : 'data',
+      payload      : data
     });
   }
 

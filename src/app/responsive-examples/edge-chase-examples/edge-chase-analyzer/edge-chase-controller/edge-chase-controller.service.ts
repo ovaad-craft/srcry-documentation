@@ -9,10 +9,6 @@ import { createCssVariable } from 'src/app/utils/create-css-variable';
 })
 export class EdgeChaseControllerService {
 
-  private DataChannel! : BroadcastChannel;
-  private ChannelName! : string;
-  private TargetName!  : string;
-
   private Readings : BehaviorSubject<SrcryPropReadings> = new BehaviorSubject<SrcryPropReadings>({
     activePropW : '--',
     activePropH : '--',
@@ -53,62 +49,38 @@ export class EdgeChaseControllerService {
     chaseStopHNudgeSlice : 0
   }
 
-  constructor() { }
-
-  private createChannelListener() : void{
-    this.DataChannel.onmessage = (event)=>{
-      if(event.data.target === this.ChannelName){
-        if(event.data.notification === 'loadComplete'){
-          this.sendData({
-            ...this.DefaultSettings,
-            edgeChaseW: createCssVariable(createBoxSize(
-              this.DefaultSettings.edgeChaseW.size,
-              this.DefaultSettings.edgeChaseW.scale,
-              this.DefaultSettings.edgeChaseW.speed
-            )),
-            edgeChaseH: createCssVariable(createBoxSize(
-              this.DefaultSettings.edgeChaseH.size,
-              this.DefaultSettings.edgeChaseH.scale,
-              this.DefaultSettings.edgeChaseH.speed
-            )),
-            chaseStopW: createCssVariable(createBoxSize(
-              this.DefaultSettings.chaseStopW.size,
-              this.DefaultSettings.chaseStopW.scale,
-              this.DefaultSettings.chaseStopW.speed
-            )),
-            chaseStopH: createCssVariable(createBoxSize(
-              this.DefaultSettings.chaseStopH.size,
-              this.DefaultSettings.chaseStopH.scale,
-              this.DefaultSettings.chaseStopH.speed
-            ))
-          });
-        }
-        if(event.data.notification === 'data'){
-          this.Readings.next(event.data.payload);
-        }
-      }
+  public getDefaultChannelSettings(): EdgeChaseSettings{
+    return {
+      ...this.DefaultSettings,
+      edgeChaseW: createCssVariable(createBoxSize(
+        this.DefaultSettings.edgeChaseW.size,
+        this.DefaultSettings.edgeChaseW.scale,
+        this.DefaultSettings.edgeChaseW.speed
+      )),
+      edgeChaseH: createCssVariable(createBoxSize(
+        this.DefaultSettings.edgeChaseH.size,
+        this.DefaultSettings.edgeChaseH.scale,
+        this.DefaultSettings.edgeChaseH.speed
+      )),
+      chaseStopW: createCssVariable(createBoxSize(
+        this.DefaultSettings.chaseStopW.size,
+        this.DefaultSettings.chaseStopW.scale,
+        this.DefaultSettings.chaseStopW.speed
+      )),
+      chaseStopH: createCssVariable(createBoxSize(
+        this.DefaultSettings.chaseStopH.size,
+        this.DefaultSettings.chaseStopH.scale,
+        this.DefaultSettings.chaseStopH.speed
+      ))
     };
   }
 
-  public createBroadcastChannel(broadcastName : string, channelName : string, targetName : string) : void{
-    this.DataChannel = new BroadcastChannel(broadcastName);
-    this.ChannelName = channelName;
-    this.TargetName  = targetName;
-    this.createChannelListener();
-  }
-
-  public sendData(data: EdgeChaseSettings) : void{
-    this.DataChannel.postMessage({
-      target  : this.TargetName,
-      payload : data
-    });
+  public updateReadings(readings: SrcryPropReadings):void{
+    this.Readings.next(readings);
   }
 
   public getDefaultSettings() : EdgeChaseData{
     return this.DefaultSettings;
   }
-
-  public closeChannel() : void{
-    this.DataChannel.close();
-  }
+  
 }
