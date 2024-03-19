@@ -389,3 +389,10 @@ export interface StretchShrinkReadings{
     height?: number;
     shrinkAmountH?: number;
 }
+
+export interface BroadcastRegistry{
+    channel: string;
+    target: string;
+    serviceName: string;
+    defaultValues: boolean;
+}
