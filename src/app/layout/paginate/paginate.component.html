@@ -1,6 +1,6 @@
 <section class="mainContainer" [ngClass]="PageData.previous && PageData.next ? 'twoColumns': 'singleColumn'">
 
-    <article
+    <a
         *ngIf="PageData.previous"
         (click)="previousPage()"
         [routerLink]="PageData.previous.path"
@@ -22,9 +22,9 @@
 
         </article>
 
-    </article>
+    </a>
     
-    <article
+    <a
         *ngIf="PageData.next"
         (click)="nextPage()"
         [routerLink]="PageData.next.path"
@@ -44,6 +44,6 @@
 
         </article>
 
-    </article>
+    </a>
 
 </section>

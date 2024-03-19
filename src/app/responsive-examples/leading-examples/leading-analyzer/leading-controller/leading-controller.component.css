@@ -1,8 +1,12 @@
 :host{
     display: grid;
-    width: min(var(--small-2-9), 92vw);
+    width: min(var(--loMed-1-8), 92vw);
     background-color: hsl(var(--gray-200), .11);
     border: solid var(--line-light) hsl(var(--gray-200), 1);
     place-items: center;
     padding: var(--line-thick);
+}
+
+.mainContainer{
+    width: 100%;
 }

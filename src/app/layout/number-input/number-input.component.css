@@ -48,7 +48,7 @@ input[type=number] {
 .incramentButton{
     display: grid;
     place-items: center;
-    width: var(--micro-2-4);
+    width: var(--xTiny-2-1);
     aspect-ratio: 1;
     display: grid;
     place-items: center;
